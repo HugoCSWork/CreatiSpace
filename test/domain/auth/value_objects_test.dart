@@ -29,14 +29,28 @@ void main() {
     });
   });
 
-  group('Email', () {
-    test('Invalid email format', () {
-      final EmailAddress password = EmailAddress('invalid@v!');
-      expect(password.isValid(), equals(false));
+  group('Username', () {
+    test('Invalid with characters less than 8', () {
+      final Username username = Username('Val3!');
+      expect(username.isValid(), equals(false));
     });
+
+    test('Invalid with characters greater than 15', () {
+      final Username username = Username('ValueGreaterThan15!');
+      expect(username.isValid(), equals(false));
+    });
+
+    test('Invalid with profanity word', () {
+      final Username username = Username('booooooobs');
+      expect(username.isValid(), equals(false));
+    });
+
     test('Valid', () {
-      final EmailAddress password = EmailAddress('Validemail@gmail.com');
-      expect(password.isValid(), equals(true));
+      final Username username = Username('validUsername');
+      expect(username.isValid(), equals(true));
     });
+
   });
+
+  
 }
