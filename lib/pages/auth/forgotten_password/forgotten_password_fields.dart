@@ -14,10 +14,10 @@ class EmailField extends StatelessWidget {
             errorMaxLines: 5),
         autocorrect: false,
         onChanged: (value) => context
-            .bloc<ForgottenPasswordBloc>()
+            .read<ForgottenPasswordBloc>()
             .add(ForgottenPasswordEvent.emailChanged(value)),
         validator: (_) =>
-            context.bloc<ForgottenPasswordBloc>().state.emailAddress.value.fold(
+            context.read<ForgottenPasswordBloc>().state.emailAddress.value.fold(
                   (failure) => failure.maybeMap(
                     auth: (value) => value.f.maybeMap(
                       invalidEmail: (_) => 'Invalid Email',
@@ -39,21 +39,21 @@ class ResetPasswordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: FlatButton(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          color: Color(0xFF3E81B5),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+          color: const Color(0xFF3E81B5),
           onPressed: () {
-            context.bloc<ForgottenPasswordBloc>().add(
+            context.read<ForgottenPasswordBloc>().add(
                   const ForgottenPasswordEvent.passwordReset(),
                 );
           },
-          child: Text(
+          child: const Text(
             'Reset Password',
             style: TextStyle(color: Colors.white),
           ),

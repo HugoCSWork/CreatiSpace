@@ -54,15 +54,15 @@ class SignInForm extends StatelessWidget {
                     EmailField(),
                     PasswordField(),
                     Padding(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: SizedBox(
                         width: double.infinity,
                         child: GestureDetector(
                           onTap: () {
-                            return ExtendedNavigator.of(context)
+                            ExtendedNavigator.of(context)
                                 .push(Routes.forgottenPasswordPage);
                           },
-                          child: Text(
+                          child: const Text(
                             'Forgotten Password?',
                             style: TextStyle(
                               color: Color(0xFF3E81B5),

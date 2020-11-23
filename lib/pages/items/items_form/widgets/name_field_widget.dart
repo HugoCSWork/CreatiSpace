@@ -22,13 +22,12 @@ class ItemNameField extends HookWidget {
         padding: const EdgeInsets.all(10),
         child: TextFormField(
           controller: textEditingController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Name',
             alignLabelWithHint: true,
             counterText: '',
           ),
           maxLength: 20,
-          maxLines: 1,
           onChanged: (value) => context.read<ItemFormBloc>().add(ItemFormEvent.nameChanged(value)),
           validator: (_) => context.read<ItemFormBloc>()
             .state.item.name.value

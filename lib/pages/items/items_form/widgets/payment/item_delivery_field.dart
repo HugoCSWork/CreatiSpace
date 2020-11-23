@@ -23,13 +23,12 @@ class ItemDeliveryField extends HookWidget {
       child: TextFormField(
         controller: textEditingController,
         inputFormatters: [CurrencyTextInputFormatter(symbol: '£')],
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Delivery',
           alignLabelWithHint: true,
           counterText: '',
         ),
         maxLength: 6,
-        maxLines: 1,
         onChanged: (value) => context.read<ItemFormBloc>().add(ItemFormEvent.deliveryChanged(double.parse(value.substring(1, value.length)))),
         validator: (_) => context.read<ItemFormBloc>()
           .state.item.description.value

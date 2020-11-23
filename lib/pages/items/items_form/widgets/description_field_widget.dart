@@ -22,7 +22,7 @@ class ItemDescriptionField extends HookWidget {
         padding: const EdgeInsets.all(10),
         child: TextFormField(
           controller: textEditingController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Description',
             alignLabelWithHint: true,
             counterText: '',

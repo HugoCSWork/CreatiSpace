@@ -11,7 +11,7 @@ class ItemCard extends StatelessWidget {
   final Item item;
   const ItemCard({Key key, this.item}) : super(key: key);
 
-  Future<Widget> _getImage(BuildContext context, ItemImage imageName) async {
+  Widget _getImage(BuildContext context, ItemImage imageName) {
     return CachedNetworkImage(
       imageUrl: imageName.value.fold((l) => 'ERROR', (r) => r),
       imageBuilder: (context, imageProvider) => Container(
@@ -42,15 +42,15 @@ class ItemCard extends StatelessWidget {
         _showDeletionDialog(context, itemActorBloc);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
+        padding: const EdgeInsets.symmetric(horizontal: 2.0),
         child: Container(
           height: 140.0,
           margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(6.0),
-            boxShadow: [
-              const BoxShadow(
+            boxShadow: const [
+              BoxShadow(
                 offset: Offset(0.2, 1.0),
                 blurRadius: 5.0,
                 color: Colors.black26,
@@ -66,26 +66,8 @@ class ItemCard extends StatelessWidget {
                   child: Container(
                       width: 80.0,
                       height: 120.0,
-                      child: FutureBuilder(
-                        future:
-                            _getImage(context, item.images.getOrCrash()[0].url),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return Container(
-                              child: snapshot.data,
-                            );
-                          }
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return Container(
-                              child: const CircularProgressIndicator(),
-                            );
-                          }
-
-                          return Container();
-                        },
-                      )),
+                      child: _getImage(context, item.images.getOrCrash()[0].url),
+                  ),
                 ),
                 const SizedBox(
                   width: 10.0,
@@ -112,7 +94,7 @@ class ItemCard extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 1.5,
                       child: Text(
                         item.description.getOrCrash().toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0xFFBBCCCC),
                           fontSize: 15.0,
                         ),

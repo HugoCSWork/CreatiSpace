@@ -14,7 +14,7 @@ import '../auth/forgotten_password/forgotten_password.dart';
 import '../auth/sign_in/sign_in_page.dart';
 import '../auth/sign_up/sign_up_page.dart';
 import '../items/items_form/item_form_page.dart';
-import '../items/items_overview/items_overview-page.dart';
+import '../items/items_overview/items_overview_page.dart';
 import '../splash/splash_page.dart';
 
 class Routes {

@@ -61,7 +61,6 @@ class ItemRepository implements IItemFacade {
       if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
         return left(const ItemErrorFailure.insufficientPermissions());
       } else {
-        print(e.toString());
         return left(const ItemErrorFailure.unexpected());
       }
     });

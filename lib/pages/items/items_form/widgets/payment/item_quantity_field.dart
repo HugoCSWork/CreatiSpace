@@ -1,5 +1,4 @@
 import 'package:creatispace/app/item/item_form/item_form_bloc.dart';
-import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -24,13 +23,12 @@ class ItemQuantityField extends HookWidget {
         child: TextFormField(
           controller: textEditingController,
           keyboardType: TextInputType.number,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Quantity',
             alignLabelWithHint: true,
             counterText: '',
           ),
           maxLength: 10,
-          maxLines: 1,
           onChanged: (value) => context
               .read<ItemFormBloc>()
               .add(ItemFormEvent.quantityChanged(int.parse(value))),

@@ -23,13 +23,12 @@ class ItemPriceField extends HookWidget {
       child: TextFormField(
         controller: textEditingController,
         inputFormatters: [CurrencyTextInputFormatter(symbol: '£')],
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           labelText: 'Cost',
           alignLabelWithHint: true,
           counterText: '',
         ),
         maxLength: 10,
-        maxLines: 1,
         onChanged: (value) => context.read<ItemFormBloc>().add(ItemFormEvent.priceChanged(double.parse(value.substring(1, value.length)))),
         validator: (_) => context.read<ItemFormBloc>()
           .state.item.description.value

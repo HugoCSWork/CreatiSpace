@@ -44,10 +44,10 @@ class PasswordField extends StatelessWidget {
         autocorrect: false,
         obscureText: true,
         onChanged: (value) => context
-            .bloc<SignInFormBloc>()
+            .read<SignInFormBloc>()
             .add(SignInFormEvent.passwordChanged(value)),
         validator: (_) =>
-            context.bloc<SignInFormBloc>().state.password.value.fold(
+            context.read<SignInFormBloc>().state.password.value.fold(
                   (failure) => failure.maybeMap(
                     auth: (value) => value.f.maybeMap(
                       invalidPassword: (_) =>
@@ -73,7 +73,7 @@ class GoogleButton extends StatelessWidget {
     return RaisedButton(
       onPressed: () {
         context
-            .bloc<SignInFormBloc>()
+            .read<SignInFormBloc>()
             .add(const SignInFormEvent.signInWithGooglePressed());
       },
       color: Colors.lightBlue,
@@ -95,21 +95,21 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: FlatButton(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          color: Color(0xFF3E81B5),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+          color: const Color(0xFF3E81B5),
           onPressed: () {
-            context.bloc<SignInFormBloc>().add(
+            context.read<SignInFormBloc>().add(
                   const SignInFormEvent.signInEmailAndPasswordPressed(),
                 );
           },
-          child: Text(
+          child: const Text(
             'Login',
             style: TextStyle(color: Colors.white),
           ),

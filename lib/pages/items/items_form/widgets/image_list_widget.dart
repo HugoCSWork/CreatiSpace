@@ -136,12 +136,12 @@ class ImageTile extends HookWidget {
                   child: image,
                 ),
               ),
-              trailing: Handle(
+              trailing: const Handle(
                 child: Icon(Icons.list),
               ),
               title: TextFormField(
                 controller: textEditingController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Item',
                   counterText: '',
                   border: InputBorder.none,

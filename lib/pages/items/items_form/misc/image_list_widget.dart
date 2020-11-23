@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:creatispace/app/item/item_form/item_form_bloc.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:creatispace/pages/items/items_form/misc/item_image_helpers.dart';
@@ -9,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:implicitly_animated_reorderable_list/implicitly_animated_reorderable_list.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:provider/provider.dart';
@@ -139,12 +137,12 @@ class ImageTile extends HookWidget {
                   child: image,
                 ),
               ),
-              trailing: Handle(
+              trailing: const Handle(
                 child: Icon(Icons.list),
               ),
               title: TextFormField(
                 controller: textEditingController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Item',
                   counterText: '',
                   border: InputBorder.none,

@@ -1,13 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/auth/forgotten_password/forgotten_password_bloc.dart';
-import 'package:creatispace/pages/auth/shared/alreadyhaveanaccount.dart';
 import 'package:creatispace/pages/auth/shared/background.dart';
-import 'package:creatispace/pages/auth/shared/or_divider.dart';
 import 'package:creatispace/pages/auth/forgotten_password/forgotten_password_fields.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -7,10 +7,10 @@ class PaymentFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: [
-            const ItemPriceField(),
-            const ItemDeliveryField(),
-            const ItemQuantityField(),
+        children: const [
+            ItemPriceField(),
+            ItemDeliveryField(),
+            ItemQuantityField(),
         ],
     );
   }

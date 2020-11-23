@@ -25,8 +25,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       await _auth.sendPasswordResetEmail(email: emailAddressStr);
       return right(unit);
-    } on FirebaseAuthException catch (e) {
-      print(e.message);
+    } on FirebaseAuthException {
       return left(const AuthErrorFailure.emailAlreadyInUse());
     }
   }
@@ -42,7 +41,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     bool isDuplicate = false;
     try {
       await _firebaseFirestore.collection('users').get().then((querySnapshot) {
-        for (var element in querySnapshot.docs) {
+        for (final element in querySnapshot.docs) {
           if (element.data()['username'] == usernameStr) {
             isDuplicate = true;
             return left(const AuthErrorFailure.emailAlreadyInUse());

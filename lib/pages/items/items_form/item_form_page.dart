@@ -114,7 +114,7 @@ class ItemFormPageScaffold extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.check),
+              icon: const Icon(Icons.check),
               onPressed: () {
                 context.read<ItemFormBloc>().add(const ItemFormEvent.saved());
               }),
@@ -135,9 +135,9 @@ class ItemFormPageScaffold extends StatelessWidget {
                       const ItemDescriptionField(),
                       ItemList(),
                       const AddItemTile(),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       const PreviewOrPay(),
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
 
                     ],
                   ),

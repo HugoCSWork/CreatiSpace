@@ -1,4 +1,3 @@
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:flutter/material.dart';
 
