@@ -62,8 +62,6 @@ class FirebaseAuthFacade implements IAuthFacade {
           .set({'username': usernameStr});
         return right(unit);
       }
-
-
       // return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
@@ -104,9 +102,12 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
 
       final googleAuthentication = await googleUser.authentication;
+      
       final authCredential = GoogleAuthProvider.credential(
           accessToken: googleAuthentication.accessToken,
           idToken: googleAuthentication.idToken);
+          
+
       await _auth.signInWithCredential(authCredential);
 
       return right(unit);

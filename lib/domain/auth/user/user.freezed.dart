@@ -14,9 +14,9 @@ class _$CurrentUserTearOff {
   const _$CurrentUserTearOff();
 
 // ignore: unused_element
-  _CurrentUser call({@required String email}) {
+  _CurrentUser call({@required UniqueId id}) {
     return _CurrentUser(
-      email: email,
+      id: id,
     );
   }
 }
@@ -27,7 +27,7 @@ const $CurrentUser = _$CurrentUserTearOff();
 
 /// @nodoc
 mixin _$CurrentUser {
-  String get email;
+  UniqueId get id;
 
   $CurrentUserCopyWith<CurrentUser> get copyWith;
 }
@@ -37,7 +37,7 @@ abstract class $CurrentUserCopyWith<$Res> {
   factory $CurrentUserCopyWith(
           CurrentUser value, $Res Function(CurrentUser) then) =
       _$CurrentUserCopyWithImpl<$Res>;
-  $Res call({String email});
+  $Res call({UniqueId id});
 }
 
 /// @nodoc
@@ -50,10 +50,10 @@ class _$CurrentUserCopyWithImpl<$Res> implements $CurrentUserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object email = freezed,
+    Object id = freezed,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed ? _value.email : email as String,
+      id: id == freezed ? _value.id : id as UniqueId,
     ));
   }
 }
@@ -65,7 +65,7 @@ abstract class _$CurrentUserCopyWith<$Res>
           _CurrentUser value, $Res Function(_CurrentUser) then) =
       __$CurrentUserCopyWithImpl<$Res>;
   @override
-  $Res call({String email});
+  $Res call({UniqueId id});
 }
 
 /// @nodoc
@@ -80,37 +80,37 @@ class __$CurrentUserCopyWithImpl<$Res> extends _$CurrentUserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
+    Object id = freezed,
   }) {
     return _then(_CurrentUser(
-      email: email == freezed ? _value.email : email as String,
+      id: id == freezed ? _value.id : id as UniqueId,
     ));
   }
 }
 
 /// @nodoc
 class _$_CurrentUser implements _CurrentUser {
-  const _$_CurrentUser({@required this.email}) : assert(email != null);
+  const _$_CurrentUser({@required this.id}) : assert(id != null);
 
   @override
-  final String email;
+  final UniqueId id;
 
   @override
   String toString() {
-    return 'CurrentUser(email: $email)';
+    return 'CurrentUser(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _CurrentUser &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
 
   @override
   _$CurrentUserCopyWith<_CurrentUser> get copyWith =>
@@ -118,10 +118,10 @@ class _$_CurrentUser implements _CurrentUser {
 }
 
 abstract class _CurrentUser implements CurrentUser {
-  const factory _CurrentUser({@required String email}) = _$_CurrentUser;
+  const factory _CurrentUser({@required UniqueId id}) = _$_CurrentUser;
 
   @override
-  String get email;
+  UniqueId get id;
   @override
   _$CurrentUserCopyWith<_CurrentUser> get copyWith;
 }

@@ -19,6 +19,13 @@ class _$ValueFailureTearOff {
       f,
     );
   }
+
+// ignore: unused_element
+  _Item<T> item<T>(ItemValueFailure<T> i) {
+    return _Item<T>(
+      i,
+    );
+  }
 }
 
 /// @nodoc
@@ -27,28 +34,28 @@ const $ValueFailure = _$ValueFailureTearOff();
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  AuthValueFailure<T> get f;
-
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result auth(AuthValueFailure<T> f),
+    @required Result item(ItemValueFailure<T> i),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result auth(AuthValueFailure<T> f),
+    Result item(ItemValueFailure<T> i),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result auth(_Auth<T> value),
+    @required Result item(_Item<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result auth(_Auth<T> value),
+    Result item(_Item<T> value),
     @required Result orElse(),
   });
-
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
 }
 
 /// @nodoc
@@ -56,9 +63,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-  $Res call({AuthValueFailure<T> f});
-
-  $AuthValueFailureCopyWith<T, $Res> get f;
 }
 
 /// @nodoc
@@ -69,36 +73,14 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   final ValueFailure<T> _value;
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
-
-  @override
-  $Res call({
-    Object f = freezed,
-  }) {
-    return _then(_value.copyWith(
-      f: f == freezed ? _value.f : f as AuthValueFailure<T>,
-    ));
-  }
-
-  @override
-  $AuthValueFailureCopyWith<T, $Res> get f {
-    if (_value.f == null) {
-      return null;
-    }
-    return $AuthValueFailureCopyWith<T, $Res>(_value.f, (value) {
-      return _then(_value.copyWith(f: value));
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$AuthCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$AuthCopyWith<T, $Res> {
   factory _$AuthCopyWith(_Auth<T> value, $Res Function(_Auth<T>) then) =
       __$AuthCopyWithImpl<T, $Res>;
-  @override
   $Res call({AuthValueFailure<T> f});
 
-  @override
   $AuthValueFailureCopyWith<T, $Res> get f;
 }
 
@@ -118,6 +100,16 @@ class __$AuthCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
     return _then(_Auth<T>(
       f == freezed ? _value.f : f as AuthValueFailure<T>,
     ));
+  }
+
+  @override
+  $AuthValueFailureCopyWith<T, $Res> get f {
+    if (_value.f == null) {
+      return null;
+    }
+    return $AuthValueFailureCopyWith<T, $Res>(_value.f, (value) {
+      return _then(_value.copyWith(f: value));
+    });
   }
 }
 
@@ -153,8 +145,10 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result auth(AuthValueFailure<T> f),
+    @required Result item(ItemValueFailure<T> i),
   }) {
     assert(auth != null);
+    assert(item != null);
     return auth(f);
   }
 
@@ -162,6 +156,7 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result auth(AuthValueFailure<T> f),
+    Result item(ItemValueFailure<T> i),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -175,8 +170,10 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result auth(_Auth<T> value),
+    @required Result item(_Item<T> value),
   }) {
     assert(auth != null);
+    assert(item != null);
     return auth(this);
   }
 
@@ -184,6 +181,7 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result auth(_Auth<T> value),
+    Result item(_Item<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -197,8 +195,130 @@ class _$_Auth<T> implements _Auth<T> {
 abstract class _Auth<T> implements ValueFailure<T> {
   const factory _Auth(AuthValueFailure<T> f) = _$_Auth<T>;
 
-  @override
   AuthValueFailure<T> get f;
-  @override
   _$AuthCopyWith<T, _Auth<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ItemCopyWith<T, $Res> {
+  factory _$ItemCopyWith(_Item<T> value, $Res Function(_Item<T>) then) =
+      __$ItemCopyWithImpl<T, $Res>;
+  $Res call({ItemValueFailure<T> i});
+
+  $ItemValueFailureCopyWith<T, $Res> get i;
+}
+
+/// @nodoc
+class __$ItemCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$ItemCopyWith<T, $Res> {
+  __$ItemCopyWithImpl(_Item<T> _value, $Res Function(_Item<T>) _then)
+      : super(_value, (v) => _then(v as _Item<T>));
+
+  @override
+  _Item<T> get _value => super._value as _Item<T>;
+
+  @override
+  $Res call({
+    Object i = freezed,
+  }) {
+    return _then(_Item<T>(
+      i == freezed ? _value.i : i as ItemValueFailure<T>,
+    ));
+  }
+
+  @override
+  $ItemValueFailureCopyWith<T, $Res> get i {
+    if (_value.i == null) {
+      return null;
+    }
+    return $ItemValueFailureCopyWith<T, $Res>(_value.i, (value) {
+      return _then(_value.copyWith(i: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_Item<T> implements _Item<T> {
+  const _$_Item(this.i) : assert(i != null);
+
+  @override
+  final ItemValueFailure<T> i;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.item(i: $i)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Item<T> &&
+            (identical(other.i, i) ||
+                const DeepCollectionEquality().equals(other.i, i)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
+
+  @override
+  _$ItemCopyWith<T, _Item<T>> get copyWith =>
+      __$ItemCopyWithImpl<T, _Item<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result auth(AuthValueFailure<T> f),
+    @required Result item(ItemValueFailure<T> i),
+  }) {
+    assert(auth != null);
+    assert(item != null);
+    return item(i);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result auth(AuthValueFailure<T> f),
+    Result item(ItemValueFailure<T> i),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (item != null) {
+      return item(i);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result auth(_Auth<T> value),
+    @required Result item(_Item<T> value),
+  }) {
+    assert(auth != null);
+    assert(item != null);
+    return item(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result auth(_Auth<T> value),
+    Result item(_Item<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (item != null) {
+      return item(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Item<T> implements ValueFailure<T> {
+  const factory _Item(ItemValueFailure<T> i) = _$_Item<T>;
+
+  ItemValueFailure<T> get i;
+  _$ItemCopyWith<T, _Item<T>> get copyWith;
 }

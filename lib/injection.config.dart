@@ -6,6 +6,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -15,6 +16,11 @@ import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'app/auth/forgotten_password/forgotten_password_bloc.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/items/i_item_facade.dart';
+import 'app/item/item_actor/item_actor_bloc.dart';
+import 'app/item/item_form/item_form_bloc.dart';
+import 'infrastructure/items/item_repository.dart';
+import 'app/item/item_watcher/item_watcher_bloc.dart';
 import 'app/auth/sign_in/sign_in_bloc.dart';
 import 'app/auth/sign_up/sign_up_bloc.dart';
 
@@ -30,12 +36,19 @@ GetIt $initGetIt(
   final firebaseInjectableModule = _$FirebaseInjectableModule();
   gh.lazySingleton<FirebaseAuth>(() => firebaseInjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
+  gh.lazySingleton<FirebaseStorage>(
+      () => firebaseInjectableModule.firestoreStorage);
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
   gh.lazySingleton<IAuthFacade>(() => FirebaseAuthFacade(
         get<FirebaseAuth>(),
         get<GoogleSignIn>(),
         get<FirebaseFirestore>(),
       ));
+  gh.lazySingleton<IItemFacade>(
+      () => ItemRepository(get<FirebaseFirestore>(), get<FirebaseStorage>()));
+  gh.factory<ItemActorBloc>(() => ItemActorBloc(get<IItemFacade>()));
+  gh.factory<ItemFormBloc>(() => ItemFormBloc(get<IItemFacade>()));
+  gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(get<IAuthFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));

@@ -8,11 +8,15 @@ import 'package:injectable/injectable.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  configureInjection(Environment.prod);
   await Firebase.initializeApp();
+  await preCacheImages();
+  runApp(AppWidget());
+}
+
+Future<void> preCacheImages() async {
   await precachePicture(
       ExactAssetPicture(
           SvgPicture.svgStringDecoder, 'assets/icons/login_new.svg'),
       null);
-  configureInjection(Environment.prod);
-  runApp(AppWidget());
 }

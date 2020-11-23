@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
             authenticated: (_) {
               Future.delayed(const Duration(seconds: 1), () {
                 return ExtendedNavigator.of(context)
-                  .replace(Routes.signInPage);
+                  .replace(Routes.itemsOverviewPage);
               });
             },
             unauthenticated: (_) {

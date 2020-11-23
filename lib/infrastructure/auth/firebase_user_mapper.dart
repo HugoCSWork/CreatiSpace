@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 extension FirebaseUserDomainX on User {
   CurrentUser toDomain() {
     return CurrentUser(
-      email: email,
+      id: UniqueId.fromUniqueString(uid),
     );
   }
 }
