@@ -2,6 +2,7 @@ bool isProfanity(String input) {
   if (profanityList.contains(input)) {
     return true;
   }
+  // ignore: unnecessary_raw_strings
   final String inputWithoutNumbers = input.replaceAll(RegExp(r'[^a-zA-Z]'), '');
   if (profanityList.contains(inputWithoutNumbers)) {
     return true;

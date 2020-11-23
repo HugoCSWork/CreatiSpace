@@ -63,7 +63,7 @@ class ItemCard extends StatelessWidget {
               children: <Widget>[
                 Hero(
                   tag: item.id.getOrCrash(),
-                  child: Container(
+                  child: SizedBox(
                       width: 80.0,
                       height: 120.0,
                       child: _getImage(context, item.images.getOrCrash()[0].url),
@@ -90,7 +90,7 @@ class ItemCard extends StatelessWidget {
                     const SizedBox(
                       height: 4.0,
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width / 1.5,
                       child: Text(
                         item.description.getOrCrash().toString(),
@@ -115,7 +115,7 @@ class ItemCard extends StatelessWidget {
                     else
                       Text(
                         '£${item.price.getOrCrash().toString()}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14.0,
                           fontWeight: FontWeight.bold,

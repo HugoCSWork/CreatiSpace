@@ -62,15 +62,15 @@ extension FirestorageX on FirebaseStorage {
         .child('user_posts/$userId/$itemId')
         .listAll()
         .then((value) {
-      value.items.forEach((element) {
-        final elementName = element.name;
-        final pos = elementName.lastIndexOf('.');
-        final result =
-            (pos != -1) ? elementName.substring(0, pos) : elementName;
-        if (!itemList.contains(result) || deleteAll == true) {
-          FirebaseStorage.instance.ref().child(element.fullPath).delete();
-        }
-      });
+          for(final element in value.items) {
+          final elementName = element.name;
+          final pos = elementName.lastIndexOf('.');
+          final result =
+              (pos != -1) ? elementName.substring(0, pos) : elementName;
+          if (!itemList.contains(result) || deleteAll == true) {
+            FirebaseStorage.instance.ref().child(element.fullPath).delete();
+          }
+      }
     });
   }
 }
