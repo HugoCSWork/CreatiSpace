@@ -51,34 +51,34 @@ mixin _$AuthValueFailure<T> {
   String get failedValue;
 
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(String failedValue),
-    @required Result invalidPassword(String failedValue),
-    @required Result shortUsername(String failedValue),
-    @required Result offensiveUsername(String failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidEmail(String failedValue),
+    @required TResult invalidPassword(String failedValue),
+    @required TResult shortUsername(String failedValue),
+    @required TResult offensiveUsername(String failedValue),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(String failedValue),
-    Result invalidPassword(String failedValue),
-    Result shortUsername(String failedValue),
-    Result offensiveUsername(String failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidEmail(String failedValue),
+    TResult invalidPassword(String failedValue),
+    TResult shortUsername(String failedValue),
+    TResult offensiveUsername(String failedValue),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result invalidPassword(InvalidPassword<T> value),
-    @required Result shortUsername(ShortUsername<T> value),
-    @required Result offensiveUsername(OffensiveUsername<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult invalidPassword(InvalidPassword<T> value),
+    @required TResult shortUsername(ShortUsername<T> value),
+    @required TResult offensiveUsername(OffensiveUsername<T> value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result invalidPassword(InvalidPassword<T> value),
-    Result shortUsername(ShortUsername<T> value),
-    Result offensiveUsername(OffensiveUsername<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult invalidPassword(InvalidPassword<T> value),
+    TResult shortUsername(ShortUsername<T> value),
+    TResult offensiveUsername(OffensiveUsername<T> value),
+    @required TResult orElse(),
   });
 
   $AuthValueFailureCopyWith<T, AuthValueFailure<T>> get copyWith;
@@ -176,11 +176,11 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(String failedValue),
-    @required Result invalidPassword(String failedValue),
-    @required Result shortUsername(String failedValue),
-    @required Result offensiveUsername(String failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidEmail(String failedValue),
+    @required TResult invalidPassword(String failedValue),
+    @required TResult shortUsername(String failedValue),
+    @required TResult offensiveUsername(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -191,12 +191,12 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(String failedValue),
-    Result invalidPassword(String failedValue),
-    Result shortUsername(String failedValue),
-    Result offensiveUsername(String failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidEmail(String failedValue),
+    TResult invalidPassword(String failedValue),
+    TResult shortUsername(String failedValue),
+    TResult offensiveUsername(String failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidEmail != null) {
@@ -207,11 +207,11 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result invalidPassword(InvalidPassword<T> value),
-    @required Result shortUsername(ShortUsername<T> value),
-    @required Result offensiveUsername(OffensiveUsername<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult invalidPassword(InvalidPassword<T> value),
+    @required TResult shortUsername(ShortUsername<T> value),
+    @required TResult offensiveUsername(OffensiveUsername<T> value),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -222,12 +222,12 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result invalidPassword(InvalidPassword<T> value),
-    Result shortUsername(ShortUsername<T> value),
-    Result offensiveUsername(OffensiveUsername<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult invalidPassword(InvalidPassword<T> value),
+    TResult shortUsername(ShortUsername<T> value),
+    TResult offensiveUsername(OffensiveUsername<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidEmail != null) {
@@ -311,11 +311,11 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(String failedValue),
-    @required Result invalidPassword(String failedValue),
-    @required Result shortUsername(String failedValue),
-    @required Result offensiveUsername(String failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidEmail(String failedValue),
+    @required TResult invalidPassword(String failedValue),
+    @required TResult shortUsername(String failedValue),
+    @required TResult offensiveUsername(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -326,12 +326,12 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(String failedValue),
-    Result invalidPassword(String failedValue),
-    Result shortUsername(String failedValue),
-    Result offensiveUsername(String failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidEmail(String failedValue),
+    TResult invalidPassword(String failedValue),
+    TResult shortUsername(String failedValue),
+    TResult offensiveUsername(String failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidPassword != null) {
@@ -342,11 +342,11 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result invalidPassword(InvalidPassword<T> value),
-    @required Result shortUsername(ShortUsername<T> value),
-    @required Result offensiveUsername(OffensiveUsername<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult invalidPassword(InvalidPassword<T> value),
+    @required TResult shortUsername(ShortUsername<T> value),
+    @required TResult offensiveUsername(OffensiveUsername<T> value),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -357,12 +357,12 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result invalidPassword(InvalidPassword<T> value),
-    Result shortUsername(ShortUsername<T> value),
-    Result offensiveUsername(OffensiveUsername<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult invalidPassword(InvalidPassword<T> value),
+    TResult shortUsername(ShortUsername<T> value),
+    TResult offensiveUsername(OffensiveUsername<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidPassword != null) {
@@ -446,11 +446,11 @@ class _$ShortUsername<T> implements ShortUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(String failedValue),
-    @required Result invalidPassword(String failedValue),
-    @required Result shortUsername(String failedValue),
-    @required Result offensiveUsername(String failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidEmail(String failedValue),
+    @required TResult invalidPassword(String failedValue),
+    @required TResult shortUsername(String failedValue),
+    @required TResult offensiveUsername(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -461,12 +461,12 @@ class _$ShortUsername<T> implements ShortUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(String failedValue),
-    Result invalidPassword(String failedValue),
-    Result shortUsername(String failedValue),
-    Result offensiveUsername(String failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidEmail(String failedValue),
+    TResult invalidPassword(String failedValue),
+    TResult shortUsername(String failedValue),
+    TResult offensiveUsername(String failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (shortUsername != null) {
@@ -477,11 +477,11 @@ class _$ShortUsername<T> implements ShortUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result invalidPassword(InvalidPassword<T> value),
-    @required Result shortUsername(ShortUsername<T> value),
-    @required Result offensiveUsername(OffensiveUsername<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult invalidPassword(InvalidPassword<T> value),
+    @required TResult shortUsername(ShortUsername<T> value),
+    @required TResult offensiveUsername(OffensiveUsername<T> value),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -492,12 +492,12 @@ class _$ShortUsername<T> implements ShortUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result invalidPassword(InvalidPassword<T> value),
-    Result shortUsername(ShortUsername<T> value),
-    Result offensiveUsername(OffensiveUsername<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult invalidPassword(InvalidPassword<T> value),
+    TResult shortUsername(ShortUsername<T> value),
+    TResult offensiveUsername(OffensiveUsername<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (shortUsername != null) {
@@ -582,11 +582,11 @@ class _$OffensiveUsername<T> implements OffensiveUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(String failedValue),
-    @required Result invalidPassword(String failedValue),
-    @required Result shortUsername(String failedValue),
-    @required Result offensiveUsername(String failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidEmail(String failedValue),
+    @required TResult invalidPassword(String failedValue),
+    @required TResult shortUsername(String failedValue),
+    @required TResult offensiveUsername(String failedValue),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -597,12 +597,12 @@ class _$OffensiveUsername<T> implements OffensiveUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(String failedValue),
-    Result invalidPassword(String failedValue),
-    Result shortUsername(String failedValue),
-    Result offensiveUsername(String failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidEmail(String failedValue),
+    TResult invalidPassword(String failedValue),
+    TResult shortUsername(String failedValue),
+    TResult offensiveUsername(String failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (offensiveUsername != null) {
@@ -613,11 +613,11 @@ class _$OffensiveUsername<T> implements OffensiveUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result invalidPassword(InvalidPassword<T> value),
-    @required Result shortUsername(ShortUsername<T> value),
-    @required Result offensiveUsername(OffensiveUsername<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidEmail(InvalidEmail<T> value),
+    @required TResult invalidPassword(InvalidPassword<T> value),
+    @required TResult shortUsername(ShortUsername<T> value),
+    @required TResult offensiveUsername(OffensiveUsername<T> value),
   }) {
     assert(invalidEmail != null);
     assert(invalidPassword != null);
@@ -628,12 +628,12 @@ class _$OffensiveUsername<T> implements OffensiveUsername<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result invalidPassword(InvalidPassword<T> value),
-    Result shortUsername(ShortUsername<T> value),
-    Result offensiveUsername(OffensiveUsername<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidEmail(InvalidEmail<T> value),
+    TResult invalidPassword(InvalidPassword<T> value),
+    TResult shortUsername(ShortUsername<T> value),
+    TResult offensiveUsername(OffensiveUsername<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (offensiveUsername != null) {

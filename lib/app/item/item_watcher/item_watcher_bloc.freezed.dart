@@ -44,37 +44,38 @@ const $ItemWatcherEvent = _$ItemWatcherEventTearOff();
 /// @nodoc
 mixin _$ItemWatcherEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchUnpurchasableStarted(),
-    @required Result watchPurchasableStarted(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
     @required
-        Result itemsReceived(
+        TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchUnpurchasableStarted(),
-    Result watchPurchasableStarted(),
-    Result itemsReceived(Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
     @required
-        Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    @required Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    @required Result itemsReceived(_ItemsReceived value),
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    Result itemsReceived(_ItemsReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    @required TResult orElse(),
   });
 }
 
@@ -133,12 +134,12 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchUnpurchasableStarted(),
-    @required Result watchPurchasableStarted(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
     @required
-        Result itemsReceived(
+        TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
@@ -150,12 +151,13 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchUnpurchasableStarted(),
-    Result watchPurchasableStarted(),
-    Result itemsReceived(Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchAllStarted != null) {
@@ -166,12 +168,12 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
     @required
-        Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    @required Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    @required Result itemsReceived(_ItemsReceived value),
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
@@ -182,12 +184,12 @@ class _$_WatchAllStarted implements _WatchAllStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    Result itemsReceived(_ItemsReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchAllStarted != null) {
@@ -240,12 +242,12 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchUnpurchasableStarted(),
-    @required Result watchPurchasableStarted(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
     @required
-        Result itemsReceived(
+        TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
@@ -257,12 +259,13 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchUnpurchasableStarted(),
-    Result watchPurchasableStarted(),
-    Result itemsReceived(Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchUnpurchasableStarted != null) {
@@ -273,12 +276,12 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
     @required
-        Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    @required Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    @required Result itemsReceived(_ItemsReceived value),
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
@@ -289,12 +292,12 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    Result itemsReceived(_ItemsReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchUnpurchasableStarted != null) {
@@ -347,12 +350,12 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchUnpurchasableStarted(),
-    @required Result watchPurchasableStarted(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
     @required
-        Result itemsReceived(
+        TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
@@ -364,12 +367,13 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchUnpurchasableStarted(),
-    Result watchPurchasableStarted(),
-    Result itemsReceived(Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchPurchasableStarted != null) {
@@ -380,12 +384,12 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
     @required
-        Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    @required Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    @required Result itemsReceived(_ItemsReceived value),
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
@@ -396,12 +400,12 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    Result itemsReceived(_ItemsReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchPurchasableStarted != null) {
@@ -478,12 +482,12 @@ class _$_ItemsReceived implements _ItemsReceived {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result watchAllStarted(),
-    @required Result watchUnpurchasableStarted(),
-    @required Result watchPurchasableStarted(),
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
     @required
-        Result itemsReceived(
+        TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
@@ -495,12 +499,13 @@ class _$_ItemsReceived implements _ItemsReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchAllStarted(),
-    Result watchUnpurchasableStarted(),
-    Result watchPurchasableStarted(),
-    Result itemsReceived(Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (itemsReceived != null) {
@@ -511,12 +516,12 @@ class _$_ItemsReceived implements _ItemsReceived {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchAllStarted(_WatchAllStarted value),
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
     @required
-        Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    @required Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    @required Result itemsReceived(_ItemsReceived value),
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
@@ -527,12 +532,12 @@ class _$_ItemsReceived implements _ItemsReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchAllStarted(_WatchAllStarted value),
-    Result watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
-    Result watchPurchasableStarted(_WatchPurchasableStarted value),
-    Result itemsReceived(_ItemsReceived value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (itemsReceived != null) {
@@ -586,34 +591,34 @@ const $ItemWatcherState = _$ItemWatcherStateTearOff();
 /// @nodoc
 mixin _$ItemWatcherState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Item> items),
-    @required Result loadFailure(ItemErrorFailure itemFailure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Item> items),
+    @required TResult loadFailure(ItemErrorFailure itemFailure),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Item> items),
-    Result loadFailure(ItemErrorFailure itemFailure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Item> items),
+    TResult loadFailure(ItemErrorFailure itemFailure),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   });
 }
 
@@ -669,11 +674,11 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Item> items),
-    @required Result loadFailure(ItemErrorFailure itemFailure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Item> items),
+    @required TResult loadFailure(ItemErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -684,12 +689,12 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Item> items),
-    Result loadFailure(ItemErrorFailure itemFailure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Item> items),
+    TResult loadFailure(ItemErrorFailure itemFailure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -700,11 +705,11 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -715,12 +720,12 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -772,11 +777,11 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Item> items),
-    @required Result loadFailure(ItemErrorFailure itemFailure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Item> items),
+    @required TResult loadFailure(ItemErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -787,12 +792,12 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Item> items),
-    Result loadFailure(ItemErrorFailure itemFailure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Item> items),
+    TResult loadFailure(ItemErrorFailure itemFailure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -803,11 +808,11 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -818,12 +823,12 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -896,11 +901,11 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Item> items),
-    @required Result loadFailure(ItemErrorFailure itemFailure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Item> items),
+    @required TResult loadFailure(ItemErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -911,12 +916,12 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Item> items),
-    Result loadFailure(ItemErrorFailure itemFailure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Item> items),
+    TResult loadFailure(ItemErrorFailure itemFailure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
@@ -927,11 +932,11 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -942,12 +947,12 @@ class _$_LoadSuccess implements _LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
@@ -1038,11 +1043,11 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadSuccess(KtList<Item> items),
-    @required Result loadFailure(ItemErrorFailure itemFailure),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(KtList<Item> items),
+    @required TResult loadFailure(ItemErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -1053,12 +1058,12 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadSuccess(KtList<Item> items),
-    Result loadFailure(ItemErrorFailure itemFailure),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(KtList<Item> items),
+    TResult loadFailure(ItemErrorFailure itemFailure),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
@@ -1069,11 +1074,11 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
-    @required Result loadFailure(_LoadFailure value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -1084,12 +1089,12 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
-    Result loadFailure(_LoadFailure value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {

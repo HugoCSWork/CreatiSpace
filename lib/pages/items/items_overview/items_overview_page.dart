@@ -5,6 +5,7 @@ import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/item_overview_body_wdget.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/item_switch.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
+import 'package:creatispace/shared/navigation_bar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,20 +51,21 @@ class ItemsOverviewPage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             title: const Text('Your Listings'),
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {},
-            ),
             // leading: IconButton(
-            //   icon: const Icon(Icons.exit_to_app),
-            //   onPressed: () {
-            //     context.bloc<AuthBloc>().add(const AuthEvent.signOut());
-            //   },
+            //   icon: const Icon(Icons.arrow_back),
+            //   onPressed: () {},
             // ),
+            leading: IconButton(
+              icon: const Icon(Icons.exit_to_app),
+              onPressed: () {
+                context.read<AuthBloc>().add(const AuthEvent.signOut());
+              },
+            ),
             actions: <Widget>[
               ItemSwitch(),
             ],
           ),
+          bottomNavigationBar: NavigationBar(2),
           body: ItemOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {

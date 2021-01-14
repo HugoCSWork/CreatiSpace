@@ -41,34 +41,34 @@ const $AuthErrorFailure = _$AuthErrorFailureTearOff();
 /// @nodoc
 mixin _$AuthErrorFailure {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result serviceError(),
-    @required Result emailAlreadyInUse(),
-    @required Result invalidEmailAndPassword(),
+  TResult when<TResult extends Object>({
+    @required TResult cancelledByUser(),
+    @required TResult serviceError(),
+    @required TResult emailAlreadyInUse(),
+    @required TResult invalidEmailAndPassword(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result serviceError(),
-    Result emailAlreadyInUse(),
-    Result invalidEmailAndPassword(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult cancelledByUser(),
+    TResult serviceError(),
+    TResult emailAlreadyInUse(),
+    TResult invalidEmailAndPassword(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result serviceError(ServerError value),
-    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
-    @required Result invalidEmailAndPassword(InvalidEmailAndPassword value),
+  TResult map<TResult extends Object>({
+    @required TResult cancelledByUser(CancelledByUser value),
+    @required TResult serviceError(ServerError value),
+    @required TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    @required TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result serviceError(ServerError value),
-    Result emailAlreadyInUse(EmailAlreadyInUse value),
-    Result invalidEmailAndPassword(InvalidEmailAndPassword value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult cancelledByUser(CancelledByUser value),
+    TResult serviceError(ServerError value),
+    TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
+    @required TResult orElse(),
   });
 }
 
@@ -127,11 +127,11 @@ class _$CancelledByUser implements CancelledByUser {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result serviceError(),
-    @required Result emailAlreadyInUse(),
-    @required Result invalidEmailAndPassword(),
+  TResult when<TResult extends Object>({
+    @required TResult cancelledByUser(),
+    @required TResult serviceError(),
+    @required TResult emailAlreadyInUse(),
+    @required TResult invalidEmailAndPassword(),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -142,12 +142,12 @@ class _$CancelledByUser implements CancelledByUser {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result serviceError(),
-    Result emailAlreadyInUse(),
-    Result invalidEmailAndPassword(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult cancelledByUser(),
+    TResult serviceError(),
+    TResult emailAlreadyInUse(),
+    TResult invalidEmailAndPassword(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (cancelledByUser != null) {
@@ -158,11 +158,11 @@ class _$CancelledByUser implements CancelledByUser {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result serviceError(ServerError value),
-    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
-    @required Result invalidEmailAndPassword(InvalidEmailAndPassword value),
+  TResult map<TResult extends Object>({
+    @required TResult cancelledByUser(CancelledByUser value),
+    @required TResult serviceError(ServerError value),
+    @required TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    @required TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -173,12 +173,12 @@ class _$CancelledByUser implements CancelledByUser {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result serviceError(ServerError value),
-    Result emailAlreadyInUse(EmailAlreadyInUse value),
-    Result invalidEmailAndPassword(InvalidEmailAndPassword value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult cancelledByUser(CancelledByUser value),
+    TResult serviceError(ServerError value),
+    TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (cancelledByUser != null) {
@@ -230,11 +230,11 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result serviceError(),
-    @required Result emailAlreadyInUse(),
-    @required Result invalidEmailAndPassword(),
+  TResult when<TResult extends Object>({
+    @required TResult cancelledByUser(),
+    @required TResult serviceError(),
+    @required TResult emailAlreadyInUse(),
+    @required TResult invalidEmailAndPassword(),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -245,12 +245,12 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result serviceError(),
-    Result emailAlreadyInUse(),
-    Result invalidEmailAndPassword(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult cancelledByUser(),
+    TResult serviceError(),
+    TResult emailAlreadyInUse(),
+    TResult invalidEmailAndPassword(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serviceError != null) {
@@ -261,11 +261,11 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result serviceError(ServerError value),
-    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
-    @required Result invalidEmailAndPassword(InvalidEmailAndPassword value),
+  TResult map<TResult extends Object>({
+    @required TResult cancelledByUser(CancelledByUser value),
+    @required TResult serviceError(ServerError value),
+    @required TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    @required TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -276,12 +276,12 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result serviceError(ServerError value),
-    Result emailAlreadyInUse(EmailAlreadyInUse value),
-    Result invalidEmailAndPassword(InvalidEmailAndPassword value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult cancelledByUser(CancelledByUser value),
+    TResult serviceError(ServerError value),
+    TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serviceError != null) {
@@ -333,11 +333,11 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result serviceError(),
-    @required Result emailAlreadyInUse(),
-    @required Result invalidEmailAndPassword(),
+  TResult when<TResult extends Object>({
+    @required TResult cancelledByUser(),
+    @required TResult serviceError(),
+    @required TResult emailAlreadyInUse(),
+    @required TResult invalidEmailAndPassword(),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -348,12 +348,12 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result serviceError(),
-    Result emailAlreadyInUse(),
-    Result invalidEmailAndPassword(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult cancelledByUser(),
+    TResult serviceError(),
+    TResult emailAlreadyInUse(),
+    TResult invalidEmailAndPassword(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (emailAlreadyInUse != null) {
@@ -364,11 +364,11 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result serviceError(ServerError value),
-    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
-    @required Result invalidEmailAndPassword(InvalidEmailAndPassword value),
+  TResult map<TResult extends Object>({
+    @required TResult cancelledByUser(CancelledByUser value),
+    @required TResult serviceError(ServerError value),
+    @required TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    @required TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -379,12 +379,12 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result serviceError(ServerError value),
-    Result emailAlreadyInUse(EmailAlreadyInUse value),
-    Result invalidEmailAndPassword(InvalidEmailAndPassword value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult cancelledByUser(CancelledByUser value),
+    TResult serviceError(ServerError value),
+    TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (emailAlreadyInUse != null) {
@@ -436,11 +436,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result serviceError(),
-    @required Result emailAlreadyInUse(),
-    @required Result invalidEmailAndPassword(),
+  TResult when<TResult extends Object>({
+    @required TResult cancelledByUser(),
+    @required TResult serviceError(),
+    @required TResult emailAlreadyInUse(),
+    @required TResult invalidEmailAndPassword(),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -451,12 +451,12 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result serviceError(),
-    Result emailAlreadyInUse(),
-    Result invalidEmailAndPassword(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult cancelledByUser(),
+    TResult serviceError(),
+    TResult emailAlreadyInUse(),
+    TResult invalidEmailAndPassword(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidEmailAndPassword != null) {
@@ -467,11 +467,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result serviceError(ServerError value),
-    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
-    @required Result invalidEmailAndPassword(InvalidEmailAndPassword value),
+  TResult map<TResult extends Object>({
+    @required TResult cancelledByUser(CancelledByUser value),
+    @required TResult serviceError(ServerError value),
+    @required TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    @required TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
   }) {
     assert(cancelledByUser != null);
     assert(serviceError != null);
@@ -482,12 +482,12 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result serviceError(ServerError value),
-    Result emailAlreadyInUse(EmailAlreadyInUse value),
-    Result invalidEmailAndPassword(InvalidEmailAndPassword value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult cancelledByUser(CancelledByUser value),
+    TResult serviceError(ServerError value),
+    TResult emailAlreadyInUse(EmailAlreadyInUse value),
+    TResult invalidEmailAndPassword(InvalidEmailAndPassword value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidEmailAndPassword != null) {

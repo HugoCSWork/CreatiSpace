@@ -13,6 +13,7 @@ import '../../domain/items/item/item.dart';
 import '../auth/forgotten_password/forgotten_password.dart';
 import '../auth/sign_in/sign_in_page.dart';
 import '../auth/sign_up/sign_up_page.dart';
+import '../auth/verify_email/email_verified_page.dart';
 import '../items/items_form/item_form_page.dart';
 import '../items/items_overview/items_overview_page.dart';
 import '../splash/splash_page.dart';
@@ -23,6 +24,7 @@ class Routes {
   static const String signUpPage = '/sign-up-page';
   static const String forgottenPasswordPage = '/forgotten-password-page';
   static const String itemsOverviewPage = '/items-overview-page';
+  static const String emailVerifiedPage = '/email-verified-page';
   static const String itemFormPage = '/item-form-page';
   static const all = <String>{
     splashPage,
@@ -30,6 +32,7 @@ class Routes {
     signUpPage,
     forgottenPasswordPage,
     itemsOverviewPage,
+    emailVerifiedPage,
     itemFormPage,
   };
 }
@@ -43,6 +46,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.signUpPage, page: SignUpPage),
     RouteDef(Routes.forgottenPasswordPage, page: ForgottenPasswordPage),
     RouteDef(Routes.itemsOverviewPage, page: ItemsOverviewPage),
+    RouteDef(Routes.emailVerifiedPage, page: EmailVerifiedPage),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
   ];
   @override
@@ -78,6 +82,12 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    EmailVerifiedPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => EmailVerifiedPage(),
+        settings: data,
+      );
+    },
     ItemFormPage: (data) {
       final args = data.getArgs<ItemFormPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
@@ -108,6 +118,9 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushItemsOverviewPage() =>
       push<dynamic>(Routes.itemsOverviewPage);
+
+  Future<dynamic> pushEmailVerifiedPage() =>
+      push<dynamic>(Routes.emailVerifiedPage);
 
   Future<dynamic> pushItemFormPage({
     Key key,

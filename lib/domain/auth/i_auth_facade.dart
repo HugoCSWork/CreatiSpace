@@ -26,5 +26,7 @@ abstract class IAuthFacade {
 
   Future<Option<CurrentUser>> getSignedInUser();
 
+  Stream<bool> getPasswordVerificationForUser();
+
   Future<void> signOut();
 }

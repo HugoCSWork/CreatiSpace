@@ -109,66 +109,66 @@ const $ItemValueFailure = _$ItemValueFailureTearOff();
 /// @nodoc
 mixin _$ItemValueFailure<T> {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   });
 }
 
@@ -251,19 +251,19 @@ class _$InvalidName<T> implements InvalidName<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -282,20 +282,20 @@ class _$InvalidName<T> implements InvalidName<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidName != null) {
@@ -306,19 +306,19 @@ class _$InvalidName<T> implements InvalidName<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -337,20 +337,20 @@ class _$InvalidName<T> implements InvalidName<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidName != null) {
@@ -430,19 +430,19 @@ class _$InvalidDescription<T> implements InvalidDescription<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -461,20 +461,20 @@ class _$InvalidDescription<T> implements InvalidDescription<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidDescription != null) {
@@ -485,19 +485,19 @@ class _$InvalidDescription<T> implements InvalidDescription<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -516,20 +516,20 @@ class _$InvalidDescription<T> implements InvalidDescription<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidDescription != null) {
@@ -609,19 +609,19 @@ class _$InvalidPrice<T> implements InvalidPrice<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -640,20 +640,20 @@ class _$InvalidPrice<T> implements InvalidPrice<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidPrice != null) {
@@ -664,19 +664,19 @@ class _$InvalidPrice<T> implements InvalidPrice<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -695,20 +695,20 @@ class _$InvalidPrice<T> implements InvalidPrice<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidPrice != null) {
@@ -788,19 +788,19 @@ class _$InvalidQuantity<T> implements InvalidQuantity<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -819,20 +819,20 @@ class _$InvalidQuantity<T> implements InvalidQuantity<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidQuantity != null) {
@@ -843,19 +843,19 @@ class _$InvalidQuantity<T> implements InvalidQuantity<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -874,20 +874,20 @@ class _$InvalidQuantity<T> implements InvalidQuantity<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidQuantity != null) {
@@ -968,19 +968,19 @@ class _$InvalidDeliveryFee<T> implements InvalidDeliveryFee<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -999,20 +999,20 @@ class _$InvalidDeliveryFee<T> implements InvalidDeliveryFee<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidDeliveryFee != null) {
@@ -1023,19 +1023,19 @@ class _$InvalidDeliveryFee<T> implements InvalidDeliveryFee<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1054,20 +1054,20 @@ class _$InvalidDeliveryFee<T> implements InvalidDeliveryFee<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidDeliveryFee != null) {
@@ -1147,19 +1147,19 @@ class _$InvalidImage<T> implements InvalidImage<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1178,20 +1178,20 @@ class _$InvalidImage<T> implements InvalidImage<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidImage != null) {
@@ -1202,19 +1202,19 @@ class _$InvalidImage<T> implements InvalidImage<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1233,20 +1233,20 @@ class _$InvalidImage<T> implements InvalidImage<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidImage != null) {
@@ -1326,19 +1326,19 @@ class _$InvalidImageName<T> implements InvalidImageName<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1357,20 +1357,20 @@ class _$InvalidImageName<T> implements InvalidImageName<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidImageName != null) {
@@ -1381,19 +1381,19 @@ class _$InvalidImageName<T> implements InvalidImageName<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1412,20 +1412,20 @@ class _$InvalidImageName<T> implements InvalidImageName<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidImageName != null) {
@@ -1504,19 +1504,19 @@ class _$Multiline<T> implements Multiline<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1535,20 +1535,20 @@ class _$Multiline<T> implements Multiline<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (multiline != null) {
@@ -1559,19 +1559,19 @@ class _$Multiline<T> implements Multiline<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1590,20 +1590,20 @@ class _$Multiline<T> implements Multiline<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (multiline != null) {
@@ -1683,19 +1683,19 @@ class _$InvalidPurchasable<T> implements InvalidPurchasable<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1714,20 +1714,20 @@ class _$InvalidPurchasable<T> implements InvalidPurchasable<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidPurchasable != null) {
@@ -1738,19 +1738,19 @@ class _$InvalidPurchasable<T> implements InvalidPurchasable<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1769,20 +1769,20 @@ class _$InvalidPurchasable<T> implements InvalidPurchasable<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidPurchasable != null) {
@@ -1872,19 +1872,19 @@ class _$InvalidImageLength<T> implements InvalidImageLength<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1903,20 +1903,20 @@ class _$InvalidImageLength<T> implements InvalidImageLength<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidImageLength != null) {
@@ -1927,19 +1927,19 @@ class _$InvalidImageLength<T> implements InvalidImageLength<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -1958,20 +1958,20 @@ class _$InvalidImageLength<T> implements InvalidImageLength<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (invalidImageLength != null) {
@@ -2061,19 +2061,19 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -2092,20 +2092,20 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exceedingLength != null) {
@@ -2116,19 +2116,19 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -2147,20 +2147,20 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (exceedingLength != null) {
@@ -2238,19 +2238,19 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidName(String failedValue),
-    @required Result invalidDescription(String failedValue),
-    @required Result invalidPrice(double failedValue),
-    @required Result invalidQuantity(int failedValue),
-    @required Result invalidDeliveryFee(double failedValue),
-    @required Result invalidImage(String failedValue),
-    @required Result invalidImageName(String failedValue),
-    @required Result multiline(String failedValue),
-    @required Result invalidPurchasable(bool failedValue),
-    @required Result invalidImageLength(T failedValue, int max),
-    @required Result exceedingLength(T failedValue, int max),
-    @required Result empty(T failedValue),
+  TResult when<TResult extends Object>({
+    @required TResult invalidName(String failedValue),
+    @required TResult invalidDescription(String failedValue),
+    @required TResult invalidPrice(double failedValue),
+    @required TResult invalidQuantity(int failedValue),
+    @required TResult invalidDeliveryFee(double failedValue),
+    @required TResult invalidImage(String failedValue),
+    @required TResult invalidImageName(String failedValue),
+    @required TResult multiline(String failedValue),
+    @required TResult invalidPurchasable(bool failedValue),
+    @required TResult invalidImageLength(T failedValue, int max),
+    @required TResult exceedingLength(T failedValue, int max),
+    @required TResult empty(T failedValue),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -2269,20 +2269,20 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidName(String failedValue),
-    Result invalidDescription(String failedValue),
-    Result invalidPrice(double failedValue),
-    Result invalidQuantity(int failedValue),
-    Result invalidDeliveryFee(double failedValue),
-    Result invalidImage(String failedValue),
-    Result invalidImageName(String failedValue),
-    Result multiline(String failedValue),
-    Result invalidPurchasable(bool failedValue),
-    Result invalidImageLength(T failedValue, int max),
-    Result exceedingLength(T failedValue, int max),
-    Result empty(T failedValue),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidName(String failedValue),
+    TResult invalidDescription(String failedValue),
+    TResult invalidPrice(double failedValue),
+    TResult invalidQuantity(int failedValue),
+    TResult invalidDeliveryFee(double failedValue),
+    TResult invalidImage(String failedValue),
+    TResult invalidImageName(String failedValue),
+    TResult multiline(String failedValue),
+    TResult invalidPurchasable(bool failedValue),
+    TResult invalidImageLength(T failedValue, int max),
+    TResult exceedingLength(T failedValue, int max),
+    TResult empty(T failedValue),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (empty != null) {
@@ -2293,19 +2293,19 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidName(InvalidName<T> value),
-    @required Result invalidDescription(InvalidDescription<T> value),
-    @required Result invalidPrice(InvalidPrice<T> value),
-    @required Result invalidQuantity(InvalidQuantity<T> value),
-    @required Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    @required Result invalidImage(InvalidImage<T> value),
-    @required Result invalidImageName(InvalidImageName<T> value),
-    @required Result multiline(Multiline<T> value),
-    @required Result invalidPurchasable(InvalidPurchasable<T> value),
-    @required Result invalidImageLength(InvalidImageLength<T> value),
-    @required Result exceedingLength(ExceedingLength<T> value),
-    @required Result empty(Empty<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult invalidName(InvalidName<T> value),
+    @required TResult invalidDescription(InvalidDescription<T> value),
+    @required TResult invalidPrice(InvalidPrice<T> value),
+    @required TResult invalidQuantity(InvalidQuantity<T> value),
+    @required TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    @required TResult invalidImage(InvalidImage<T> value),
+    @required TResult invalidImageName(InvalidImageName<T> value),
+    @required TResult multiline(Multiline<T> value),
+    @required TResult invalidPurchasable(InvalidPurchasable<T> value),
+    @required TResult invalidImageLength(InvalidImageLength<T> value),
+    @required TResult exceedingLength(ExceedingLength<T> value),
+    @required TResult empty(Empty<T> value),
   }) {
     assert(invalidName != null);
     assert(invalidDescription != null);
@@ -2324,20 +2324,20 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidName(InvalidName<T> value),
-    Result invalidDescription(InvalidDescription<T> value),
-    Result invalidPrice(InvalidPrice<T> value),
-    Result invalidQuantity(InvalidQuantity<T> value),
-    Result invalidDeliveryFee(InvalidDeliveryFee<T> value),
-    Result invalidImage(InvalidImage<T> value),
-    Result invalidImageName(InvalidImageName<T> value),
-    Result multiline(Multiline<T> value),
-    Result invalidPurchasable(InvalidPurchasable<T> value),
-    Result invalidImageLength(InvalidImageLength<T> value),
-    Result exceedingLength(ExceedingLength<T> value),
-    Result empty(Empty<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidName(InvalidName<T> value),
+    TResult invalidDescription(InvalidDescription<T> value),
+    TResult invalidPrice(InvalidPrice<T> value),
+    TResult invalidQuantity(InvalidQuantity<T> value),
+    TResult invalidDeliveryFee(InvalidDeliveryFee<T> value),
+    TResult invalidImage(InvalidImage<T> value),
+    TResult invalidImageName(InvalidImageName<T> value),
+    TResult multiline(Multiline<T> value),
+    TResult invalidPurchasable(InvalidPurchasable<T> value),
+    TResult invalidImageLength(InvalidImageLength<T> value),
+    TResult exceedingLength(ExceedingLength<T> value),
+    TResult empty(Empty<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (empty != null) {

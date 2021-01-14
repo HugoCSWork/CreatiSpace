@@ -47,37 +47,37 @@ const $SignUpFormEvent = _$SignUpFormEventTearOff();
 /// @nodoc
 mixin _$SignUpFormEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result emailChanged(String email),
-    @required Result passwordChanged(String pass),
-    @required Result usernameChanged(String pass),
-    @required Result registerWithEmailAndPasswordPressed(),
+  TResult when<TResult extends Object>({
+    @required TResult emailChanged(String email),
+    @required TResult passwordChanged(String pass),
+    @required TResult usernameChanged(String pass),
+    @required TResult registerWithEmailAndPasswordPressed(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result emailChanged(String email),
-    Result passwordChanged(String pass),
-    Result usernameChanged(String pass),
-    Result registerWithEmailAndPasswordPressed(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult emailChanged(String email),
+    TResult passwordChanged(String pass),
+    TResult usernameChanged(String pass),
+    TResult registerWithEmailAndPasswordPressed(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result emailChanged(EmailChanged value),
-    @required Result passwordChanged(PasswordChanged value),
-    @required Result usernameChanged(UsernameChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult usernameChanged(UsernameChanged value),
     @required
-        Result registerWithEmailAndPasswordPressed(
+        TResult registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result emailChanged(EmailChanged value),
-    Result passwordChanged(PasswordChanged value),
-    Result usernameChanged(UsernameChanged value),
-    Result registerWithEmailAndPasswordPressed(
+  TResult maybeMap<TResult extends Object>({
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult usernameChanged(UsernameChanged value),
+    TResult registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
-    @required Result orElse(),
+    @required TResult orElse(),
   });
 }
 
@@ -157,11 +157,11 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result emailChanged(String email),
-    @required Result passwordChanged(String pass),
-    @required Result usernameChanged(String pass),
-    @required Result registerWithEmailAndPasswordPressed(),
+  TResult when<TResult extends Object>({
+    @required TResult emailChanged(String email),
+    @required TResult passwordChanged(String pass),
+    @required TResult usernameChanged(String pass),
+    @required TResult registerWithEmailAndPasswordPressed(),
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
@@ -172,12 +172,12 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result emailChanged(String email),
-    Result passwordChanged(String pass),
-    Result usernameChanged(String pass),
-    Result registerWithEmailAndPasswordPressed(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult emailChanged(String email),
+    TResult passwordChanged(String pass),
+    TResult usernameChanged(String pass),
+    TResult registerWithEmailAndPasswordPressed(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (emailChanged != null) {
@@ -188,12 +188,12 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result emailChanged(EmailChanged value),
-    @required Result passwordChanged(PasswordChanged value),
-    @required Result usernameChanged(UsernameChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult usernameChanged(UsernameChanged value),
     @required
-        Result registerWithEmailAndPasswordPressed(
+        TResult registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
   }) {
     assert(emailChanged != null);
@@ -205,13 +205,13 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result emailChanged(EmailChanged value),
-    Result passwordChanged(PasswordChanged value),
-    Result usernameChanged(UsernameChanged value),
-    Result registerWithEmailAndPasswordPressed(
+  TResult maybeMap<TResult extends Object>({
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult usernameChanged(UsernameChanged value),
+    TResult registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (emailChanged != null) {
@@ -287,11 +287,11 @@ class _$PasswordChanged implements PasswordChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result emailChanged(String email),
-    @required Result passwordChanged(String pass),
-    @required Result usernameChanged(String pass),
-    @required Result registerWithEmailAndPasswordPressed(),
+  TResult when<TResult extends Object>({
+    @required TResult emailChanged(String email),
+    @required TResult passwordChanged(String pass),
+    @required TResult usernameChanged(String pass),
+    @required TResult registerWithEmailAndPasswordPressed(),
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
@@ -302,12 +302,12 @@ class _$PasswordChanged implements PasswordChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result emailChanged(String email),
-    Result passwordChanged(String pass),
-    Result usernameChanged(String pass),
-    Result registerWithEmailAndPasswordPressed(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult emailChanged(String email),
+    TResult passwordChanged(String pass),
+    TResult usernameChanged(String pass),
+    TResult registerWithEmailAndPasswordPressed(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (passwordChanged != null) {
@@ -318,12 +318,12 @@ class _$PasswordChanged implements PasswordChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result emailChanged(EmailChanged value),
-    @required Result passwordChanged(PasswordChanged value),
-    @required Result usernameChanged(UsernameChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult usernameChanged(UsernameChanged value),
     @required
-        Result registerWithEmailAndPasswordPressed(
+        TResult registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
   }) {
     assert(emailChanged != null);
@@ -335,13 +335,13 @@ class _$PasswordChanged implements PasswordChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result emailChanged(EmailChanged value),
-    Result passwordChanged(PasswordChanged value),
-    Result usernameChanged(UsernameChanged value),
-    Result registerWithEmailAndPasswordPressed(
+  TResult maybeMap<TResult extends Object>({
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult usernameChanged(UsernameChanged value),
+    TResult registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (passwordChanged != null) {
@@ -417,11 +417,11 @@ class _$UsernameChanged implements UsernameChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result emailChanged(String email),
-    @required Result passwordChanged(String pass),
-    @required Result usernameChanged(String pass),
-    @required Result registerWithEmailAndPasswordPressed(),
+  TResult when<TResult extends Object>({
+    @required TResult emailChanged(String email),
+    @required TResult passwordChanged(String pass),
+    @required TResult usernameChanged(String pass),
+    @required TResult registerWithEmailAndPasswordPressed(),
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
@@ -432,12 +432,12 @@ class _$UsernameChanged implements UsernameChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result emailChanged(String email),
-    Result passwordChanged(String pass),
-    Result usernameChanged(String pass),
-    Result registerWithEmailAndPasswordPressed(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult emailChanged(String email),
+    TResult passwordChanged(String pass),
+    TResult usernameChanged(String pass),
+    TResult registerWithEmailAndPasswordPressed(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (usernameChanged != null) {
@@ -448,12 +448,12 @@ class _$UsernameChanged implements UsernameChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result emailChanged(EmailChanged value),
-    @required Result passwordChanged(PasswordChanged value),
-    @required Result usernameChanged(UsernameChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult usernameChanged(UsernameChanged value),
     @required
-        Result registerWithEmailAndPasswordPressed(
+        TResult registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
   }) {
     assert(emailChanged != null);
@@ -465,13 +465,13 @@ class _$UsernameChanged implements UsernameChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result emailChanged(EmailChanged value),
-    Result passwordChanged(PasswordChanged value),
-    Result usernameChanged(UsernameChanged value),
-    Result registerWithEmailAndPasswordPressed(
+  TResult maybeMap<TResult extends Object>({
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult usernameChanged(UsernameChanged value),
+    TResult registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (usernameChanged != null) {
@@ -531,11 +531,11 @@ class _$RegisterWithEmailAndPasswordPressed
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result emailChanged(String email),
-    @required Result passwordChanged(String pass),
-    @required Result usernameChanged(String pass),
-    @required Result registerWithEmailAndPasswordPressed(),
+  TResult when<TResult extends Object>({
+    @required TResult emailChanged(String email),
+    @required TResult passwordChanged(String pass),
+    @required TResult usernameChanged(String pass),
+    @required TResult registerWithEmailAndPasswordPressed(),
   }) {
     assert(emailChanged != null);
     assert(passwordChanged != null);
@@ -546,12 +546,12 @@ class _$RegisterWithEmailAndPasswordPressed
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result emailChanged(String email),
-    Result passwordChanged(String pass),
-    Result usernameChanged(String pass),
-    Result registerWithEmailAndPasswordPressed(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult emailChanged(String email),
+    TResult passwordChanged(String pass),
+    TResult usernameChanged(String pass),
+    TResult registerWithEmailAndPasswordPressed(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (registerWithEmailAndPasswordPressed != null) {
@@ -562,12 +562,12 @@ class _$RegisterWithEmailAndPasswordPressed
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result emailChanged(EmailChanged value),
-    @required Result passwordChanged(PasswordChanged value),
-    @required Result usernameChanged(UsernameChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult usernameChanged(UsernameChanged value),
     @required
-        Result registerWithEmailAndPasswordPressed(
+        TResult registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
   }) {
     assert(emailChanged != null);
@@ -579,13 +579,13 @@ class _$RegisterWithEmailAndPasswordPressed
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result emailChanged(EmailChanged value),
-    Result passwordChanged(PasswordChanged value),
-    Result usernameChanged(UsernameChanged value),
-    Result registerWithEmailAndPasswordPressed(
+  TResult maybeMap<TResult extends Object>({
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult usernameChanged(UsernameChanged value),
+    TResult registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (registerWithEmailAndPasswordPressed != null) {

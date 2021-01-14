@@ -35,26 +35,26 @@ const $ValueFailure = _$ValueFailureTearOff();
 /// @nodoc
 mixin _$ValueFailure<T> {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result auth(AuthValueFailure<T> f),
-    @required Result item(ItemValueFailure<T> i),
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult item(ItemValueFailure<T> i),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result auth(AuthValueFailure<T> f),
-    Result item(ItemValueFailure<T> i),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult item(ItemValueFailure<T> i),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result auth(_Auth<T> value),
-    @required Result item(_Item<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult item(_Item<T> value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result auth(_Auth<T> value),
-    Result item(_Item<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult item(_Item<T> value),
+    @required TResult orElse(),
   });
 }
 
@@ -143,9 +143,9 @@ class _$_Auth<T> implements _Auth<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result auth(AuthValueFailure<T> f),
-    @required Result item(ItemValueFailure<T> i),
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult item(ItemValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
@@ -154,10 +154,10 @@ class _$_Auth<T> implements _Auth<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result auth(AuthValueFailure<T> f),
-    Result item(ItemValueFailure<T> i),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult item(ItemValueFailure<T> i),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (auth != null) {
@@ -168,9 +168,9 @@ class _$_Auth<T> implements _Auth<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result auth(_Auth<T> value),
-    @required Result item(_Item<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult item(_Item<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
@@ -179,10 +179,10 @@ class _$_Auth<T> implements _Auth<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result auth(_Auth<T> value),
-    Result item(_Item<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult item(_Item<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (auth != null) {
@@ -267,9 +267,9 @@ class _$_Item<T> implements _Item<T> {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result auth(AuthValueFailure<T> f),
-    @required Result item(ItemValueFailure<T> i),
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult item(ItemValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
@@ -278,10 +278,10 @@ class _$_Item<T> implements _Item<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result auth(AuthValueFailure<T> f),
-    Result item(ItemValueFailure<T> i),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult item(ItemValueFailure<T> i),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (item != null) {
@@ -292,9 +292,9 @@ class _$_Item<T> implements _Item<T> {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result auth(_Auth<T> value),
-    @required Result item(_Item<T> value),
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult item(_Item<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
@@ -303,10 +303,10 @@ class _$_Item<T> implements _Item<T> {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result auth(_Auth<T> value),
-    Result item(_Item<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult item(_Item<T> value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (item != null) {

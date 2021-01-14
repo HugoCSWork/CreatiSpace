@@ -49,19 +49,18 @@ class FirebaseAuthFacade implements IAuthFacade {
         }
       });
 
-      if(isDuplicate) {
+      if (isDuplicate) {
         return left(const AuthErrorFailure.emailAlreadyInUse());
       } else {
         await _auth.createUserWithEmailAndPassword(
-          email: emailAddressStr, password: passwordStr);
-      await _auth.currentUser.sendEmailVerification();
-      await _firebaseFirestore
-          .collection('users')
-          .doc(_auth.currentUser.uid)
-          .set({'username': usernameStr});
+            email: emailAddressStr, password: passwordStr);
+        await _auth.currentUser.sendEmailVerification();
+        await _firebaseFirestore
+            .collection('users')
+            .doc(_auth.currentUser.uid)
+            .set({'username': usernameStr});
         return right(unit);
       }
-      // return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthErrorFailure.emailAlreadyInUse());
@@ -80,6 +79,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     try {
       await _auth.signInWithEmailAndPassword(
           email: emailAddressStr, password: passwordStr);
+
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' ||
@@ -101,14 +101,16 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
 
       final googleAuthentication = await googleUser.authentication;
-      
+
       final authCredential = GoogleAuthProvider.credential(
           accessToken: googleAuthentication.accessToken,
           idToken: googleAuthentication.idToken);
-          
+      
+      UserCredential user =  await _auth.signInWithCredential(authCredential);
 
-      await _auth.signInWithCredential(authCredential);
-
+      if(user.additionalUserInfo.isNewUser) {
+          await _auth.currentUser.sendEmailVerification();
+      }
       return right(unit);
     } on FirebaseAuthException catch (_) {
       return left(const AuthErrorFailure.serviceError());
@@ -120,8 +122,45 @@ class FirebaseAuthFacade implements IAuthFacade {
       optionOf(_auth.currentUser?.toDomain());
 
   @override
+  Stream<bool> getPasswordVerificationForUser() async* {
+    User user = _auth.currentUser;
+    if (user != null) await user.reload();
+    if (user == null) {
+      yield false;
+    } else {
+      await user.reload();
+
+      if (user.emailVerified)
+        yield true;
+      else
+        yield false;
+    }
+  }
+
+  @override
   Future<void> signOut() => Future.wait([
         _auth.signOut(),
         _googleSignIn.signOut(),
       ]);
 }
+
+// Stream<Either<ItemErrorFailure, KtList<Item>>> watchAllUserItems() async* {
+//   final userDoc = await _firebaseFirestore.userDocument();
+//   yield* userDoc.itemCollection
+//       .snapshots()
+//       .map(
+//         (snapshot) => right<ItemErrorFailure, KtList<Item>>(
+//           snapshot.docs
+//               .map((doc) => ItemDto.fromFirestore(doc).toDomain())
+//               .toImmutableList(),
+//         ),
+//       )
+//       .onErrorReturnWith((error) {
+//     if (error is FirebaseException &&
+//         error.message.contains('PERMISSION_DENIED')) {
+//       return left(const ItemErrorFailure.insufficientPermissions());
+//     } else {
+//       return left(const ItemErrorFailure.unexpected());
+//     }
+//   });
+// }

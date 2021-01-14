@@ -82,54 +82,54 @@ const $ItemFormEvent = _$ItemFormEventTearOff();
 /// @nodoc
 mixin _$ItemFormEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   });
 }
 
@@ -213,16 +213,16 @@ class _$_Initialized implements _Initialized {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -238,17 +238,17 @@ class _$_Initialized implements _Initialized {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialized != null) {
@@ -259,16 +259,16 @@ class _$_Initialized implements _Initialized {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -284,17 +284,17 @@ class _$_Initialized implements _Initialized {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initialized != null) {
@@ -369,16 +369,16 @@ class _$_NameChanged implements _NameChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -394,17 +394,17 @@ class _$_NameChanged implements _NameChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (nameChanged != null) {
@@ -415,16 +415,16 @@ class _$_NameChanged implements _NameChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -440,17 +440,17 @@ class _$_NameChanged implements _NameChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (nameChanged != null) {
@@ -527,16 +527,16 @@ class _$_DescriptionChanged implements _DescriptionChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -552,17 +552,17 @@ class _$_DescriptionChanged implements _DescriptionChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (descriptionChanged != null) {
@@ -573,16 +573,16 @@ class _$_DescriptionChanged implements _DescriptionChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -598,17 +598,17 @@ class _$_DescriptionChanged implements _DescriptionChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (descriptionChanged != null) {
@@ -684,16 +684,16 @@ class _$_PriceChanged implements _PriceChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -709,17 +709,17 @@ class _$_PriceChanged implements _PriceChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (priceChanged != null) {
@@ -730,16 +730,16 @@ class _$_PriceChanged implements _PriceChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -755,17 +755,17 @@ class _$_PriceChanged implements _PriceChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (priceChanged != null) {
@@ -842,16 +842,16 @@ class _$_DeliveryChanged implements _DeliveryChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -867,17 +867,17 @@ class _$_DeliveryChanged implements _DeliveryChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (deliveryChanged != null) {
@@ -888,16 +888,16 @@ class _$_DeliveryChanged implements _DeliveryChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -913,17 +913,17 @@ class _$_DeliveryChanged implements _DeliveryChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (deliveryChanged != null) {
@@ -1000,16 +1000,16 @@ class _$_QuantityChanged implements _QuantityChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1025,17 +1025,17 @@ class _$_QuantityChanged implements _QuantityChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (quantityChanged != null) {
@@ -1046,16 +1046,16 @@ class _$_QuantityChanged implements _QuantityChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1071,17 +1071,17 @@ class _$_QuantityChanged implements _QuantityChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (quantityChanged != null) {
@@ -1158,16 +1158,16 @@ class _$_PurchasableChanged implements _PurchasableChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1183,17 +1183,17 @@ class _$_PurchasableChanged implements _PurchasableChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (purchasableChanged != null) {
@@ -1204,16 +1204,16 @@ class _$_PurchasableChanged implements _PurchasableChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1229,17 +1229,17 @@ class _$_PurchasableChanged implements _PurchasableChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (purchasableChanged != null) {
@@ -1315,16 +1315,16 @@ class _$_ItemsChanged implements _ItemsChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1340,17 +1340,17 @@ class _$_ItemsChanged implements _ItemsChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (itemsChanged != null) {
@@ -1361,16 +1361,16 @@ class _$_ItemsChanged implements _ItemsChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1386,17 +1386,17 @@ class _$_ItemsChanged implements _ItemsChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (itemsChanged != null) {
@@ -1449,16 +1449,16 @@ class _$_Saved implements _Saved {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initialized(Option<Item> initialItemOption),
-    @required Result nameChanged(String name),
-    @required Result descriptionChanged(String description),
-    @required Result priceChanged(double price),
-    @required Result deliveryChanged(double delivery),
-    @required Result quantityChanged(int quantity),
-    @required Result purchasableChanged(bool purchasable),
-    @required Result itemsChanged(KtList<ImageItemPrimitive> items),
-    @required Result saved(),
+  TResult when<TResult extends Object>({
+    @required TResult initialized(Option<Item> initialItemOption),
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult priceChanged(double price),
+    @required TResult deliveryChanged(double delivery),
+    @required TResult quantityChanged(int quantity),
+    @required TResult purchasableChanged(bool purchasable),
+    @required TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    @required TResult saved(),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1474,17 +1474,17 @@ class _$_Saved implements _Saved {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initialized(Option<Item> initialItemOption),
-    Result nameChanged(String name),
-    Result descriptionChanged(String description),
-    Result priceChanged(double price),
-    Result deliveryChanged(double delivery),
-    Result quantityChanged(int quantity),
-    Result purchasableChanged(bool purchasable),
-    Result itemsChanged(KtList<ImageItemPrimitive> items),
-    Result saved(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initialized(Option<Item> initialItemOption),
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult priceChanged(double price),
+    TResult deliveryChanged(double delivery),
+    TResult quantityChanged(int quantity),
+    TResult purchasableChanged(bool purchasable),
+    TResult itemsChanged(KtList<ImageItemPrimitive> items),
+    TResult saved(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (saved != null) {
@@ -1495,16 +1495,16 @@ class _$_Saved implements _Saved {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initialized(_Initialized value),
-    @required Result nameChanged(_NameChanged value),
-    @required Result descriptionChanged(_DescriptionChanged value),
-    @required Result priceChanged(_PriceChanged value),
-    @required Result deliveryChanged(_DeliveryChanged value),
-    @required Result quantityChanged(_QuantityChanged value),
-    @required Result purchasableChanged(_PurchasableChanged value),
-    @required Result itemsChanged(_ItemsChanged value),
-    @required Result saved(_Saved value),
+  TResult map<TResult extends Object>({
+    @required TResult initialized(_Initialized value),
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult deliveryChanged(_DeliveryChanged value),
+    @required TResult quantityChanged(_QuantityChanged value),
+    @required TResult purchasableChanged(_PurchasableChanged value),
+    @required TResult itemsChanged(_ItemsChanged value),
+    @required TResult saved(_Saved value),
   }) {
     assert(initialized != null);
     assert(nameChanged != null);
@@ -1520,17 +1520,17 @@ class _$_Saved implements _Saved {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initialized(_Initialized value),
-    Result nameChanged(_NameChanged value),
-    Result descriptionChanged(_DescriptionChanged value),
-    Result priceChanged(_PriceChanged value),
-    Result deliveryChanged(_DeliveryChanged value),
-    Result quantityChanged(_QuantityChanged value),
-    Result purchasableChanged(_PurchasableChanged value),
-    Result itemsChanged(_ItemsChanged value),
-    Result saved(_Saved value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initialized(_Initialized value),
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult deliveryChanged(_DeliveryChanged value),
+    TResult quantityChanged(_QuantityChanged value),
+    TResult purchasableChanged(_PurchasableChanged value),
+    TResult itemsChanged(_ItemsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (saved != null) {

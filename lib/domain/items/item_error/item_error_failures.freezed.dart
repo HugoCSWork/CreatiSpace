@@ -36,30 +36,30 @@ const $ItemErrorFailure = _$ItemErrorFailureTearOff();
 /// @nodoc
 mixin _$ItemErrorFailure {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result unexpected(),
-    @required Result insufficientPermissions(),
-    @required Result notFound(),
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult insufficientPermissions(),
+    @required TResult notFound(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result unexpected(),
-    Result insufficientPermissions(),
-    Result notFound(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult insufficientPermissions(),
+    TResult notFound(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result unexpected(Unexpected value),
-    @required Result insufficientPermissions(InsufficientPermissions value),
-    @required Result notFound(NotFound value),
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult insufficientPermissions(InsufficientPermissions value),
+    @required TResult notFound(NotFound value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result unexpected(Unexpected value),
-    Result insufficientPermissions(InsufficientPermissions value),
-    Result notFound(NotFound value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult insufficientPermissions(InsufficientPermissions value),
+    TResult notFound(NotFound value),
+    @required TResult orElse(),
   });
 }
 
@@ -117,10 +117,10 @@ class _$Unexpected implements Unexpected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result unexpected(),
-    @required Result insufficientPermissions(),
-    @required Result notFound(),
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult insufficientPermissions(),
+    @required TResult notFound(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
@@ -130,11 +130,11 @@ class _$Unexpected implements Unexpected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result unexpected(),
-    Result insufficientPermissions(),
-    Result notFound(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult insufficientPermissions(),
+    TResult notFound(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unexpected != null) {
@@ -145,10 +145,10 @@ class _$Unexpected implements Unexpected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result unexpected(Unexpected value),
-    @required Result insufficientPermissions(InsufficientPermissions value),
-    @required Result notFound(NotFound value),
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult insufficientPermissions(InsufficientPermissions value),
+    @required TResult notFound(NotFound value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
@@ -158,11 +158,11 @@ class _$Unexpected implements Unexpected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result unexpected(Unexpected value),
-    Result insufficientPermissions(InsufficientPermissions value),
-    Result notFound(NotFound value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult insufficientPermissions(InsufficientPermissions value),
+    TResult notFound(NotFound value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unexpected != null) {
@@ -214,10 +214,10 @@ class _$InsufficientPermissions implements InsufficientPermissions {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result unexpected(),
-    @required Result insufficientPermissions(),
-    @required Result notFound(),
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult insufficientPermissions(),
+    @required TResult notFound(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
@@ -227,11 +227,11 @@ class _$InsufficientPermissions implements InsufficientPermissions {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result unexpected(),
-    Result insufficientPermissions(),
-    Result notFound(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult insufficientPermissions(),
+    TResult notFound(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (insufficientPermissions != null) {
@@ -242,10 +242,10 @@ class _$InsufficientPermissions implements InsufficientPermissions {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result unexpected(Unexpected value),
-    @required Result insufficientPermissions(InsufficientPermissions value),
-    @required Result notFound(NotFound value),
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult insufficientPermissions(InsufficientPermissions value),
+    @required TResult notFound(NotFound value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
@@ -255,11 +255,11 @@ class _$InsufficientPermissions implements InsufficientPermissions {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result unexpected(Unexpected value),
-    Result insufficientPermissions(InsufficientPermissions value),
-    Result notFound(NotFound value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult insufficientPermissions(InsufficientPermissions value),
+    TResult notFound(NotFound value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (insufficientPermissions != null) {
@@ -308,10 +308,10 @@ class _$NotFound implements NotFound {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result unexpected(),
-    @required Result insufficientPermissions(),
-    @required Result notFound(),
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult insufficientPermissions(),
+    @required TResult notFound(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
@@ -321,11 +321,11 @@ class _$NotFound implements NotFound {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result unexpected(),
-    Result insufficientPermissions(),
-    Result notFound(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult insufficientPermissions(),
+    TResult notFound(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (notFound != null) {
@@ -336,10 +336,10 @@ class _$NotFound implements NotFound {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result unexpected(Unexpected value),
-    @required Result insufficientPermissions(InsufficientPermissions value),
-    @required Result notFound(NotFound value),
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult insufficientPermissions(InsufficientPermissions value),
+    @required TResult notFound(NotFound value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
@@ -349,11 +349,11 @@ class _$NotFound implements NotFound {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result unexpected(Unexpected value),
-    Result insufficientPermissions(InsufficientPermissions value),
-    Result notFound(NotFound value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult insufficientPermissions(InsufficientPermissions value),
+    TResult notFound(NotFound value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (notFound != null) {

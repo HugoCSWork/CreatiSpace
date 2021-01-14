@@ -6,6 +6,7 @@ extension FirebaseUserDomainX on User {
   CurrentUser toDomain() {
     return CurrentUser(
       id: UniqueId.fromUniqueString(uid),
+      emailVerified: emailVerified,
     );
   }
 }

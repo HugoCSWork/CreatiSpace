@@ -66,7 +66,10 @@ class ItemCard extends StatelessWidget {
                   child: SizedBox(
                       width: 80.0,
                       height: 120.0,
-                      child: _getImage(context, item.images.getOrCrash()[0].url),
+                      child:  item.images.value.fold(
+                        (l) => null, 
+                        (r) =>  r.size != 0 ? _getImage(context, item.images.getOrCrash()[0].url) : Container(),
+                      )
                   ),
                 ),
                 const SizedBox(

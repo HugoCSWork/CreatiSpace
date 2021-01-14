@@ -15,15 +15,20 @@ class SplashPage extends StatelessWidget {
             authenticated: (_) {
               Future.delayed(const Duration(seconds: 1), () {
                 return ExtendedNavigator.of(context)
-                  .replace(Routes.itemsOverviewPage);
+                  .replace(Routes.emailVerifiedPage);
               });
             },
             unauthenticated: (_) {
               Future.delayed(const Duration(seconds: 1), () {
                 return ExtendedNavigator.of(context)
-                  .replace(Routes.signInPage);
+                  .replace(Routes.emailVerifiedPage);
               });
-              
+            },
+            unverified: (_) {
+              Future.delayed(const Duration(seconds: 1), () {
+                return ExtendedNavigator.of(context)
+                  .replace(Routes.emailVerifiedPage);
+              });
             });
       },
       child: const Scaffold(

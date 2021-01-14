@@ -29,9 +29,11 @@ class SignInForm extends StatelessWidget {
                   'Invalid email and password combination',
             ),
           ).show(context);
-        }, (_) {
-          ExtendedNavigator.of(context).replace(Routes.itemsOverviewPage);
+        }, (verified) {
+          ExtendedNavigator.of(context).replace(Routes.emailVerifiedPage);
           context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
+
+          
         }),
       );
     }, builder: (context, state) {

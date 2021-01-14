@@ -7,6 +7,7 @@ part 'user.freezed.dart';
 abstract class CurrentUser with _$CurrentUser {
   const factory CurrentUser({
     @required UniqueId id,
+    @required bool emailVerified,
   }) = _CurrentUser;
 }
 

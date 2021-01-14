@@ -33,26 +33,26 @@ const $ForgottenPasswordEvent = _$ForgottenPasswordEventTearOff();
 /// @nodoc
 mixin _$ForgottenPasswordEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result passwordReset(),
-    @required Result emailChanged(String email),
+  TResult when<TResult extends Object>({
+    @required TResult passwordReset(),
+    @required TResult emailChanged(String email),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result passwordReset(),
-    Result emailChanged(String email),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult passwordReset(),
+    TResult emailChanged(String email),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result passwordReset(PasswordReset value),
-    @required Result emailChanged(EmailChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult passwordReset(PasswordReset value),
+    @required TResult emailChanged(EmailChanged value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result passwordReset(PasswordReset value),
-    Result emailChanged(EmailChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult passwordReset(PasswordReset value),
+    TResult emailChanged(EmailChanged value),
+    @required TResult orElse(),
   });
 }
 
@@ -111,9 +111,9 @@ class _$PasswordReset implements PasswordReset {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result passwordReset(),
-    @required Result emailChanged(String email),
+  TResult when<TResult extends Object>({
+    @required TResult passwordReset(),
+    @required TResult emailChanged(String email),
   }) {
     assert(passwordReset != null);
     assert(emailChanged != null);
@@ -122,10 +122,10 @@ class _$PasswordReset implements PasswordReset {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result passwordReset(),
-    Result emailChanged(String email),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult passwordReset(),
+    TResult emailChanged(String email),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (passwordReset != null) {
@@ -136,9 +136,9 @@ class _$PasswordReset implements PasswordReset {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result passwordReset(PasswordReset value),
-    @required Result emailChanged(EmailChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult passwordReset(PasswordReset value),
+    @required TResult emailChanged(EmailChanged value),
   }) {
     assert(passwordReset != null);
     assert(emailChanged != null);
@@ -147,10 +147,10 @@ class _$PasswordReset implements PasswordReset {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result passwordReset(PasswordReset value),
-    Result emailChanged(EmailChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult passwordReset(PasswordReset value),
+    TResult emailChanged(EmailChanged value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (passwordReset != null) {
@@ -223,9 +223,9 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result passwordReset(),
-    @required Result emailChanged(String email),
+  TResult when<TResult extends Object>({
+    @required TResult passwordReset(),
+    @required TResult emailChanged(String email),
   }) {
     assert(passwordReset != null);
     assert(emailChanged != null);
@@ -234,10 +234,10 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result passwordReset(),
-    Result emailChanged(String email),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult passwordReset(),
+    TResult emailChanged(String email),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (emailChanged != null) {
@@ -248,9 +248,9 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result passwordReset(PasswordReset value),
-    @required Result emailChanged(EmailChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult passwordReset(PasswordReset value),
+    @required TResult emailChanged(EmailChanged value),
   }) {
     assert(passwordReset != null);
     assert(emailChanged != null);
@@ -259,10 +259,10 @@ class _$EmailChanged implements EmailChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result passwordReset(PasswordReset value),
-    Result emailChanged(EmailChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult passwordReset(PasswordReset value),
+    TResult emailChanged(EmailChanged value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (emailChanged != null) {
