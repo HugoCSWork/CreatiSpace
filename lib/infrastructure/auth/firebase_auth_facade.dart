@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/auth/auth_error/auth_error_failures.dart';
 import 'package:creatispace/domain/auth/i_auth_facade.dart';
@@ -111,6 +113,14 @@ class FirebaseAuthFacade implements IAuthFacade {
       if(user.additionalUserInfo.isNewUser) {
           await _auth.currentUser.sendEmailVerification();
       }
+      int min = 100000; //min and max values act as your 6 digit range
+      int max = 999999;
+      var randomizer = new Random();
+      var rNum = min + randomizer.nextInt(max - min);
+      await _firebaseFirestore
+          .collection('users')
+          .doc(_auth.currentUser.uid)
+          .set({'username': "random_user${rNum}"});
       return right(unit);
     } on FirebaseAuthException catch (_) {
       return left(const AuthErrorFailure.serviceError());
@@ -142,6 +152,11 @@ class FirebaseAuthFacade implements IAuthFacade {
         _auth.signOut(),
         _googleSignIn.signOut(),
       ]);
+
+  @override
+  Future<void> sendEmailVerification() => Future.wait([
+     _auth.currentUser.sendEmailVerification()
+  ]);
 }
 
 // Stream<Either<ItemErrorFailure, KtList<Item>>> watchAllUserItems() async* {

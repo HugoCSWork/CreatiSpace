@@ -52,7 +52,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             isSubmitting: false,
             authFailureOrSuccess: some(failureOrSuccess),
           );
-        },
+        }
     );
   }
 

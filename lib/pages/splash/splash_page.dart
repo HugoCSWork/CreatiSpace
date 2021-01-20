@@ -10,18 +10,18 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        state.map(
+        state.maybeMap(
             initial: (_) {},
             authenticated: (_) {
               Future.delayed(const Duration(seconds: 1), () {
                 return ExtendedNavigator.of(context)
-                  .replace(Routes.emailVerifiedPage);
+                  .replace(Routes.userListScaffold);
               });
             },
             unauthenticated: (_) {
               Future.delayed(const Duration(seconds: 1), () {
                 return ExtendedNavigator.of(context)
-                  .replace(Routes.emailVerifiedPage);
+                  .replace(Routes.signInPage);
               });
             },
             unverified: (_) {
@@ -29,7 +29,10 @@ class SplashPage extends StatelessWidget {
                 return ExtendedNavigator.of(context)
                   .replace(Routes.emailVerifiedPage);
               });
-            });
+            },
+            //  TODO Add redirect to a error page
+            orElse: () => null
+        );
       },
       child: const Scaffold(
         body: Center(

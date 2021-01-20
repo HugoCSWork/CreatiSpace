@@ -6,6 +6,7 @@ import 'package:creatispace/pages/auth/shared/background.dart';
 import 'package:creatispace/pages/auth/shared/or_divider.dart';
 import 'package:creatispace/pages/auth/sign_in/sign_in_fields.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -29,11 +30,15 @@ class SignInForm extends StatelessWidget {
                   'Invalid email and password combination',
             ),
           ).show(context);
-        }, (verified) {
-          ExtendedNavigator.of(context).replace(Routes.emailVerifiedPage);
+        }, (verified) async {
           context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
+          var user = await FirebaseAuth.instance.currentUser;
+          if (user.emailVerified == true) {
+            ExtendedNavigator.of(context).replace(Routes.itemsOverviewPage);
+          } else {
+            ExtendedNavigator.of(context).replace(Routes.emailVerifiedPage);
 
-          
+          }
         }),
       );
     }, builder: (context, state) {

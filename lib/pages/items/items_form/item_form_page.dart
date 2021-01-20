@@ -138,7 +138,6 @@ class ItemFormPageScaffold extends StatelessWidget {
                       const SizedBox(height: 10),
                       const PreviewOrPay(),
                       const SizedBox(height: 60),
-
                     ],
                   ),
                 )),

@@ -8,5 +8,4 @@ abstract class ItemErrorFailure with _$ItemErrorFailure {
   const factory ItemErrorFailure.unexpected() = Unexpected;
   const factory ItemErrorFailure.insufficientPermissions() = InsufficientPermissions;
   const factory ItemErrorFailure.notFound() = NotFound;
-
 }

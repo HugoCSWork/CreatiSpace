@@ -22,7 +22,8 @@ abstract class IAuthFacade {
   Future<Either<AuthErrorFailure, Unit>> passwordReset({
     @required EmailAddress emailAddress,
   });
-  
+
+  Future<void> sendEmailVerification();
 
   Future<Option<CurrentUser>> getSignedInUser();
 

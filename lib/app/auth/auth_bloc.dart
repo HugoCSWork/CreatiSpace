@@ -31,6 +31,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         await _authFacade.signOut();
         yield const AuthState.unauthenticated();
       },
+      sendEmailVerification: (e) async* {
+        await _authFacade.sendEmailVerification();
+        yield const AuthState.authenticationSent();
+      },
     );
   }
 }

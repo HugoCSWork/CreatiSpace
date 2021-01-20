@@ -17,12 +17,16 @@ import 'infrastructure/core/firebase_injectable_module.dart';
 import 'app/auth/forgotten_password/forgotten_password_bloc.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/items/i_item_facade.dart';
+import 'domain/user_messaging/IUserFacade.dart';
 import 'app/item/item_actor/item_actor_bloc.dart';
 import 'app/item/item_form/item_form_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
 import 'app/auth/sign_in/sign_in_bloc.dart';
 import 'app/auth/sign_up/sign_up_bloc.dart';
+import 'app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
+import 'infrastructure/messaging/messaging_repository.dart';
+import 'app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -46,11 +50,20 @@ GetIt $initGetIt(
       ));
   gh.lazySingleton<IItemFacade>(
       () => ItemRepository(get<FirebaseFirestore>(), get<FirebaseStorage>()));
+  gh.lazySingleton<IUserFacade>(() => UserMessagesRepository(
+        get<FirebaseFirestore>(),
+        get<FirebaseStorage>(),
+        get<FirebaseAuth>(),
+      ));
   gh.factory<ItemActorBloc>(() => ItemActorBloc(get<IItemFacade>()));
   gh.factory<ItemFormBloc>(() => ItemFormBloc(get<IItemFacade>()));
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(get<IAuthFacade>()));
+  gh.factory<UserConversationBloc>(
+      () => UserConversationBloc(get<IUserFacade>()));
+  gh.factory<UserMessagingWatcherBloc>(
+      () => UserMessagingWatcherBloc(get<IUserFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<ForgottenPasswordBloc>(
       () => ForgottenPasswordBloc(get<IAuthFacade>()));

@@ -22,6 +22,11 @@ class _$AuthEventTearOff {
   SignOut signOut() {
     return const SignOut();
   }
+
+// ignore: unused_element
+  SendEmailVerification sendEmailVerification() {
+    return const SendEmailVerification();
+  }
 }
 
 /// @nodoc
@@ -34,22 +39,26 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object>({
     @required TResult authCheckRequested(),
     @required TResult signOut(),
+    @required TResult sendEmailVerification(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult authCheckRequested(),
     TResult signOut(),
+    TResult sendEmailVerification(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult authCheckRequested(AuthCheckRequested value),
     @required TResult signOut(SignOut value),
+    @required TResult sendEmailVerification(SendEmailVerification value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult authCheckRequested(AuthCheckRequested value),
     TResult signOut(SignOut value),
+    TResult sendEmailVerification(SendEmailVerification value),
     @required TResult orElse(),
   });
 }
@@ -110,9 +119,11 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult when<TResult extends Object>({
     @required TResult authCheckRequested(),
     @required TResult signOut(),
+    @required TResult sendEmailVerification(),
   }) {
     assert(authCheckRequested != null);
     assert(signOut != null);
+    assert(sendEmailVerification != null);
     return authCheckRequested();
   }
 
@@ -121,6 +132,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult maybeWhen<TResult extends Object>({
     TResult authCheckRequested(),
     TResult signOut(),
+    TResult sendEmailVerification(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -135,9 +147,11 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult map<TResult extends Object>({
     @required TResult authCheckRequested(AuthCheckRequested value),
     @required TResult signOut(SignOut value),
+    @required TResult sendEmailVerification(SendEmailVerification value),
   }) {
     assert(authCheckRequested != null);
     assert(signOut != null);
+    assert(sendEmailVerification != null);
     return authCheckRequested(this);
   }
 
@@ -146,6 +160,7 @@ class _$AuthCheckRequested implements AuthCheckRequested {
   TResult maybeMap<TResult extends Object>({
     TResult authCheckRequested(AuthCheckRequested value),
     TResult signOut(SignOut value),
+    TResult sendEmailVerification(SendEmailVerification value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -198,9 +213,11 @@ class _$SignOut implements SignOut {
   TResult when<TResult extends Object>({
     @required TResult authCheckRequested(),
     @required TResult signOut(),
+    @required TResult sendEmailVerification(),
   }) {
     assert(authCheckRequested != null);
     assert(signOut != null);
+    assert(sendEmailVerification != null);
     return signOut();
   }
 
@@ -209,6 +226,7 @@ class _$SignOut implements SignOut {
   TResult maybeWhen<TResult extends Object>({
     TResult authCheckRequested(),
     TResult signOut(),
+    TResult sendEmailVerification(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -223,9 +241,11 @@ class _$SignOut implements SignOut {
   TResult map<TResult extends Object>({
     @required TResult authCheckRequested(AuthCheckRequested value),
     @required TResult signOut(SignOut value),
+    @required TResult sendEmailVerification(SendEmailVerification value),
   }) {
     assert(authCheckRequested != null);
     assert(signOut != null);
+    assert(sendEmailVerification != null);
     return signOut(this);
   }
 
@@ -234,6 +254,7 @@ class _$SignOut implements SignOut {
   TResult maybeMap<TResult extends Object>({
     TResult authCheckRequested(AuthCheckRequested value),
     TResult signOut(SignOut value),
+    TResult sendEmailVerification(SendEmailVerification value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -246,6 +267,103 @@ class _$SignOut implements SignOut {
 
 abstract class SignOut implements AuthEvent {
   const factory SignOut() = _$SignOut;
+}
+
+/// @nodoc
+abstract class $SendEmailVerificationCopyWith<$Res> {
+  factory $SendEmailVerificationCopyWith(SendEmailVerification value,
+          $Res Function(SendEmailVerification) then) =
+      _$SendEmailVerificationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SendEmailVerificationCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements $SendEmailVerificationCopyWith<$Res> {
+  _$SendEmailVerificationCopyWithImpl(
+      SendEmailVerification _value, $Res Function(SendEmailVerification) _then)
+      : super(_value, (v) => _then(v as SendEmailVerification));
+
+  @override
+  SendEmailVerification get _value => super._value as SendEmailVerification;
+}
+
+/// @nodoc
+class _$SendEmailVerification implements SendEmailVerification {
+  const _$SendEmailVerification();
+
+  @override
+  String toString() {
+    return 'AuthEvent.sendEmailVerification()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SendEmailVerification);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult authCheckRequested(),
+    @required TResult signOut(),
+    @required TResult sendEmailVerification(),
+  }) {
+    assert(authCheckRequested != null);
+    assert(signOut != null);
+    assert(sendEmailVerification != null);
+    return sendEmailVerification();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult authCheckRequested(),
+    TResult signOut(),
+    TResult sendEmailVerification(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (sendEmailVerification != null) {
+      return sendEmailVerification();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult authCheckRequested(AuthCheckRequested value),
+    @required TResult signOut(SignOut value),
+    @required TResult sendEmailVerification(SendEmailVerification value),
+  }) {
+    assert(authCheckRequested != null);
+    assert(signOut != null);
+    assert(sendEmailVerification != null);
+    return sendEmailVerification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult authCheckRequested(AuthCheckRequested value),
+    TResult signOut(SignOut value),
+    TResult sendEmailVerification(SendEmailVerification value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (sendEmailVerification != null) {
+      return sendEmailVerification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendEmailVerification implements AuthEvent {
+  const factory SendEmailVerification() = _$SendEmailVerification;
 }
 
 /// @nodoc
@@ -271,6 +389,11 @@ class _$AuthStateTearOff {
   Unauthenticated unauthenticated() {
     return const Unauthenticated();
   }
+
+// ignore: unused_element
+  AuthenticationSent authenticationSent() {
+    return const AuthenticationSent();
+  }
 }
 
 /// @nodoc
@@ -285,6 +408,7 @@ mixin _$AuthState {
     @required TResult authenticated(),
     @required TResult unverified(),
     @required TResult unauthenticated(),
+    @required TResult authenticationSent(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -292,6 +416,7 @@ mixin _$AuthState {
     TResult authenticated(),
     TResult unverified(),
     TResult unauthenticated(),
+    TResult authenticationSent(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -300,6 +425,7 @@ mixin _$AuthState {
     @required TResult authenticated(Authenticated value),
     @required TResult unverified(Unverified value),
     @required TResult unauthenticated(Unauthenticated value),
+    @required TResult authenticationSent(AuthenticationSent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -307,6 +433,7 @@ mixin _$AuthState {
     TResult authenticated(Authenticated value),
     TResult unverified(Unverified value),
     TResult unauthenticated(Unauthenticated value),
+    TResult authenticationSent(AuthenticationSent value),
     @required TResult orElse(),
   });
 }
@@ -366,11 +493,13 @@ class _$Initial implements Initial {
     @required TResult authenticated(),
     @required TResult unverified(),
     @required TResult unauthenticated(),
+    @required TResult authenticationSent(),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return initial();
   }
 
@@ -381,6 +510,7 @@ class _$Initial implements Initial {
     TResult authenticated(),
     TResult unverified(),
     TResult unauthenticated(),
+    TResult authenticationSent(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -397,11 +527,13 @@ class _$Initial implements Initial {
     @required TResult authenticated(Authenticated value),
     @required TResult unverified(Unverified value),
     @required TResult unauthenticated(Unauthenticated value),
+    @required TResult authenticationSent(AuthenticationSent value),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return initial(this);
   }
 
@@ -412,6 +544,7 @@ class _$Initial implements Initial {
     TResult authenticated(Authenticated value),
     TResult unverified(Unverified value),
     TResult unauthenticated(Unauthenticated value),
+    TResult authenticationSent(AuthenticationSent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -468,11 +601,13 @@ class _$Authenticated implements Authenticated {
     @required TResult authenticated(),
     @required TResult unverified(),
     @required TResult unauthenticated(),
+    @required TResult authenticationSent(),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return authenticated();
   }
 
@@ -483,6 +618,7 @@ class _$Authenticated implements Authenticated {
     TResult authenticated(),
     TResult unverified(),
     TResult unauthenticated(),
+    TResult authenticationSent(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -499,11 +635,13 @@ class _$Authenticated implements Authenticated {
     @required TResult authenticated(Authenticated value),
     @required TResult unverified(Unverified value),
     @required TResult unauthenticated(Unauthenticated value),
+    @required TResult authenticationSent(AuthenticationSent value),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return authenticated(this);
   }
 
@@ -514,6 +652,7 @@ class _$Authenticated implements Authenticated {
     TResult authenticated(Authenticated value),
     TResult unverified(Unverified value),
     TResult unauthenticated(Unauthenticated value),
+    TResult authenticationSent(AuthenticationSent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -569,11 +708,13 @@ class _$Unverified implements Unverified {
     @required TResult authenticated(),
     @required TResult unverified(),
     @required TResult unauthenticated(),
+    @required TResult authenticationSent(),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return unverified();
   }
 
@@ -584,6 +725,7 @@ class _$Unverified implements Unverified {
     TResult authenticated(),
     TResult unverified(),
     TResult unauthenticated(),
+    TResult authenticationSent(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -600,11 +742,13 @@ class _$Unverified implements Unverified {
     @required TResult authenticated(Authenticated value),
     @required TResult unverified(Unverified value),
     @required TResult unauthenticated(Unauthenticated value),
+    @required TResult authenticationSent(AuthenticationSent value),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return unverified(this);
   }
 
@@ -615,6 +759,7 @@ class _$Unverified implements Unverified {
     TResult authenticated(Authenticated value),
     TResult unverified(Unverified value),
     TResult unauthenticated(Unauthenticated value),
+    TResult authenticationSent(AuthenticationSent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -671,11 +816,13 @@ class _$Unauthenticated implements Unauthenticated {
     @required TResult authenticated(),
     @required TResult unverified(),
     @required TResult unauthenticated(),
+    @required TResult authenticationSent(),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return unauthenticated();
   }
 
@@ -686,6 +833,7 @@ class _$Unauthenticated implements Unauthenticated {
     TResult authenticated(),
     TResult unverified(),
     TResult unauthenticated(),
+    TResult authenticationSent(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -702,11 +850,13 @@ class _$Unauthenticated implements Unauthenticated {
     @required TResult authenticated(Authenticated value),
     @required TResult unverified(Unverified value),
     @required TResult unauthenticated(Unauthenticated value),
+    @required TResult authenticationSent(AuthenticationSent value),
   }) {
     assert(initial != null);
     assert(authenticated != null);
     assert(unverified != null);
     assert(unauthenticated != null);
+    assert(authenticationSent != null);
     return unauthenticated(this);
   }
 
@@ -717,6 +867,7 @@ class _$Unauthenticated implements Unauthenticated {
     TResult authenticated(Authenticated value),
     TResult unverified(Unverified value),
     TResult unauthenticated(Unauthenticated value),
+    TResult authenticationSent(AuthenticationSent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -729,4 +880,113 @@ class _$Unauthenticated implements Unauthenticated {
 
 abstract class Unauthenticated implements AuthState {
   const factory Unauthenticated() = _$Unauthenticated;
+}
+
+/// @nodoc
+abstract class $AuthenticationSentCopyWith<$Res> {
+  factory $AuthenticationSentCopyWith(
+          AuthenticationSent value, $Res Function(AuthenticationSent) then) =
+      _$AuthenticationSentCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthenticationSentCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthenticationSentCopyWith<$Res> {
+  _$AuthenticationSentCopyWithImpl(
+      AuthenticationSent _value, $Res Function(AuthenticationSent) _then)
+      : super(_value, (v) => _then(v as AuthenticationSent));
+
+  @override
+  AuthenticationSent get _value => super._value as AuthenticationSent;
+}
+
+/// @nodoc
+class _$AuthenticationSent implements AuthenticationSent {
+  const _$AuthenticationSent();
+
+  @override
+  String toString() {
+    return 'AuthState.authenticationSent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is AuthenticationSent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult authenticated(),
+    @required TResult unverified(),
+    @required TResult unauthenticated(),
+    @required TResult authenticationSent(),
+  }) {
+    assert(initial != null);
+    assert(authenticated != null);
+    assert(unverified != null);
+    assert(unauthenticated != null);
+    assert(authenticationSent != null);
+    return authenticationSent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult authenticated(),
+    TResult unverified(),
+    TResult unauthenticated(),
+    TResult authenticationSent(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (authenticationSent != null) {
+      return authenticationSent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(Initial value),
+    @required TResult authenticated(Authenticated value),
+    @required TResult unverified(Unverified value),
+    @required TResult unauthenticated(Unauthenticated value),
+    @required TResult authenticationSent(AuthenticationSent value),
+  }) {
+    assert(initial != null);
+    assert(authenticated != null);
+    assert(unverified != null);
+    assert(unauthenticated != null);
+    assert(authenticationSent != null);
+    return authenticationSent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(Initial value),
+    TResult authenticated(Authenticated value),
+    TResult unverified(Unverified value),
+    TResult unauthenticated(Unauthenticated value),
+    TResult authenticationSent(AuthenticationSent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (authenticationSent != null) {
+      return authenticationSent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthenticationSent implements AuthState {
+  const factory AuthenticationSent() = _$AuthenticationSent;
 }

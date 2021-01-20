@@ -28,8 +28,10 @@ class ItemsOverviewPage extends StatelessWidget {
         listeners: [
           BlocListener<AuthBloc, AuthState>(listener: (context, state) {
             state.maybeMap(
-                unauthenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.signInPage),
+                unauthenticated: (_) {
+                  context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
+                  ExtendedNavigator.of(context).replace(Routes.signInPage);
+                },
                 orElse: () {});
           }),
           BlocListener<ItemActorBloc, ItemActorState>(

@@ -1,6 +1,13 @@
 import 'dart:async';
+import 'package:auto_route/auto_route.dart';
+import 'package:creatispace/app/auth/auth_bloc.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:creatispace/app/auth/sign_in/sign_in_bloc.dart';
+import 'package:timer_button/timer_button.dart';
 
 class EmailVerifiedPage extends StatefulWidget {
   @override
@@ -10,26 +17,31 @@ class EmailVerifiedPage extends StatefulWidget {
 class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
   Timer _timer;
 
-
-
-  // @override
-  // void initState() {
-  //   Future(() async {
-  //   _timer = Timer.periodic(Duration(seconds: 15), (timer) async {
-  //     await FirebaseAuth.instance.currentUser
-  //       ..reload();
-  //     var user = await FirebaseAuth.instance.currentUser;
-  //     if (user.emailVerified == true) {
-  //       _timer.cancel();
-  //       ExtendedNavigator.of(context).push(Routes.itemsOverviewPage);
-  //       super.initState();
-  //     }
-  //   });
-  // });
-  // }
+  @override
+  void initState() {
+    Future(() async {
+    _timer = Timer.periodic(Duration(seconds: 15), (timer) async {
+      await FirebaseAuth.instance.currentUser
+        ..reload();
+      var user = await FirebaseAuth.instance.currentUser;
+      if (user.emailVerified == true) {
+        _timer.cancel();
+        ExtendedNavigator.of(context).push(Routes.itemsOverviewPage);
+      }
+    });
+  });
+  }
 
   @override
   Widget build(BuildContext context) {
+
+    BlocListener<AuthBloc, AuthState>(listener: (context, state) {
+      state.maybeMap(
+          unauthenticated: (_) =>
+              ExtendedNavigator.of(context).replace(Routes.signInPage),
+          orElse: () {});
+    });
+
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -56,12 +68,14 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
                   ButtonTheme(
                     height: 40,
                     child: RaisedButton(
-                        color: Colors.blue[200],
-                        onPressed: () => {},
-                        child: Text("Resend Verification Email"),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
+                      color: Colors.blue[200],
+                      onPressed: () {
+                        context.read<AuthBloc>().add(const AuthEvent.sendEmailVerification());
+                      },
+                      child: Text("Resend Verification Email"),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
                     ),
                   ),
                   ButtonTheme(

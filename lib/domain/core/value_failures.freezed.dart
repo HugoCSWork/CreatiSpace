@@ -26,6 +26,13 @@ class _$ValueFailureTearOff {
       i,
     );
   }
+
+// ignore: unused_element
+  _UserMessaging<T> messaging<T>(UserValueFailure<T> i) {
+    return _UserMessaging<T>(
+      i,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,22 +45,26 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
+    TResult messaging(_UserMessaging<T> value),
     @required TResult orElse(),
   });
 }
@@ -146,9 +157,11 @@ class _$_Auth<T> implements _Auth<T> {
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
+    assert(messaging != null);
     return auth(f);
   }
 
@@ -157,6 +170,7 @@ class _$_Auth<T> implements _Auth<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -171,9 +185,11 @@ class _$_Auth<T> implements _Auth<T> {
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
+    assert(messaging != null);
     return auth(this);
   }
 
@@ -182,6 +198,7 @@ class _$_Auth<T> implements _Auth<T> {
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
+    TResult messaging(_UserMessaging<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -270,9 +287,11 @@ class _$_Item<T> implements _Item<T> {
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
+    assert(messaging != null);
     return item(i);
   }
 
@@ -281,6 +300,7 @@ class _$_Item<T> implements _Item<T> {
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -295,9 +315,11 @@ class _$_Item<T> implements _Item<T> {
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
+    assert(messaging != null);
     return item(this);
   }
 
@@ -306,6 +328,7 @@ class _$_Item<T> implements _Item<T> {
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
+    TResult messaging(_UserMessaging<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -321,4 +344,137 @@ abstract class _Item<T> implements ValueFailure<T> {
 
   ItemValueFailure<T> get i;
   _$ItemCopyWith<T, _Item<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$UserMessagingCopyWith<T, $Res> {
+  factory _$UserMessagingCopyWith(
+          _UserMessaging<T> value, $Res Function(_UserMessaging<T>) then) =
+      __$UserMessagingCopyWithImpl<T, $Res>;
+  $Res call({UserValueFailure<T> i});
+
+  $UserValueFailureCopyWith<T, $Res> get i;
+}
+
+/// @nodoc
+class __$UserMessagingCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$UserMessagingCopyWith<T, $Res> {
+  __$UserMessagingCopyWithImpl(
+      _UserMessaging<T> _value, $Res Function(_UserMessaging<T>) _then)
+      : super(_value, (v) => _then(v as _UserMessaging<T>));
+
+  @override
+  _UserMessaging<T> get _value => super._value as _UserMessaging<T>;
+
+  @override
+  $Res call({
+    Object i = freezed,
+  }) {
+    return _then(_UserMessaging<T>(
+      i == freezed ? _value.i : i as UserValueFailure<T>,
+    ));
+  }
+
+  @override
+  $UserValueFailureCopyWith<T, $Res> get i {
+    if (_value.i == null) {
+      return null;
+    }
+    return $UserValueFailureCopyWith<T, $Res>(_value.i, (value) {
+      return _then(_value.copyWith(i: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_UserMessaging<T> implements _UserMessaging<T> {
+  const _$_UserMessaging(this.i) : assert(i != null);
+
+  @override
+  final UserValueFailure<T> i;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.messaging(i: $i)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserMessaging<T> &&
+            (identical(other.i, i) ||
+                const DeepCollectionEquality().equals(other.i, i)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
+
+  @override
+  _$UserMessagingCopyWith<T, _UserMessaging<T>> get copyWith =>
+      __$UserMessagingCopyWithImpl<T, _UserMessaging<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult item(ItemValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
+  }) {
+    assert(auth != null);
+    assert(item != null);
+    assert(messaging != null);
+    return messaging(i);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult item(ItemValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (messaging != null) {
+      return messaging(i);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult item(_Item<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
+  }) {
+    assert(auth != null);
+    assert(item != null);
+    assert(messaging != null);
+    return messaging(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult item(_Item<T> value),
+    TResult messaging(_UserMessaging<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (messaging != null) {
+      return messaging(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserMessaging<T> implements ValueFailure<T> {
+  const factory _UserMessaging(UserValueFailure<T> i) = _$_UserMessaging<T>;
+
+  UserValueFailure<T> get i;
+  _$UserMessagingCopyWith<T, _UserMessaging<T>> get copyWith;
 }
