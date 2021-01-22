@@ -1,6 +1,7 @@
 
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_image/item_image.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
@@ -9,6 +10,8 @@ import 'package:kt_dart/collection.dart';
 import 'package:mime/mime.dart';
 
 extension FirestorageX on FirebaseStorage {
+
+  // For Uploading Files
   Future<KtList<IndividualImages>> updateImages(
       Item item, String userDoc) async {
     final imageList = item.images.getOrCrash();
@@ -49,6 +52,7 @@ extension FirestorageX on FirebaseStorage {
     return KtList.from(updatedImages);
   }
 
+  // For Deleting Files
   Future<void> deleteImagesFromCollection({String userId, Item item, bool deleteAll = false}) async {
     final itemId = item.id.getOrCrash();
     final imageList = item.images.getOrCrash();
@@ -72,5 +76,19 @@ extension FirestorageX on FirebaseStorage {
           }
       }
     });
+  }
+
+
+  // upload image for messages
+  Future<String> uploadImage(String uploadPath, String imageLocation) async {
+    final imageReference = FirebaseStorage.instance
+        .ref()
+        .child(uploadPath);
+
+    await imageReference.putFile(File(imageLocation));
+   return await FirebaseStorage.instance
+        .ref()
+        .child(uploadPath)
+        .getDownloadURL();
   }
 }

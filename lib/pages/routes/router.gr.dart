@@ -17,7 +17,7 @@ import '../auth/sign_up/sign_up_page.dart';
 import '../auth/verify_email/email_verified_page.dart';
 import '../items/items_form/item_form_page.dart';
 import '../items/items_overview/items_overview_page.dart';
-import '../messaging/messaging.dart';
+import '../messaging/following_list/following_scaffold.dart';
 import '../messaging/messaging/messaging_scaffold.dart';
 import '../messaging/messaging/widgets/full_screen_image.dart';
 import '../messaging/user_list/user_list.dart';
@@ -31,9 +31,9 @@ class Routes {
   static const String forgottenPasswordPage = '/forgotten-password-page';
   static const String itemsOverviewPage = '/items-overview-page';
   static const String emailVerifiedPage = '/email-verified-page';
-  static const String chat = '/Chat';
   static const String userList = '/user-list';
   static const String userListScaffold = '/user-list-scaffold';
+  static const String followingScaffold = '/following-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
   static const String itemFormPage = '/item-form-page';
@@ -44,9 +44,9 @@ class Routes {
     forgottenPasswordPage,
     itemsOverviewPage,
     emailVerifiedPage,
-    chat,
     userList,
     userListScaffold,
+    followingScaffold,
     messagingScaffold,
     fullScreenImage,
     itemFormPage,
@@ -63,9 +63,9 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.forgottenPasswordPage, page: ForgottenPasswordPage),
     RouteDef(Routes.itemsOverviewPage, page: ItemsOverviewPage),
     RouteDef(Routes.emailVerifiedPage, page: EmailVerifiedPage),
-    RouteDef(Routes.chat, page: Chat),
     RouteDef(Routes.userList, page: UserList),
     RouteDef(Routes.userListScaffold, page: UserListScaffold),
+    RouteDef(Routes.followingScaffold, page: FollowingScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
@@ -109,12 +109,6 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
-    Chat: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => Chat(),
-        settings: data,
-      );
-    },
     UserList: (data) {
       final args = data.getArgs<UserListArguments>(
         orElse: () => UserListArguments(),
@@ -130,6 +124,12 @@ class BaseRouter extends RouterBase {
     UserListScaffold: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => UserListScaffold(),
+        settings: data,
+      );
+    },
+    FollowingScaffold: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => FollowingScaffold(),
         settings: data,
       );
     },
@@ -191,8 +191,6 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEmailVerifiedPage() =>
       push<dynamic>(Routes.emailVerifiedPage);
 
-  Future<dynamic> pushChat() => push<dynamic>(Routes.chat);
-
   Future<dynamic> pushUserList({
     Key key,
     UserMessaging userMessaging,
@@ -204,6 +202,9 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushUserListScaffold() =>
       push<dynamic>(Routes.userListScaffold);
+
+  Future<dynamic> pushFollowingScaffold() =>
+      push<dynamic>(Routes.followingScaffold);
 
   Future<dynamic> pushMessagingScaffold({
     Key key,

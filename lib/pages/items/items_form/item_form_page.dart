@@ -36,7 +36,7 @@ class ItemFormPage extends StatelessWidget {
                       FlushbarHelper.createError(
                           message: failure.map(
                               unexpected: (_) =>
-                                  'Unexpected Error occured, contact support.',
+                                  'Unexpected Error occurred, contact support.',
                               insufficientPermissions: (_) =>
                                   'Insufficient Permissions.',
                               notFound: (_) =>

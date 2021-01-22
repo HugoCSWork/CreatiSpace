@@ -16,14 +16,14 @@ Widget UserMessageDescription(String description, String lastSeen) {
                 color: Colors.black,
                 fontSize: 17,
               ),
-              children: <TextSpan>[
-                TextSpan(
-                    text: "\nLast seen ${lastSeen}",
-                    style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
-              ],
+            //   children: <TextSpan>[
+            //     TextSpan(
+            //         text: "\nLast seen ${lastSeen}",
+            //         style: TextStyle(
+            //             color: Colors.grey,
+            //             fontSize: 15,
+            //             fontWeight: FontWeight.bold)),
+            //   ],
             ),
           ),
         ],

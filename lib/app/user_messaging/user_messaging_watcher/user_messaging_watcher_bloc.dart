@@ -44,6 +44,21 @@ class UserMessagingWatcherBloc
           (messageList) => UserMessagingWatcherState.loadSuccess(messageList),
         );
       },
+      watchAllUserFollowingList: (e) async* {
+        yield const UserMessagingWatcherState.loadInProgress();
+        await _userMessagingStreamSubscription?.cancel();
+        _userMessagingStreamSubscription =
+            _iUserFacade.GetAllUserFollowingList().listen(
+                  (failureOrItems) =>
+                  add(UserMessagingWatcherEvent.FollowingListReceived(failureOrItems)),
+            );
+      },
+      FollowingListReceived: (e) async* {
+        yield e.failureOrMessages.fold(
+              (f) => UserMessagingWatcherState.loadFailure(f),
+              (messageList) => UserMessagingWatcherState.loadSuccess(messageList),
+        );
+      },
     );
   }
 }

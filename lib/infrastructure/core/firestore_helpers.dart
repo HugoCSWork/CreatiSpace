@@ -22,6 +22,16 @@ extension FirestoreX on FirebaseFirestore {
         .doc(id);
   }
 
+  Future<String> userDocumentName(String id) async {
+    var user = (await FirebaseFirestore.instance
+        .collection('users')
+        .doc(id)
+        .get()).data();
+
+    return user["username"].toString();
+
+  }
+
   Future<DocumentReference> peerDocumentMessage(String id) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
@@ -31,11 +41,30 @@ extension FirestoreX on FirebaseFirestore {
         .collection('messages')
         .doc(user.id.getOrCrash());
   }
+
+  // Messages check if document is empty for updates
+  Future<bool> checkIfEmptyDocumentForMessages(DocumentReference reference) async {
+    var options = (await reference.get()).data();
+
+    if(options == null || options["lastSeen"] == null ||
+        options["lastMessage"] == null || options["unreadMessages"] == null ||
+        options["userMessagingName"] == null) {
+      return true;
+    }
+    return false;
+  }
+
+  // Update Files in database
+  Future<void> updatedDocumentsInFirebase(DocumentReference ref,
+      Map<String, dynamic> items) async {
+    await ref.set(items);
+  }
 }
 
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get itemCollection => collection('items');
   CollectionReference get UserMessagesCollection => collection('messages');
+  CollectionReference get UserFollowingCollection => collection('following');
   CollectionReference get UserMessagesConversationCollection => collection('conversation');
 }
 

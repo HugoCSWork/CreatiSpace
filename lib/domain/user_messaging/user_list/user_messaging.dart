@@ -8,7 +8,7 @@ abstract class UserMessaging implements _$UserMessaging {
     @required String userMessagingName,
     String lastMessage,
     String lastSeen,
-    String unreadMessages,
+    bool unreadMessages,
     String userId
   }) = _UserMessaging;
 

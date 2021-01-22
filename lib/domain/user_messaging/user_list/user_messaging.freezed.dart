@@ -19,7 +19,7 @@ class _$UserMessagingTearOff {
       @required String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId}) {
     return _UserMessaging(
       id: id,
@@ -42,7 +42,7 @@ mixin _$UserMessaging {
   String get userMessagingName;
   String get lastMessage;
   String get lastSeen;
-  String get unreadMessages;
+  bool get unreadMessages;
   String get userId;
 
   $UserMessagingCopyWith<UserMessaging> get copyWith;
@@ -58,7 +58,7 @@ abstract class $UserMessagingCopyWith<$Res> {
       String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId});
 }
 
@@ -90,7 +90,7 @@ class _$UserMessagingCopyWithImpl<$Res>
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
       unreadMessages: unreadMessages == freezed
           ? _value.unreadMessages
-          : unreadMessages as String,
+          : unreadMessages as bool,
       userId: userId == freezed ? _value.userId : userId as String,
     ));
   }
@@ -108,7 +108,7 @@ abstract class _$UserMessagingCopyWith<$Res>
       String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId});
 }
 
@@ -142,7 +142,7 @@ class __$UserMessagingCopyWithImpl<$Res>
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
       unreadMessages: unreadMessages == freezed
           ? _value.unreadMessages
-          : unreadMessages as String,
+          : unreadMessages as bool,
       userId: userId == freezed ? _value.userId : userId as String,
     ));
   }
@@ -170,7 +170,7 @@ class _$_UserMessaging extends _UserMessaging {
   @override
   final String lastSeen;
   @override
-  final String unreadMessages;
+  final bool unreadMessages;
   @override
   final String userId;
 
@@ -223,7 +223,7 @@ abstract class _UserMessaging extends UserMessaging {
       @required String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId}) = _$_UserMessaging;
 
   @override
@@ -235,7 +235,7 @@ abstract class _UserMessaging extends UserMessaging {
   @override
   String get lastSeen;
   @override
-  String get unreadMessages;
+  bool get unreadMessages;
   @override
   String get userId;
   @override

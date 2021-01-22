@@ -14,9 +14,11 @@ class _$UserConversationEventTearOff {
   const _$UserConversationEventTearOff();
 
 // ignore: unused_element
-  _watchAllUserConversation watchAllUserConversation(String peerId) {
+  _watchAllUserConversation watchAllUserConversation(
+      String peerId, String peerName) {
     return _watchAllUserConversation(
       peerId,
+      peerName,
     );
   }
 
@@ -36,6 +38,13 @@ class _$UserConversationEventTearOff {
       type,
     );
   }
+
+// ignore: unused_element
+  _DeleteConversation deleteConversation(String peerId) {
+    return _DeleteConversation(
+      peerId,
+    );
+  }
 }
 
 /// @nodoc
@@ -46,19 +55,21 @@ const $UserConversationEvent = _$UserConversationEventTearOff();
 mixin _$UserConversationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult watchAllUserConversation(String peerId),
+    @required TResult watchAllUserConversation(String peerId, String peerName),
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserConversation>>
                 failureOrMessages),
     @required TResult sendMessage(String peerId, String message, int type),
+    @required TResult deleteConversation(String peerId),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult watchAllUserConversation(String peerId),
+    TResult watchAllUserConversation(String peerId, String peerName),
     TResult MessagingListReceived(
         Either<UserErrorFailure, KtList<UserConversation>> failureOrMessages),
     TResult sendMessage(String peerId, String message, int type),
+    TResult deleteConversation(String peerId),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -66,12 +77,14 @@ mixin _$UserConversationEvent {
     @required TResult watchAllUserConversation(_watchAllUserConversation value),
     @required TResult MessagingListReceived(_UserConversationReceived value),
     @required TResult sendMessage(_SendMessage value),
+    @required TResult deleteConversation(_DeleteConversation value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllUserConversation(_watchAllUserConversation value),
     TResult MessagingListReceived(_UserConversationReceived value),
     TResult sendMessage(_SendMessage value),
+    TResult deleteConversation(_DeleteConversation value),
     @required TResult orElse(),
   });
 }
@@ -98,7 +111,7 @@ abstract class _$watchAllUserConversationCopyWith<$Res> {
   factory _$watchAllUserConversationCopyWith(_watchAllUserConversation value,
           $Res Function(_watchAllUserConversation) then) =
       __$watchAllUserConversationCopyWithImpl<$Res>;
-  $Res call({String peerId});
+  $Res call({String peerId, String peerName});
 }
 
 /// @nodoc
@@ -116,23 +129,29 @@ class __$watchAllUserConversationCopyWithImpl<$Res>
   @override
   $Res call({
     Object peerId = freezed,
+    Object peerName = freezed,
   }) {
     return _then(_watchAllUserConversation(
       peerId == freezed ? _value.peerId : peerId as String,
+      peerName == freezed ? _value.peerName : peerName as String,
     ));
   }
 }
 
 /// @nodoc
 class _$_watchAllUserConversation implements _watchAllUserConversation {
-  const _$_watchAllUserConversation(this.peerId) : assert(peerId != null);
+  const _$_watchAllUserConversation(this.peerId, this.peerName)
+      : assert(peerId != null),
+        assert(peerName != null);
 
   @override
   final String peerId;
+  @override
+  final String peerName;
 
   @override
   String toString() {
-    return 'UserConversationEvent.watchAllUserConversation(peerId: $peerId)';
+    return 'UserConversationEvent.watchAllUserConversation(peerId: $peerId, peerName: $peerName)';
   }
 
   @override
@@ -140,12 +159,17 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
     return identical(this, other) ||
         (other is _watchAllUserConversation &&
             (identical(other.peerId, peerId) ||
-                const DeepCollectionEquality().equals(other.peerId, peerId)));
+                const DeepCollectionEquality().equals(other.peerId, peerId)) &&
+            (identical(other.peerName, peerName) ||
+                const DeepCollectionEquality()
+                    .equals(other.peerName, peerName)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(peerId);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(peerId) ^
+      const DeepCollectionEquality().hash(peerName);
 
   @override
   _$watchAllUserConversationCopyWith<_watchAllUserConversation> get copyWith =>
@@ -155,31 +179,34 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult watchAllUserConversation(String peerId),
+    @required TResult watchAllUserConversation(String peerId, String peerName),
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserConversation>>
                 failureOrMessages),
     @required TResult sendMessage(String peerId, String message, int type),
+    @required TResult deleteConversation(String peerId),
   }) {
     assert(watchAllUserConversation != null);
     assert(MessagingListReceived != null);
     assert(sendMessage != null);
-    return watchAllUserConversation(peerId);
+    assert(deleteConversation != null);
+    return watchAllUserConversation(peerId, peerName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult watchAllUserConversation(String peerId),
+    TResult watchAllUserConversation(String peerId, String peerName),
     TResult MessagingListReceived(
         Either<UserErrorFailure, KtList<UserConversation>> failureOrMessages),
     TResult sendMessage(String peerId, String message, int type),
+    TResult deleteConversation(String peerId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchAllUserConversation != null) {
-      return watchAllUserConversation(peerId);
+      return watchAllUserConversation(peerId, peerName);
     }
     return orElse();
   }
@@ -190,10 +217,12 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
     @required TResult watchAllUserConversation(_watchAllUserConversation value),
     @required TResult MessagingListReceived(_UserConversationReceived value),
     @required TResult sendMessage(_SendMessage value),
+    @required TResult deleteConversation(_DeleteConversation value),
   }) {
     assert(watchAllUserConversation != null);
     assert(MessagingListReceived != null);
     assert(sendMessage != null);
+    assert(deleteConversation != null);
     return watchAllUserConversation(this);
   }
 
@@ -203,6 +232,7 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
     TResult watchAllUserConversation(_watchAllUserConversation value),
     TResult MessagingListReceived(_UserConversationReceived value),
     TResult sendMessage(_SendMessage value),
+    TResult deleteConversation(_DeleteConversation value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -214,10 +244,11 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
 }
 
 abstract class _watchAllUserConversation implements UserConversationEvent {
-  const factory _watchAllUserConversation(String peerId) =
+  const factory _watchAllUserConversation(String peerId, String peerName) =
       _$_watchAllUserConversation;
 
   String get peerId;
+  String get peerName;
   _$watchAllUserConversationCopyWith<_watchAllUserConversation> get copyWith;
 }
 
@@ -290,26 +321,29 @@ class _$_UserConversationReceived implements _UserConversationReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult watchAllUserConversation(String peerId),
+    @required TResult watchAllUserConversation(String peerId, String peerName),
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserConversation>>
                 failureOrMessages),
     @required TResult sendMessage(String peerId, String message, int type),
+    @required TResult deleteConversation(String peerId),
   }) {
     assert(watchAllUserConversation != null);
     assert(MessagingListReceived != null);
     assert(sendMessage != null);
+    assert(deleteConversation != null);
     return MessagingListReceived(failureOrMessages);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult watchAllUserConversation(String peerId),
+    TResult watchAllUserConversation(String peerId, String peerName),
     TResult MessagingListReceived(
         Either<UserErrorFailure, KtList<UserConversation>> failureOrMessages),
     TResult sendMessage(String peerId, String message, int type),
+    TResult deleteConversation(String peerId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -325,10 +359,12 @@ class _$_UserConversationReceived implements _UserConversationReceived {
     @required TResult watchAllUserConversation(_watchAllUserConversation value),
     @required TResult MessagingListReceived(_UserConversationReceived value),
     @required TResult sendMessage(_SendMessage value),
+    @required TResult deleteConversation(_DeleteConversation value),
   }) {
     assert(watchAllUserConversation != null);
     assert(MessagingListReceived != null);
     assert(sendMessage != null);
+    assert(deleteConversation != null);
     return MessagingListReceived(this);
   }
 
@@ -338,6 +374,7 @@ class _$_UserConversationReceived implements _UserConversationReceived {
     TResult watchAllUserConversation(_watchAllUserConversation value),
     TResult MessagingListReceived(_UserConversationReceived value),
     TResult sendMessage(_SendMessage value),
+    TResult deleteConversation(_DeleteConversation value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -436,26 +473,29 @@ class _$_SendMessage implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult watchAllUserConversation(String peerId),
+    @required TResult watchAllUserConversation(String peerId, String peerName),
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserConversation>>
                 failureOrMessages),
     @required TResult sendMessage(String peerId, String message, int type),
+    @required TResult deleteConversation(String peerId),
   }) {
     assert(watchAllUserConversation != null);
     assert(MessagingListReceived != null);
     assert(sendMessage != null);
+    assert(deleteConversation != null);
     return sendMessage(peerId, message, type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult watchAllUserConversation(String peerId),
+    TResult watchAllUserConversation(String peerId, String peerName),
     TResult MessagingListReceived(
         Either<UserErrorFailure, KtList<UserConversation>> failureOrMessages),
     TResult sendMessage(String peerId, String message, int type),
+    TResult deleteConversation(String peerId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -471,10 +511,12 @@ class _$_SendMessage implements _SendMessage {
     @required TResult watchAllUserConversation(_watchAllUserConversation value),
     @required TResult MessagingListReceived(_UserConversationReceived value),
     @required TResult sendMessage(_SendMessage value),
+    @required TResult deleteConversation(_DeleteConversation value),
   }) {
     assert(watchAllUserConversation != null);
     assert(MessagingListReceived != null);
     assert(sendMessage != null);
+    assert(deleteConversation != null);
     return sendMessage(this);
   }
 
@@ -484,6 +526,7 @@ class _$_SendMessage implements _SendMessage {
     TResult watchAllUserConversation(_watchAllUserConversation value),
     TResult MessagingListReceived(_UserConversationReceived value),
     TResult sendMessage(_SendMessage value),
+    TResult deleteConversation(_DeleteConversation value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -502,6 +545,137 @@ abstract class _SendMessage implements UserConversationEvent {
   String get message;
   int get type;
   _$SendMessageCopyWith<_SendMessage> get copyWith;
+}
+
+/// @nodoc
+abstract class _$DeleteConversationCopyWith<$Res> {
+  factory _$DeleteConversationCopyWith(
+          _DeleteConversation value, $Res Function(_DeleteConversation) then) =
+      __$DeleteConversationCopyWithImpl<$Res>;
+  $Res call({String peerId});
+}
+
+/// @nodoc
+class __$DeleteConversationCopyWithImpl<$Res>
+    extends _$UserConversationEventCopyWithImpl<$Res>
+    implements _$DeleteConversationCopyWith<$Res> {
+  __$DeleteConversationCopyWithImpl(
+      _DeleteConversation _value, $Res Function(_DeleteConversation) _then)
+      : super(_value, (v) => _then(v as _DeleteConversation));
+
+  @override
+  _DeleteConversation get _value => super._value as _DeleteConversation;
+
+  @override
+  $Res call({
+    Object peerId = freezed,
+  }) {
+    return _then(_DeleteConversation(
+      peerId == freezed ? _value.peerId : peerId as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_DeleteConversation implements _DeleteConversation {
+  const _$_DeleteConversation(this.peerId) : assert(peerId != null);
+
+  @override
+  final String peerId;
+
+  @override
+  String toString() {
+    return 'UserConversationEvent.deleteConversation(peerId: $peerId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DeleteConversation &&
+            (identical(other.peerId, peerId) ||
+                const DeepCollectionEquality().equals(other.peerId, peerId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(peerId);
+
+  @override
+  _$DeleteConversationCopyWith<_DeleteConversation> get copyWith =>
+      __$DeleteConversationCopyWithImpl<_DeleteConversation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllUserConversation(String peerId, String peerName),
+    @required
+        TResult MessagingListReceived(
+            Either<UserErrorFailure, KtList<UserConversation>>
+                failureOrMessages),
+    @required TResult sendMessage(String peerId, String message, int type),
+    @required TResult deleteConversation(String peerId),
+  }) {
+    assert(watchAllUserConversation != null);
+    assert(MessagingListReceived != null);
+    assert(sendMessage != null);
+    assert(deleteConversation != null);
+    return deleteConversation(peerId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllUserConversation(String peerId, String peerName),
+    TResult MessagingListReceived(
+        Either<UserErrorFailure, KtList<UserConversation>> failureOrMessages),
+    TResult sendMessage(String peerId, String message, int type),
+    TResult deleteConversation(String peerId),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteConversation != null) {
+      return deleteConversation(peerId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchAllUserConversation(_watchAllUserConversation value),
+    @required TResult MessagingListReceived(_UserConversationReceived value),
+    @required TResult sendMessage(_SendMessage value),
+    @required TResult deleteConversation(_DeleteConversation value),
+  }) {
+    assert(watchAllUserConversation != null);
+    assert(MessagingListReceived != null);
+    assert(sendMessage != null);
+    assert(deleteConversation != null);
+    return deleteConversation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllUserConversation(_watchAllUserConversation value),
+    TResult MessagingListReceived(_UserConversationReceived value),
+    TResult sendMessage(_SendMessage value),
+    TResult deleteConversation(_DeleteConversation value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (deleteConversation != null) {
+      return deleteConversation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteConversation implements UserConversationEvent {
+  const factory _DeleteConversation(String peerId) = _$_DeleteConversation;
+
+  String get peerId;
+  _$DeleteConversationCopyWith<_DeleteConversation> get copyWith;
 }
 
 /// @nodoc

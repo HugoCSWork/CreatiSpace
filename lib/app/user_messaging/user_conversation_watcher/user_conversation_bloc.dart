@@ -23,6 +23,8 @@ class UserConversationBloc extends Bloc<UserConversationEvent, UserConversationS
   StreamSubscription<Either<UserErrorFailure, KtList<UserConversation>>>
   _userConversationStreamSubscription;
 
+
+
   @override
   Stream<UserConversationState> mapEventToState(
     UserConversationEvent event,
@@ -38,7 +40,7 @@ class UserConversationBloc extends Bloc<UserConversationEvent, UserConversationS
           yield const UserConversationState.loadInProgress();
           await _userConversationStreamSubscription?.cancel();
           _userConversationStreamSubscription =
-              _iUserFacade.GetAllUserMessages(e.peerId).listen(
+              _iUserFacade.GetAllUserMessages(e.peerId, e.peerName).listen(
                     (failureOrItems) =>
                     add(UserConversationEvent.MessagingListReceived(failureOrItems)),
               );
@@ -46,6 +48,9 @@ class UserConversationBloc extends Bloc<UserConversationEvent, UserConversationS
         // TODO Move sending message to its own form bloc to do correct validation
         sendMessage: (e) async* {
           await _iUserFacade.sendMessage(peerId: e.peerId, message: e.message, type: e.type);
+        },
+        deleteConversation: (e) async* {
+          await _iUserFacade.deleteConversation(peerId: e.peerId);
         }
     );
   }

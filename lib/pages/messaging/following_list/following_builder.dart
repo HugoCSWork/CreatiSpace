@@ -1,15 +1,15 @@
 import 'package:creatispace/app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
-import 'package:creatispace/pages/messaging/user_list/user_list.dart';
+import 'package:creatispace/pages/messaging/following_list/following_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UserListBuilder extends StatefulWidget {
+class FollowingBuilder extends StatefulWidget {
   @override
-  _UserListBuilderState createState() => _UserListBuilderState();
+  _FollowingBuilderState createState() => _FollowingBuilderState();
 }
 
-class _UserListBuilderState extends State<UserListBuilder> {
+class _FollowingBuilderState extends State<FollowingBuilder> {
   List<UserMessaging> _messages;
   List<UserMessaging> _currentItems;
 
@@ -38,8 +38,8 @@ class _UserListBuilderState extends State<UserListBuilder> {
                         setState(() {
                           _messages =  state.items.asList()
                               .where((element) {
-                              var userName = element.userMessagingName.toLowerCase();
-                              return userName.contains(text);
+                            var userName = element.userMessagingName.toLowerCase();
+                            return userName.contains(text);
                           }).toList();
                         });
                       },
@@ -60,18 +60,18 @@ class _UserListBuilderState extends State<UserListBuilder> {
                     ),
                   ),
                   _messages.isEmpty
-                  ? Padding(
+                      ? Padding(
                     padding: const EdgeInsets.only(top: 22.0),
                     child: Center(
                       child: Text("No users found"),
                     ),
                   )
-                  :
+                      :
                   Expanded(
                     flex: 1,
                     child: ListView.builder(
                       itemBuilder: (context, index) {
-                        return UserList(userMessaging: _messages[index]);
+                        return FollowingView(userMessaging: _messages[index]);
                       },
                       itemCount: _messages.length,
                     ),

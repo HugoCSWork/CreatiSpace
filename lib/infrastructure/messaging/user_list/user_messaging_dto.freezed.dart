@@ -22,7 +22,7 @@ class _$UserMessagingDtoTearOff {
       @required String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId}) {
     return _UserMessagingDto(
       id: id,
@@ -51,7 +51,7 @@ mixin _$UserMessagingDto {
   String get userMessagingName;
   String get lastMessage;
   String get lastSeen;
-  String get unreadMessages;
+  bool get unreadMessages;
   String get userId;
 
   Map<String, dynamic> toJson();
@@ -68,7 +68,7 @@ abstract class $UserMessagingDtoCopyWith<$Res> {
       String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId});
 }
 
@@ -100,7 +100,7 @@ class _$UserMessagingDtoCopyWithImpl<$Res>
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
       unreadMessages: unreadMessages == freezed
           ? _value.unreadMessages
-          : unreadMessages as String,
+          : unreadMessages as bool,
       userId: userId == freezed ? _value.userId : userId as String,
     ));
   }
@@ -118,7 +118,7 @@ abstract class _$UserMessagingDtoCopyWith<$Res>
       String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId});
 }
 
@@ -152,7 +152,7 @@ class __$UserMessagingDtoCopyWithImpl<$Res>
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
       unreadMessages: unreadMessages == freezed
           ? _value.unreadMessages
-          : unreadMessages as String,
+          : unreadMessages as bool,
       userId: userId == freezed ? _value.userId : userId as String,
     ));
   }
@@ -185,7 +185,7 @@ class _$_UserMessagingDto extends _UserMessagingDto {
   @override
   final String lastSeen;
   @override
-  final String unreadMessages;
+  final bool unreadMessages;
   @override
   final String userId;
 
@@ -243,7 +243,7 @@ abstract class _UserMessagingDto extends UserMessagingDto {
       @required String userMessagingName,
       String lastMessage,
       String lastSeen,
-      String unreadMessages,
+      bool unreadMessages,
       String userId}) = _$_UserMessagingDto;
 
   factory _UserMessagingDto.fromJson(Map<String, dynamic> json) =
@@ -259,7 +259,7 @@ abstract class _UserMessagingDto extends UserMessagingDto {
   @override
   String get lastSeen;
   @override
-  String get unreadMessages;
+  bool get unreadMessages;
   @override
   String get userId;
   @override

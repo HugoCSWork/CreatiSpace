@@ -11,7 +11,7 @@ _$_UserMessagingDto _$_$_UserMessagingDtoFromJson(Map<String, dynamic> json) {
     userMessagingName: json['userMessagingName'] as String,
     lastMessage: json['lastMessage'] as String,
     lastSeen: json['lastSeen'] as String,
-    unreadMessages: json['unreadMessages'] as String,
+    unreadMessages: json['unreadMessages'] as bool,
     userId: json['userId'] as String,
   );
 }

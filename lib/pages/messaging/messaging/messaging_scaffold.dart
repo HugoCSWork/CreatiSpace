@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/messaging/messaging/messaging_builder.dart';
@@ -17,22 +19,76 @@ class MessagingScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '${peerName}',
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-      ),
-        body: MultiBlocProvider(
-            providers: [
-              BlocProvider<UserConversationBloc>(
-                create: (context) => getIt<UserConversationBloc>()
-                  ..add(UserConversationEvent.watchAllUserConversation(peerId)),
+    return BlocProvider<UserConversationBloc>(
+        create: (context) =>
+        getIt<UserConversationBloc>()
+          ..add(
+              UserConversationEvent.watchAllUserConversation(peerId, peerName)),
+        child: Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              flexibleSpace: SafeArea(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(right: 16),
+                  child: Row(
+                    children: [
+                      IconButton(
+                          icon: Icon(Icons.arrow_back, color: Colors.black),
+                          onPressed: () =>
+                          {
+                            FocusManager.instance.primaryFocus.unfocus(),
+                            Navigator.pop(context)
+                          }
+                      ),
+                      SizedBox(width: 2),
+                      CircularProfileAvatar(
+                          '',
+                          radius: 20,
+                          child: Image(
+                            image: AssetImage(
+                                'assets/images/placeholder_profile_male.jpg'
+                            ),
+                          )
+                      ),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(peerName, style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w600),),
+                          ],
+                        ),
+                      ),
+                      //TODO Add delete message history and block user
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                        child: DropdownButtonHideUnderline(
+                            child: DropdownButton(
+                              icon: Icon(Icons.settings),
+                              items: ["Delete", "Block"]
+                                  .map<DropdownMenuItem<String>>((
+                                  String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                  onTap: () {},
+                                );
+                              }).toList(),
+                              onChanged: (value) async {
+                              },
+                            )
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ],
-            child: Stack(
+            ),
+            body: Stack(
               children: [
                 Column(
                   children: [
@@ -41,22 +97,11 @@ class MessagingScaffold extends StatelessWidget {
                     BuildInput(peerId: peerId)
                   ],
                 )
-              ],
+              ]
+              ,
             )
-            // UserConversationBuilder(userId: userId)
+          // UserConversationBuilder(userId: userId)
         )
     );
   }
 }
-//
-// child: Stack(
-// children: <Widget>[
-// Column(
-// children: [
-// UserListBuilder(),
-// Container(),
-// // buildInput(),
-// ],
-// )
-// ],
-// )

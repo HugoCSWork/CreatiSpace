@@ -30,7 +30,7 @@ class UserMessages  extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0)),
               margin: EdgeInsets.only(
                   bottom: 10.0,
-                  right: 10.0),
+                  right: 0),
             )
                 : Container(
               margin: EdgeInsets.only(

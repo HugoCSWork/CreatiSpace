@@ -25,6 +25,19 @@ class _$UserMessagingWatcherEventTearOff {
       failureOrMessages,
     );
   }
+
+// ignore: unused_element
+  _watchAllUserFollowingList watchAllUserFollowingList() {
+    return const _watchAllUserFollowingList();
+  }
+
+// ignore: unused_element
+  _UserFollowingListReceived FollowingListReceived(
+      Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages) {
+    return _UserFollowingListReceived(
+      failureOrMessages,
+    );
+  }
 }
 
 /// @nodoc
@@ -39,11 +52,18 @@ mixin _$UserMessagingWatcherEvent {
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult watchAllUserFollowingList(),
+    @required
+        TResult FollowingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllUserMessagingList(),
     TResult MessagingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    TResult watchAllUserFollowingList(),
+    TResult FollowingListReceived(
         Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
     @required TResult orElse(),
   });
@@ -53,11 +73,16 @@ mixin _$UserMessagingWatcherEvent {
         TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
     @required
         TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    @required
+        TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    @required TResult FollowingListReceived(_UserFollowingListReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
     TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    TResult FollowingListReceived(_UserFollowingListReceived value),
     @required TResult orElse(),
   });
 }
@@ -123,9 +148,15 @@ class _$_watchAllUserMessagingList implements _watchAllUserMessagingList {
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult watchAllUserFollowingList(),
+    @required
+        TResult FollowingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
   }) {
     assert(watchAllUserMessagingList != null);
     assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
     return watchAllUserMessagingList();
   }
 
@@ -134,6 +165,9 @@ class _$_watchAllUserMessagingList implements _watchAllUserMessagingList {
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllUserMessagingList(),
     TResult MessagingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    TResult watchAllUserFollowingList(),
+    TResult FollowingListReceived(
         Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
     @required TResult orElse(),
   }) {
@@ -151,9 +185,14 @@ class _$_watchAllUserMessagingList implements _watchAllUserMessagingList {
         TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
     @required
         TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    @required
+        TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    @required TResult FollowingListReceived(_UserFollowingListReceived value),
   }) {
     assert(watchAllUserMessagingList != null);
     assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
     return watchAllUserMessagingList(this);
   }
 
@@ -162,6 +201,8 @@ class _$_watchAllUserMessagingList implements _watchAllUserMessagingList {
   TResult maybeMap<TResult extends Object>({
     TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
     TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    TResult FollowingListReceived(_UserFollowingListReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -251,9 +292,15 @@ class _$_UserMessagesRecievedReceived implements _UserMessagesRecievedReceived {
     @required
         TResult MessagingListReceived(
             Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult watchAllUserFollowingList(),
+    @required
+        TResult FollowingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
   }) {
     assert(watchAllUserMessagingList != null);
     assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
     return MessagingListReceived(failureOrMessages);
   }
 
@@ -262,6 +309,9 @@ class _$_UserMessagesRecievedReceived implements _UserMessagesRecievedReceived {
   TResult maybeWhen<TResult extends Object>({
     TResult watchAllUserMessagingList(),
     TResult MessagingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    TResult watchAllUserFollowingList(),
+    TResult FollowingListReceived(
         Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
     @required TResult orElse(),
   }) {
@@ -279,9 +329,14 @@ class _$_UserMessagesRecievedReceived implements _UserMessagesRecievedReceived {
         TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
     @required
         TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    @required
+        TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    @required TResult FollowingListReceived(_UserFollowingListReceived value),
   }) {
     assert(watchAllUserMessagingList != null);
     assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
     return MessagingListReceived(this);
   }
 
@@ -290,6 +345,8 @@ class _$_UserMessagesRecievedReceived implements _UserMessagesRecievedReceived {
   TResult maybeMap<TResult extends Object>({
     TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
     TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    TResult FollowingListReceived(_UserFollowingListReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -309,6 +366,267 @@ abstract class _UserMessagesRecievedReceived
   Either<UserErrorFailure, KtList<UserMessaging>> get failureOrMessages;
   _$UserMessagesRecievedReceivedCopyWith<_UserMessagesRecievedReceived>
       get copyWith;
+}
+
+/// @nodoc
+abstract class _$watchAllUserFollowingListCopyWith<$Res> {
+  factory _$watchAllUserFollowingListCopyWith(_watchAllUserFollowingList value,
+          $Res Function(_watchAllUserFollowingList) then) =
+      __$watchAllUserFollowingListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$watchAllUserFollowingListCopyWithImpl<$Res>
+    extends _$UserMessagingWatcherEventCopyWithImpl<$Res>
+    implements _$watchAllUserFollowingListCopyWith<$Res> {
+  __$watchAllUserFollowingListCopyWithImpl(_watchAllUserFollowingList _value,
+      $Res Function(_watchAllUserFollowingList) _then)
+      : super(_value, (v) => _then(v as _watchAllUserFollowingList));
+
+  @override
+  _watchAllUserFollowingList get _value =>
+      super._value as _watchAllUserFollowingList;
+}
+
+/// @nodoc
+class _$_watchAllUserFollowingList implements _watchAllUserFollowingList {
+  const _$_watchAllUserFollowingList();
+
+  @override
+  String toString() {
+    return 'UserMessagingWatcherEvent.watchAllUserFollowingList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _watchAllUserFollowingList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllUserMessagingList(),
+    @required
+        TResult MessagingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult watchAllUserFollowingList(),
+    @required
+        TResult FollowingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+  }) {
+    assert(watchAllUserMessagingList != null);
+    assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
+    return watchAllUserFollowingList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllUserMessagingList(),
+    TResult MessagingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    TResult watchAllUserFollowingList(),
+    TResult FollowingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchAllUserFollowingList != null) {
+      return watchAllUserFollowingList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required
+        TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
+    @required
+        TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    @required
+        TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    @required TResult FollowingListReceived(_UserFollowingListReceived value),
+  }) {
+    assert(watchAllUserMessagingList != null);
+    assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
+    return watchAllUserFollowingList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
+    TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    TResult FollowingListReceived(_UserFollowingListReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchAllUserFollowingList != null) {
+      return watchAllUserFollowingList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _watchAllUserFollowingList implements UserMessagingWatcherEvent {
+  const factory _watchAllUserFollowingList() = _$_watchAllUserFollowingList;
+}
+
+/// @nodoc
+abstract class _$UserFollowingListReceivedCopyWith<$Res> {
+  factory _$UserFollowingListReceivedCopyWith(_UserFollowingListReceived value,
+          $Res Function(_UserFollowingListReceived) then) =
+      __$UserFollowingListReceivedCopyWithImpl<$Res>;
+  $Res call(
+      {Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages});
+}
+
+/// @nodoc
+class __$UserFollowingListReceivedCopyWithImpl<$Res>
+    extends _$UserMessagingWatcherEventCopyWithImpl<$Res>
+    implements _$UserFollowingListReceivedCopyWith<$Res> {
+  __$UserFollowingListReceivedCopyWithImpl(_UserFollowingListReceived _value,
+      $Res Function(_UserFollowingListReceived) _then)
+      : super(_value, (v) => _then(v as _UserFollowingListReceived));
+
+  @override
+  _UserFollowingListReceived get _value =>
+      super._value as _UserFollowingListReceived;
+
+  @override
+  $Res call({
+    Object failureOrMessages = freezed,
+  }) {
+    return _then(_UserFollowingListReceived(
+      failureOrMessages == freezed
+          ? _value.failureOrMessages
+          : failureOrMessages
+              as Either<UserErrorFailure, KtList<UserMessaging>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UserFollowingListReceived implements _UserFollowingListReceived {
+  const _$_UserFollowingListReceived(this.failureOrMessages)
+      : assert(failureOrMessages != null);
+
+  @override
+  final Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages;
+
+  @override
+  String toString() {
+    return 'UserMessagingWatcherEvent.FollowingListReceived(failureOrMessages: $failureOrMessages)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserFollowingListReceived &&
+            (identical(other.failureOrMessages, failureOrMessages) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrMessages, failureOrMessages)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrMessages);
+
+  @override
+  _$UserFollowingListReceivedCopyWith<_UserFollowingListReceived>
+      get copyWith =>
+          __$UserFollowingListReceivedCopyWithImpl<_UserFollowingListReceived>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllUserMessagingList(),
+    @required
+        TResult MessagingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult watchAllUserFollowingList(),
+    @required
+        TResult FollowingListReceived(
+            Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+  }) {
+    assert(watchAllUserMessagingList != null);
+    assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
+    return FollowingListReceived(failureOrMessages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllUserMessagingList(),
+    TResult MessagingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    TResult watchAllUserFollowingList(),
+    TResult FollowingListReceived(
+        Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (FollowingListReceived != null) {
+      return FollowingListReceived(failureOrMessages);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required
+        TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
+    @required
+        TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    @required
+        TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    @required TResult FollowingListReceived(_UserFollowingListReceived value),
+  }) {
+    assert(watchAllUserMessagingList != null);
+    assert(MessagingListReceived != null);
+    assert(watchAllUserFollowingList != null);
+    assert(FollowingListReceived != null);
+    return FollowingListReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllUserMessagingList(_watchAllUserMessagingList value),
+    TResult MessagingListReceived(_UserMessagesRecievedReceived value),
+    TResult watchAllUserFollowingList(_watchAllUserFollowingList value),
+    TResult FollowingListReceived(_UserFollowingListReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (FollowingListReceived != null) {
+      return FollowingListReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserFollowingListReceived implements UserMessagingWatcherEvent {
+  const factory _UserFollowingListReceived(
+          Either<UserErrorFailure, KtList<UserMessaging>> failureOrMessages) =
+      _$_UserFollowingListReceived;
+
+  Either<UserErrorFailure, KtList<UserMessaging>> get failureOrMessages;
+  _$UserFollowingListReceivedCopyWith<_UserFollowingListReceived> get copyWith;
 }
 
 /// @nodoc

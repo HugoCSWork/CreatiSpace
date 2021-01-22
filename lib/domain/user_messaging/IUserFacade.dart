@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 
 abstract class IUserFacade {
   Stream<Either<UserErrorFailure, KtList<UserMessaging>>> GetAllUserMessagesList();
-  Stream<Either<UserErrorFailure, KtList<UserConversation>>> GetAllUserMessages(String peerId);
+  Stream<Either<UserErrorFailure, KtList<UserMessaging>>> GetAllUserFollowingList();
+  Stream<Either<UserErrorFailure, KtList<UserConversation>>> GetAllUserMessages(String peerId, String peerName);
   Future<Either<UserErrorFailure, Unit>> sendMessage({ @required String peerId, @required String message, @required int type });
+  Future<Either<UserErrorFailure, Unit>> deleteConversation({ @required String peerId });
 }

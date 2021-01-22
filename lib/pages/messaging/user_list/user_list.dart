@@ -1,9 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
-import 'package:creatispace/pages/messaging/user_list/widgets/unread_messages.dart';
-import 'package:creatispace/pages/messaging/user_list/widgets/user_image.dart';
-import 'package:creatispace/pages/messaging/user_list/widgets/user_message_description.dart';
-import 'package:creatispace/pages/messaging/user_list/widgets/user_name.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -15,11 +12,10 @@ class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-        height: 125,
+        padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
         width: double.maxFinite,
         child: Card(
-          elevation: 5,
+          elevation: 2,
           child: InkWell(
             splashColor: Colors.blue,
             onTap: () {
@@ -33,30 +29,58 @@ class UserList extends StatelessWidget {
             },
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 10, top: 5),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          UserImage(),
-                          UserName(userMessaging.userMessagingName),
-                          Spacer(),
-                          UnreadMessages(userMessaging.unreadMessages),
-                        ],
+                Container(
+                  padding: EdgeInsets.only(left: 4, right: 16, top: 12, bottom: 8),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Row(
+                          children: <Widget>[
+                            CircularProfileAvatar(
+                              '',
+                              radius: 25,
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/placeholder_profile_male.jpg'
+                                ),
+                              )
+                            ),
+                            SizedBox(width: 16,),
+                            Expanded(
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      userMessaging.userMessagingName, style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight:  userMessaging.unreadMessages
+                                        ? FontWeight.bold
+                                        : FontWeight.normal),),
+                                    SizedBox(height: 4,),
+                                    Text(userMessaging.lastMessage, style: TextStyle(
+                                        fontSize: 13,
+                                        color: userMessaging.unreadMessages
+                                        ? Colors.grey.shade900
+                                        : Colors.grey.shade600,
+                                        fontWeight: userMessaging.unreadMessages
+                                            ? FontWeight.bold
+                                            : FontWeight.normal),),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          UserMessageDescription(userMessaging.lastMessage,
-                              userMessaging.lastSeen)
-                        ],
-                      )
+                      Text(userMessaging.lastSeen, style: TextStyle(fontSize: 12,
+                          fontWeight: userMessaging.unreadMessages
+                              ? FontWeight
+                              .bold : FontWeight.normal),),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

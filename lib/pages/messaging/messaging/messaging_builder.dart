@@ -58,7 +58,13 @@ class _UserConversationBuilderState extends State<UserConversationBuilder> {
         return state.map(
             initial: (_) => Container(),
             loadInProgress: (_) =>
-            const Center(child: CircularProgressIndicator()),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height - 200,
+                child: const Center(
+                    child: CircularProgressIndicator()
+                )
+            ),
             loadSuccess: (state) {
               return Flexible(
                 child: ListView.builder(
