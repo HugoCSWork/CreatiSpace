@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
+import 'package:creatispace/domain/profile/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kt_dart/kt.dart';
@@ -19,26 +20,45 @@ abstract class UserProfileDto implements _$UserProfileDto {
     @required String profileImageURL,
     @required String backgroundImageURL,
     @required String username,
+    @required String description,
 
   }) = _UserProfileDto;
 
+
+
+
   factory UserProfileDto.fromDomain(UserProfileData profile) {
     return UserProfileDto(
-        username: profile.username,
-        followers: profile.followers,
-        following: profile.following,
-        profileImageURL: profile.profileImageURL,
-        backgroundImageURL: profile.backgroundImageURL
+        username: profile.username.getOrCrash(),
+        description: profile.description.getOrCrash(),
+        followers: profile.followers.getOrCrash(),
+        following: profile.following.getOrCrash(),
+        profileImageURL: profile.profileImageURL.getOrCrash(),
+        backgroundImageURL: profile.backgroundImageURL.getOrCrash()
     );
   }
 
+  factory UserProfileDto.fromDomainUpdate(UserProfileData profile,
+      String backgroundUrl, String profileUrl) {
+    return UserProfileDto(
+        username: profile.username.getOrCrash(),
+        description: profile.description.getOrCrash(),
+        followers: profile.followers.getOrCrash(),
+        following: profile.following.getOrCrash(),
+        profileImageURL: profileUrl ?? profile.profileImageURL.getOrCrash(),
+        backgroundImageURL: backgroundUrl ?? profile.backgroundImageURL.getOrCrash()
+    );
+  }
+
+
   UserProfileData toDomain() {
     return UserProfileData(
-      username: username,
-      followers: followers,
-      following: following,
-      profileImageURL: profileImageURL,
-      backgroundImageURL: backgroundImageURL
+      username: ProfileName(username),
+      description: ProfileDescription(description),
+      followers: ProfileFollowers(followers),
+      following: ProfileFollowing(following),
+      profileImageURL: ProfileImageURL(profileImageURL),
+      backgroundImageURL: ProfileBackgroundImageURL(backgroundImageURL)
     );
   }
 

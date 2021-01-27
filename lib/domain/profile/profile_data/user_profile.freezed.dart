@@ -15,13 +15,15 @@ class _$UserProfileDataTearOff {
 
 // ignore: unused_element
   _UserProfileData call(
-      {@required String username,
-      @required int following,
-      @required int followers,
-      @required String profileImageURL,
-      @required String backgroundImageURL}) {
+      {@required ProfileName username,
+      @required ProfileDescription description,
+      @required ProfileFollowing following,
+      @required ProfileFollowers followers,
+      @required ProfileImageURL profileImageURL,
+      @required ProfileBackgroundImageURL backgroundImageURL}) {
     return _UserProfileData(
       username: username,
+      description: description,
       following: following,
       followers: followers,
       profileImageURL: profileImageURL,
@@ -36,11 +38,12 @@ const $UserProfileData = _$UserProfileDataTearOff();
 
 /// @nodoc
 mixin _$UserProfileData {
-  String get username;
-  int get following;
-  int get followers;
-  String get profileImageURL;
-  String get backgroundImageURL;
+  ProfileName get username;
+  ProfileDescription get description;
+  ProfileFollowing get following;
+  ProfileFollowers get followers;
+  ProfileImageURL get profileImageURL;
+  ProfileBackgroundImageURL get backgroundImageURL;
 
   $UserProfileDataCopyWith<UserProfileData> get copyWith;
 }
@@ -51,11 +54,12 @@ abstract class $UserProfileDataCopyWith<$Res> {
           UserProfileData value, $Res Function(UserProfileData) then) =
       _$UserProfileDataCopyWithImpl<$Res>;
   $Res call(
-      {String username,
-      int following,
-      int followers,
-      String profileImageURL,
-      String backgroundImageURL});
+      {ProfileName username,
+      ProfileDescription description,
+      ProfileFollowing following,
+      ProfileFollowers followers,
+      ProfileImageURL profileImageURL,
+      ProfileBackgroundImageURL backgroundImageURL});
 }
 
 /// @nodoc
@@ -70,21 +74,29 @@ class _$UserProfileDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object username = freezed,
+    Object description = freezed,
     Object following = freezed,
     Object followers = freezed,
     Object profileImageURL = freezed,
     Object backgroundImageURL = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed ? _value.username : username as String,
-      following: following == freezed ? _value.following : following as int,
-      followers: followers == freezed ? _value.followers : followers as int,
+      username: username == freezed ? _value.username : username as ProfileName,
+      description: description == freezed
+          ? _value.description
+          : description as ProfileDescription,
+      following: following == freezed
+          ? _value.following
+          : following as ProfileFollowing,
+      followers: followers == freezed
+          ? _value.followers
+          : followers as ProfileFollowers,
       profileImageURL: profileImageURL == freezed
           ? _value.profileImageURL
-          : profileImageURL as String,
+          : profileImageURL as ProfileImageURL,
       backgroundImageURL: backgroundImageURL == freezed
           ? _value.backgroundImageURL
-          : backgroundImageURL as String,
+          : backgroundImageURL as ProfileBackgroundImageURL,
     ));
   }
 }
@@ -97,11 +109,12 @@ abstract class _$UserProfileDataCopyWith<$Res>
       __$UserProfileDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String username,
-      int following,
-      int followers,
-      String profileImageURL,
-      String backgroundImageURL});
+      {ProfileName username,
+      ProfileDescription description,
+      ProfileFollowing following,
+      ProfileFollowers followers,
+      ProfileImageURL profileImageURL,
+      ProfileBackgroundImageURL backgroundImageURL});
 }
 
 /// @nodoc
@@ -118,53 +131,66 @@ class __$UserProfileDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object username = freezed,
+    Object description = freezed,
     Object following = freezed,
     Object followers = freezed,
     Object profileImageURL = freezed,
     Object backgroundImageURL = freezed,
   }) {
     return _then(_UserProfileData(
-      username: username == freezed ? _value.username : username as String,
-      following: following == freezed ? _value.following : following as int,
-      followers: followers == freezed ? _value.followers : followers as int,
+      username: username == freezed ? _value.username : username as ProfileName,
+      description: description == freezed
+          ? _value.description
+          : description as ProfileDescription,
+      following: following == freezed
+          ? _value.following
+          : following as ProfileFollowing,
+      followers: followers == freezed
+          ? _value.followers
+          : followers as ProfileFollowers,
       profileImageURL: profileImageURL == freezed
           ? _value.profileImageURL
-          : profileImageURL as String,
+          : profileImageURL as ProfileImageURL,
       backgroundImageURL: backgroundImageURL == freezed
           ? _value.backgroundImageURL
-          : backgroundImageURL as String,
+          : backgroundImageURL as ProfileBackgroundImageURL,
     ));
   }
 }
 
 /// @nodoc
-class _$_UserProfileData implements _UserProfileData {
+class _$_UserProfileData extends _UserProfileData {
   const _$_UserProfileData(
       {@required this.username,
+      @required this.description,
       @required this.following,
       @required this.followers,
       @required this.profileImageURL,
       @required this.backgroundImageURL})
       : assert(username != null),
+        assert(description != null),
         assert(following != null),
         assert(followers != null),
         assert(profileImageURL != null),
-        assert(backgroundImageURL != null);
+        assert(backgroundImageURL != null),
+        super._();
 
   @override
-  final String username;
+  final ProfileName username;
   @override
-  final int following;
+  final ProfileDescription description;
   @override
-  final int followers;
+  final ProfileFollowing following;
   @override
-  final String profileImageURL;
+  final ProfileFollowers followers;
   @override
-  final String backgroundImageURL;
+  final ProfileImageURL profileImageURL;
+  @override
+  final ProfileBackgroundImageURL backgroundImageURL;
 
   @override
   String toString() {
-    return 'UserProfileData(username: $username, following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL)';
+    return 'UserProfileData(username: $username, description: $description, following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL)';
   }
 
   @override
@@ -174,6 +200,9 @@ class _$_UserProfileData implements _UserProfileData {
             (identical(other.username, username) ||
                 const DeepCollectionEquality()
                     .equals(other.username, username)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
             (identical(other.following, following) ||
                 const DeepCollectionEquality()
                     .equals(other.following, following)) &&
@@ -192,6 +221,7 @@ class _$_UserProfileData implements _UserProfileData {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(following) ^
       const DeepCollectionEquality().hash(followers) ^
       const DeepCollectionEquality().hash(profileImageURL) ^
@@ -202,24 +232,29 @@ class _$_UserProfileData implements _UserProfileData {
       __$UserProfileDataCopyWithImpl<_UserProfileData>(this, _$identity);
 }
 
-abstract class _UserProfileData implements UserProfileData {
+abstract class _UserProfileData extends UserProfileData {
+  const _UserProfileData._() : super._();
   const factory _UserProfileData(
-      {@required String username,
-      @required int following,
-      @required int followers,
-      @required String profileImageURL,
-      @required String backgroundImageURL}) = _$_UserProfileData;
+          {@required ProfileName username,
+          @required ProfileDescription description,
+          @required ProfileFollowing following,
+          @required ProfileFollowers followers,
+          @required ProfileImageURL profileImageURL,
+          @required ProfileBackgroundImageURL backgroundImageURL}) =
+      _$_UserProfileData;
 
   @override
-  String get username;
+  ProfileName get username;
   @override
-  int get following;
+  ProfileDescription get description;
   @override
-  int get followers;
+  ProfileFollowing get following;
   @override
-  String get profileImageURL;
+  ProfileFollowers get followers;
   @override
-  String get backgroundImageURL;
+  ProfileImageURL get profileImageURL;
+  @override
+  ProfileBackgroundImageURL get backgroundImageURL;
   @override
   _$UserProfileDataCopyWith<_UserProfileData> get copyWith;
 }

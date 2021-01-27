@@ -10,6 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/items/item/item.dart';
+import '../../domain/profile/profile_data/user_profile.dart';
 import '../../domain/user_messaging/user_list/user_messaging.dart';
 import '../../shared/navigation_bar.dart';
 import '../auth/forgotten_password/forgotten_password.dart';
@@ -23,6 +24,7 @@ import '../messaging/messaging/messaging_scaffold.dart';
 import '../messaging/messaging/widgets/full_screen_image.dart';
 import '../messaging/user_list/user_list.dart';
 import '../messaging/user_list/user_list_with_scaffold.dart';
+import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/user_profile/user_profile_scaffold.dart';
 import '../splash/splash_page.dart';
 
@@ -34,6 +36,7 @@ class Routes {
   static const String itemsOverviewPage = '/items-overview-page';
   static const String emailVerifiedPage = '/email-verified-page';
   static const String navigationBar = '/navigation-bar';
+  static const String profileFormPageScaffold = '/profile-form-page-scaffold';
   static const String userList = '/user-list';
   static const String userListScaffold = '/user-list-scaffold';
   static const String followingScaffold = '/following-scaffold';
@@ -49,6 +52,7 @@ class Routes {
     itemsOverviewPage,
     emailVerifiedPage,
     navigationBar,
+    profileFormPageScaffold,
     userList,
     userListScaffold,
     followingScaffold,
@@ -70,6 +74,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.itemsOverviewPage, page: ItemsOverviewPage),
     RouteDef(Routes.emailVerifiedPage, page: EmailVerifiedPage),
     RouteDef(Routes.navigationBar, page: NavigationBar),
+    RouteDef(Routes.profileFormPageScaffold, page: ProfileFormPageScaffold),
     RouteDef(Routes.userList, page: UserList),
     RouteDef(Routes.userListScaffold, page: UserListScaffold),
     RouteDef(Routes.followingScaffold, page: FollowingScaffold),
@@ -118,8 +123,25 @@ class BaseRouter extends RouterBase {
       );
     },
     NavigationBar: (data) {
+      final args = data.getArgs<NavigationBarArguments>(
+        orElse: () => NavigationBarArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => NavigationBar(),
+        builder: (context) => NavigationBar(
+          key: args.key,
+          pos: args.pos,
+        ),
+        settings: data,
+      );
+    },
+    ProfileFormPageScaffold: (data) {
+      final args =
+          data.getArgs<ProfileFormPageScaffoldArguments>(nullOk: false);
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ProfileFormPageScaffold(
+          key: args.key,
+          data: args.data,
+        ),
         settings: data,
       );
     },
@@ -211,7 +233,23 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEmailVerifiedPage() =>
       push<dynamic>(Routes.emailVerifiedPage);
 
-  Future<dynamic> pushNavigationBar() => push<dynamic>(Routes.navigationBar);
+  Future<dynamic> pushNavigationBar({
+    Key key,
+    int pos,
+  }) =>
+      push<dynamic>(
+        Routes.navigationBar,
+        arguments: NavigationBarArguments(key: key, pos: pos),
+      );
+
+  Future<dynamic> pushProfileFormPageScaffold({
+    Key key,
+    @required UserProfileData data,
+  }) =>
+      push<dynamic>(
+        Routes.profileFormPageScaffold,
+        arguments: ProfileFormPageScaffoldArguments(key: key, data: data),
+      );
 
   Future<dynamic> pushUserList({
     Key key,
@@ -265,6 +303,20 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 /// ************************************************************************
 /// Arguments holder classes
 /// *************************************************************************
+
+/// NavigationBar arguments holder class
+class NavigationBarArguments {
+  final Key key;
+  final int pos;
+  NavigationBarArguments({this.key, this.pos});
+}
+
+/// ProfileFormPageScaffold arguments holder class
+class ProfileFormPageScaffoldArguments {
+  final Key key;
+  final UserProfileData data;
+  ProfileFormPageScaffoldArguments({this.key, @required this.data});
+}
 
 /// UserList arguments holder class
 class UserListArguments {

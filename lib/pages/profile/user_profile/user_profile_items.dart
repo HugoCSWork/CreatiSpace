@@ -62,7 +62,7 @@ class ImageList extends StatelessWidget {
           leading: CircularProfileAvatar('',
               radius: 15,
               child: CachedNetworkImage(
-                imageUrl: data.profileImageURL,
+                imageUrl: data.profileImageURL.getOrCrash(),
                 fit: BoxFit.fill,
                 placeholder: (context, url) => Center(
                   child: Container(
@@ -76,7 +76,7 @@ class ImageList extends StatelessWidget {
               )
           ),
           title: GestureDetector(
-            child: Text(data.username),
+            child: Text(data.username.getOrCrash()),
             // TODO Go to profile page
             onTap: (){},
           ),

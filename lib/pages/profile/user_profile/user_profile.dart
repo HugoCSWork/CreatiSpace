@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/pages/profile/user_profile/user_profile_items.dart';
-import 'package:creatispace/shared/navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 
 class UserProfile extends StatefulWidget {
 
@@ -31,7 +32,7 @@ class _UserProfileState extends State<UserProfile> {
                   color: Colors.blue,
                   child: Center(
                     child: CachedNetworkImage(
-                      imageUrl: widget.data.backgroundImageURL,
+                      imageUrl: widget.data.backgroundImageURL.getOrCrash(),
                       fit: BoxFit.cover,
                       width: MediaQuery.of(context).size.width,
                       height: 200,
@@ -53,16 +54,27 @@ class _UserProfileState extends State<UserProfile> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Text(
-                        widget.data.username,
+                        widget.data.username.getOrCrash(),
                         style: TextStyle(
                             fontWeight: FontWeight.bold
                         ),
                       ),
                     ),
+
+                    Padding(
+                      padding: EdgeInsets.only(bottom:8),
+                      child: Text(widget.data.description.getOrCrash()),
+                    ),
                     Padding(
                         padding: EdgeInsets.only(bottom:8),
                         child: FlatButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              ExtendedNavigator.of(context).push(Routes.profileFormPageScaffold,
+                                  arguments: ProfileFormPageScaffoldArguments(
+                                      data: widget.data
+                                  )
+                              );
+                            },
                             color: Colors.blue[200],
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18.0),
@@ -144,8 +156,8 @@ class _UserProfileState extends State<UserProfile> {
               child: CircularProfileAvatar('',
               radius: 45,
                 child: CachedNetworkImage(
-                  imageUrl: widget.data.profileImageURL,
-                  fit: BoxFit.fill,
+                  imageUrl: widget.data.profileImageURL.getOrCrash(),
+                  fit: BoxFit.fitWidth,
                   placeholder: (context, url) => Center(
                     child: Container(
                         width: 30,
@@ -170,7 +182,7 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                   child: Center(
                     child: Text(
-                      "Following\n${widget.data.following}",
+                      "Following\n${widget.data.following.getOrCrash()}",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold
@@ -191,7 +203,7 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                   child: Center(
                     child: Text(
-                      "Followers\n${widget.data.followers}",
+                      "Followers\n${widget.data.followers.getOrCrash()}",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: FontWeight.bold

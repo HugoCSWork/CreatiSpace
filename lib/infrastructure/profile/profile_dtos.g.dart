@@ -13,6 +13,7 @@ _$_UserProfileDto _$_$_UserProfileDtoFromJson(Map<String, dynamic> json) {
     profileImageURL: json['profileImageURL'] as String,
     backgroundImageURL: json['backgroundImageURL'] as String,
     username: json['username'] as String,
+    description: json['description'] as String,
   );
 }
 
@@ -23,4 +24,5 @@ Map<String, dynamic> _$_$_UserProfileDtoToJson(_$_UserProfileDto instance) =>
       'profileImageURL': instance.profileImageURL,
       'backgroundImageURL': instance.backgroundImageURL,
       'username': instance.username,
+      'description': instance.description,
     };

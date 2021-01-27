@@ -33,6 +33,13 @@ class _$ValueFailureTearOff {
       i,
     );
   }
+
+// ignore: unused_element
+  _Profile<T> profile<T>(ProfileValueFailure<T> i) {
+    return _Profile<T>(
+      i,
+    );
+  }
 }
 
 /// @nodoc
@@ -46,12 +53,14 @@ mixin _$ValueFailure<T> {
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -59,12 +68,14 @@ mixin _$ValueFailure<T> {
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
     @required TResult orElse(),
   });
 }
@@ -158,10 +169,12 @@ class _$_Auth<T> implements _Auth<T> {
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
     assert(messaging != null);
+    assert(profile != null);
     return auth(f);
   }
 
@@ -171,6 +184,7 @@ class _$_Auth<T> implements _Auth<T> {
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -186,10 +200,12 @@ class _$_Auth<T> implements _Auth<T> {
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
     assert(messaging != null);
+    assert(profile != null);
     return auth(this);
   }
 
@@ -199,6 +215,7 @@ class _$_Auth<T> implements _Auth<T> {
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -288,10 +305,12 @@ class _$_Item<T> implements _Item<T> {
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
     assert(messaging != null);
+    assert(profile != null);
     return item(i);
   }
 
@@ -301,6 +320,7 @@ class _$_Item<T> implements _Item<T> {
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -316,10 +336,12 @@ class _$_Item<T> implements _Item<T> {
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
     assert(messaging != null);
+    assert(profile != null);
     return item(this);
   }
 
@@ -329,6 +351,7 @@ class _$_Item<T> implements _Item<T> {
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -421,10 +444,12 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     @required TResult auth(AuthValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
     assert(item != null);
     assert(messaging != null);
+    assert(profile != null);
     return messaging(i);
   }
 
@@ -434,6 +459,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     TResult auth(AuthValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -449,10 +475,12 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     @required TResult auth(_Auth<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
     assert(item != null);
     assert(messaging != null);
+    assert(profile != null);
     return messaging(this);
   }
 
@@ -462,6 +490,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     TResult auth(_Auth<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -477,4 +506,142 @@ abstract class _UserMessaging<T> implements ValueFailure<T> {
 
   UserValueFailure<T> get i;
   _$UserMessagingCopyWith<T, _UserMessaging<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$ProfileCopyWith<T, $Res> {
+  factory _$ProfileCopyWith(
+          _Profile<T> value, $Res Function(_Profile<T>) then) =
+      __$ProfileCopyWithImpl<T, $Res>;
+  $Res call({ProfileValueFailure<T> i});
+
+  $ProfileValueFailureCopyWith<T, $Res> get i;
+}
+
+/// @nodoc
+class __$ProfileCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$ProfileCopyWith<T, $Res> {
+  __$ProfileCopyWithImpl(_Profile<T> _value, $Res Function(_Profile<T>) _then)
+      : super(_value, (v) => _then(v as _Profile<T>));
+
+  @override
+  _Profile<T> get _value => super._value as _Profile<T>;
+
+  @override
+  $Res call({
+    Object i = freezed,
+  }) {
+    return _then(_Profile<T>(
+      i == freezed ? _value.i : i as ProfileValueFailure<T>,
+    ));
+  }
+
+  @override
+  $ProfileValueFailureCopyWith<T, $Res> get i {
+    if (_value.i == null) {
+      return null;
+    }
+    return $ProfileValueFailureCopyWith<T, $Res>(_value.i, (value) {
+      return _then(_value.copyWith(i: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_Profile<T> implements _Profile<T> {
+  const _$_Profile(this.i) : assert(i != null);
+
+  @override
+  final ProfileValueFailure<T> i;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.profile(i: $i)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Profile<T> &&
+            (identical(other.i, i) ||
+                const DeepCollectionEquality().equals(other.i, i)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
+
+  @override
+  _$ProfileCopyWith<T, _Profile<T>> get copyWith =>
+      __$ProfileCopyWithImpl<T, _Profile<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult item(ItemValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
+  }) {
+    assert(auth != null);
+    assert(item != null);
+    assert(messaging != null);
+    assert(profile != null);
+    return profile(i);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult item(ItemValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (profile != null) {
+      return profile(i);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult item(_Item<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
+  }) {
+    assert(auth != null);
+    assert(item != null);
+    assert(messaging != null);
+    assert(profile != null);
+    return profile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult item(_Item<T> value),
+    TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (profile != null) {
+      return profile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Profile<T> implements ValueFailure<T> {
+  const factory _Profile(ProfileValueFailure<T> i) = _$_Profile<T>;
+
+  ProfileValueFailure<T> get i;
+  _$ProfileCopyWith<T, _Profile<T>> get copyWith;
 }

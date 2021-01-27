@@ -6,4 +6,5 @@ import 'package:kt_dart/collection.dart';
 
 abstract class IProfileFacade {
   Stream<Either<ProfileErrorFailure, UserProfileData>> getUserData();
+  Future<Either<ProfileErrorFailure, Unit>> update(UserProfileData item);
 }

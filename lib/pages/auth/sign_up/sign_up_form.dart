@@ -30,7 +30,7 @@ class SignUpForm extends StatelessWidget {
               ).show(context);
             },
             (verified) {
-            ExtendedNavigator.of(context).replace(Routes.emailVerifiedPage);
+              ExtendedNavigator.of(context).pushAndRemoveUntil(Routes.emailVerifiedPage, (Route<dynamic> route) => false);
               context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
             }),
         );

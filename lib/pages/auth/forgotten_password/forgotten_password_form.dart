@@ -32,31 +32,36 @@ class ForgottenPasswordForm extends StatelessWidget {
       );
     }, builder: (context, state) {
       final Size size = MediaQuery.of(context).size;
-      return Form(
-        autovalidateMode: state.showErrorMessages,
-        child: Background(
-          child: SingleChildScrollView(
-            child: AbsorbPointer(
-              absorbing: state.isSubmitting,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(height: size.height * 0.02),
-                    SvgPicture.asset(
-                      "assets/icons/login_new.svg",
-                      height: size.height * 0.35,
-                    ),
-                    SizedBox(height: size.height * 0.03),
-                    EmailField(),
-                    const ResetPasswordButton(),
-                    SizedBox(height: size.height * 0.02),
-                    if (state.isSubmitting) ...[
-                      const SizedBox(
-                        height: 8,
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Reset Password"),
+        ),
+        body: Form(
+          autovalidateMode: state.showErrorMessages,
+          child: Background(
+            child: SingleChildScrollView(
+              child: AbsorbPointer(
+                absorbing: state.isSubmitting,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.02),
+                      SvgPicture.asset(
+                        "assets/icons/login_new.svg",
+                        height: size.height * 0.35,
                       ),
-                      const LinearProgressIndicator(),
-                    ]
-                  ]),
+                      SizedBox(height: size.height * 0.03),
+                      EmailField(),
+                      const ResetPasswordButton(),
+                      SizedBox(height: size.height * 0.02),
+                      if (state.isSubmitting) ...[
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const LinearProgressIndicator(),
+                      ]
+                    ]),
+              ),
             ),
           ),
         ),

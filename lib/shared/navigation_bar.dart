@@ -5,12 +5,22 @@ import 'package:creatispace/pages/profile/user_profile/user_profile_scaffold.dar
 import 'package:flutter/material.dart';
 
 class NavigationBar extends StatefulWidget {
+
+  final int pos;
+
+  const NavigationBar({Key key, this.pos}) : super(key: key);
+
   @override
-  _NavigationBarState createState() => _NavigationBarState();
+  _NavigationBarState createState() => _NavigationBarState(pos ?? 0);
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-  int _currentIndex = 0;
+  int _currentIndex;
+
+  _NavigationBarState(int pos){
+    this._currentIndex = pos;
+  }
+
   final List<Widget> _children = [
     ItemsOverviewPage(),
     ItemsOverviewPage(),
@@ -18,6 +28,7 @@ class _NavigationBarState extends State<NavigationBar> {
     UserListScaffold(),
     UserProfileScaffold(),
   ];
+
 
   void onTabTapped(int index) {
     setState(() {

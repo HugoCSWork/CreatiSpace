@@ -22,13 +22,15 @@ class _$UserProfileDtoTearOff {
       @required int followers,
       @required String profileImageURL,
       @required String backgroundImageURL,
-      @required String username}) {
+      @required String username,
+      @required String description}) {
     return _UserProfileDto(
       following: following,
       followers: followers,
       profileImageURL: profileImageURL,
       backgroundImageURL: backgroundImageURL,
       username: username,
+      description: description,
     );
   }
 
@@ -49,6 +51,7 @@ mixin _$UserProfileDto {
   String get profileImageURL;
   String get backgroundImageURL;
   String get username;
+  String get description;
 
   Map<String, dynamic> toJson();
   $UserProfileDtoCopyWith<UserProfileDto> get copyWith;
@@ -64,7 +67,8 @@ abstract class $UserProfileDtoCopyWith<$Res> {
       int followers,
       String profileImageURL,
       String backgroundImageURL,
-      String username});
+      String username,
+      String description});
 }
 
 /// @nodoc
@@ -83,6 +87,7 @@ class _$UserProfileDtoCopyWithImpl<$Res>
     Object profileImageURL = freezed,
     Object backgroundImageURL = freezed,
     Object username = freezed,
+    Object description = freezed,
   }) {
     return _then(_value.copyWith(
       following: following == freezed ? _value.following : following as int,
@@ -94,6 +99,8 @@ class _$UserProfileDtoCopyWithImpl<$Res>
           ? _value.backgroundImageURL
           : backgroundImageURL as String,
       username: username == freezed ? _value.username : username as String,
+      description:
+          description == freezed ? _value.description : description as String,
     ));
   }
 }
@@ -110,7 +117,8 @@ abstract class _$UserProfileDtoCopyWith<$Res>
       int followers,
       String profileImageURL,
       String backgroundImageURL,
-      String username});
+      String username,
+      String description});
 }
 
 /// @nodoc
@@ -131,6 +139,7 @@ class __$UserProfileDtoCopyWithImpl<$Res>
     Object profileImageURL = freezed,
     Object backgroundImageURL = freezed,
     Object username = freezed,
+    Object description = freezed,
   }) {
     return _then(_UserProfileDto(
       following: following == freezed ? _value.following : following as int,
@@ -142,6 +151,8 @@ class __$UserProfileDtoCopyWithImpl<$Res>
           ? _value.backgroundImageURL
           : backgroundImageURL as String,
       username: username == freezed ? _value.username : username as String,
+      description:
+          description == freezed ? _value.description : description as String,
     ));
   }
 }
@@ -155,12 +166,14 @@ class _$_UserProfileDto extends _UserProfileDto {
       @required this.followers,
       @required this.profileImageURL,
       @required this.backgroundImageURL,
-      @required this.username})
+      @required this.username,
+      @required this.description})
       : assert(following != null),
         assert(followers != null),
         assert(profileImageURL != null),
         assert(backgroundImageURL != null),
         assert(username != null),
+        assert(description != null),
         super._();
 
   factory _$_UserProfileDto.fromJson(Map<String, dynamic> json) =>
@@ -176,10 +189,12 @@ class _$_UserProfileDto extends _UserProfileDto {
   final String backgroundImageURL;
   @override
   final String username;
+  @override
+  final String description;
 
   @override
   String toString() {
-    return 'UserProfileDto(following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL, username: $username)';
+    return 'UserProfileDto(following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL, username: $username, description: $description)';
   }
 
   @override
@@ -200,7 +215,10 @@ class _$_UserProfileDto extends _UserProfileDto {
                     .equals(other.backgroundImageURL, backgroundImageURL)) &&
             (identical(other.username, username) ||
                 const DeepCollectionEquality()
-                    .equals(other.username, username)));
+                    .equals(other.username, username)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)));
   }
 
   @override
@@ -210,7 +228,8 @@ class _$_UserProfileDto extends _UserProfileDto {
       const DeepCollectionEquality().hash(followers) ^
       const DeepCollectionEquality().hash(profileImageURL) ^
       const DeepCollectionEquality().hash(backgroundImageURL) ^
-      const DeepCollectionEquality().hash(username);
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(description);
 
   @override
   _$UserProfileDtoCopyWith<_UserProfileDto> get copyWith =>
@@ -229,7 +248,8 @@ abstract class _UserProfileDto extends UserProfileDto {
       @required int followers,
       @required String profileImageURL,
       @required String backgroundImageURL,
-      @required String username}) = _$_UserProfileDto;
+      @required String username,
+      @required String description}) = _$_UserProfileDto;
 
   factory _UserProfileDto.fromJson(Map<String, dynamic> json) =
       _$_UserProfileDto.fromJson;
@@ -244,6 +264,8 @@ abstract class _UserProfileDto extends UserProfileDto {
   String get backgroundImageURL;
   @override
   String get username;
+  @override
+  String get description;
   @override
   _$UserProfileDtoCopyWith<_UserProfileDto> get copyWith;
 }

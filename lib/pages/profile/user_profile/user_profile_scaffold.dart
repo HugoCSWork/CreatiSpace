@@ -7,9 +7,16 @@ import 'package:creatispace/shared/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UserProfileScaffold extends StatelessWidget {
+class UserProfileScaffold extends StatefulWidget {
+  @override
+  _UserProfileScaffoldState createState() => _UserProfileScaffoldState();
+}
+
+class _UserProfileScaffoldState extends State<UserProfileScaffold> {
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: MultiBlocProvider(
         providers: [
