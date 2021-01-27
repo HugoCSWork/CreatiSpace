@@ -10,7 +10,9 @@ import 'package:creatispace/pages/messaging/messaging/messaging_scaffold.dart';
 import 'package:creatispace/pages/messaging/messaging/widgets/full_screen_image.dart';
 import 'package:creatispace/pages/messaging/user_list/user_list.dart';
 import 'package:creatispace/pages/messaging/user_list/user_list_with_scaffold.dart';
+import 'package:creatispace/pages/profile/user_profile//user_profile_scaffold.dart';
 import 'package:creatispace/pages/splash/splash_page.dart';
+import 'package:creatispace/shared/navigation_bar.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -20,9 +22,11 @@ import 'package:creatispace/pages/splash/splash_page.dart';
     MaterialRoute(page: ForgottenPasswordPage),
     MaterialRoute(page: ItemsOverviewPage),
     MaterialRoute(page: EmailVerifiedPage),
+    MaterialRoute(page: NavigationBar),
     MaterialRoute(page: UserList),
     MaterialRoute(page: UserListScaffold),
     MaterialRoute(page: FollowingScaffold),
+    MaterialRoute(page: UserProfileScaffold),
     MaterialRoute(page: MessagingScaffold),
     MaterialRoute(page: FullScreenImage),
     MaterialRoute(page: ItemFormPage, fullscreenDialog: true),

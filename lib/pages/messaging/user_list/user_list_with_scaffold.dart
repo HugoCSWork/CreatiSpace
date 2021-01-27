@@ -11,7 +11,6 @@ class UserListScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(2),
       appBar: AppBar(
         title: Text(
           'Recent Messages',

@@ -34,7 +34,7 @@ class SignInForm extends StatelessWidget {
           context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
           var user = await FirebaseAuth.instance.currentUser;
           if (user.emailVerified == true) {
-            ExtendedNavigator.of(context).replace(Routes.itemsOverviewPage);
+            ExtendedNavigator.of(context).replace(Routes.navigationBar);
           } else {
             ExtendedNavigator.of(context).replace(Routes.emailVerifiedPage);
 

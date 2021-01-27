@@ -5,6 +5,7 @@ import 'package:creatispace/domain/auth/auth_error/auth_error_failures.dart';
 import 'package:creatispace/domain/auth/i_auth_facade.dart';
 import 'package:creatispace/domain/auth/user/user.dart';
 import 'package:creatispace/domain/auth/value_objects.dart';
+import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,7 +61,15 @@ class FirebaseAuthFacade implements IAuthFacade {
         await _firebaseFirestore
             .collection('users')
             .doc(_auth.currentUser.uid)
-            .set({'username': usernameStr});
+            .set(
+              {
+                'username': usernameStr,
+                'followers' : 0,
+                "following" : 0,
+                "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
+                "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash.jpg?alt=media&token=408b1965-795d-42e8-b91b-7a7e1b35fbb1"
+              }
+            );
         return right(unit);
       }
     } on FirebaseAuthException catch (e) {
@@ -109,18 +118,31 @@ class FirebaseAuthFacade implements IAuthFacade {
           idToken: googleAuthentication.idToken);
       
       UserCredential user =  await _auth.signInWithCredential(authCredential);
-
-      if(user.additionalUserInfo.isNewUser) {
+      final userDoc = await _firebaseFirestore.userDocument();
+      var options = (await userDoc.get()).data();
+      if(options == null || options["username"] == null) {
+        if(user.additionalUserInfo.isNewUser) {
           await _auth.currentUser.sendEmailVerification();
+        }
+        int min = 100000;
+        int max = 999999;
+        var randomizer = new Random();
+        var rNum = min + randomizer.nextInt(max - min);
+        await _firebaseFirestore
+            .collection('users')
+            .doc(_auth.currentUser.uid)
+              .set(
+                {
+                  'username': "new_user${rNum}",
+                  'followers' : 0,
+                  "following" : 0,
+                  "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
+                  "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash.jpg?alt=media&token=408b1965-795d-42e8-b91b-7a7e1b35fbb1"
+                }
+              );
       }
-      int min = 100000; //min and max values act as your 6 digit range
-      int max = 999999;
-      var randomizer = new Random();
-      var rNum = min + randomizer.nextInt(max - min);
-      await _firebaseFirestore
-          .collection('users')
-          .doc(_auth.currentUser.uid)
-          .set({'username': "random_user${rNum}"});
+
+
       return right(unit);
     } on FirebaseAuthException catch (_) {
       return left(const AuthErrorFailure.serviceError());

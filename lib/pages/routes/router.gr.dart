@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/items/item/item.dart';
 import '../../domain/user_messaging/user_list/user_messaging.dart';
+import '../../shared/navigation_bar.dart';
 import '../auth/forgotten_password/forgotten_password.dart';
 import '../auth/sign_in/sign_in_page.dart';
 import '../auth/sign_up/sign_up_page.dart';
@@ -22,6 +23,7 @@ import '../messaging/messaging/messaging_scaffold.dart';
 import '../messaging/messaging/widgets/full_screen_image.dart';
 import '../messaging/user_list/user_list.dart';
 import '../messaging/user_list/user_list_with_scaffold.dart';
+import '../profile/user_profile/user_profile_scaffold.dart';
 import '../splash/splash_page.dart';
 
 class Routes {
@@ -31,9 +33,11 @@ class Routes {
   static const String forgottenPasswordPage = '/forgotten-password-page';
   static const String itemsOverviewPage = '/items-overview-page';
   static const String emailVerifiedPage = '/email-verified-page';
+  static const String navigationBar = '/navigation-bar';
   static const String userList = '/user-list';
   static const String userListScaffold = '/user-list-scaffold';
   static const String followingScaffold = '/following-scaffold';
+  static const String userProfileScaffold = '/user-profile-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
   static const String itemFormPage = '/item-form-page';
@@ -44,9 +48,11 @@ class Routes {
     forgottenPasswordPage,
     itemsOverviewPage,
     emailVerifiedPage,
+    navigationBar,
     userList,
     userListScaffold,
     followingScaffold,
+    userProfileScaffold,
     messagingScaffold,
     fullScreenImage,
     itemFormPage,
@@ -63,9 +69,11 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.forgottenPasswordPage, page: ForgottenPasswordPage),
     RouteDef(Routes.itemsOverviewPage, page: ItemsOverviewPage),
     RouteDef(Routes.emailVerifiedPage, page: EmailVerifiedPage),
+    RouteDef(Routes.navigationBar, page: NavigationBar),
     RouteDef(Routes.userList, page: UserList),
     RouteDef(Routes.userListScaffold, page: UserListScaffold),
     RouteDef(Routes.followingScaffold, page: FollowingScaffold),
+    RouteDef(Routes.userProfileScaffold, page: UserProfileScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
@@ -109,6 +117,12 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    NavigationBar: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => NavigationBar(),
+        settings: data,
+      );
+    },
     UserList: (data) {
       final args = data.getArgs<UserListArguments>(
         orElse: () => UserListArguments(),
@@ -130,6 +144,12 @@ class BaseRouter extends RouterBase {
     FollowingScaffold: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => FollowingScaffold(),
+        settings: data,
+      );
+    },
+    UserProfileScaffold: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => UserProfileScaffold(),
         settings: data,
       );
     },
@@ -191,6 +211,8 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushEmailVerifiedPage() =>
       push<dynamic>(Routes.emailVerifiedPage);
 
+  Future<dynamic> pushNavigationBar() => push<dynamic>(Routes.navigationBar);
+
   Future<dynamic> pushUserList({
     Key key,
     UserMessaging userMessaging,
@@ -205,6 +227,9 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushFollowingScaffold() =>
       push<dynamic>(Routes.followingScaffold);
+
+  Future<dynamic> pushUserProfileScaffold() =>
+      push<dynamic>(Routes.userProfileScaffold);
 
   Future<dynamic> pushMessagingScaffold({
     Key key,

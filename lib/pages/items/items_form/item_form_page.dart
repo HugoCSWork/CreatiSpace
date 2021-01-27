@@ -46,7 +46,7 @@ class ItemFormPage extends StatelessWidget {
                         (_) => ExtendedNavigator.of(context).popUntil(
                               (route) =>
                                   route.settings.name ==
-                                  Routes.itemsOverviewPage,
+                                  Routes.navigationBar,
                             )));
           },
           buildWhen: (prev, current) => prev.isSaving != current.isSaving,

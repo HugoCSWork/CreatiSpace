@@ -72,13 +72,6 @@ abstract class UserMessagingDto implements _$UserMessagingDto {
   factory UserMessagingDto.fromJson(Map<String, dynamic> json) =>
       _$UserMessagingDtoFromJson(json);
 
-  factory UserMessagingDto.fromFirestore(DocumentSnapshot doc, String userId) {
-    try {
-      return UserMessagingDto.fromJson(doc.data()).copyWith(id: doc.id, userId: userId);
-
-    }
-    catch (e) {
-      return null;
-    }
-  }
+  factory UserMessagingDto.fromFirestore(DocumentSnapshot doc, String userId) =>
+      UserMessagingDto.fromJson(doc.data()).copyWith(id: doc.id, userId: userId);
 }

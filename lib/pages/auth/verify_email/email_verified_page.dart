@@ -26,7 +26,7 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
       var user = await FirebaseAuth.instance.currentUser;
       if (user.emailVerified == true) {
         _timer.cancel();
-        ExtendedNavigator.of(context).push(Routes.itemsOverviewPage);
+        ExtendedNavigator.of(context).push(Routes.navigationBar);
       }
     });
   });

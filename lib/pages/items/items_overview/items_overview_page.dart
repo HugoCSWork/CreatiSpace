@@ -52,7 +52,7 @@ class ItemsOverviewPage extends StatelessWidget {
         ],
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Your Listings'),
+            title: const Text('Listings'),
             // leading: IconButton(
             //   icon: const Icon(Icons.arrow_back),
             //   onPressed: () {},
@@ -67,7 +67,6 @@ class ItemsOverviewPage extends StatelessWidget {
               ItemSwitch(),
             ],
           ),
-          bottomNavigationBar: NavigationBar(2),
           body: ItemOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
