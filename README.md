@@ -31,6 +31,7 @@ An application for creative students to sell their items and host workshop event
   - [ ] Block Users
 - [ ] Profile
   - [x] View your profile information
+   - [x] Edit profile information
    - [x] Followers/Following Count
    - [x] View your followers
    - [x] View your following
