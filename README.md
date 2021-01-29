@@ -1,6 +1,6 @@
 # CreatiSpace
 
-An application for creative students to sell their items and services.
+An application for creative students to sell their items and host workshop events.
 
 ## Goals
 
