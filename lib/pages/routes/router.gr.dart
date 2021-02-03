@@ -17,6 +17,7 @@ import '../auth/forgotten_password/forgotten_password.dart';
 import '../auth/sign_in/sign_in_page.dart';
 import '../auth/sign_up/sign_up_page.dart';
 import '../auth/verify_email/email_verified_page.dart';
+import '../home/home_scaffold.dart';
 import '../items/items_form/item_form_page.dart';
 import '../items/items_overview/items_overview_page.dart';
 import '../messaging/following_list/following_scaffold.dart';
@@ -25,6 +26,7 @@ import '../messaging/messaging/widgets/full_screen_image.dart';
 import '../messaging/user_list/user_list.dart';
 import '../messaging/user_list/user_list_with_scaffold.dart';
 import '../profile/edit_profile/edit_profile_form_page.dart';
+import '../profile/following_followers/user_friends_scaffold.dart';
 import '../profile/user_profile/user_profile_scaffold.dart';
 import '../splash/splash_page.dart';
 
@@ -40,7 +42,9 @@ class Routes {
   static const String userList = '/user-list';
   static const String userListScaffold = '/user-list-scaffold';
   static const String followingScaffold = '/following-scaffold';
+  static const String userFriendsScaffold = '/user-friends-scaffold';
   static const String userProfileScaffold = '/user-profile-scaffold';
+  static const String homeScaffold = '/home-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
   static const String itemFormPage = '/item-form-page';
@@ -56,7 +60,9 @@ class Routes {
     userList,
     userListScaffold,
     followingScaffold,
+    userFriendsScaffold,
     userProfileScaffold,
+    homeScaffold,
     messagingScaffold,
     fullScreenImage,
     itemFormPage,
@@ -78,7 +84,9 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.userList, page: UserList),
     RouteDef(Routes.userListScaffold, page: UserListScaffold),
     RouteDef(Routes.followingScaffold, page: FollowingScaffold),
+    RouteDef(Routes.userFriendsScaffold, page: UserFriendsScaffold),
     RouteDef(Routes.userProfileScaffold, page: UserProfileScaffold),
+    RouteDef(Routes.homeScaffold, page: HomeScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
@@ -169,9 +177,27 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    UserFriendsScaffold: (data) {
+      final args = data.getArgs<UserFriendsScaffoldArguments>(
+        orElse: () => UserFriendsScaffoldArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => UserFriendsScaffold(
+          key: args.key,
+          followOrFollowing: args.followOrFollowing,
+        ),
+        settings: data,
+      );
+    },
     UserProfileScaffold: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => UserProfileScaffold(),
+        settings: data,
+      );
+    },
+    HomeScaffold: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => HomeScaffold(),
         settings: data,
       );
     },
@@ -266,8 +292,20 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushFollowingScaffold() =>
       push<dynamic>(Routes.followingScaffold);
 
+  Future<dynamic> pushUserFriendsScaffold({
+    Key key,
+    bool followOrFollowing,
+  }) =>
+      push<dynamic>(
+        Routes.userFriendsScaffold,
+        arguments: UserFriendsScaffoldArguments(
+            key: key, followOrFollowing: followOrFollowing),
+      );
+
   Future<dynamic> pushUserProfileScaffold() =>
       push<dynamic>(Routes.userProfileScaffold);
+
+  Future<dynamic> pushHomeScaffold() => push<dynamic>(Routes.homeScaffold);
 
   Future<dynamic> pushMessagingScaffold({
     Key key,
@@ -323,6 +361,13 @@ class UserListArguments {
   final Key key;
   final UserMessaging userMessaging;
   UserListArguments({this.key, this.userMessaging});
+}
+
+/// UserFriendsScaffold arguments holder class
+class UserFriendsScaffoldArguments {
+  final Key key;
+  final bool followOrFollowing;
+  UserFriendsScaffoldArguments({this.key, this.followOrFollowing});
 }
 
 /// MessagingScaffold arguments holder class

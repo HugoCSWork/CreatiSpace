@@ -20,7 +20,7 @@ class EmailField extends StatelessWidget {
             context.read<SignInFormBloc>().state.emailAddress.value.fold(
                   (failure) => failure.maybeMap(
                     auth: (value) => value.f.maybeMap(
-                      invalidEmail: (_) => 'Invalid Email',
+                      invalidEmail: (_) => 'Invalid Email Address',
                       orElse: () => null,
                     ),
                     orElse: () => null,

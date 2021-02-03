@@ -63,8 +63,10 @@ extension FirestoreX on FirebaseFirestore {
 
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get itemCollection => collection('items');
+  CollectionReference get homeItemCollection => collection('home');
   CollectionReference get UserMessagesCollection => collection('messages');
   CollectionReference get UserFollowingCollection => collection('following');
+  CollectionReference get UserFollowersCollection => collection('followers');
   CollectionReference get UserMessagesConversationCollection => collection('conversation');
 }
 

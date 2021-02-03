@@ -14,13 +14,18 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'app/auth/auth_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
+import 'app/following_followers/followers/followers_bloc.dart';
+import 'app/following_followers/following/following_bloc.dart';
+import 'infrastructure/following_followers/following_followers_repository.dart';
 import 'app/auth/forgotten_password/forgotten_password_bloc.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/following_followers/i_following_followers_facade.dart';
 import 'domain/items/i_item_facade.dart';
 import 'domain/profile/i_profile_facade.dart';
 import 'domain/user_messaging/IUserFacade.dart';
 import 'app/item/item_actor/item_actor_bloc.dart';
 import 'app/item/item_form/item_form_bloc.dart';
+import 'app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
 import 'app/profile/profile_form/profile_form_bloc.dart';
@@ -52,6 +57,8 @@ GetIt $initGetIt(
         get<GoogleSignIn>(),
         get<FirebaseFirestore>(),
       ));
+  gh.lazySingleton<IFollowingFollowerFacade>(
+      () => FollowingFollowerRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IItemFacade>(
       () => ItemRepository(get<FirebaseFirestore>(), get<FirebaseStorage>()));
   gh.lazySingleton<IProfileFacade>(() => ProfileRepository(
@@ -66,6 +73,8 @@ GetIt $initGetIt(
       ));
   gh.factory<ItemActorBloc>(() => ItemActorBloc(get<IItemFacade>()));
   gh.factory<ItemFormBloc>(() => ItemFormBloc(get<IItemFacade>()));
+  gh.factory<ItemHomeWatcherBloc>(
+      () => ItemHomeWatcherBloc(get<IItemFacade>()));
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
   gh.factory<ProfileFormBloc>(() => ProfileFormBloc(get<IProfileFacade>()));
   gh.factory<ProfileInformationWatcherBloc>(
@@ -77,6 +86,10 @@ GetIt $initGetIt(
   gh.factory<UserMessagingWatcherBloc>(
       () => UserMessagingWatcherBloc(get<IUserFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<FollowersBloc>(
+      () => FollowersBloc(get<IFollowingFollowerFacade>()));
+  gh.factory<FollowingBloc>(
+      () => FollowingBloc(get<IFollowingFollowerFacade>()));
   gh.factory<ForgottenPasswordBloc>(
       () => ForgottenPasswordBloc(get<IAuthFacade>()));
   return get;

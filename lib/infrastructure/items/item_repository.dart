@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:creatispace/domain/items/home_item/home_item.dart';
 import 'package:creatispace/domain/items/i_item_facade.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/core/firebase_storage_helpers.dart';
+import 'package:creatispace/infrastructure/items/home_item_dtos.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -178,5 +180,27 @@ class ItemRepository implements IItemFacade {
         return left(const ItemErrorFailure.unexpected());
       }
     }
+  }
+
+  @override
+  Stream<Either<ItemErrorFailure, KtList<HomeItem>>> watchAllUserHomeItems() async* {
+    final userDoc = await _firebaseFirestore.userDocument();
+    yield* userDoc.homeItemCollection
+        .snapshots()
+        .map(
+          (snapshot) => right<ItemErrorFailure, KtList<HomeItem>>(
+            snapshot.docs
+                .map((doc) => HomeItemDto.fromFirestore(doc).toDomain())
+                .toImmutableList(),
+          ),
+         )
+        .onErrorReturnWith((e) {
+          if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
+            return left(const ItemErrorFailure.insufficientPermissions());
+          } else {
+            // log.error(e.toString());
+            return left(const ItemErrorFailure.unexpected());
+          }
+        });
   }
 }

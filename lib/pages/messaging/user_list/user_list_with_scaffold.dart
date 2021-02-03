@@ -14,7 +14,7 @@ class UserListScaffold extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Recent Messages',
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
           FlatButton(
@@ -22,7 +22,7 @@ class UserListScaffold extends StatelessWidget {
             onPressed: () {
               ExtendedNavigator.of(context, rootRouter: true).push(Routes.followingScaffold);
             },
-            child: Icon(Icons.add),
+            child: Icon(Icons.add, color: Colors.white),
             shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
           ),
         ],

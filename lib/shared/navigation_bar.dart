@@ -1,3 +1,4 @@
+import 'package:creatispace/pages/home/home_scaffold.dart';
 import 'package:creatispace/pages/items/items_overview/items_overview_page.dart';
 import 'package:creatispace/pages/messaging/messaging/messaging_scaffold.dart';
 import 'package:creatispace/pages/messaging/user_list/user_list_with_scaffold.dart';
@@ -22,7 +23,7 @@ class _NavigationBarState extends State<NavigationBar> {
   }
 
   final List<Widget> _children = [
-    ItemsOverviewPage(),
+    HomeScaffold(),
     ItemsOverviewPage(),
     ItemsOverviewPage(),
     UserListScaffold(),

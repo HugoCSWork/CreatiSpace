@@ -99,10 +99,6 @@ class _UserProfileState extends State<UserProfile> {
                           blurRadius: 7,
                           offset: Offset(1, 3),
                         )],
-                        // border: Border.all(
-                        //   color: Colors.blue[200],
-                        //   width: 1.3
-                        // )
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -173,7 +169,12 @@ class _UserProfileState extends State<UserProfile> {
             Positioned(
                 top: 180, //
                 left: 30,// (background container size) - (circle height / 2)
-                child: Container(
+                child: GestureDetector(
+                  onTap: () =>
+                      ExtendedNavigator.of(context).push(Routes.userFriendsScaffold, arguments: UserFriendsScaffoldArguments(
+                        followOrFollowing: false
+                  )),
+                  child: Container(
                   height: 40,
                   width: 100,
                   decoration: BoxDecoration(
@@ -189,24 +190,31 @@ class _UserProfileState extends State<UserProfile> {
                       ),
                     ),
                   ),
+                ),
                 )
             ),
             Positioned(
                 top: 180, //
                 right: 30,// (background container size) - (circle height / 2)
-                child: Container(
-                  height: 40,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18.0),
-                      color: Colors.blue[200]
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Followers\n${widget.data.followers.getOrCrash()}",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold
+                child: GestureDetector(
+                  onTap: () =>
+                      ExtendedNavigator.of(context).push(Routes.userFriendsScaffold, arguments: UserFriendsScaffoldArguments(
+                          followOrFollowing: true)
+                      ),
+                  child: Container(
+                    height: 40,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18.0),
+                        color: Colors.blue[200]
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Followers\n${widget.data.followers.getOrCrash()}",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
                   ),
