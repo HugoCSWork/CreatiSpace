@@ -1,16 +1,56 @@
-# creatispace
+# CreatiSpace
 
-A new Flutter application.
+An application for creative students to sell their items and host workshop events.
 
-## Getting Started
+## Goals
 
-This project is a starting point for a Flutter application.
+- [x] Implement DDD Structure
+  - [x] Create Infrastructure layer
+  - [x] Create Domain layer
+  - [x] Create App layer
+  - [x] Create UI (Pages) layer
+- [x] Add Firebase to application
+  - [x] Firebase Storage
+  - [x] Firebase Authentication
+  - [x] Firebase Firestore
+- [x] Add Authentication
+  - [x] Add Sign in with email and password and google.
+  - [x] Add Sign up
+  - [x] Add Forgotten password
+  - [x] Add Verify Email
+- [ ] Post Items
+  - [ ] Ability to add Items to sell
+  - [x] Ability to modify Items to sell
+  - [x] Make items purchasable/unpurchasable
+  - [ ] Add tags to items to make them easier to search for
+- [ ] Messaging
+  - [x] Message other users that you are following
+  - [x] Send text and images
+  - [x] Search for other users
+  - [ ] Delete Conversation 
+  - [ ] Block Users
+- [ ] Profile
+  - [x] View your profile information
+   - [x] Edit profile information
+   - [x] Followers/Following Count
+   - [x] View your followers
+   - [x] View your following
+  - [x] View your posts
+   - [x] Grid Layout
+   - [ ] Portrait Layout
+- [ ] Home Page
+  - [ ] View following recent posts
+- [ ] Search Page
+  - [ ] Search for users
+  - [ ] Search for posts
+  - [ ] Search for tags
+- [ ] Purchasing Items
+  - [ ] Implement Node API for peer to peer payment
+  - [ ] Connect stripe payment
+  - [ ] Allow users to purchase Items
+- [ ] Add Workshop events
+  - [ ] Allow students to schedule events with price
+  - [ ] Allow users to purchase events
+  - [ ] Share your camera to other users during the event
+  - [ ] Other users can add comments
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
