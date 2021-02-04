@@ -25,9 +25,8 @@ class ProfileRepository implements IProfileFacade {
   Stream<Either<ProfileErrorFailure, UserProfileData>> getUserData() async* {
     try {
       DocumentReference userDoc = await _firebaseFirestore.userDocument();
-      var userPhoto = _firebaseAuth.currentUser.photoURL ?? "template";
       UserProfileData dto = await UserProfileDto.fromFirestore(
-          await userDoc.get(), userPhoto).toDomain();
+          await userDoc.get()).toDomain();
       yield right(dto);
     } catch (error) {
       if (error is FirebaseException &&

@@ -46,7 +46,7 @@ class _UserFriendsScaffoldState extends State<UserFriendsScaffold> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(bottom: 6.0), //Same as `blurRadius` i guess
+              margin: const EdgeInsets.only(bottom: 6.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 color: Colors.white,

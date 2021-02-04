@@ -32,6 +32,16 @@ extension FirestoreX on FirebaseFirestore {
 
   }
 
+  Future<String> userDocumentProfileImage(String id) async {
+    var user = (await FirebaseFirestore.instance
+        .collection('users')
+        .doc(id)
+        .get()).data();
+
+    return user["profileImageURL"].toString();
+
+  }
+
   Future<DocumentReference> peerDocumentMessage(String id) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
@@ -62,6 +72,7 @@ extension FirestoreX on FirebaseFirestore {
 }
 
 extension DocumentReferenceX on DocumentReference {
+  CollectionReference get userCollection => collection('users');
   CollectionReference get itemCollection => collection('items');
   CollectionReference get homeItemCollection => collection('home');
   CollectionReference get UserMessagesCollection => collection('messages');

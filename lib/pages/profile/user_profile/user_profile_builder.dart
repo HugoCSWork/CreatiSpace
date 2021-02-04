@@ -10,7 +10,7 @@ class UserProfileBuilder extends StatelessWidget {
         builder: (context, state) {
           return state.map(
               initial: (_) => Container(),
-              loadInProgress: (_) => Container(),
+              loadInProgress: (_) => Center(child: CircularProgressIndicator()),
               loadSuccess: (state) => SingleChildScrollView(
                   child: UserProfile(
                       data: state.userProfileData

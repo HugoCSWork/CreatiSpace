@@ -26,6 +26,7 @@ class FollowingScaffold extends StatelessWidget {
                 create: (context) => getIt<FollowingBloc>()
                   ..add(const FollowingEvent.watchAllFollowingList()),
               ),
+
             ],
             child: FollowingBuilder()
         )

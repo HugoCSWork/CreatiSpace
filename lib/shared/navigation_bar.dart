@@ -1,8 +1,8 @@
 import 'package:creatispace/pages/home/home_scaffold.dart';
 import 'package:creatispace/pages/items/items_overview/items_overview_page.dart';
-import 'package:creatispace/pages/messaging/messaging/messaging_scaffold.dart';
 import 'package:creatispace/pages/messaging/user_list/user_list_with_scaffold.dart';
 import 'package:creatispace/pages/profile/user_profile/user_profile_scaffold.dart';
+import 'package:creatispace/pages/search/search_form_builder.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBar extends StatefulWidget {
@@ -24,7 +24,7 @@ class _NavigationBarState extends State<NavigationBar> {
 
   final List<Widget> _children = [
     HomeScaffold(),
-    ItemsOverviewPage(),
+    SearchFormBuilder(),
     ItemsOverviewPage(),
     UserListScaffold(),
     UserProfileScaffold(),
@@ -40,9 +40,6 @@ class _NavigationBarState extends State<NavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('My Flutter App'),
-      // ),
       body: _children[_currentIndex], // new
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,

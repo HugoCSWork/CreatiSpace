@@ -14,6 +14,7 @@ import 'package:creatispace/pages/messaging/user_list/user_list_with_scaffold.da
 import 'package:creatispace/pages/profile/edit_profile/edit_profile_form_page.dart';
 import 'package:creatispace/pages/profile/following_followers/user_friends_scaffold.dart';
 import 'package:creatispace/pages/profile/user_profile//user_profile_scaffold.dart';
+import 'package:creatispace/pages/search/search_scaffold.dart';
 import 'package:creatispace/pages/splash/splash_page.dart';
 import 'package:creatispace/shared/navigation_bar.dart';
 
@@ -31,6 +32,7 @@ import 'package:creatispace/shared/navigation_bar.dart';
     MaterialRoute(page: UserListScaffold),
     MaterialRoute(page: FollowingScaffold),
     MaterialRoute(page: UserFriendsScaffold),
+    MaterialRoute(page: SearchScaffold),
     MaterialRoute(page: UserProfileScaffold),
     MaterialRoute(page: HomeScaffold),
     MaterialRoute(page: MessagingScaffold),

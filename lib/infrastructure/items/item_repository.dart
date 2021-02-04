@@ -9,6 +9,7 @@ import 'package:creatispace/infrastructure/core/firebase_storage_helpers.dart';
 import 'package:creatispace/infrastructure/items/home_item_dtos.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
@@ -18,8 +19,9 @@ import 'package:rxdart/rxdart.dart';
 class ItemRepository implements IItemFacade {
   final FirebaseFirestore _firebaseFirestore;
   final FirebaseStorage _firebaseStorage;
+  final FirebaseAuth _firebaseAuth;
 
-  ItemRepository(this._firebaseFirestore, this._firebaseStorage);
+  ItemRepository(this._firebaseFirestore, this._firebaseStorage, this._firebaseAuth);
 
   @override
   Stream<Either<ItemErrorFailure, KtList<Item>>> watchAllUserItems() async* {
@@ -98,6 +100,9 @@ class ItemRepository implements IItemFacade {
   Future<Either<ItemErrorFailure, Unit>> create(Item item) async {
     try {
       final userDoc = await _firebaseFirestore.userDocument();
+      final String username = await _firebaseFirestore.userDocumentName(await _firebaseAuth.currentUser.uid);
+      final String profileImageURL = await _firebaseFirestore.userDocumentProfileImage(await _firebaseAuth.currentUser.uid);
+      final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
 
       final updatedImages =
           await _firebaseStorage.updateImages(item, userDoc.id);
@@ -111,9 +116,39 @@ class ItemRepository implements IItemFacade {
           name: item.name,
           images: ItemImageList(updatedImages));
 
-      final itemDto = ItemDto.fromDomain(newItem);
+      final HomeItem newHomeItem = HomeItem(
+          id: item.id.getOrCrash(),
+          description: item.description,
+          price: item.price,
+          quantity: item.quantity,
+          delivery: item.delivery,
+          purchasable: item.purchasable,
+          name: item.name,
+          images: ItemImageList(updatedImages),
+          profileImageURL: profileImageURL,
+          username: username
+    );
 
+      final itemDto = ItemDto.fromDomain(newItem);
+      final homeItemDto = HomeItemDto.fromDomain(newHomeItem);
+
+      // document to their collection
       await userDoc.itemCollection.doc(itemDto.id).set(itemDto.toJson());
+      // document to posts collection
+      await _firebaseFirestore.collection('posts').doc(timestamp).set(homeItemDto.toJson());
+      // document to all followers collections
+      var data = await userDoc.collection('followers').get();
+      var dataFromFirebase = await data.docs.map((e) => e.id);
+      var batch = _firebaseFirestore.batch();
+      await dataFromFirebase.forEach((element) {
+        var docRef = _firebaseFirestore
+            .collection('users')
+            .doc(element)
+            .collection('home')
+            .doc(timestamp);
+        batch.set(docRef, homeItemDto.toJson());
+      });
+      batch.commit();
 
       return right(unit);
     } on FirebaseException catch (e) {

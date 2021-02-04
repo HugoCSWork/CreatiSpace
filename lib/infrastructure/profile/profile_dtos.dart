@@ -66,9 +66,8 @@ abstract class UserProfileDto implements _$UserProfileDto {
   factory UserProfileDto.fromJson(Map<String, dynamic> json) =>
       _$UserProfileDtoFromJson(json);
 
-  factory UserProfileDto.fromFirestore(DocumentSnapshot doc, String profileImage) {
+  factory UserProfileDto.fromFirestore(DocumentSnapshot doc) {
     var data = doc.data();
-    // data["profileImageURL"] = profileImage;
     return UserProfileDto.fromJson(data);
   }
 }

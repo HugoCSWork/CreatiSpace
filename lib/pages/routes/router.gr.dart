@@ -28,6 +28,7 @@ import '../messaging/user_list/user_list_with_scaffold.dart';
 import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/following_followers/user_friends_scaffold.dart';
 import '../profile/user_profile/user_profile_scaffold.dart';
+import '../search/search_scaffold.dart';
 import '../splash/splash_page.dart';
 
 class Routes {
@@ -43,6 +44,7 @@ class Routes {
   static const String userListScaffold = '/user-list-scaffold';
   static const String followingScaffold = '/following-scaffold';
   static const String userFriendsScaffold = '/user-friends-scaffold';
+  static const String searchScaffold = '/search-scaffold';
   static const String userProfileScaffold = '/user-profile-scaffold';
   static const String homeScaffold = '/home-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
@@ -61,6 +63,7 @@ class Routes {
     userListScaffold,
     followingScaffold,
     userFriendsScaffold,
+    searchScaffold,
     userProfileScaffold,
     homeScaffold,
     messagingScaffold,
@@ -85,6 +88,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.userListScaffold, page: UserListScaffold),
     RouteDef(Routes.followingScaffold, page: FollowingScaffold),
     RouteDef(Routes.userFriendsScaffold, page: UserFriendsScaffold),
+    RouteDef(Routes.searchScaffold, page: SearchScaffold),
     RouteDef(Routes.userProfileScaffold, page: UserProfileScaffold),
     RouteDef(Routes.homeScaffold, page: HomeScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
@@ -186,6 +190,12 @@ class BaseRouter extends RouterBase {
           key: args.key,
           followOrFollowing: args.followOrFollowing,
         ),
+        settings: data,
+      );
+    },
+    SearchScaffold: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SearchScaffold(),
         settings: data,
       );
     },
@@ -301,6 +311,8 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: UserFriendsScaffoldArguments(
             key: key, followOrFollowing: followOrFollowing),
       );
+
+  Future<dynamic> pushSearchScaffold() => push<dynamic>(Routes.searchScaffold);
 
   Future<dynamic> pushUserProfileScaffold() =>
       push<dynamic>(Routes.userProfileScaffold);

@@ -9,11 +9,14 @@ class HomeScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("CreatiSpace"),
+      ),
       body: BlocProvider(
         create: (context) => getIt<ItemHomeWatcherBloc>()
           ..add(const ItemHomeWatcherEvent.watchAllStarted()),
         child: Padding(
-          padding: const EdgeInsets.only(top: 25.0),
+          padding: const EdgeInsets.only(top: 0.0),
           child: SingleChildScrollView(
               child: HomeBuilder()
           ),

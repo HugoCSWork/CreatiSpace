@@ -22,6 +22,7 @@ import 'domain/auth/i_auth_facade.dart';
 import 'domain/following_followers/i_following_followers_facade.dart';
 import 'domain/items/i_item_facade.dart';
 import 'domain/profile/i_profile_facade.dart';
+import 'domain/search/i_search_facade.dart';
 import 'domain/user_messaging/IUserFacade.dart';
 import 'app/item/item_actor/item_actor_bloc.dart';
 import 'app/item/item_form/item_form_bloc.dart';
@@ -31,6 +32,9 @@ import 'app/item/item_watcher/item_watcher_bloc.dart';
 import 'app/profile/profile_form/profile_form_bloc.dart';
 import 'app/profile/profile_information_watcher/profile_information_watcher_bloc.dart';
 import 'infrastructure/profile/profile_repository.dart';
+import 'app/search/item/search_item_bloc.dart';
+import 'infrastructure/search/search_repository.dart';
+import 'app/search/user/search_user_bloc.dart';
 import 'app/auth/sign_in/sign_in_bloc.dart';
 import 'app/auth/sign_up/sign_up_bloc.dart';
 import 'app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
@@ -59,13 +63,18 @@ GetIt $initGetIt(
       ));
   gh.lazySingleton<IFollowingFollowerFacade>(
       () => FollowingFollowerRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IItemFacade>(
-      () => ItemRepository(get<FirebaseFirestore>(), get<FirebaseStorage>()));
+  gh.lazySingleton<IItemFacade>(() => ItemRepository(
+        get<FirebaseFirestore>(),
+        get<FirebaseStorage>(),
+        get<FirebaseAuth>(),
+      ));
   gh.lazySingleton<IProfileFacade>(() => ProfileRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),
         get<FirebaseAuth>(),
       ));
+  gh.lazySingleton<ISearchFacade>(
+      () => SearchRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.lazySingleton<IUserFacade>(() => UserMessagesRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),
@@ -79,6 +88,8 @@ GetIt $initGetIt(
   gh.factory<ProfileFormBloc>(() => ProfileFormBloc(get<IProfileFacade>()));
   gh.factory<ProfileInformationWatcherBloc>(
       () => ProfileInformationWatcherBloc(get<IProfileFacade>()));
+  gh.factory<SearchItemBloc>(() => SearchItemBloc(get<ISearchFacade>()));
+  gh.factory<SearchUserBloc>(() => SearchUserBloc(get<ISearchFacade>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(get<IAuthFacade>()));
   gh.factory<UserConversationBloc>(
