@@ -35,6 +35,21 @@ class _$ItemWatcherEventTearOff {
       failureOrNotes,
     );
   }
+
+// ignore: unused_element
+  _WatchAllPeerStarted watchAllPeerStarted(String id) {
+    return _WatchAllPeerStarted(
+      id,
+    );
+  }
+
+// ignore: unused_element
+  _PeerItemsReceived peerItemsReceived(
+      Either<ItemErrorFailure, KtList<Item>> failureOrNotes) {
+    return _PeerItemsReceived(
+      failureOrNotes,
+    );
+  }
 }
 
 /// @nodoc
@@ -51,6 +66,10 @@ mixin _$ItemWatcherEvent {
     @required
         TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -58,6 +77,9 @@ mixin _$ItemWatcherEvent {
     TResult watchUnpurchasableStarted(),
     TResult watchPurchasableStarted(),
     TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
         Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
     @required TResult orElse(),
   });
@@ -68,6 +90,8 @@ mixin _$ItemWatcherEvent {
         TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -75,6 +99,8 @@ mixin _$ItemWatcherEvent {
     TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
     @required TResult orElse(),
   });
 }
@@ -141,11 +167,17 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     @required
         TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return watchAllStarted();
   }
 
@@ -156,6 +188,9 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult watchUnpurchasableStarted(),
     TResult watchPurchasableStarted(),
     TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
         Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
     @required TResult orElse(),
   }) {
@@ -174,11 +209,15 @@ class _$_WatchAllStarted implements _WatchAllStarted {
         TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return watchAllStarted(this);
   }
 
@@ -189,6 +228,8 @@ class _$_WatchAllStarted implements _WatchAllStarted {
     TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -249,11 +290,17 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
     @required
         TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return watchUnpurchasableStarted();
   }
 
@@ -264,6 +311,9 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
     TResult watchUnpurchasableStarted(),
     TResult watchPurchasableStarted(),
     TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
         Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
     @required TResult orElse(),
   }) {
@@ -282,11 +332,15 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
         TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return watchUnpurchasableStarted(this);
   }
 
@@ -297,6 +351,8 @@ class _$_WatchUnpurchasableStarted implements _WatchUnpurchasableStarted {
     TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -357,11 +413,17 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
     @required
         TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return watchPurchasableStarted();
   }
 
@@ -372,6 +434,9 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
     TResult watchUnpurchasableStarted(),
     TResult watchPurchasableStarted(),
     TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
         Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
     @required TResult orElse(),
   }) {
@@ -390,11 +455,15 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
         TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return watchPurchasableStarted(this);
   }
 
@@ -405,6 +474,8 @@ class _$_WatchPurchasableStarted implements _WatchPurchasableStarted {
     TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -489,11 +560,17 @@ class _$_ItemsReceived implements _ItemsReceived {
     @required
         TResult itemsReceived(
             Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return itemsReceived(failureOrNotes);
   }
 
@@ -504,6 +581,9 @@ class _$_ItemsReceived implements _ItemsReceived {
     TResult watchUnpurchasableStarted(),
     TResult watchPurchasableStarted(),
     TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
         Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
     @required TResult orElse(),
   }) {
@@ -522,11 +602,15 @@ class _$_ItemsReceived implements _ItemsReceived {
         TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
   }) {
     assert(watchAllStarted != null);
     assert(watchUnpurchasableStarted != null);
     assert(watchPurchasableStarted != null);
     assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
     return itemsReceived(this);
   }
 
@@ -537,6 +621,8 @@ class _$_ItemsReceived implements _ItemsReceived {
     TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
     TResult watchPurchasableStarted(_WatchPurchasableStarted value),
     TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -553,6 +639,306 @@ abstract class _ItemsReceived implements ItemWatcherEvent {
 
   Either<ItemErrorFailure, KtList<Item>> get failureOrNotes;
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith;
+}
+
+/// @nodoc
+abstract class _$WatchAllPeerStartedCopyWith<$Res> {
+  factory _$WatchAllPeerStartedCopyWith(_WatchAllPeerStarted value,
+          $Res Function(_WatchAllPeerStarted) then) =
+      __$WatchAllPeerStartedCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$WatchAllPeerStartedCopyWithImpl<$Res>
+    extends _$ItemWatcherEventCopyWithImpl<$Res>
+    implements _$WatchAllPeerStartedCopyWith<$Res> {
+  __$WatchAllPeerStartedCopyWithImpl(
+      _WatchAllPeerStarted _value, $Res Function(_WatchAllPeerStarted) _then)
+      : super(_value, (v) => _then(v as _WatchAllPeerStarted));
+
+  @override
+  _WatchAllPeerStarted get _value => super._value as _WatchAllPeerStarted;
+
+  @override
+  $Res call({
+    Object id = freezed,
+  }) {
+    return _then(_WatchAllPeerStarted(
+      id == freezed ? _value.id : id as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_WatchAllPeerStarted implements _WatchAllPeerStarted {
+  const _$_WatchAllPeerStarted(this.id) : assert(id != null);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ItemWatcherEvent.watchAllPeerStarted(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WatchAllPeerStarted &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @override
+  _$WatchAllPeerStartedCopyWith<_WatchAllPeerStarted> get copyWith =>
+      __$WatchAllPeerStartedCopyWithImpl<_WatchAllPeerStarted>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
+    @required
+        TResult itemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+  }) {
+    assert(watchAllStarted != null);
+    assert(watchUnpurchasableStarted != null);
+    assert(watchPurchasableStarted != null);
+    assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
+    return watchAllPeerStarted(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchAllPeerStarted != null) {
+      return watchAllPeerStarted(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(watchUnpurchasableStarted != null);
+    assert(watchPurchasableStarted != null);
+    assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
+    return watchAllPeerStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchAllPeerStarted != null) {
+      return watchAllPeerStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WatchAllPeerStarted implements ItemWatcherEvent {
+  const factory _WatchAllPeerStarted(String id) = _$_WatchAllPeerStarted;
+
+  String get id;
+  _$WatchAllPeerStartedCopyWith<_WatchAllPeerStarted> get copyWith;
+}
+
+/// @nodoc
+abstract class _$PeerItemsReceivedCopyWith<$Res> {
+  factory _$PeerItemsReceivedCopyWith(
+          _PeerItemsReceived value, $Res Function(_PeerItemsReceived) then) =
+      __$PeerItemsReceivedCopyWithImpl<$Res>;
+  $Res call({Either<ItemErrorFailure, KtList<Item>> failureOrNotes});
+}
+
+/// @nodoc
+class __$PeerItemsReceivedCopyWithImpl<$Res>
+    extends _$ItemWatcherEventCopyWithImpl<$Res>
+    implements _$PeerItemsReceivedCopyWith<$Res> {
+  __$PeerItemsReceivedCopyWithImpl(
+      _PeerItemsReceived _value, $Res Function(_PeerItemsReceived) _then)
+      : super(_value, (v) => _then(v as _PeerItemsReceived));
+
+  @override
+  _PeerItemsReceived get _value => super._value as _PeerItemsReceived;
+
+  @override
+  $Res call({
+    Object failureOrNotes = freezed,
+  }) {
+    return _then(_PeerItemsReceived(
+      failureOrNotes == freezed
+          ? _value.failureOrNotes
+          : failureOrNotes as Either<ItemErrorFailure, KtList<Item>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_PeerItemsReceived implements _PeerItemsReceived {
+  const _$_PeerItemsReceived(this.failureOrNotes)
+      : assert(failureOrNotes != null);
+
+  @override
+  final Either<ItemErrorFailure, KtList<Item>> failureOrNotes;
+
+  @override
+  String toString() {
+    return 'ItemWatcherEvent.peerItemsReceived(failureOrNotes: $failureOrNotes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PeerItemsReceived &&
+            (identical(other.failureOrNotes, failureOrNotes) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrNotes, failureOrNotes)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrNotes);
+
+  @override
+  _$PeerItemsReceivedCopyWith<_PeerItemsReceived> get copyWith =>
+      __$PeerItemsReceivedCopyWithImpl<_PeerItemsReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchAllStarted(),
+    @required TResult watchUnpurchasableStarted(),
+    @required TResult watchPurchasableStarted(),
+    @required
+        TResult itemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult watchAllPeerStarted(String id),
+    @required
+        TResult peerItemsReceived(
+            Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+  }) {
+    assert(watchAllStarted != null);
+    assert(watchUnpurchasableStarted != null);
+    assert(watchPurchasableStarted != null);
+    assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
+    return peerItemsReceived(failureOrNotes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchAllStarted(),
+    TResult watchUnpurchasableStarted(),
+    TResult watchPurchasableStarted(),
+    TResult itemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    TResult watchAllPeerStarted(String id),
+    TResult peerItemsReceived(
+        Either<ItemErrorFailure, KtList<Item>> failureOrNotes),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (peerItemsReceived != null) {
+      return peerItemsReceived(failureOrNotes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchAllStarted(_WatchAllStarted value),
+    @required
+        TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    @required TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    @required TResult itemsReceived(_ItemsReceived value),
+    @required TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    @required TResult peerItemsReceived(_PeerItemsReceived value),
+  }) {
+    assert(watchAllStarted != null);
+    assert(watchUnpurchasableStarted != null);
+    assert(watchPurchasableStarted != null);
+    assert(itemsReceived != null);
+    assert(watchAllPeerStarted != null);
+    assert(peerItemsReceived != null);
+    return peerItemsReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchAllStarted(_WatchAllStarted value),
+    TResult watchUnpurchasableStarted(_WatchUnpurchasableStarted value),
+    TResult watchPurchasableStarted(_WatchPurchasableStarted value),
+    TResult itemsReceived(_ItemsReceived value),
+    TResult watchAllPeerStarted(_WatchAllPeerStarted value),
+    TResult peerItemsReceived(_PeerItemsReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (peerItemsReceived != null) {
+      return peerItemsReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PeerItemsReceived implements ItemWatcherEvent {
+  const factory _PeerItemsReceived(
+          Either<ItemErrorFailure, KtList<Item>> failureOrNotes) =
+      _$_PeerItemsReceived;
+
+  Either<ItemErrorFailure, KtList<Item>> get failureOrNotes;
+  _$PeerItemsReceivedCopyWith<_PeerItemsReceived> get copyWith;
 }
 
 /// @nodoc

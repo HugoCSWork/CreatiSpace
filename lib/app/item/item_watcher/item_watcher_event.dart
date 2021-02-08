@@ -10,4 +10,9 @@ abstract class ItemWatcherEvent with _$ItemWatcherEvent {
   const factory ItemWatcherEvent.itemsReceived(
     Either<ItemErrorFailure, KtList<Item>> failureOrNotes,
   ) = _ItemsReceived;
+
+  const factory ItemWatcherEvent.watchAllPeerStarted(String id) = _WatchAllPeerStarted;
+  const factory ItemWatcherEvent.peerItemsReceived(
+      Either<ItemErrorFailure, KtList<Item>> failureOrNotes,
+      ) = _PeerItemsReceived;
 }

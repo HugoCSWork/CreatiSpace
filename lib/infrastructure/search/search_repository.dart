@@ -2,7 +2,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/domain/search/i_search_facade.dart';

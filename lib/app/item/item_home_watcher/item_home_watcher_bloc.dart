@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
 import 'package:creatispace/domain/items/i_item_facade.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

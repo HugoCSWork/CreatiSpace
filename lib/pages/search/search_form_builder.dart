@@ -1,9 +1,7 @@
 import 'package:creatispace/app/search/item/search_item_bloc.dart';
 import 'package:creatispace/app/search/user/search_user_bloc.dart';
 import 'package:creatispace/injection.dart';
-import 'package:creatispace/pages/items/items_form/item_form_page.dart';
 import 'package:creatispace/pages/search/search_scaffold.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

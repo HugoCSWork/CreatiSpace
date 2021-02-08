@@ -3,7 +3,6 @@ import 'package:creatispace/app/following_followers/following/following_bloc.dar
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/profile/following_followers/user_friends_builder.dart';
 import 'package:creatispace/pages/profile/following_followers/user_friends_follower_builder.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

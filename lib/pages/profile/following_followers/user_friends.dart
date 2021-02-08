@@ -1,14 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
-import 'package:dartz/dartz.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class UserFriends extends StatelessWidget {
 
-  final FollowingFollowers test;
+  final FollowingFollowers followingFollowers;
 
-  const UserFriends({Key key, @required this.test})
+  const UserFriends({Key key, @required this.followingFollowers})
       : super(key: key);
 
   @override
@@ -20,9 +21,11 @@ class UserFriends extends StatelessWidget {
         elevation: 2,
         child: InkWell(
           splashColor: Colors.blue,
-          onTap: () async {
-            // go to their profile with id,
-            // the profile will then retrieve the rest through id
+          onTap: () {
+            FocusManager.instance.primaryFocus.unfocus();
+            ExtendedNavigator.of(context).push(Routes.peerProfileScaffold, arguments: PeerProfileScaffoldArguments(
+                id: followingFollowers.id
+            ));
           },
           child: Stack(
             children: [
@@ -36,7 +39,7 @@ class UserFriends extends StatelessWidget {
                           CircularProfileAvatar('',
                               radius: 25,
                               child: CachedNetworkImage(
-                                imageUrl: test.profileImageURL,
+                                imageUrl: followingFollowers.profileImageURL,
                                 fit: BoxFit.fitWidth,
                                 placeholder: (context, url) => Center(
                                   child: Container(
@@ -58,7 +61,7 @@ class UserFriends extends StatelessWidget {
                                   Container(
                                     padding: EdgeInsets.only(left: 8),
                                     child: Text(
-                                        test.username
+                                        followingFollowers.username
                                     ),
                                   ),
                                 ],

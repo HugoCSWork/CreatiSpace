@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/domain/core/value_failures.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/profile/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,6 +10,7 @@ part 'user_profile.freezed.dart';
 @freezed
 abstract class UserProfileData implements _$UserProfileData {
   const factory UserProfileData({
+    @required String id,
     @required ProfileName username,
     @required ProfileDescription description,
     @required ProfileFollowing following,
@@ -22,6 +22,7 @@ abstract class UserProfileData implements _$UserProfileData {
   const UserProfileData._();
 
   factory UserProfileData.empty() => UserProfileData(
+    id: "",
     username: ProfileName(""),
     following: ProfileFollowing(0),
     description: ProfileDescription(""),

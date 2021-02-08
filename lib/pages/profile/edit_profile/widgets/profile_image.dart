@@ -3,11 +3,9 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/profile/profile_form/profile_form_bloc.dart';
-import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/pages/items/items_form/misc/item_image_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ProfileImage extends StatefulWidget {
   final String profileImageUrl;

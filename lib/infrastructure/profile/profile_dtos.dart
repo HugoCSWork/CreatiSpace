@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/domain/profile/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kt_dart/kt.dart';
 
 part 'profile_dtos.freezed.dart';
 part 'profile_dtos.g.dart';
@@ -15,6 +13,7 @@ abstract class UserProfileDto implements _$UserProfileDto {
   const UserProfileDto._();
 
   const factory UserProfileDto({
+    @required String id,
     @required int following,
     @required int followers,
     @required String profileImageURL,
@@ -29,6 +28,7 @@ abstract class UserProfileDto implements _$UserProfileDto {
 
   factory UserProfileDto.fromDomain(UserProfileData profile) {
     return UserProfileDto(
+        id: profile.id,
         username: profile.username.getOrCrash(),
         description: profile.description.getOrCrash(),
         followers: profile.followers.getOrCrash(),
@@ -41,6 +41,7 @@ abstract class UserProfileDto implements _$UserProfileDto {
   factory UserProfileDto.fromDomainUpdate(UserProfileData profile,
       String backgroundUrl, String profileUrl) {
     return UserProfileDto(
+        id: profile.id,
         username: profile.username.getOrCrash(),
         description: profile.description.getOrCrash(),
         followers: profile.followers.getOrCrash(),
@@ -53,6 +54,7 @@ abstract class UserProfileDto implements _$UserProfileDto {
 
   UserProfileData toDomain() {
     return UserProfileData(
+      id: id,
       username: ProfileName(username),
       description: ProfileDescription(description),
       followers: ProfileFollowers(followers),

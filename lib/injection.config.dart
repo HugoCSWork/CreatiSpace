@@ -29,6 +29,7 @@ import 'app/item/item_form/item_form_bloc.dart';
 import 'app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
+import 'app/profile/profile_actor/profile_actor_bloc.dart';
 import 'app/profile/profile_form/profile_form_bloc.dart';
 import 'app/profile/profile_information_watcher/profile_information_watcher_bloc.dart';
 import 'infrastructure/profile/profile_repository.dart';
@@ -85,6 +86,7 @@ GetIt $initGetIt(
   gh.factory<ItemHomeWatcherBloc>(
       () => ItemHomeWatcherBloc(get<IItemFacade>()));
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
+  gh.factory<ProfileActorBloc>(() => ProfileActorBloc(get<IProfileFacade>()));
   gh.factory<ProfileFormBloc>(() => ProfileFormBloc(get<IProfileFacade>()));
   gh.factory<ProfileInformationWatcherBloc>(
       () => ProfileInformationWatcherBloc(get<IProfileFacade>()));

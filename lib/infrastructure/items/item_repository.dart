@@ -106,18 +106,9 @@ class ItemRepository implements IItemFacade {
 
       final updatedImages =
           await _firebaseStorage.updateImages(item, userDoc.id);
-      final Item newItem = Item(
-          id: item.id,
-          description: item.description,
-          price: item.price,
-          quantity: item.quantity,
-          delivery: item.delivery,
-          purchasable: item.purchasable,
-          name: item.name,
-          images: ItemImageList(updatedImages));
 
       final HomeItem newHomeItem = HomeItem(
-          id: item.id.getOrCrash(),
+          id: userDoc.id,
           description: item.description,
           price: item.price,
           quantity: item.quantity,
@@ -129,11 +120,10 @@ class ItemRepository implements IItemFacade {
           username: username
     );
 
-      final itemDto = ItemDto.fromDomain(newItem);
       final homeItemDto = HomeItemDto.fromDomain(newHomeItem);
 
       // document to their collection
-      await userDoc.itemCollection.doc(itemDto.id).set(itemDto.toJson());
+      await userDoc.itemCollection.doc(homeItemDto.id).set(homeItemDto.toJson());
       // document to posts collection
       await _firebaseFirestore.collection('posts').doc(timestamp).set(homeItemDto.toJson());
       // document to all followers collections
@@ -181,6 +171,7 @@ class ItemRepository implements IItemFacade {
           images: ItemImageList(updatedImages));
 
       final itemDto = ItemDto.fromDomain(newItem);
+
 
       await userDoc.itemCollection.doc(itemDto.id).update(itemDto.toJson());
 
@@ -237,5 +228,27 @@ class ItemRepository implements IItemFacade {
             return left(const ItemErrorFailure.unexpected());
           }
         });
+  }
+
+  @override
+  Stream<Either<ItemErrorFailure, KtList<Item>>> watchAllPeerHomeItems(String id) async* {
+    final peerDoc = await _firebaseFirestore.collection('users').doc(id);
+    yield* peerDoc.itemCollection
+        .snapshots()
+        .map(
+          (snapshot) => right<ItemErrorFailure, KtList<Item>>(
+        snapshot.docs
+            .map((doc) => ItemDto.fromFirestore(doc).toDomain())
+            .toImmutableList(),
+      ),
+    )
+        .onErrorReturnWith((error) {
+      if (error is FirebaseException &&
+          error.message.contains('PERMISSION_DENIED')) {
+        return left(const ItemErrorFailure.insufficientPermissions());
+      } else {
+        return left(const ItemErrorFailure.unexpected());
+      }
+    });
   }
 }

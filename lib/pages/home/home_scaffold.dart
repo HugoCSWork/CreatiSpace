@@ -1,5 +1,4 @@
 import 'package:creatispace/app/item/item_home_watcher/item_home_watcher_bloc.dart';
-import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/home/home_builder.dart';
 import 'package:flutter/material.dart';

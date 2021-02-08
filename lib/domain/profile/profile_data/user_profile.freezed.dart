@@ -15,13 +15,15 @@ class _$UserProfileDataTearOff {
 
 // ignore: unused_element
   _UserProfileData call(
-      {@required ProfileName username,
+      {@required String id,
+      @required ProfileName username,
       @required ProfileDescription description,
       @required ProfileFollowing following,
       @required ProfileFollowers followers,
       @required ProfileImageURL profileImageURL,
       @required ProfileBackgroundImageURL backgroundImageURL}) {
     return _UserProfileData(
+      id: id,
       username: username,
       description: description,
       following: following,
@@ -38,6 +40,7 @@ const $UserProfileData = _$UserProfileDataTearOff();
 
 /// @nodoc
 mixin _$UserProfileData {
+  String get id;
   ProfileName get username;
   ProfileDescription get description;
   ProfileFollowing get following;
@@ -54,7 +57,8 @@ abstract class $UserProfileDataCopyWith<$Res> {
           UserProfileData value, $Res Function(UserProfileData) then) =
       _$UserProfileDataCopyWithImpl<$Res>;
   $Res call(
-      {ProfileName username,
+      {String id,
+      ProfileName username,
       ProfileDescription description,
       ProfileFollowing following,
       ProfileFollowers followers,
@@ -73,6 +77,7 @@ class _$UserProfileDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object id = freezed,
     Object username = freezed,
     Object description = freezed,
     Object following = freezed,
@@ -81,6 +86,7 @@ class _$UserProfileDataCopyWithImpl<$Res>
     Object backgroundImageURL = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed ? _value.id : id as String,
       username: username == freezed ? _value.username : username as ProfileName,
       description: description == freezed
           ? _value.description
@@ -109,7 +115,8 @@ abstract class _$UserProfileDataCopyWith<$Res>
       __$UserProfileDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {ProfileName username,
+      {String id,
+      ProfileName username,
       ProfileDescription description,
       ProfileFollowing following,
       ProfileFollowers followers,
@@ -130,6 +137,7 @@ class __$UserProfileDataCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object id = freezed,
     Object username = freezed,
     Object description = freezed,
     Object following = freezed,
@@ -138,6 +146,7 @@ class __$UserProfileDataCopyWithImpl<$Res>
     Object backgroundImageURL = freezed,
   }) {
     return _then(_UserProfileData(
+      id: id == freezed ? _value.id : id as String,
       username: username == freezed ? _value.username : username as ProfileName,
       description: description == freezed
           ? _value.description
@@ -161,13 +170,15 @@ class __$UserProfileDataCopyWithImpl<$Res>
 /// @nodoc
 class _$_UserProfileData extends _UserProfileData {
   const _$_UserProfileData(
-      {@required this.username,
+      {@required this.id,
+      @required this.username,
       @required this.description,
       @required this.following,
       @required this.followers,
       @required this.profileImageURL,
       @required this.backgroundImageURL})
-      : assert(username != null),
+      : assert(id != null),
+        assert(username != null),
         assert(description != null),
         assert(following != null),
         assert(followers != null),
@@ -175,6 +186,8 @@ class _$_UserProfileData extends _UserProfileData {
         assert(backgroundImageURL != null),
         super._();
 
+  @override
+  final String id;
   @override
   final ProfileName username;
   @override
@@ -190,13 +203,15 @@ class _$_UserProfileData extends _UserProfileData {
 
   @override
   String toString() {
-    return 'UserProfileData(username: $username, description: $description, following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL)';
+    return 'UserProfileData(id: $id, username: $username, description: $description, following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UserProfileData &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.username, username) ||
                 const DeepCollectionEquality()
                     .equals(other.username, username)) &&
@@ -220,6 +235,7 @@ class _$_UserProfileData extends _UserProfileData {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(following) ^
@@ -235,7 +251,8 @@ class _$_UserProfileData extends _UserProfileData {
 abstract class _UserProfileData extends UserProfileData {
   const _UserProfileData._() : super._();
   const factory _UserProfileData(
-          {@required ProfileName username,
+          {@required String id,
+          @required ProfileName username,
           @required ProfileDescription description,
           @required ProfileFollowing following,
           @required ProfileFollowers followers,
@@ -243,6 +260,8 @@ abstract class _UserProfileData extends UserProfileData {
           @required ProfileBackgroundImageURL backgroundImageURL}) =
       _$_UserProfileData;
 
+  @override
+  String get id;
   @override
   ProfileName get username;
   @override

@@ -1,11 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
-import 'package:creatispace/app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
-import 'package:creatispace/app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class FollowingView extends StatelessWidget {
 

@@ -6,8 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:creatispace/app/auth/sign_in/sign_in_bloc.dart';
-import 'package:timer_button/timer_button.dart';
 
 class EmailVerifiedPage extends StatefulWidget {
   @override
@@ -18,6 +16,7 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
   Timer _timer;
 
   @override
+  // ignore: must_call_super
   void initState() {
     Future(() async {
     _timer = Timer.periodic(Duration(seconds: 15), (timer) async {

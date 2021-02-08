@@ -6,5 +6,4 @@ abstract class ItemHomeWatcherEvent with _$ItemHomeWatcherEvent {
   const factory ItemHomeWatcherEvent.itemsReceived(
       Either<ItemErrorFailure, KtList<HomeItem>> failureOrNotes,
       ) = _ItemsReceived;
-
 }

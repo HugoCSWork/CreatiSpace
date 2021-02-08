@@ -13,8 +13,6 @@ class UserProfileScaffold extends StatefulWidget {
 class _UserProfileScaffoldState extends State<UserProfileScaffold> {
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       body: MultiBlocProvider(
         providers: [

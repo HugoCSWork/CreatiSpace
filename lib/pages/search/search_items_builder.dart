@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/search/item/search_item_bloc.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -73,8 +75,12 @@ class SearchItems extends StatelessWidget {
             ),
             title: GestureDetector(
               child: Text(data.username),
-              // TODO Go to profile page
-              onTap: (){},
+              onTap: (){
+                FocusManager.instance.primaryFocus.unfocus();
+                ExtendedNavigator.of(context).push(Routes.peerProfileScaffold, arguments: PeerProfileScaffoldArguments(
+                    id: data.id
+                ));
+              },
             ),
           ),
           SizedBox(

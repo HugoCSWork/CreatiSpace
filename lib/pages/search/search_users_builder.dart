@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/search/user/search_user_bloc.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,7 +53,10 @@ class SearchUsers extends StatelessWidget {
     return  InkWell(
       splashColor: Colors.blue,
       onTap: () {
-
+        FocusManager.instance.primaryFocus.unfocus();
+        ExtendedNavigator.of(context).push(Routes.peerProfileScaffold, arguments: PeerProfileScaffoldArguments(
+            id: data.id
+        ));
       },
       child: Stack(
         children: [

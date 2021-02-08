@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/core/value_objects.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_image/item_image.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -1,8 +1,6 @@
 import 'package:creatispace/app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/pages/home/home.dart';
-import 'package:creatispace/pages/profile/user_profile/user_profile_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -25,6 +25,21 @@ class _$ProfileInformationWatcherEventTearOff {
       failureOrMessages,
     );
   }
+
+// ignore: unused_element
+  _watchPeerProfileInformation watchPeerProfileInformation(String id) {
+    return _watchPeerProfileInformation(
+      id,
+    );
+  }
+
+// ignore: unused_element
+  _peerProfileInformationReceived peerProfileInformationReceived(
+      Either<ProfileErrorFailure, PeerProfileData> failureOrMessages) {
+    return _peerProfileInformationReceived(
+      failureOrMessages,
+    );
+  }
 }
 
 /// @nodoc
@@ -40,12 +55,19 @@ mixin _$ProfileInformationWatcherEvent {
     @required
         TResult profileInformationReceived(
             Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    @required TResult watchPeerProfileInformation(String id),
+    @required
+        TResult peerProfileInformationReceived(
+            Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult watchProfileInformation(),
     TResult profileInformationReceived(
         Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    TResult watchPeerProfileInformation(String id),
+    TResult peerProfileInformationReceived(
+        Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -53,11 +75,19 @@ mixin _$ProfileInformationWatcherEvent {
     @required TResult watchProfileInformation(_watchProfileInformation value),
     @required
         TResult profileInformationReceived(_profileInformationReceived value),
+    @required
+        TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    @required
+        TResult peerProfileInformationReceived(
+            _peerProfileInformationReceived value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult watchProfileInformation(_watchProfileInformation value),
     TResult profileInformationReceived(_profileInformationReceived value),
+    TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    TResult peerProfileInformationReceived(
+        _peerProfileInformationReceived value),
     @required TResult orElse(),
   });
 }
@@ -124,9 +154,15 @@ class _$_watchProfileInformation implements _watchProfileInformation {
     @required
         TResult profileInformationReceived(
             Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    @required TResult watchPeerProfileInformation(String id),
+    @required
+        TResult peerProfileInformationReceived(
+            Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
   }) {
     assert(watchProfileInformation != null);
     assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
     return watchProfileInformation();
   }
 
@@ -136,6 +172,9 @@ class _$_watchProfileInformation implements _watchProfileInformation {
     TResult watchProfileInformation(),
     TResult profileInformationReceived(
         Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    TResult watchPeerProfileInformation(String id),
+    TResult peerProfileInformationReceived(
+        Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -151,9 +190,16 @@ class _$_watchProfileInformation implements _watchProfileInformation {
     @required TResult watchProfileInformation(_watchProfileInformation value),
     @required
         TResult profileInformationReceived(_profileInformationReceived value),
+    @required
+        TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    @required
+        TResult peerProfileInformationReceived(
+            _peerProfileInformationReceived value),
   }) {
     assert(watchProfileInformation != null);
     assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
     return watchProfileInformation(this);
   }
 
@@ -162,6 +208,9 @@ class _$_watchProfileInformation implements _watchProfileInformation {
   TResult maybeMap<TResult extends Object>({
     TResult watchProfileInformation(_watchProfileInformation value),
     TResult profileInformationReceived(_profileInformationReceived value),
+    TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    TResult peerProfileInformationReceived(
+        _peerProfileInformationReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -249,9 +298,15 @@ class _$_profileInformationReceived implements _profileInformationReceived {
     @required
         TResult profileInformationReceived(
             Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    @required TResult watchPeerProfileInformation(String id),
+    @required
+        TResult peerProfileInformationReceived(
+            Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
   }) {
     assert(watchProfileInformation != null);
     assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
     return profileInformationReceived(failureOrMessages);
   }
 
@@ -261,6 +316,9 @@ class _$_profileInformationReceived implements _profileInformationReceived {
     TResult watchProfileInformation(),
     TResult profileInformationReceived(
         Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    TResult watchPeerProfileInformation(String id),
+    TResult peerProfileInformationReceived(
+        Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -276,9 +334,16 @@ class _$_profileInformationReceived implements _profileInformationReceived {
     @required TResult watchProfileInformation(_watchProfileInformation value),
     @required
         TResult profileInformationReceived(_profileInformationReceived value),
+    @required
+        TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    @required
+        TResult peerProfileInformationReceived(
+            _peerProfileInformationReceived value),
   }) {
     assert(watchProfileInformation != null);
     assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
     return profileInformationReceived(this);
   }
 
@@ -287,6 +352,9 @@ class _$_profileInformationReceived implements _profileInformationReceived {
   TResult maybeMap<TResult extends Object>({
     TResult watchProfileInformation(_watchProfileInformation value),
     TResult profileInformationReceived(_profileInformationReceived value),
+    TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    TResult peerProfileInformationReceived(
+        _peerProfileInformationReceived value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -305,6 +373,303 @@ abstract class _profileInformationReceived
 
   Either<ProfileErrorFailure, UserProfileData> get failureOrMessages;
   _$profileInformationReceivedCopyWith<_profileInformationReceived>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$watchPeerProfileInformationCopyWith<$Res> {
+  factory _$watchPeerProfileInformationCopyWith(
+          _watchPeerProfileInformation value,
+          $Res Function(_watchPeerProfileInformation) then) =
+      __$watchPeerProfileInformationCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$watchPeerProfileInformationCopyWithImpl<$Res>
+    extends _$ProfileInformationWatcherEventCopyWithImpl<$Res>
+    implements _$watchPeerProfileInformationCopyWith<$Res> {
+  __$watchPeerProfileInformationCopyWithImpl(
+      _watchPeerProfileInformation _value,
+      $Res Function(_watchPeerProfileInformation) _then)
+      : super(_value, (v) => _then(v as _watchPeerProfileInformation));
+
+  @override
+  _watchPeerProfileInformation get _value =>
+      super._value as _watchPeerProfileInformation;
+
+  @override
+  $Res call({
+    Object id = freezed,
+  }) {
+    return _then(_watchPeerProfileInformation(
+      id == freezed ? _value.id : id as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_watchPeerProfileInformation implements _watchPeerProfileInformation {
+  const _$_watchPeerProfileInformation(this.id) : assert(id != null);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ProfileInformationWatcherEvent.watchPeerProfileInformation(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _watchPeerProfileInformation &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @override
+  _$watchPeerProfileInformationCopyWith<_watchPeerProfileInformation>
+      get copyWith => __$watchPeerProfileInformationCopyWithImpl<
+          _watchPeerProfileInformation>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchProfileInformation(),
+    @required
+        TResult profileInformationReceived(
+            Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    @required TResult watchPeerProfileInformation(String id),
+    @required
+        TResult peerProfileInformationReceived(
+            Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
+  }) {
+    assert(watchProfileInformation != null);
+    assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
+    return watchPeerProfileInformation(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchProfileInformation(),
+    TResult profileInformationReceived(
+        Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    TResult watchPeerProfileInformation(String id),
+    TResult peerProfileInformationReceived(
+        Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchPeerProfileInformation != null) {
+      return watchPeerProfileInformation(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchProfileInformation(_watchProfileInformation value),
+    @required
+        TResult profileInformationReceived(_profileInformationReceived value),
+    @required
+        TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    @required
+        TResult peerProfileInformationReceived(
+            _peerProfileInformationReceived value),
+  }) {
+    assert(watchProfileInformation != null);
+    assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
+    return watchPeerProfileInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchProfileInformation(_watchProfileInformation value),
+    TResult profileInformationReceived(_profileInformationReceived value),
+    TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    TResult peerProfileInformationReceived(
+        _peerProfileInformationReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (watchPeerProfileInformation != null) {
+      return watchPeerProfileInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _watchPeerProfileInformation
+    implements ProfileInformationWatcherEvent {
+  const factory _watchPeerProfileInformation(String id) =
+      _$_watchPeerProfileInformation;
+
+  String get id;
+  _$watchPeerProfileInformationCopyWith<_watchPeerProfileInformation>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class _$peerProfileInformationReceivedCopyWith<$Res> {
+  factory _$peerProfileInformationReceivedCopyWith(
+          _peerProfileInformationReceived value,
+          $Res Function(_peerProfileInformationReceived) then) =
+      __$peerProfileInformationReceivedCopyWithImpl<$Res>;
+  $Res call({Either<ProfileErrorFailure, PeerProfileData> failureOrMessages});
+}
+
+/// @nodoc
+class __$peerProfileInformationReceivedCopyWithImpl<$Res>
+    extends _$ProfileInformationWatcherEventCopyWithImpl<$Res>
+    implements _$peerProfileInformationReceivedCopyWith<$Res> {
+  __$peerProfileInformationReceivedCopyWithImpl(
+      _peerProfileInformationReceived _value,
+      $Res Function(_peerProfileInformationReceived) _then)
+      : super(_value, (v) => _then(v as _peerProfileInformationReceived));
+
+  @override
+  _peerProfileInformationReceived get _value =>
+      super._value as _peerProfileInformationReceived;
+
+  @override
+  $Res call({
+    Object failureOrMessages = freezed,
+  }) {
+    return _then(_peerProfileInformationReceived(
+      failureOrMessages == freezed
+          ? _value.failureOrMessages
+          : failureOrMessages as Either<ProfileErrorFailure, PeerProfileData>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_peerProfileInformationReceived
+    implements _peerProfileInformationReceived {
+  const _$_peerProfileInformationReceived(this.failureOrMessages)
+      : assert(failureOrMessages != null);
+
+  @override
+  final Either<ProfileErrorFailure, PeerProfileData> failureOrMessages;
+
+  @override
+  String toString() {
+    return 'ProfileInformationWatcherEvent.peerProfileInformationReceived(failureOrMessages: $failureOrMessages)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _peerProfileInformationReceived &&
+            (identical(other.failureOrMessages, failureOrMessages) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrMessages, failureOrMessages)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrMessages);
+
+  @override
+  _$peerProfileInformationReceivedCopyWith<_peerProfileInformationReceived>
+      get copyWith => __$peerProfileInformationReceivedCopyWithImpl<
+          _peerProfileInformationReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult watchProfileInformation(),
+    @required
+        TResult profileInformationReceived(
+            Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    @required TResult watchPeerProfileInformation(String id),
+    @required
+        TResult peerProfileInformationReceived(
+            Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
+  }) {
+    assert(watchProfileInformation != null);
+    assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
+    return peerProfileInformationReceived(failureOrMessages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchProfileInformation(),
+    TResult profileInformationReceived(
+        Either<ProfileErrorFailure, UserProfileData> failureOrMessages),
+    TResult watchPeerProfileInformation(String id),
+    TResult peerProfileInformationReceived(
+        Either<ProfileErrorFailure, PeerProfileData> failureOrMessages),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (peerProfileInformationReceived != null) {
+      return peerProfileInformationReceived(failureOrMessages);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchProfileInformation(_watchProfileInformation value),
+    @required
+        TResult profileInformationReceived(_profileInformationReceived value),
+    @required
+        TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    @required
+        TResult peerProfileInformationReceived(
+            _peerProfileInformationReceived value),
+  }) {
+    assert(watchProfileInformation != null);
+    assert(profileInformationReceived != null);
+    assert(watchPeerProfileInformation != null);
+    assert(peerProfileInformationReceived != null);
+    return peerProfileInformationReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchProfileInformation(_watchProfileInformation value),
+    TResult profileInformationReceived(_profileInformationReceived value),
+    TResult watchPeerProfileInformation(_watchPeerProfileInformation value),
+    TResult peerProfileInformationReceived(
+        _peerProfileInformationReceived value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (peerProfileInformationReceived != null) {
+      return peerProfileInformationReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _peerProfileInformationReceived
+    implements ProfileInformationWatcherEvent {
+  const factory _peerProfileInformationReceived(
+          Either<ProfileErrorFailure, PeerProfileData> failureOrMessages) =
+      _$_peerProfileInformationReceived;
+
+  Either<ProfileErrorFailure, PeerProfileData> get failureOrMessages;
+  _$peerProfileInformationReceivedCopyWith<_peerProfileInformationReceived>
       get copyWith;
 }
 
@@ -335,6 +700,25 @@ class _$ProfileInformationWatcherStateTearOff {
       itemFailure,
     );
   }
+
+// ignore: unused_element
+  _LoadPeerInProgress loadPeerInProgress() {
+    return const _LoadPeerInProgress();
+  }
+
+// ignore: unused_element
+  _LoadPeerSuccess loadPeerSuccess(PeerProfileData peerProfileData) {
+    return _LoadPeerSuccess(
+      peerProfileData,
+    );
+  }
+
+// ignore: unused_element
+  _LoadPeerFailure loadPeerFailure(ProfileErrorFailure itemFailure) {
+    return _LoadPeerFailure(
+      itemFailure,
+    );
+  }
 }
 
 /// @nodoc
@@ -350,6 +734,9 @@ mixin _$ProfileInformationWatcherState {
     @required TResult loadInProgress(),
     @required TResult loadSuccess(UserProfileData userProfileData),
     @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -357,6 +744,9 @@ mixin _$ProfileInformationWatcherState {
     TResult loadInProgress(),
     TResult loadSuccess(UserProfileData userProfileData),
     TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -365,6 +755,9 @@ mixin _$ProfileInformationWatcherState {
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -372,6 +765,9 @@ mixin _$ProfileInformationWatcherState {
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
     @required TResult orElse(),
   });
 }
@@ -435,11 +831,17 @@ class _$_Initial implements _Initial {
     @required TResult loadInProgress(),
     @required TResult loadSuccess(UserProfileData userProfileData),
     @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return initial();
   }
 
@@ -450,6 +852,9 @@ class _$_Initial implements _Initial {
     TResult loadInProgress(),
     TResult loadSuccess(UserProfileData userProfileData),
     TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -466,11 +871,17 @@ class _$_Initial implements _Initial {
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return initial(this);
   }
 
@@ -481,6 +892,9 @@ class _$_Initial implements _Initial {
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -538,11 +952,17 @@ class _$_LoadInProgress implements _LoadInProgress {
     @required TResult loadInProgress(),
     @required TResult loadSuccess(UserProfileData userProfileData),
     @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return loadInProgress();
   }
 
@@ -553,6 +973,9 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult loadInProgress(),
     TResult loadSuccess(UserProfileData userProfileData),
     TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -569,11 +992,17 @@ class _$_LoadInProgress implements _LoadInProgress {
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return loadInProgress(this);
   }
 
@@ -584,6 +1013,9 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -678,11 +1110,17 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required TResult loadInProgress(),
     @required TResult loadSuccess(UserProfileData userProfileData),
     @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return loadSuccess(userProfileData);
   }
 
@@ -693,6 +1131,9 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult loadInProgress(),
     TResult loadSuccess(UserProfileData userProfileData),
     TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -709,11 +1150,17 @@ class _$_LoadSuccess implements _LoadSuccess {
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return loadSuccess(this);
   }
 
@@ -724,6 +1171,9 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -820,11 +1270,17 @@ class _$_LoadFailure implements _LoadFailure {
     @required TResult loadInProgress(),
     @required TResult loadSuccess(UserProfileData userProfileData),
     @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return loadFailure(itemFailure);
   }
 
@@ -835,6 +1291,9 @@ class _$_LoadFailure implements _LoadFailure {
     TResult loadInProgress(),
     TResult loadSuccess(UserProfileData userProfileData),
     TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -851,11 +1310,17 @@ class _$_LoadFailure implements _LoadFailure {
     @required TResult loadInProgress(_LoadInProgress value),
     @required TResult loadSuccess(_LoadSuccess value),
     @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
     return loadFailure(this);
   }
 
@@ -866,6 +1331,9 @@ class _$_LoadFailure implements _LoadFailure {
     TResult loadInProgress(_LoadInProgress value),
     TResult loadSuccess(_LoadSuccess value),
     TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -881,4 +1349,449 @@ abstract class _LoadFailure implements ProfileInformationWatcherState {
 
   ProfileErrorFailure get itemFailure;
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
+}
+
+/// @nodoc
+abstract class _$LoadPeerInProgressCopyWith<$Res> {
+  factory _$LoadPeerInProgressCopyWith(
+          _LoadPeerInProgress value, $Res Function(_LoadPeerInProgress) then) =
+      __$LoadPeerInProgressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadPeerInProgressCopyWithImpl<$Res>
+    extends _$ProfileInformationWatcherStateCopyWithImpl<$Res>
+    implements _$LoadPeerInProgressCopyWith<$Res> {
+  __$LoadPeerInProgressCopyWithImpl(
+      _LoadPeerInProgress _value, $Res Function(_LoadPeerInProgress) _then)
+      : super(_value, (v) => _then(v as _LoadPeerInProgress));
+
+  @override
+  _LoadPeerInProgress get _value => super._value as _LoadPeerInProgress;
+}
+
+/// @nodoc
+class _$_LoadPeerInProgress implements _LoadPeerInProgress {
+  const _$_LoadPeerInProgress();
+
+  @override
+  String toString() {
+    return 'ProfileInformationWatcherState.loadPeerInProgress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoadPeerInProgress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(UserProfileData userProfileData),
+    @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
+    return loadPeerInProgress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(UserProfileData userProfileData),
+    TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadPeerInProgress != null) {
+      return loadPeerInProgress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
+    return loadPeerInProgress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadPeerInProgress != null) {
+      return loadPeerInProgress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadPeerInProgress implements ProfileInformationWatcherState {
+  const factory _LoadPeerInProgress() = _$_LoadPeerInProgress;
+}
+
+/// @nodoc
+abstract class _$LoadPeerSuccessCopyWith<$Res> {
+  factory _$LoadPeerSuccessCopyWith(
+          _LoadPeerSuccess value, $Res Function(_LoadPeerSuccess) then) =
+      __$LoadPeerSuccessCopyWithImpl<$Res>;
+  $Res call({PeerProfileData peerProfileData});
+
+  $PeerProfileDataCopyWith<$Res> get peerProfileData;
+}
+
+/// @nodoc
+class __$LoadPeerSuccessCopyWithImpl<$Res>
+    extends _$ProfileInformationWatcherStateCopyWithImpl<$Res>
+    implements _$LoadPeerSuccessCopyWith<$Res> {
+  __$LoadPeerSuccessCopyWithImpl(
+      _LoadPeerSuccess _value, $Res Function(_LoadPeerSuccess) _then)
+      : super(_value, (v) => _then(v as _LoadPeerSuccess));
+
+  @override
+  _LoadPeerSuccess get _value => super._value as _LoadPeerSuccess;
+
+  @override
+  $Res call({
+    Object peerProfileData = freezed,
+  }) {
+    return _then(_LoadPeerSuccess(
+      peerProfileData == freezed
+          ? _value.peerProfileData
+          : peerProfileData as PeerProfileData,
+    ));
+  }
+
+  @override
+  $PeerProfileDataCopyWith<$Res> get peerProfileData {
+    if (_value.peerProfileData == null) {
+      return null;
+    }
+    return $PeerProfileDataCopyWith<$Res>(_value.peerProfileData, (value) {
+      return _then(_value.copyWith(peerProfileData: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_LoadPeerSuccess implements _LoadPeerSuccess {
+  const _$_LoadPeerSuccess(this.peerProfileData)
+      : assert(peerProfileData != null);
+
+  @override
+  final PeerProfileData peerProfileData;
+
+  @override
+  String toString() {
+    return 'ProfileInformationWatcherState.loadPeerSuccess(peerProfileData: $peerProfileData)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoadPeerSuccess &&
+            (identical(other.peerProfileData, peerProfileData) ||
+                const DeepCollectionEquality()
+                    .equals(other.peerProfileData, peerProfileData)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(peerProfileData);
+
+  @override
+  _$LoadPeerSuccessCopyWith<_LoadPeerSuccess> get copyWith =>
+      __$LoadPeerSuccessCopyWithImpl<_LoadPeerSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(UserProfileData userProfileData),
+    @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
+    return loadPeerSuccess(peerProfileData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(UserProfileData userProfileData),
+    TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadPeerSuccess != null) {
+      return loadPeerSuccess(peerProfileData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
+    return loadPeerSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadPeerSuccess != null) {
+      return loadPeerSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadPeerSuccess implements ProfileInformationWatcherState {
+  const factory _LoadPeerSuccess(PeerProfileData peerProfileData) =
+      _$_LoadPeerSuccess;
+
+  PeerProfileData get peerProfileData;
+  _$LoadPeerSuccessCopyWith<_LoadPeerSuccess> get copyWith;
+}
+
+/// @nodoc
+abstract class _$LoadPeerFailureCopyWith<$Res> {
+  factory _$LoadPeerFailureCopyWith(
+          _LoadPeerFailure value, $Res Function(_LoadPeerFailure) then) =
+      __$LoadPeerFailureCopyWithImpl<$Res>;
+  $Res call({ProfileErrorFailure itemFailure});
+
+  $ProfileErrorFailureCopyWith<$Res> get itemFailure;
+}
+
+/// @nodoc
+class __$LoadPeerFailureCopyWithImpl<$Res>
+    extends _$ProfileInformationWatcherStateCopyWithImpl<$Res>
+    implements _$LoadPeerFailureCopyWith<$Res> {
+  __$LoadPeerFailureCopyWithImpl(
+      _LoadPeerFailure _value, $Res Function(_LoadPeerFailure) _then)
+      : super(_value, (v) => _then(v as _LoadPeerFailure));
+
+  @override
+  _LoadPeerFailure get _value => super._value as _LoadPeerFailure;
+
+  @override
+  $Res call({
+    Object itemFailure = freezed,
+  }) {
+    return _then(_LoadPeerFailure(
+      itemFailure == freezed
+          ? _value.itemFailure
+          : itemFailure as ProfileErrorFailure,
+    ));
+  }
+
+  @override
+  $ProfileErrorFailureCopyWith<$Res> get itemFailure {
+    if (_value.itemFailure == null) {
+      return null;
+    }
+    return $ProfileErrorFailureCopyWith<$Res>(_value.itemFailure, (value) {
+      return _then(_value.copyWith(itemFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_LoadPeerFailure implements _LoadPeerFailure {
+  const _$_LoadPeerFailure(this.itemFailure) : assert(itemFailure != null);
+
+  @override
+  final ProfileErrorFailure itemFailure;
+
+  @override
+  String toString() {
+    return 'ProfileInformationWatcherState.loadPeerFailure(itemFailure: $itemFailure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoadPeerFailure &&
+            (identical(other.itemFailure, itemFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.itemFailure, itemFailure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
+
+  @override
+  _$LoadPeerFailureCopyWith<_LoadPeerFailure> get copyWith =>
+      __$LoadPeerFailureCopyWithImpl<_LoadPeerFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadSuccess(UserProfileData userProfileData),
+    @required TResult loadFailure(ProfileErrorFailure itemFailure),
+    @required TResult loadPeerInProgress(),
+    @required TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    @required TResult loadPeerFailure(ProfileErrorFailure itemFailure),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
+    return loadPeerFailure(itemFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadSuccess(UserProfileData userProfileData),
+    TResult loadFailure(ProfileErrorFailure itemFailure),
+    TResult loadPeerInProgress(),
+    TResult loadPeerSuccess(PeerProfileData peerProfileData),
+    TResult loadPeerFailure(ProfileErrorFailure itemFailure),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadPeerFailure != null) {
+      return loadPeerFailure(itemFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadSuccess(_LoadSuccess value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadPeerInProgress(_LoadPeerInProgress value),
+    @required TResult loadPeerSuccess(_LoadPeerSuccess value),
+    @required TResult loadPeerFailure(_LoadPeerFailure value),
+  }) {
+    assert(initial != null);
+    assert(loadInProgress != null);
+    assert(loadSuccess != null);
+    assert(loadFailure != null);
+    assert(loadPeerInProgress != null);
+    assert(loadPeerSuccess != null);
+    assert(loadPeerFailure != null);
+    return loadPeerFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadSuccess(_LoadSuccess value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadPeerInProgress(_LoadPeerInProgress value),
+    TResult loadPeerSuccess(_LoadPeerSuccess value),
+    TResult loadPeerFailure(_LoadPeerFailure value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (loadPeerFailure != null) {
+      return loadPeerFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadPeerFailure implements ProfileInformationWatcherState {
+  const factory _LoadPeerFailure(ProfileErrorFailure itemFailure) =
+      _$_LoadPeerFailure;
+
+  ProfileErrorFailure get itemFailure;
+  _$LoadPeerFailureCopyWith<_LoadPeerFailure> get copyWith;
 }

@@ -6,4 +6,8 @@ abstract class ProfileInformationWatcherEvent with _$ProfileInformationWatcherEv
   const factory ProfileInformationWatcherEvent.profileInformationReceived(
       Either<ProfileErrorFailure, UserProfileData> failureOrMessages,
       ) = _profileInformationReceived;
+  const factory ProfileInformationWatcherEvent.watchPeerProfileInformation(String id) = _watchPeerProfileInformation;
+  const factory ProfileInformationWatcherEvent.peerProfileInformationReceived(
+      Either<ProfileErrorFailure, PeerProfileData> failureOrMessages,
+      ) = _peerProfileInformationReceived;
 }

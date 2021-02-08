@@ -63,6 +63,7 @@ class FirebaseAuthFacade implements IAuthFacade {
             .doc(_auth.currentUser.uid)
             .set(
               {
+                'id': _auth.currentUser.uid,
                 'username': usernameStr,
                 'followers' : 0,
                 "following" : 0,
@@ -133,6 +134,7 @@ class FirebaseAuthFacade implements IAuthFacade {
             .doc(_auth.currentUser.uid)
               .set(
                 {
+                  'id': _auth.currentUser.uid,
                   'username': "new_user${rNum}",
                   'followers' : 0,
                   "following" : 0,
@@ -180,24 +182,3 @@ class FirebaseAuthFacade implements IAuthFacade {
      _auth.currentUser.sendEmailVerification()
   ]);
 }
-
-// Stream<Either<ItemErrorFailure, KtList<Item>>> watchAllUserItems() async* {
-//   final userDoc = await _firebaseFirestore.userDocument();
-//   yield* userDoc.itemCollection
-//       .snapshots()
-//       .map(
-//         (snapshot) => right<ItemErrorFailure, KtList<Item>>(
-//           snapshot.docs
-//               .map((doc) => ItemDto.fromFirestore(doc).toDomain())
-//               .toImmutableList(),
-//         ),
-//       )
-//       .onErrorReturnWith((error) {
-//     if (error is FirebaseException &&
-//         error.message.contains('PERMISSION_DENIED')) {
-//       return left(const ItemErrorFailure.insufficientPermissions());
-//     } else {
-//       return left(const ItemErrorFailure.unexpected());
-//     }
-//   });
-// }

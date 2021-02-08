@@ -57,6 +57,20 @@ class ItemWatcherBloc extends Bloc<ItemWatcherEvent, ItemWatcherState> {
           (items) => ItemWatcherState.loadSuccess(items),
         );
       },
+      watchAllPeerStarted: (e) async* {
+        yield const ItemWatcherState.loadInProgress();
+        await _itemStreamSubscription?.cancel();
+        _itemStreamSubscription = _iItemFacade.watchAllPeerHomeItems(e.id).listen(
+              (failureOrItems) =>
+              add(ItemWatcherEvent.peerItemsReceived(failureOrItems)),
+        );
+      },
+      peerItemsReceived: (e) async* {
+        yield e.failureOrNotes.fold(
+              (f) => ItemWatcherState.loadFailure(f),
+              (items) => ItemWatcherState.loadSuccess(items),
+        );
+      }
     );
   }
 

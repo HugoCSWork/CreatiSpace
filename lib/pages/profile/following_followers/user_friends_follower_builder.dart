@@ -1,55 +1,3 @@
-// import 'package:creatispace/app/following_followers/profile/following_followers_profile_bloc.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-//
-// class UserFriendsBuilder extends StatelessWidget {
-//
-//   final bool followingOrFollowers;
-//
-//   const UserFriendsBuilder({Key key, this.followingOrFollowers})
-//       : super(key: key);
-//
-//
-//   Widget getFollowing() {
-//     return
-//       BlocBuilder<FollowingFollowersProfileBloc, FollowingFollowersProfileState>(
-//         builder: (context, state) {
-//           return state.maybeMap(
-//             initial: (_) => Container(),
-//             loadInProgressFollowing:(_) => Container(),
-//             loadSuccessFollowing: (state) {
-//               return Text(state.following.toString());
-//             },
-//             loadFailureFollowing:  (_) =>  Container(),
-//             orElse: () =>  Container(),
-//           );
-//         },
-//       );
-//   }
-//   //
-//   // Widget getFollowers() {
-//   //   return
-//   //     BlocBuilder<FollowingFollowersProfileBloc, FollowingFollowersProfileState>(
-//   //       builder: (context, state) {
-//   //         return state.maybeMap(
-//   //           initial: (_) => Container(),
-//   //           loadInProgressFollowers:(_) => Container(),
-//   //           loadSuccessFollowers: (state) {
-//   //             return Text(state.followers.toString());
-//   //           },
-//   //           loadFailureFollowers:  (_) =>  Container(),
-//   //           orElse: () =>  Container(),
-//   //         );
-//   //       },
-//   //     );
-//   // }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return getFollowing();
-//   }
-// }
-
 import 'package:creatispace/app/following_followers/followers/followers_bloc.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:creatispace/pages/profile/following_followers/user_friends.dart';
@@ -129,7 +77,7 @@ class _UserFriendsFollowerBuilderState extends State<UserFriendsFollowerBuilder>
                     child: ListView.builder(
                       padding: EdgeInsets.all(10.0),
                       itemBuilder: (context, index) {
-                        return UserFriends(test: _followers[index]);
+                        return UserFriends(followingFollowers : _followers[index]);
                       },
                       itemCount: _followers.length,
                     ),

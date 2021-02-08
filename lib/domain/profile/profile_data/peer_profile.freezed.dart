@@ -15,19 +15,21 @@ class _$PeerProfileDataTearOff {
 
 // ignore: unused_element
   _PeerProfileData call(
-      {@required String id,
-      @required String username,
-      @required int following,
-      @required int followers,
-      @required String profileImageURL,
-      @required Item item}) {
+      {@required ProfileName username,
+      @required ProfileDescription description,
+      @required ProfileFollowing following,
+      @required ProfileFollowers followers,
+      @required ProfileImageURL profileImageURL,
+      @required ProfileBackgroundImageURL backgroundImageURL,
+      @required bool isFollowing}) {
     return _PeerProfileData(
-      id: id,
       username: username,
+      description: description,
       following: following,
       followers: followers,
       profileImageURL: profileImageURL,
-      item: item,
+      backgroundImageURL: backgroundImageURL,
+      isFollowing: isFollowing,
     );
   }
 }
@@ -38,12 +40,13 @@ const $PeerProfileData = _$PeerProfileDataTearOff();
 
 /// @nodoc
 mixin _$PeerProfileData {
-  String get id;
-  String get username;
-  int get following;
-  int get followers;
-  String get profileImageURL;
-  Item get item;
+  ProfileName get username;
+  ProfileDescription get description;
+  ProfileFollowing get following;
+  ProfileFollowers get followers;
+  ProfileImageURL get profileImageURL;
+  ProfileBackgroundImageURL get backgroundImageURL;
+  bool get isFollowing;
 
   $PeerProfileDataCopyWith<PeerProfileData> get copyWith;
 }
@@ -54,14 +57,13 @@ abstract class $PeerProfileDataCopyWith<$Res> {
           PeerProfileData value, $Res Function(PeerProfileData) then) =
       _$PeerProfileDataCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String username,
-      int following,
-      int followers,
-      String profileImageURL,
-      Item item});
-
-  $ItemCopyWith<$Res> get item;
+      {ProfileName username,
+      ProfileDescription description,
+      ProfileFollowing following,
+      ProfileFollowers followers,
+      ProfileImageURL profileImageURL,
+      ProfileBackgroundImageURL backgroundImageURL,
+      bool isFollowing});
 }
 
 /// @nodoc
@@ -75,33 +77,34 @@ class _$PeerProfileDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
     Object username = freezed,
+    Object description = freezed,
     Object following = freezed,
     Object followers = freezed,
     Object profileImageURL = freezed,
-    Object item = freezed,
+    Object backgroundImageURL = freezed,
+    Object isFollowing = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      username: username == freezed ? _value.username : username as String,
-      following: following == freezed ? _value.following : following as int,
-      followers: followers == freezed ? _value.followers : followers as int,
+      username: username == freezed ? _value.username : username as ProfileName,
+      description: description == freezed
+          ? _value.description
+          : description as ProfileDescription,
+      following: following == freezed
+          ? _value.following
+          : following as ProfileFollowing,
+      followers: followers == freezed
+          ? _value.followers
+          : followers as ProfileFollowers,
       profileImageURL: profileImageURL == freezed
           ? _value.profileImageURL
-          : profileImageURL as String,
-      item: item == freezed ? _value.item : item as Item,
+          : profileImageURL as ProfileImageURL,
+      backgroundImageURL: backgroundImageURL == freezed
+          ? _value.backgroundImageURL
+          : backgroundImageURL as ProfileBackgroundImageURL,
+      isFollowing:
+          isFollowing == freezed ? _value.isFollowing : isFollowing as bool,
     ));
-  }
-
-  @override
-  $ItemCopyWith<$Res> get item {
-    if (_value.item == null) {
-      return null;
-    }
-    return $ItemCopyWith<$Res>(_value.item, (value) {
-      return _then(_value.copyWith(item: value));
-    });
   }
 }
 
@@ -113,15 +116,13 @@ abstract class _$PeerProfileDataCopyWith<$Res>
       __$PeerProfileDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String username,
-      int following,
-      int followers,
-      String profileImageURL,
-      Item item});
-
-  @override
-  $ItemCopyWith<$Res> get item;
+      {ProfileName username,
+      ProfileDescription description,
+      ProfileFollowing following,
+      ProfileFollowers followers,
+      ProfileImageURL profileImageURL,
+      ProfileBackgroundImageURL backgroundImageURL,
+      bool isFollowing});
 }
 
 /// @nodoc
@@ -137,69 +138,86 @@ class __$PeerProfileDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
     Object username = freezed,
+    Object description = freezed,
     Object following = freezed,
     Object followers = freezed,
     Object profileImageURL = freezed,
-    Object item = freezed,
+    Object backgroundImageURL = freezed,
+    Object isFollowing = freezed,
   }) {
     return _then(_PeerProfileData(
-      id: id == freezed ? _value.id : id as String,
-      username: username == freezed ? _value.username : username as String,
-      following: following == freezed ? _value.following : following as int,
-      followers: followers == freezed ? _value.followers : followers as int,
+      username: username == freezed ? _value.username : username as ProfileName,
+      description: description == freezed
+          ? _value.description
+          : description as ProfileDescription,
+      following: following == freezed
+          ? _value.following
+          : following as ProfileFollowing,
+      followers: followers == freezed
+          ? _value.followers
+          : followers as ProfileFollowers,
       profileImageURL: profileImageURL == freezed
           ? _value.profileImageURL
-          : profileImageURL as String,
-      item: item == freezed ? _value.item : item as Item,
+          : profileImageURL as ProfileImageURL,
+      backgroundImageURL: backgroundImageURL == freezed
+          ? _value.backgroundImageURL
+          : backgroundImageURL as ProfileBackgroundImageURL,
+      isFollowing:
+          isFollowing == freezed ? _value.isFollowing : isFollowing as bool,
     ));
   }
 }
 
 /// @nodoc
-class _$_PeerProfileData implements _PeerProfileData {
+class _$_PeerProfileData extends _PeerProfileData {
   const _$_PeerProfileData(
-      {@required this.id,
-      @required this.username,
+      {@required this.username,
+      @required this.description,
       @required this.following,
       @required this.followers,
       @required this.profileImageURL,
-      @required this.item})
-      : assert(id != null),
-        assert(username != null),
+      @required this.backgroundImageURL,
+      @required this.isFollowing})
+      : assert(username != null),
+        assert(description != null),
         assert(following != null),
         assert(followers != null),
         assert(profileImageURL != null),
-        assert(item != null);
+        assert(backgroundImageURL != null),
+        assert(isFollowing != null),
+        super._();
 
   @override
-  final String id;
+  final ProfileName username;
   @override
-  final String username;
+  final ProfileDescription description;
   @override
-  final int following;
+  final ProfileFollowing following;
   @override
-  final int followers;
+  final ProfileFollowers followers;
   @override
-  final String profileImageURL;
+  final ProfileImageURL profileImageURL;
   @override
-  final Item item;
+  final ProfileBackgroundImageURL backgroundImageURL;
+  @override
+  final bool isFollowing;
 
   @override
   String toString() {
-    return 'PeerProfileData(id: $id, username: $username, following: $following, followers: $followers, profileImageURL: $profileImageURL, item: $item)';
+    return 'PeerProfileData(username: $username, description: $description, following: $following, followers: $followers, profileImageURL: $profileImageURL, backgroundImageURL: $backgroundImageURL, isFollowing: $isFollowing)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PeerProfileData &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.username, username) ||
                 const DeepCollectionEquality()
                     .equals(other.username, username)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
             (identical(other.following, following) ||
                 const DeepCollectionEquality()
                     .equals(other.following, following)) &&
@@ -209,46 +227,55 @@ class _$_PeerProfileData implements _PeerProfileData {
             (identical(other.profileImageURL, profileImageURL) ||
                 const DeepCollectionEquality()
                     .equals(other.profileImageURL, profileImageURL)) &&
-            (identical(other.item, item) ||
-                const DeepCollectionEquality().equals(other.item, item)));
+            (identical(other.backgroundImageURL, backgroundImageURL) ||
+                const DeepCollectionEquality()
+                    .equals(other.backgroundImageURL, backgroundImageURL)) &&
+            (identical(other.isFollowing, isFollowing) ||
+                const DeepCollectionEquality()
+                    .equals(other.isFollowing, isFollowing)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(following) ^
       const DeepCollectionEquality().hash(followers) ^
       const DeepCollectionEquality().hash(profileImageURL) ^
-      const DeepCollectionEquality().hash(item);
+      const DeepCollectionEquality().hash(backgroundImageURL) ^
+      const DeepCollectionEquality().hash(isFollowing);
 
   @override
   _$PeerProfileDataCopyWith<_PeerProfileData> get copyWith =>
       __$PeerProfileDataCopyWithImpl<_PeerProfileData>(this, _$identity);
 }
 
-abstract class _PeerProfileData implements PeerProfileData {
+abstract class _PeerProfileData extends PeerProfileData {
+  const _PeerProfileData._() : super._();
   const factory _PeerProfileData(
-      {@required String id,
-      @required String username,
-      @required int following,
-      @required int followers,
-      @required String profileImageURL,
-      @required Item item}) = _$_PeerProfileData;
+      {@required ProfileName username,
+      @required ProfileDescription description,
+      @required ProfileFollowing following,
+      @required ProfileFollowers followers,
+      @required ProfileImageURL profileImageURL,
+      @required ProfileBackgroundImageURL backgroundImageURL,
+      @required bool isFollowing}) = _$_PeerProfileData;
 
   @override
-  String get id;
+  ProfileName get username;
   @override
-  String get username;
+  ProfileDescription get description;
   @override
-  int get following;
+  ProfileFollowing get following;
   @override
-  int get followers;
+  ProfileFollowers get followers;
   @override
-  String get profileImageURL;
+  ProfileImageURL get profileImageURL;
   @override
-  Item get item;
+  ProfileBackgroundImageURL get backgroundImageURL;
+  @override
+  bool get isFollowing;
   @override
   _$PeerProfileDataCopyWith<_PeerProfileData> get copyWith;
 }

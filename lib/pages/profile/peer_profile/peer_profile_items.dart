@@ -2,51 +2,51 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/domain/items/item/item.dart';
-import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
+import 'package:creatispace/domain/profile/profile_data/peer_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TestItems extends StatelessWidget {
-  final UserProfileData data;
+class PeerProfileItems extends StatelessWidget {
+  final PeerProfileData data;
   final bool view;
-  const TestItems({Key key, @required this.data, @required this.view}) : super(key: key);
+  const PeerProfileItems({Key key, @required this.data, @required this.view}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ItemWatcherBloc, ItemWatcherState>(
-      builder: (context, state) {
-        return state.map(
-          initial: (_) => Container(),
-          loadInProgress: (_) => Container(),
-          loadSuccess: (state) => Container(
-            margin: EdgeInsets.all(10),
-            child: view
-              ? Column(
+        builder: (context, state) {
+          return state.map(
+              initial: (_) => Container(),
+              loadInProgress: (_) => Container(),
+              loadSuccess: (state) => Container(
+                margin: EdgeInsets.all(10),
+                child: view
+                    ? Column(
                     children: state.items.asList().map((Item item) {
-                    return ImageList(item: item, data: data);
-                }).toList())
-              : GridView.count(
-                  padding: EdgeInsets.only(top: 10),
-                  crossAxisCount: 3,
-                  childAspectRatio: 1,
-                  mainAxisSpacing: 1.5,
-                  crossAxisSpacing: 1.5,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: state.items.asList().map((Item item) {
-                    return GridTile(child: ImageTile(item));
-                }).toList()),
-            ),
-          loadFailure: (_) =>  Container()
-        );
-      }
+                      return ImageList(item: item, data: data);
+                    }).toList())
+                    : GridView.count(
+                    padding: EdgeInsets.only(top: 10),
+                    crossAxisCount: 3,
+                    childAspectRatio: 1,
+                    mainAxisSpacing: 1.5,
+                    crossAxisSpacing: 1.5,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: state.items.asList().map((Item item) {
+                      return GridTile(child: ImageTile(item));
+                    }).toList()),
+              ),
+              loadFailure: (_) =>  Container()
+          );
+        }
     );
   }
 }
 
 
 class ImageList extends StatelessWidget {
-  final UserProfileData data;
+  final PeerProfileData data;
   final Item item;
 
   const ImageList({Key key, @required this.data, @required this.item})
@@ -84,9 +84,9 @@ class ImageList extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 5),
             alignment: Alignment.centerLeft,
             child: Text(
-                item.name.getOrCrash(),
+              item.name.getOrCrash(),
               style: TextStyle(
-                fontSize: 20
+                  fontSize: 20
               ),
             )
         ),
@@ -135,10 +135,10 @@ class ImageTile extends StatelessWidget {
         fit: BoxFit.cover,
         placeholder: (context, url) => Center(
           child: Container(
-            width: 30,
-            height: 30,
-            margin: const EdgeInsets.all(5),
-            child: const CircularProgressIndicator()
+              width: 30,
+              height: 30,
+              margin: const EdgeInsets.all(5),
+              child: const CircularProgressIndicator()
           ),
         ),
         errorWidget: (context, url, error) => const Icon(Icons.error),

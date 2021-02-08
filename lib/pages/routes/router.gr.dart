@@ -27,6 +27,7 @@ import '../messaging/user_list/user_list.dart';
 import '../messaging/user_list/user_list_with_scaffold.dart';
 import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/following_followers/user_friends_scaffold.dart';
+import '../profile/peer_profile/peer_profile_scaffold.dart';
 import '../profile/user_profile/user_profile_scaffold.dart';
 import '../search/search_scaffold.dart';
 import '../splash/splash_page.dart';
@@ -46,6 +47,7 @@ class Routes {
   static const String userFriendsScaffold = '/user-friends-scaffold';
   static const String searchScaffold = '/search-scaffold';
   static const String userProfileScaffold = '/user-profile-scaffold';
+  static const String peerProfileScaffold = '/peer-profile-scaffold';
   static const String homeScaffold = '/home-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
@@ -65,6 +67,7 @@ class Routes {
     userFriendsScaffold,
     searchScaffold,
     userProfileScaffold,
+    peerProfileScaffold,
     homeScaffold,
     messagingScaffold,
     fullScreenImage,
@@ -90,6 +93,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.userFriendsScaffold, page: UserFriendsScaffold),
     RouteDef(Routes.searchScaffold, page: SearchScaffold),
     RouteDef(Routes.userProfileScaffold, page: UserProfileScaffold),
+    RouteDef(Routes.peerProfileScaffold, page: PeerProfileScaffold),
     RouteDef(Routes.homeScaffold, page: HomeScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
@@ -205,6 +209,18 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    PeerProfileScaffold: (data) {
+      final args = data.getArgs<PeerProfileScaffoldArguments>(
+        orElse: () => PeerProfileScaffoldArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PeerProfileScaffold(
+          key: args.key,
+          id: args.id,
+        ),
+        settings: data,
+      );
+    },
     HomeScaffold: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => HomeScaffold(),
@@ -317,6 +333,15 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushUserProfileScaffold() =>
       push<dynamic>(Routes.userProfileScaffold);
 
+  Future<dynamic> pushPeerProfileScaffold({
+    Key key,
+    String id,
+  }) =>
+      push<dynamic>(
+        Routes.peerProfileScaffold,
+        arguments: PeerProfileScaffoldArguments(key: key, id: id),
+      );
+
   Future<dynamic> pushHomeScaffold() => push<dynamic>(Routes.homeScaffold);
 
   Future<dynamic> pushMessagingScaffold({
@@ -380,6 +405,13 @@ class UserFriendsScaffoldArguments {
   final Key key;
   final bool followOrFollowing;
   UserFriendsScaffoldArguments({this.key, this.followOrFollowing});
+}
+
+/// PeerProfileScaffold arguments holder class
+class PeerProfileScaffoldArguments {
+  final Key key;
+  final String id;
+  PeerProfileScaffoldArguments({this.key, this.id});
 }
 
 /// MessagingScaffold arguments holder class
