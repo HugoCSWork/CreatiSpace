@@ -16,6 +16,7 @@ abstract class ItemDto implements _$ItemDto {
 
   const factory ItemDto({
     @JsonKey(ignore: true) String id,
+    String timestamp,
     @required String name,
     @required String description,
     @required double price,
@@ -28,6 +29,7 @@ abstract class ItemDto implements _$ItemDto {
   factory ItemDto.fromDomain(Item item) {
     return ItemDto(
         id: item.id.getOrCrash(),
+        timestamp: item.timestamp,
         name: item.name.getOrCrash(),
         description: item.description.getOrCrash(),
         price: item.price.getOrCrash(),
@@ -43,6 +45,7 @@ abstract class ItemDto implements _$ItemDto {
   Item toDomain() {
     return Item(
       id: UniqueId.fromUniqueString(id),
+      timestamp: timestamp,
       name: ItemName(name),
       description: ItemDescription(description),
       price: ItemPrice(price),

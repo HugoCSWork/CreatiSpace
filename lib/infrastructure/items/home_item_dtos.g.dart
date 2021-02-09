@@ -9,6 +9,7 @@ part of 'home_item_dtos.dart';
 _$_HomeItemDto _$_$_HomeItemDtoFromJson(Map<String, dynamic> json) {
   return _$_HomeItemDto(
     id: json['id'] as String,
+    timestamp: json['timestamp'] as String,
     name: json['name'] as String,
     username: json['username'] as String,
     profileImageURL: json['profileImageURL'] as String,
@@ -28,6 +29,7 @@ _$_HomeItemDto _$_$_HomeItemDtoFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_HomeItemDtoToJson(_$_HomeItemDto instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'timestamp': instance.timestamp,
       'name': instance.name,
       'username': instance.username,
       'profileImageURL': instance.profileImageURL,

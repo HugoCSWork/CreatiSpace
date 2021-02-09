@@ -16,6 +16,7 @@ class _$ItemTearOff {
 // ignore: unused_element
   _Item call(
       {@required UniqueId id,
+      String timestamp,
       @required ItemName name,
       @required ItemDescription description,
       @required ItemPrice price,
@@ -25,6 +26,7 @@ class _$ItemTearOff {
       @required ItemImageList<IndividualImages> images}) {
     return _Item(
       id: id,
+      timestamp: timestamp,
       name: name,
       description: description,
       price: price,
@@ -43,6 +45,7 @@ const $Item = _$ItemTearOff();
 /// @nodoc
 mixin _$Item {
   UniqueId get id;
+  String get timestamp;
   ItemName get name;
   ItemDescription get description;
   ItemPrice get price;
@@ -60,6 +63,7 @@ abstract class $ItemCopyWith<$Res> {
       _$ItemCopyWithImpl<$Res>;
   $Res call(
       {UniqueId id,
+      String timestamp,
       ItemName name,
       ItemDescription description,
       ItemPrice price,
@@ -80,6 +84,7 @@ class _$ItemCopyWithImpl<$Res> implements $ItemCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object timestamp = freezed,
     Object name = freezed,
     Object description = freezed,
     Object price = freezed,
@@ -90,6 +95,7 @@ class _$ItemCopyWithImpl<$Res> implements $ItemCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
+      timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       name: name == freezed ? _value.name : name as ItemName,
       description: description == freezed
           ? _value.description
@@ -116,6 +122,7 @@ abstract class _$ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
   @override
   $Res call(
       {UniqueId id,
+      String timestamp,
       ItemName name,
       ItemDescription description,
       ItemPrice price,
@@ -137,6 +144,7 @@ class __$ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object timestamp = freezed,
     Object name = freezed,
     Object description = freezed,
     Object price = freezed,
@@ -147,6 +155,7 @@ class __$ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res>
   }) {
     return _then(_Item(
       id: id == freezed ? _value.id : id as UniqueId,
+      timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       name: name == freezed ? _value.name : name as ItemName,
       description: description == freezed
           ? _value.description
@@ -170,6 +179,7 @@ class __$ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res>
 class _$_Item extends _Item {
   const _$_Item(
       {@required this.id,
+      this.timestamp,
       @required this.name,
       @required this.description,
       @required this.price,
@@ -190,6 +200,8 @@ class _$_Item extends _Item {
   @override
   final UniqueId id;
   @override
+  final String timestamp;
+  @override
   final ItemName name;
   @override
   final ItemDescription description;
@@ -206,7 +218,7 @@ class _$_Item extends _Item {
 
   @override
   String toString() {
-    return 'Item(id: $id, name: $name, description: $description, price: $price, delivery: $delivery, quantity: $quantity, purchasable: $purchasable, images: $images)';
+    return 'Item(id: $id, timestamp: $timestamp, name: $name, description: $description, price: $price, delivery: $delivery, quantity: $quantity, purchasable: $purchasable, images: $images)';
   }
 
   @override
@@ -215,6 +227,9 @@ class _$_Item extends _Item {
         (other is _Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.timestamp, timestamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.timestamp, timestamp)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.description, description) ||
@@ -239,6 +254,7 @@ class _$_Item extends _Item {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(timestamp) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(price) ^
@@ -256,6 +272,7 @@ abstract class _Item extends Item {
   const _Item._() : super._();
   const factory _Item(
       {@required UniqueId id,
+      String timestamp,
       @required ItemName name,
       @required ItemDescription description,
       @required ItemPrice price,
@@ -266,6 +283,8 @@ abstract class _Item extends Item {
 
   @override
   UniqueId get id;
+  @override
+  String get timestamp;
   @override
   ItemName get name;
   @override

@@ -16,6 +16,7 @@ abstract class HomeItemDto implements _$HomeItemDto {
 
   const factory HomeItemDto({
     @required String id,
+    @required String timestamp,
     @required String name,
     @required String username,
     @required String profileImageURL,
@@ -30,6 +31,7 @@ abstract class HomeItemDto implements _$HomeItemDto {
   factory HomeItemDto.fromDomain(HomeItem item) {
     return HomeItemDto(
         id: item.id,
+        timestamp: item.timestamp,
         name: item.name.getOrCrash(),
         description: item.description.getOrCrash(),
         price: item.price.getOrCrash(),
@@ -47,6 +49,7 @@ abstract class HomeItemDto implements _$HomeItemDto {
   HomeItem toDomain() {
     return HomeItem(
       id: id,
+      timestamp: timestamp,
       name: ItemName(name),
       description: ItemDescription(description),
       price: ItemPrice(price),

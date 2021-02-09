@@ -13,6 +13,7 @@ part 'item.freezed.dart';
 abstract class Item implements _$Item {
   const factory Item({
     @required UniqueId id,
+    String timestamp,
     @required ItemName name,
     @required ItemDescription description,
     @required ItemPrice price,
@@ -26,6 +27,7 @@ abstract class Item implements _$Item {
 
   factory Item.empty() => Item(
       id: UniqueId(),
+      timestamp: '',
       name: ItemName(''),
       description: ItemDescription(''),
       price: ItemPrice(0.00),

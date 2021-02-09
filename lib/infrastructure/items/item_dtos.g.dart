@@ -8,6 +8,7 @@ part of 'item_dtos.dart';
 
 _$_ItemDto _$_$_ItemDtoFromJson(Map<String, dynamic> json) {
   return _$_ItemDto(
+    timestamp: json['timestamp'] as String,
     name: json['name'] as String,
     description: json['description'] as String,
     price: (json['price'] as num)?.toDouble(),
@@ -24,6 +25,7 @@ _$_ItemDto _$_$_ItemDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_ItemDtoToJson(_$_ItemDto instance) =>
     <String, dynamic>{
+      'timestamp': instance.timestamp,
       'name': instance.name,
       'description': instance.description,
       'price': instance.price,

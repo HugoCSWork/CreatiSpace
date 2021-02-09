@@ -19,6 +19,7 @@ class _$ItemDtoTearOff {
 // ignore: unused_element
   _ItemDto call(
       {@JsonKey(ignore: true) String id,
+      String timestamp,
       @required String name,
       @required String description,
       @required double price,
@@ -28,6 +29,7 @@ class _$ItemDtoTearOff {
       @required List<IndividualImagesDto> images}) {
     return _ItemDto(
       id: id,
+      timestamp: timestamp,
       name: name,
       description: description,
       price: price,
@@ -52,6 +54,7 @@ const $ItemDto = _$ItemDtoTearOff();
 mixin _$ItemDto {
   @JsonKey(ignore: true)
   String get id;
+  String get timestamp;
   String get name;
   String get description;
   double get price;
@@ -70,6 +73,7 @@ abstract class $ItemDtoCopyWith<$Res> {
       _$ItemDtoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(ignore: true) String id,
+      String timestamp,
       String name,
       String description,
       double price,
@@ -90,6 +94,7 @@ class _$ItemDtoCopyWithImpl<$Res> implements $ItemDtoCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object timestamp = freezed,
     Object name = freezed,
     Object description = freezed,
     Object price = freezed,
@@ -100,6 +105,7 @@ class _$ItemDtoCopyWithImpl<$Res> implements $ItemDtoCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       name: name == freezed ? _value.name : name as String,
       description:
           description == freezed ? _value.description : description as String,
@@ -122,6 +128,7 @@ abstract class _$ItemDtoCopyWith<$Res> implements $ItemDtoCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(ignore: true) String id,
+      String timestamp,
       String name,
       String description,
       double price,
@@ -143,6 +150,7 @@ class __$ItemDtoCopyWithImpl<$Res> extends _$ItemDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object timestamp = freezed,
     Object name = freezed,
     Object description = freezed,
     Object price = freezed,
@@ -153,6 +161,7 @@ class __$ItemDtoCopyWithImpl<$Res> extends _$ItemDtoCopyWithImpl<$Res>
   }) {
     return _then(_ItemDto(
       id: id == freezed ? _value.id : id as String,
+      timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       name: name == freezed ? _value.name : name as String,
       description:
           description == freezed ? _value.description : description as String,
@@ -174,6 +183,7 @@ class __$ItemDtoCopyWithImpl<$Res> extends _$ItemDtoCopyWithImpl<$Res>
 class _$_ItemDto extends _ItemDto {
   const _$_ItemDto(
       {@JsonKey(ignore: true) this.id,
+      this.timestamp,
       @required this.name,
       @required this.description,
       @required this.price,
@@ -197,6 +207,8 @@ class _$_ItemDto extends _ItemDto {
   @JsonKey(ignore: true)
   final String id;
   @override
+  final String timestamp;
+  @override
   final String name;
   @override
   final String description;
@@ -213,7 +225,7 @@ class _$_ItemDto extends _ItemDto {
 
   @override
   String toString() {
-    return 'ItemDto(id: $id, name: $name, description: $description, price: $price, delivery: $delivery, quantity: $quantity, purchasable: $purchasable, images: $images)';
+    return 'ItemDto(id: $id, timestamp: $timestamp, name: $name, description: $description, price: $price, delivery: $delivery, quantity: $quantity, purchasable: $purchasable, images: $images)';
   }
 
   @override
@@ -222,6 +234,9 @@ class _$_ItemDto extends _ItemDto {
         (other is _ItemDto &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.timestamp, timestamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.timestamp, timestamp)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.description, description) ||
@@ -246,6 +261,7 @@ class _$_ItemDto extends _ItemDto {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(timestamp) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(price) ^
@@ -268,6 +284,7 @@ abstract class _ItemDto extends ItemDto {
   const _ItemDto._() : super._();
   const factory _ItemDto(
       {@JsonKey(ignore: true) String id,
+      String timestamp,
       @required String name,
       @required String description,
       @required double price,
@@ -281,6 +298,8 @@ abstract class _ItemDto extends ItemDto {
   @override
   @JsonKey(ignore: true)
   String get id;
+  @override
+  String get timestamp;
   @override
   String get name;
   @override

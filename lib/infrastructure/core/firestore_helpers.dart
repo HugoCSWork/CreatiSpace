@@ -51,6 +51,15 @@ extension FirestoreX on FirebaseFirestore {
     return int.parse(user["following"].toString());
   }
 
+  Future<int> getPostTimestamp(String id) async {
+    var user = (await FirebaseFirestore.instance
+        .collection('users')
+        .doc(id)
+        .get()).data();
+
+    return int.parse(user["following"].toString());
+  }
+
   Future<String> userDocumentProfileImage(String id) async {
     var user = (await FirebaseFirestore.instance
         .collection('users')

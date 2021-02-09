@@ -103,12 +103,12 @@ class ItemRepository implements IItemFacade {
       final String username = await _firebaseFirestore.userDocumentName(await _firebaseAuth.currentUser.uid);
       final String profileImageURL = await _firebaseFirestore.userDocumentProfileImage(await _firebaseAuth.currentUser.uid);
       final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
-
       final updatedImages =
           await _firebaseStorage.updateImages(item, userDoc.id);
 
       final HomeItem newHomeItem = HomeItem(
           id: userDoc.id,
+          timestamp: timestamp,
           description: item.description,
           price: item.price,
           quantity: item.quantity,
@@ -154,26 +154,52 @@ class ItemRepository implements IItemFacade {
   Future<Either<ItemErrorFailure, Unit>> update(Item item) async {
     try {
       final userDoc = await _firebaseFirestore.userDocument();
-
+      final String username = await _firebaseFirestore.userDocumentName(await _firebaseAuth.currentUser.uid);
+      final String profileImageURL = await _firebaseFirestore.userDocumentProfileImage(await _firebaseAuth.currentUser.uid);
       await _firebaseStorage.deleteImagesFromCollection(userId: userDoc.id, item: item);
+      final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+
 
       final updatedImages =
           await _firebaseStorage.updateImages(item, userDoc.id);
 
-      final Item newItem = Item(
-          id: item.id,
+      final HomeItem newHomeItem = HomeItem(
+          id: userDoc.id,
+          timestamp: item.timestamp,
           description: item.description,
           price: item.price,
           quantity: item.quantity,
           delivery: item.delivery,
           purchasable: item.purchasable,
           name: item.name,
-          images: ItemImageList(updatedImages));
+          images: ItemImageList(updatedImages),
+          profileImageURL: profileImageURL,
+          username: username
+      );
 
-      final itemDto = ItemDto.fromDomain(newItem);
+      final homeItemDto = HomeItemDto.fromDomain(newHomeItem);
 
+      await userDoc.itemCollection.doc(homeItemDto.id).update(homeItemDto.toJson());
 
-      await userDoc.itemCollection.doc(itemDto.id).update(itemDto.toJson());
+      // update home
+
+      var data = await userDoc.collection('followers').get();
+      var dataFromFirebase = await data.docs.map((e) => e.id);
+
+      var batch = _firebaseFirestore.batch();
+      await dataFromFirebase.forEach((element) {
+        var docRef = _firebaseFirestore
+            .collection('users')
+            .doc(element.toString())
+            .collection('home')
+            .doc(item.timestamp);
+        batch.update(docRef, homeItemDto.toJson());
+      });
+
+      batch.commit();
+
+      // update posts
+      await _firebaseFirestore.collection('posts').doc(item.timestamp).update(homeItemDto.toJson());
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -195,6 +221,26 @@ class ItemRepository implements IItemFacade {
 
       await _firebaseStorage.deleteImagesFromCollection(userId: userDoc.id, item: item, deleteAll: true);
       await userDoc.itemCollection.doc(itemId).delete();
+
+      // update home
+
+      var data = await userDoc.collection('followers').get();
+      var dataFromFirebase = await data.docs.map((e) => e.id);
+
+      var batch = _firebaseFirestore.batch();
+      await dataFromFirebase.forEach((element) {
+        var docRef = _firebaseFirestore
+            .collection('users')
+            .doc(element.toString())
+            .collection('home')
+            .doc(item.timestamp);
+        batch.delete(docRef);
+      });
+
+      batch.commit();
+
+      // update posts
+      await _firebaseFirestore.collection('posts').doc(item.timestamp).delete();
 
       return right(unit);
     } on FirebaseException catch (e) {
@@ -224,7 +270,6 @@ class ItemRepository implements IItemFacade {
           if (e is FirebaseException && e.message.contains('PERMISSION_DENIED')) {
             return left(const ItemErrorFailure.insufficientPermissions());
           } else {
-            // log.error(e.toString());
             return left(const ItemErrorFailure.unexpected());
           }
         });
