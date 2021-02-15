@@ -15,16 +15,18 @@ class ItemOverviewBody extends StatelessWidget {
             loadInProgress: (_) =>
                 const Center(child: CircularProgressIndicator()),
             loadSuccess: (state) {
-              return ListView.builder(
-                itemBuilder: (context, index) {
-                  final item = state.items[index];
-                  if (item.failureOption.isSome()) {
-                    return ErrorItemCard(item: item);
-                  } else {
-                    return ItemCard(item: item);
-                  }
-                },
-                itemCount: state.items.size,
+              return Expanded(
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    final item = state.items[index];
+                    if (item.failureOption.isSome()) {
+                      return ErrorItemCard(item: item);
+                    } else {
+                      return ItemCard(item: item);
+                    }
+                  },
+                  itemCount: state.items.size,
+                ),
               );
             },
             loadFailure: (state) {

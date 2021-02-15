@@ -24,11 +24,13 @@ import 'domain/items/i_item_facade.dart';
 import 'domain/profile/i_profile_facade.dart';
 import 'domain/search/i_search_facade.dart';
 import 'domain/user_messaging/IUserFacade.dart';
+import 'app/auth/is_verified/is_verified_bloc.dart';
 import 'app/item/item_actor/item_actor_bloc.dart';
 import 'app/item/item_form/item_form_bloc.dart';
 import 'app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
+import 'app/auth/payment_verified/payment_verified_bloc.dart';
 import 'app/profile/profile_actor/profile_actor_bloc.dart';
 import 'app/profile/profile_form/profile_form_bloc.dart';
 import 'app/profile/profile_information_watcher/profile_information_watcher_bloc.dart';
@@ -81,11 +83,14 @@ GetIt $initGetIt(
         get<FirebaseStorage>(),
         get<FirebaseAuth>(),
       ));
+  gh.factory<IsVerifiedBloc>(() => IsVerifiedBloc(get<IAuthFacade>()));
   gh.factory<ItemActorBloc>(() => ItemActorBloc(get<IItemFacade>()));
   gh.factory<ItemFormBloc>(() => ItemFormBloc(get<IItemFacade>()));
   gh.factory<ItemHomeWatcherBloc>(
       () => ItemHomeWatcherBloc(get<IItemFacade>()));
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
+  gh.factory<PaymentVerifiedBloc>(
+      () => PaymentVerifiedBloc(get<IAuthFacade>()));
   gh.factory<ProfileActorBloc>(() => ProfileActorBloc(get<IProfileFacade>()));
   gh.factory<ProfileFormBloc>(() => ProfileFormBloc(get<IProfileFacade>()));
   gh.factory<ProfileInformationWatcherBloc>(

@@ -4,13 +4,21 @@ import 'package:creatispace/pages/items/items_form/widgets/payment/item_quantity
 import 'package:flutter/cupertino.dart';
 
 class PaymentFields extends StatelessWidget {
+
+  final double price;
+  final double delivery;
+  final int quantity;
+
+  const PaymentFields({Key key, this.price, this.delivery, this.quantity}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: const [
-            ItemPriceField(),
-            ItemDeliveryField(),
-            ItemQuantityField(),
+        children: [
+            ItemPriceField(price),
+            ItemDeliveryField(delivery),
+            ItemQuantityField(quantity),
         ],
     );
   }

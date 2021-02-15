@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/app/item/item_form/item_form_bloc.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/injection.dart';
@@ -22,32 +23,40 @@ class ItemFormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<ItemFormBloc>()
-        ..add(ItemFormEvent.initialized(optionOf(editedItem))),
+    return MultiBlocProvider(
+      providers: [
+         BlocProvider(
+          create: (context) => getIt<ItemFormBloc>()
+            ..add(ItemFormEvent.initialized(optionOf(editedItem))),
+        ),
+        BlocProvider(
+            create: (context) => getIt<PaymentVerifiedBloc>()
+                  ..add(PaymentVerifiedEvent.paymentVerifiedCheckRequested()),
+        ),
+      ],
       child: BlocConsumer<ItemFormBloc, ItemFormState>(
           listenWhen: (prev, current) =>
-              prev.saveFailureOrSuccessOption !=
+          prev.saveFailureOrSuccessOption !=
               current.saveFailureOrSuccessOption,
           listener: (context, state) {
             state.saveFailureOrSuccessOption.fold(
-                () {},
-                (either) => either.fold((failure) {
-                      FlushbarHelper.createError(
-                          message: failure.map(
-                              unexpected: (_) =>
-                                  'Unexpected Error occurred, contact support.',
-                              insufficientPermissions: (_) =>
-                                  'Insufficient Permissions.',
-                              notFound: (_) =>
-                                  'Could not update this item. If this item has not been deleted contact support')).show(
-                          context);
-                    },
+                    () {},
+                    (either) => either.fold((failure) {
+                  FlushbarHelper.createError(
+                      message: failure.map(
+                          unexpected: (_) =>
+                          'Unexpected Error occurred, contact support.',
+                          insufficientPermissions: (_) =>
+                          'Insufficient Permissions.',
+                          notFound: (_) =>
+                          'Could not update this item. If this item has not been deleted contact support')).show(
+                      context);
+                },
                         (_) => ExtendedNavigator.of(context).popUntil(
-                              (route) =>
-                                  route.settings.name ==
-                                  Routes.navigationBar,
-                            )));
+                          (route) =>
+                      route.settings.name ==
+                          Routes.navigationBar,
+                    )));
           },
           buildWhen: (prev, current) => prev.isSaving != current.isSaving,
           builder: (context, state) {

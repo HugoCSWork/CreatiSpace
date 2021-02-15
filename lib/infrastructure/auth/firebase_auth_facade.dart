@@ -41,6 +41,7 @@ class FirebaseAuthFacade implements IAuthFacade {
     final emailAddressStr = emailAddress.getOrCrash().trim();
     final passwordStr = password.getOrCrash().trim();
     final usernameStr = username.getOrCrash().trim();
+    final isVerified = emailAddressStr.endsWith(".ac.uk") ? true : false;
     bool isDuplicate = false;
     try {
       await _firebaseFirestore.collection('users').get().then((querySnapshot) {
@@ -63,6 +64,7 @@ class FirebaseAuthFacade implements IAuthFacade {
             .doc(_auth.currentUser.uid)
             .set(
               {
+                'seller': isVerified,
                 'id': _auth.currentUser.uid,
                 'username': usernameStr,
                 'followers' : 0,
@@ -117,7 +119,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       final authCredential = GoogleAuthProvider.credential(
           accessToken: googleAuthentication.accessToken,
           idToken: googleAuthentication.idToken);
-      
+
       UserCredential user =  await _auth.signInWithCredential(authCredential);
       final userDoc = await _firebaseFirestore.userDocument();
       var options = (await userDoc.get()).data();
@@ -134,6 +136,7 @@ class FirebaseAuthFacade implements IAuthFacade {
             .doc(_auth.currentUser.uid)
               .set(
                 {
+                  'seller': false,
                   'id': _auth.currentUser.uid,
                   'username': "new_user${rNum}",
                   'followers' : 0,
@@ -154,6 +157,19 @@ class FirebaseAuthFacade implements IAuthFacade {
   @override
   Future<Option<CurrentUser>> getSignedInUser() async =>
       optionOf(_auth.currentUser?.toDomain());
+
+  @override
+  Future<bool> getVerifiedUser() async {
+    var currentUser = await _auth.currentUser.uid;
+    return await _firebaseFirestore.isUserVerified(currentUser);
+  }
+
+  @override
+  Future<bool> getPaymentVerifiedUser() async {
+    var currentUser = await _auth.currentUser.uid;
+    return await _firebaseFirestore.isPaymentAccountSetup(currentUser);
+  }
+
 
   @override
   Stream<bool> getPasswordVerificationForUser() async* {
@@ -181,4 +197,8 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<void> sendEmailVerification() => Future.wait([
      _auth.currentUser.sendEmailVerification()
   ]);
+
+
+
+
 }

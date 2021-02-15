@@ -5,14 +5,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ItemDeliveryField extends HookWidget {
-  const ItemDeliveryField({
+
+  final double delivery;
+
+  const ItemDeliveryField(this.delivery, {
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final textEditingController = useTextEditingController();
-
+    textEditingController.text = delivery.toString();
     return BlocListener<ItemFormBloc, ItemFormState>(
       listenWhen: (prev, current) => prev.isEditing != current.isEditing,
       listener: (context, state) {

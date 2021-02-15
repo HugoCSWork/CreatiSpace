@@ -123,7 +123,7 @@ class ItemRepository implements IItemFacade {
       final homeItemDto = HomeItemDto.fromDomain(newHomeItem);
 
       // document to their collection
-      await userDoc.itemCollection.doc(homeItemDto.id).set(homeItemDto.toJson());
+      await userDoc.itemCollection.doc(item.id.getOrCrash()).set(homeItemDto.toJson());
       // document to posts collection
       await _firebaseFirestore.collection('posts').doc(timestamp).set(homeItemDto.toJson());
       // document to all followers collections
@@ -157,8 +157,6 @@ class ItemRepository implements IItemFacade {
       final String username = await _firebaseFirestore.userDocumentName(await _firebaseAuth.currentUser.uid);
       final String profileImageURL = await _firebaseFirestore.userDocumentProfileImage(await _firebaseAuth.currentUser.uid);
       await _firebaseStorage.deleteImagesFromCollection(userId: userDoc.id, item: item);
-      final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
-
 
       final updatedImages =
           await _firebaseStorage.updateImages(item, userDoc.id);
@@ -179,7 +177,7 @@ class ItemRepository implements IItemFacade {
 
       final homeItemDto = HomeItemDto.fromDomain(newHomeItem);
 
-      await userDoc.itemCollection.doc(homeItemDto.id).update(homeItemDto.toJson());
+      await userDoc.itemCollection.doc(item.id.getOrCrash()).update(homeItemDto.toJson());
 
       // update home
 

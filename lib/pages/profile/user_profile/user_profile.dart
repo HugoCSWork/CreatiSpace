@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
+import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/pages/profile/user_profile/user_profile_items.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserProfile extends StatefulWidget {
 
@@ -83,68 +86,84 @@ class _UserProfileState extends State<UserProfile> {
                             child: Text("Edit profile")
                         )
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)
-                        ),
+                    BlocBuilder<IsVerifiedBloc, IsVerifiedState>(
+                        builder: (context, state) {
+                          return state.map(
+                              initial: (_) => Container(),
+                              authenticated: (_) {
+                                return Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                            bottomLeft: Radius.circular(10),
+                                            bottomRight: Radius.circular(10)
+                                        ),
 
-                        boxShadow: [ BoxShadow(
-                          color: Colors.blue[200].withOpacity(0.5),
-                          spreadRadius: 4,
-                          blurRadius: 7,
-                          offset: Offset(1, 3),
-                        )],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          FlatButton(
-                              child: Text(
-                                  "Grid",
-                                  style: TextStyle(
-                                    fontWeight: !viewChoice
-                                        ? FontWeight.bold
-                                        : FontWeight.normal
-                                  ),
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  viewChoice = false;
-                                });
+                                        boxShadow: [ BoxShadow(
+                                          color: Colors.blue[200].withOpacity(0.5),
+                                          spreadRadius: 4,
+                                          blurRadius: 7,
+                                          offset: Offset(1, 3),
+                                        )],
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          FlatButton(
+                                            child: Text(
+                                              "Grid",
+                                              style: TextStyle(
+                                                  fontWeight: !viewChoice
+                                                      ? FontWeight.bold
+                                                      : FontWeight.normal
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              setState(() {
+                                                viewChoice = false;
+                                              });
+
+                                            },
+                                          ),
+                                          Container(
+                                            height: 30,
+                                            width: 1.3,
+                                            color: Colors.blue[200],
+                                          ),
+                                          FlatButton(
+                                            child: Text(
+                                                "List",
+                                                style: TextStyle(
+                                                    fontWeight: viewChoice
+                                                        ? FontWeight.bold
+                                                        : FontWeight.normal
+                                                )
+                                            ),
+                                            onPressed: () {
+                                              setState(() {
+                                                viewChoice = true;
+                                              });
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    TestItems(data: widget.data, view: viewChoice),
+
+                                  ],
+                                );
 
                               },
-                          ),
-                          Container(
-                            height: 30,
-                            width: 1.3,
-                            color: Colors.blue[200],
-                          ),
-                          FlatButton(
-                              child: Text(
-                                  "List",
-                                  style: TextStyle(
-                                    fontWeight: viewChoice
-                                        ? FontWeight.bold
-                                        : FontWeight.normal
-                                  )
-                              ),
-                            onPressed: () {
-                              setState(() {
-                                viewChoice = true;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
+                              unauthenticated: (_) => Container()
+                          );
+                        },
                     ),
                   ],
                 ),
-                TestItems(data: widget.data, view: viewChoice),
               ],
             ),
             Positioned(

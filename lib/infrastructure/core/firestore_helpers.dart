@@ -23,6 +23,24 @@ extension FirestoreX on FirebaseFirestore {
         .doc(id);
   }
 
+  Future<bool> isUserVerified(String id) async {
+    var user = (await FirebaseFirestore.instance
+        .collection('users')
+        .doc(id)
+        .get()).data();
+
+    return user["seller"].toString() == 'true';
+  }
+
+  Future<bool> isPaymentAccountSetup(String id) async {
+    var user = (await FirebaseFirestore.instance
+        .collection('users')
+        .doc(id)
+        .get()).data();
+
+    return user["paymentVerified"].toString() == 'true';
+  }
+
   Future<String> userDocumentName(String id) async {
     var user = (await FirebaseFirestore.instance
         .collection('users')

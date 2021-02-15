@@ -4,13 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ItemQuantityField extends HookWidget {
-  const ItemQuantityField({
+  final int quantity;
+
+  const ItemQuantityField(this.quantity, {
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final textEditingController = useTextEditingController();
+    textEditingController.text = quantity.toString();
 
     return BlocListener<ItemFormBloc, ItemFormState>(
       listenWhen: (prev, current) => prev.isEditing != current.isEditing,

@@ -1,7 +1,10 @@
 import 'package:creatispace/app/auth/auth_bloc.dart';
+import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
+import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/app/item/item_actor/item_actor_bloc.dart';
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/injection.dart';
+import 'package:creatispace/pages/items/items_overview/items_builder.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/item_overview_body_wdget.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/item_switch.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
@@ -22,6 +25,14 @@ class ItemsOverviewPage extends StatelessWidget {
         BlocProvider<ItemActorBloc>(
           create: (context) => getIt<ItemActorBloc>(),
         ),
+        BlocProvider<IsVerifiedBloc>(
+            create: (context) => getIt<IsVerifiedBloc>()
+                ..add(IsVerifiedEvent.verifiedCheckRequested()),
+        ),
+        BlocProvider<PaymentVerifiedBloc>(
+          create: (context) => getIt<PaymentVerifiedBloc>()
+            ..add(PaymentVerifiedEvent.paymentVerifiedCheckRequested()),
+        )
       ],
       child: MultiBlocListener(
         listeners: [
@@ -47,33 +58,9 @@ class ItemsOverviewPage extends StatelessWidget {
                   ).show(context);
                 },
                 orElse: () {});
-          })
+          }),
         ],
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Listings'),
-            // leading: IconButton(
-            //   icon: const Icon(Icons.arrow_back),
-            //   onPressed: () {},
-            // ),
-            leading: IconButton(
-              icon: const Icon(Icons.exit_to_app),
-              onPressed: () {
-                context.read<AuthBloc>().add(const AuthEvent.signOut());
-              },
-            ),
-            actions: <Widget>[
-              ItemSwitch(),
-            ],
-          ),
-          body: ItemOverviewBody(),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              ExtendedNavigator.of(context).pushItemFormPage(editedItem: null);
-            },
-            child: const Icon(Icons.add),
-          ),
-        ),
+        child: ItemOverviewBuilder()
       ),
     );
   }
