@@ -5,8 +5,6 @@ import 'package:creatispace/app/item/item_actor/item_actor_bloc.dart';
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/items/items_overview/items_builder.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/item_overview_body_wdget.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/item_switch.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';

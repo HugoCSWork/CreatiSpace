@@ -1,7 +1,5 @@
 import 'package:creatispace/app/auth/auth_bloc.dart';
-import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
 import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
-import 'package:creatispace/pages/items/items_overview/items_overview_page.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/item_overview_body_wdget.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/item_switch.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';

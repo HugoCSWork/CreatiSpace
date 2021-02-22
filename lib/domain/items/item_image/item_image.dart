@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'item_image.freezed.dart';
 
-
+//TODO - LOOK HERE AND UPDATE FAILUREOPTION
 @freezed
 abstract class IndividualImages implements _$IndividualImages {
 

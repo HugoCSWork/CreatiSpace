@@ -25,6 +25,7 @@ import '../messaging/messaging/messaging_scaffold.dart';
 import '../messaging/messaging/widgets/full_screen_image.dart';
 import '../messaging/user_list/user_list.dart';
 import '../messaging/user_list/user_list_with_scaffold.dart';
+import '../payment_setup/payment_stepper.dart';
 import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/following_followers/user_friends_scaffold.dart';
 import '../profile/peer_profile/peer_profile_scaffold.dart';
@@ -33,7 +34,7 @@ import '../search/search_scaffold.dart';
 import '../splash/splash_page.dart';
 
 class Routes {
-  static const String splashPage = '/';
+  static const String splashPage = '/splash-page';
   static const String signInPage = '/sign-in-page';
   static const String signUpPage = '/sign-up-page';
   static const String forgottenPasswordPage = '/forgotten-password-page';
@@ -51,6 +52,7 @@ class Routes {
   static const String homeScaffold = '/home-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
+  static const String paymentStepper = '/';
   static const String itemFormPage = '/item-form-page';
   static const all = <String>{
     splashPage,
@@ -71,6 +73,7 @@ class Routes {
     homeScaffold,
     messagingScaffold,
     fullScreenImage,
+    paymentStepper,
     itemFormPage,
   };
 }
@@ -97,6 +100,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.homeScaffold, page: HomeScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
+    RouteDef(Routes.paymentStepper, page: PaymentStepper),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
   ];
   @override
@@ -251,6 +255,18 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    PaymentStepper: (data) {
+      final args = data.getArgs<PaymentStepperArguments>(
+        orElse: () => PaymentStepperArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PaymentStepper(
+          key: args.key,
+          steps: args.steps,
+        ),
+        settings: data,
+      );
+    },
     ItemFormPage: (data) {
       final args = data.getArgs<ItemFormPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
@@ -365,6 +381,15 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: FullScreenImageArguments(key: key, imageUrl: imageUrl),
       );
 
+  Future<dynamic> pushPaymentStepper({
+    Key key,
+    List<Step> steps,
+  }) =>
+      push<dynamic>(
+        Routes.paymentStepper,
+        arguments: PaymentStepperArguments(key: key, steps: steps),
+      );
+
   Future<dynamic> pushItemFormPage({
     Key key,
     @required Item editedItem,
@@ -432,6 +457,13 @@ class FullScreenImageArguments {
   final Key key;
   final String imageUrl;
   FullScreenImageArguments({this.key, this.imageUrl});
+}
+
+/// PaymentStepper arguments holder class
+class PaymentStepperArguments {
+  final Key key;
+  final List<Step> steps;
+  PaymentStepperArguments({this.key, this.steps});
 }
 
 /// ItemFormPage arguments holder class

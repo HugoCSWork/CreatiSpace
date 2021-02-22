@@ -11,6 +11,7 @@ import 'package:creatispace/pages/messaging/messaging/messaging_scaffold.dart';
 import 'package:creatispace/pages/messaging/messaging/widgets/full_screen_image.dart';
 import 'package:creatispace/pages/messaging/user_list/user_list.dart';
 import 'package:creatispace/pages/messaging/user_list/user_list_with_scaffold.dart';
+import 'package:creatispace/pages/payment_setup/payment_stepper.dart';
 import 'package:creatispace/pages/profile/edit_profile/edit_profile_form_page.dart';
 import 'package:creatispace/pages/profile/following_followers/user_friends_scaffold.dart';
 import 'package:creatispace/pages/profile/peer_profile/peer_profile_scaffold.dart';
@@ -21,7 +22,7 @@ import 'package:creatispace/shared/navigation_bar.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
-    MaterialRoute(page: SplashPage, initial: true),
+    MaterialRoute(page: SplashPage),
     MaterialRoute(page: SignInPage),
     MaterialRoute(page: SignUpPage),
     MaterialRoute(page: ForgottenPasswordPage),
@@ -39,6 +40,7 @@ import 'package:creatispace/shared/navigation_bar.dart';
     MaterialRoute(page: HomeScaffold),
     MaterialRoute(page: MessagingScaffold),
     MaterialRoute(page: FullScreenImage),
+    MaterialRoute(page: PaymentStepper, initial: true),
     MaterialRoute(page: ItemFormPage, fullscreenDialog: true),
     
 

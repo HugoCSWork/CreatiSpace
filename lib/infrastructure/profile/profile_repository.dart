@@ -2,22 +2,18 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
-import 'package:creatispace/domain/items/item/item.dart';
-import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/profile/i_profile_facade.dart';
 import 'package:creatispace/domain/profile/profile_data/peer_profile.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/domain/profile/profile_error/profile_error_failures.dart';
 import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/following_followers/following_followers_dtos.dart';
-import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:creatispace/infrastructure/profile/peer_profile_dtos.dart';
 import 'package:creatispace/infrastructure/profile/profile_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kt_dart/kt.dart';
 
 @LazySingleton(as: IProfileFacade)
 class ProfileRepository implements IProfileFacade {

@@ -1,6 +1,6 @@
-
 import 'dart:io';
 
+import 'package:creatispace/domain/core/value_objects.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_image/item_image.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
@@ -9,7 +9,6 @@ import 'package:kt_dart/collection.dart';
 import 'package:mime/mime.dart';
 
 extension FirestorageX on FirebaseStorage {
-
   // For Uploading Files
   Future<KtList<IndividualImages>> updateImages(
       Item item, String userDoc) async {
@@ -51,8 +50,33 @@ extension FirestorageX on FirebaseStorage {
     return KtList.from(updatedImages);
   }
 
+  Future<String> uploadPaymentImage(
+      String imageUrl, String imageName, String userDoc, String type) async {
+    if (!imageUrl.startsWith('https://firebasestorage.googleapis.com')) {
+      final uploadExtension =
+          lookupMimeType(imageUrl).replaceAll('/', '.').replaceAll('image', '');
+
+      final uploadName = '$imageName$uploadExtension';
+      final imageReference = FirebaseStorage.instance
+          .ref()
+          .child('payment/$userDoc/$type');
+
+      await imageReference.putFile(File(imageUrl));
+
+      final downloadURL = await FirebaseStorage.instance
+          .ref()
+          .child('payment/$userDoc/$type')
+          .getDownloadURL();
+
+      return downloadURL;
+    } else {
+      return imageUrl;
+    }
+  }
+
   // For Deleting Files
-  Future<void> deleteImagesFromCollection({String userId, Item item, bool deleteAll = false}) async {
+  Future<void> deleteImagesFromCollection(
+      {String userId, Item item, bool deleteAll = false}) async {
     final itemId = item.id.getOrCrash();
     final imageList = item.images.getOrCrash();
     final itemList = [];
@@ -65,27 +89,24 @@ extension FirestorageX on FirebaseStorage {
         .child('user_posts/$userId/$itemId')
         .listAll()
         .then((value) {
-          for(final element in value.items) {
-          final elementName = element.name;
-          final pos = elementName.lastIndexOf('.');
-          final result =
-              (pos != -1) ? elementName.substring(0, pos) : elementName;
-          if (!itemList.contains(result) || deleteAll == true) {
-            FirebaseStorage.instance.ref().child(element.fullPath).delete();
-          }
+      for (final element in value.items) {
+        final elementName = element.name;
+        final pos = elementName.lastIndexOf('.');
+        final result =
+            (pos != -1) ? elementName.substring(0, pos) : elementName;
+        if (!itemList.contains(result) || deleteAll == true) {
+          FirebaseStorage.instance.ref().child(element.fullPath).delete();
+        }
       }
     });
   }
 
-
   // upload image for messages
   Future<String> uploadImage(String uploadPath, String imageLocation) async {
-    final imageReference = FirebaseStorage.instance
-        .ref()
-        .child(uploadPath);
+    final imageReference = FirebaseStorage.instance.ref().child(uploadPath);
 
     await imageReference.putFile(File(imageLocation));
-   return await FirebaseStorage.instance
+    return await FirebaseStorage.instance
         .ref()
         .child(uploadPath)
         .getDownloadURL();

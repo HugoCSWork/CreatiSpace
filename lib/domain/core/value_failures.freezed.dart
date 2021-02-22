@@ -21,6 +21,13 @@ class _$ValueFailureTearOff {
   }
 
 // ignore: unused_element
+  _PaymentSetup<T> paymentSetup<T>(PaymentSetupValueFailures<T> f) {
+    return _PaymentSetup<T>(
+      f,
+    );
+  }
+
+// ignore: unused_element
   _Item<T> item<T>(ItemValueFailure<T> i) {
     return _Item<T>(
       i,
@@ -51,6 +58,7 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
@@ -58,6 +66,7 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
@@ -66,6 +75,7 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
@@ -73,6 +83,7 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
@@ -167,11 +178,13 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -182,6 +195,7 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
@@ -198,11 +212,13 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -213,6 +229,7 @@ class _$_Auth<T> implements _Auth<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
@@ -231,6 +248,152 @@ abstract class _Auth<T> implements ValueFailure<T> {
 
   AuthValueFailure<T> get f;
   _$AuthCopyWith<T, _Auth<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$PaymentSetupCopyWith<T, $Res> {
+  factory _$PaymentSetupCopyWith(
+          _PaymentSetup<T> value, $Res Function(_PaymentSetup<T>) then) =
+      __$PaymentSetupCopyWithImpl<T, $Res>;
+  $Res call({PaymentSetupValueFailures<T> f});
+
+  $PaymentSetupValueFailuresCopyWith<T, $Res> get f;
+}
+
+/// @nodoc
+class __$PaymentSetupCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$PaymentSetupCopyWith<T, $Res> {
+  __$PaymentSetupCopyWithImpl(
+      _PaymentSetup<T> _value, $Res Function(_PaymentSetup<T>) _then)
+      : super(_value, (v) => _then(v as _PaymentSetup<T>));
+
+  @override
+  _PaymentSetup<T> get _value => super._value as _PaymentSetup<T>;
+
+  @override
+  $Res call({
+    Object f = freezed,
+  }) {
+    return _then(_PaymentSetup<T>(
+      f == freezed ? _value.f : f as PaymentSetupValueFailures<T>,
+    ));
+  }
+
+  @override
+  $PaymentSetupValueFailuresCopyWith<T, $Res> get f {
+    if (_value.f == null) {
+      return null;
+    }
+    return $PaymentSetupValueFailuresCopyWith<T, $Res>(_value.f, (value) {
+      return _then(_value.copyWith(f: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_PaymentSetup<T> implements _PaymentSetup<T> {
+  const _$_PaymentSetup(this.f) : assert(f != null);
+
+  @override
+  final PaymentSetupValueFailures<T> f;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.paymentSetup(f: $f)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PaymentSetup<T> &&
+            (identical(other.f, f) ||
+                const DeepCollectionEquality().equals(other.f, f)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(f);
+
+  @override
+  _$PaymentSetupCopyWith<T, _PaymentSetup<T>> get copyWith =>
+      __$PaymentSetupCopyWithImpl<T, _PaymentSetup<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
+    @required TResult item(ItemValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
+  }) {
+    assert(auth != null);
+    assert(paymentSetup != null);
+    assert(item != null);
+    assert(messaging != null);
+    assert(profile != null);
+    return paymentSetup(f);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
+    TResult item(ItemValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (paymentSetup != null) {
+      return paymentSetup(f);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
+    @required TResult item(_Item<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
+  }) {
+    assert(auth != null);
+    assert(paymentSetup != null);
+    assert(item != null);
+    assert(messaging != null);
+    assert(profile != null);
+    return paymentSetup(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
+    TResult item(_Item<T> value),
+    TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (paymentSetup != null) {
+      return paymentSetup(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PaymentSetup<T> implements ValueFailure<T> {
+  const factory _PaymentSetup(PaymentSetupValueFailures<T> f) =
+      _$_PaymentSetup<T>;
+
+  PaymentSetupValueFailures<T> get f;
+  _$PaymentSetupCopyWith<T, _PaymentSetup<T>> get copyWith;
 }
 
 /// @nodoc
@@ -303,11 +466,13 @@ class _$_Item<T> implements _Item<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -318,6 +483,7 @@ class _$_Item<T> implements _Item<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
@@ -334,11 +500,13 @@ class _$_Item<T> implements _Item<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -349,6 +517,7 @@ class _$_Item<T> implements _Item<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
@@ -442,11 +611,13 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -457,6 +628,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
@@ -473,11 +645,13 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -488,6 +662,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
@@ -580,11 +755,13 @@ class _$_Profile<T> implements _Profile<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult item(ItemValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -595,6 +772,7 @@ class _$_Profile<T> implements _Profile<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult item(ItemValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
@@ -611,11 +789,13 @@ class _$_Profile<T> implements _Profile<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult item(_Item<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
     assert(auth != null);
+    assert(paymentSetup != null);
     assert(item != null);
     assert(messaging != null);
     assert(profile != null);
@@ -626,6 +806,7 @@ class _$_Profile<T> implements _Profile<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
     TResult item(_Item<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),

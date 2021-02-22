@@ -1,5 +1,4 @@
 import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
-import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/app/profile/profile_information_watcher/profile_information_watcher_bloc.dart';
 import 'package:creatispace/injection.dart';
