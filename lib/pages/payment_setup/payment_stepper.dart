@@ -1,13 +1,46 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/payment_setup/payment_setup_bloc.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/payment_setup/steps/address_step/address_step.dart';
 import 'package:creatispace/pages/payment_setup/steps/passport_step/passport_step.dart';
 import 'package:creatispace/pages/payment_setup/steps/payment_step/payment_step.dart';
 import 'package:creatispace/pages/payment_setup/steps/personal_step/personal_step.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:fa_stepper/fa_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+Future<bool> confirmationDialog(BuildContext context) {
+    Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed:  () =>  {
+        ExtendedNavigator.of(context).pop(),
+        FocusManager.instance.primaryFocus.unfocus()
+      }
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Continue"),
+      onPressed:  () => {
+        ExtendedNavigator.of(context).popUntil((route) => route.settings.name == Routes.navigationBar),
+        FocusManager.instance.primaryFocus.unfocus()
+      }
+    );
+
+  return showDialog(
+    context: context,
+    child: AlertDialog(
+      title: Text("Cancel Payment Form"),
+      content: Text("If you leave this page all data will be lost!"),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    ),
+  );
+}
+
+//TODO FINISH ERROR HANDLING
 class PaymentStepper extends StatelessWidget {
   final List<Step> steps;
 
@@ -15,11 +48,29 @@ class PaymentStepper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return BlocProvider(
       create: (context) => getIt<PaymentSetupBloc>(),
-      child: Scaffold(
-        appBar: AppBar(title: Text('Stepper test')),
-        body: TestWidget(steps: steps)
+      child: WillPopScope(
+        onWillPop: () async {
+          return await confirmationDialog(context);
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: new Text(
+              "Create payment account",
+              style: new TextStyle(color: Colors.white),
+            ),
+            leading: new IconButton(
+              icon: new Icon(Icons.arrow_back),
+              onPressed: () async {
+               return await confirmationDialog(context);
+              },
+            ),
+          ),
+          body: TestWidget(steps: steps),
+        ),
       ),
     );
   }
@@ -92,13 +143,28 @@ class _TestWidgetState extends State<TestWidget> {
               state.documentFailureOrSuccess.fold(
                       () {},
                       (either) => either.fold(
-                          (err) => context.read<PaymentSetupBloc>()
-                              .add(PaymentSetupEvent.stepContinue()),
+                          (err) => null,
                               (valid) => context.read<PaymentSetupBloc>()
                               .add(PaymentSetupEvent.stepContinue()))
               );
             },
-          )
+          ),
+          BlocListener<PaymentSetupBloc, PaymentSetupState>(
+              listenWhen: (prev, current) =>
+              prev.createPaymentAccountFailureOrSuccess != current.createPaymentAccountFailureOrSuccess,
+              listener: (context, state) {
+                state.createPaymentAccountFailureOrSuccess.fold(
+                        () {},
+                        (either) => either.fold(
+                            (err) => null,
+                            (valid) => {
+                              ExtendedNavigator.of(context).pop(),
+                              ExtendedNavigator.of(context).replace(Routes.navigationBar, arguments: NavigationBarArguments(
+                                  pos: 2))
+                              }),
+                );
+              },
+          ),
         ],
         child: BlocConsumer<PaymentSetupBloc, PaymentSetupState>(
           listenWhen: (prev, current) =>
@@ -240,7 +306,7 @@ class _TestWidgetState extends State<TestWidget> {
                           ),
                         ],
                       );
-                    } else if(state.step == state.maxSteps) {
+                    } else if(state.step == state.maxSteps - 1) {
                       return Row(
                         children: <Widget>[
                           TextButton(

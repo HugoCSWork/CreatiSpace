@@ -41,7 +41,7 @@ class ItemsOverview extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: FlatButton(
-                                  onPressed: () {},
+                                  onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentStepper),
                                   child: Text("Become a Seller"),
                                   color: Colors.blue[200],
                                   shape: RoundedRectangleBorder(

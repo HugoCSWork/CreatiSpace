@@ -16,6 +16,7 @@ import 'package:creatispace/pages/profile/edit_profile/edit_profile_form_page.da
 import 'package:creatispace/pages/profile/following_followers/user_friends_scaffold.dart';
 import 'package:creatispace/pages/profile/peer_profile/peer_profile_scaffold.dart';
 import 'package:creatispace/pages/profile/user_profile//user_profile_scaffold.dart';
+import 'package:creatispace/pages/purchase/payment_form/payment_form_scaffold.dart';
 import 'package:creatispace/pages/search/search_scaffold.dart';
 import 'package:creatispace/pages/splash/splash_page.dart';
 import 'package:creatispace/shared/navigation_bar.dart';
@@ -40,7 +41,8 @@ import 'package:creatispace/shared/navigation_bar.dart';
     MaterialRoute(page: HomeScaffold),
     MaterialRoute(page: MessagingScaffold),
     MaterialRoute(page: FullScreenImage),
-    MaterialRoute(page: PaymentStepper, initial: true),
+    MaterialRoute(page: PaymentStepper),
+    MaterialRoute(page: PaymentFormScaffold, initial: true),
     MaterialRoute(page: ItemFormPage, fullscreenDialog: true),
     
 

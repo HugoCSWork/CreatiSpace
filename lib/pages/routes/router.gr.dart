@@ -30,6 +30,7 @@ import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/following_followers/user_friends_scaffold.dart';
 import '../profile/peer_profile/peer_profile_scaffold.dart';
 import '../profile/user_profile/user_profile_scaffold.dart';
+import '../purchase/payment_form/payment_form_scaffold.dart';
 import '../search/search_scaffold.dart';
 import '../splash/splash_page.dart';
 
@@ -52,7 +53,8 @@ class Routes {
   static const String homeScaffold = '/home-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
-  static const String paymentStepper = '/';
+  static const String paymentStepper = '/payment-stepper';
+  static const String paymentFormScaffold = '/';
   static const String itemFormPage = '/item-form-page';
   static const all = <String>{
     splashPage,
@@ -74,6 +76,7 @@ class Routes {
     messagingScaffold,
     fullScreenImage,
     paymentStepper,
+    paymentFormScaffold,
     itemFormPage,
   };
 }
@@ -101,6 +104,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
     RouteDef(Routes.paymentStepper, page: PaymentStepper),
+    RouteDef(Routes.paymentFormScaffold, page: PaymentFormScaffold),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
   ];
   @override
@@ -267,6 +271,12 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    PaymentFormScaffold: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PaymentFormScaffold(),
+        settings: data,
+      );
+    },
     ItemFormPage: (data) {
       final args = data.getArgs<ItemFormPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
@@ -389,6 +399,9 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.paymentStepper,
         arguments: PaymentStepperArguments(key: key, steps: steps),
       );
+
+  Future<dynamic> pushPaymentFormScaffold() =>
+      push<dynamic>(Routes.paymentFormScaffold);
 
   Future<dynamic> pushItemFormPage({
     Key key,
