@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-Future<bool> confirmationDialog(BuildContext context) {
+Future<bool> confirmationDialog(BuildContext context, String title, String contentText) {
     Widget cancelButton = FlatButton(
       child: Text("Cancel"),
       onPressed:  () =>  {
@@ -30,8 +30,8 @@ Future<bool> confirmationDialog(BuildContext context) {
   return showDialog(
     context: context,
     child: AlertDialog(
-      title: Text("Cancel Payment Form"),
-      content: Text("If you leave this page all data will be lost!"),
+      title: Text(title),
+      content: Text(contentText),
       actions: [
         cancelButton,
         continueButton,
@@ -54,7 +54,7 @@ class PaymentStepper extends StatelessWidget {
       create: (context) => getIt<PaymentSetupBloc>(),
       child: WillPopScope(
         onWillPop: () async {
-          return await confirmationDialog(context);
+          return await confirmationDialog(context, "Cancel Payment Form", "If you leave this page all data will be lost!");
         },
         child: Scaffold(
           appBar: AppBar(
@@ -65,7 +65,7 @@ class PaymentStepper extends StatelessWidget {
             leading: new IconButton(
               icon: new Icon(Icons.arrow_back),
               onPressed: () async {
-               return await confirmationDialog(context);
+               return await confirmationDialog(context, "Cancel Payment Form", "If you leave this page all data will be lost!");
               },
             ),
           ),

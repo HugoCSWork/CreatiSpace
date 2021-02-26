@@ -16,14 +16,16 @@ import 'package:creatispace/pages/profile/edit_profile/edit_profile_form_page.da
 import 'package:creatispace/pages/profile/following_followers/user_friends_scaffold.dart';
 import 'package:creatispace/pages/profile/peer_profile/peer_profile_scaffold.dart';
 import 'package:creatispace/pages/profile/user_profile//user_profile_scaffold.dart';
+import 'package:creatispace/pages/purchase/more_info/more_info_scaffold.dart';
 import 'package:creatispace/pages/purchase/payment_form/payment_form_scaffold.dart';
+import 'package:creatispace/pages/purchase/payment_form/payment_successful.dart';
 import 'package:creatispace/pages/search/search_scaffold.dart';
 import 'package:creatispace/pages/splash/splash_page.dart';
 import 'package:creatispace/shared/navigation_bar.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
-    MaterialRoute(page: SplashPage),
+    MaterialRoute(page: SplashPage, initial: true),
     MaterialRoute(page: SignInPage),
     MaterialRoute(page: SignUpPage),
     MaterialRoute(page: ForgottenPasswordPage),
@@ -38,11 +40,13 @@ import 'package:creatispace/shared/navigation_bar.dart';
     MaterialRoute(page: SearchScaffold),
     MaterialRoute(page: UserProfileScaffold),
     MaterialRoute(page: PeerProfileScaffold),
+    MaterialRoute(page: MoreInfoScaffold),
     MaterialRoute(page: HomeScaffold),
     MaterialRoute(page: MessagingScaffold),
     MaterialRoute(page: FullScreenImage),
     MaterialRoute(page: PaymentStepper),
-    MaterialRoute(page: PaymentFormScaffold, initial: true),
+    MaterialRoute(page: PaymentSuccessful),
+    MaterialRoute(page: PaymentFormScaffold),
     MaterialRoute(page: ItemFormPage, fullscreenDialog: true),
     
 

@@ -7,4 +7,8 @@ abstract class PaymentFormErrors with _$PaymentFormErrors {
   const factory PaymentFormErrors.unexpected() = Unexpected;
   const factory PaymentFormErrors.errorMakingPayment() = ErrorMakingPayment;
   const factory PaymentFormErrors.cancelled() = Cancelled;
+  const factory PaymentFormErrors.invalidPersonalInformation() = InvalidPersonalInformation;
+  const factory PaymentFormErrors.invalidAddressInformation() = InvalidAddressInformation;
+  const factory PaymentFormErrors.errorFindingAddress() = ErrorFindingAddress;
+
 }

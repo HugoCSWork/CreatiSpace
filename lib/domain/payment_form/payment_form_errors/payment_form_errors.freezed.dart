@@ -27,6 +27,21 @@ class _$PaymentFormErrorsTearOff {
   Cancelled cancelled() {
     return const Cancelled();
   }
+
+// ignore: unused_element
+  InvalidPersonalInformation invalidPersonalInformation() {
+    return const InvalidPersonalInformation();
+  }
+
+// ignore: unused_element
+  InvalidAddressInformation invalidAddressInformation() {
+    return const InvalidAddressInformation();
+  }
+
+// ignore: unused_element
+  ErrorFindingAddress errorFindingAddress() {
+    return const ErrorFindingAddress();
+  }
 }
 
 /// @nodoc
@@ -40,12 +55,18 @@ mixin _$PaymentFormErrors {
     @required TResult unexpected(),
     @required TResult errorMakingPayment(),
     @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult unexpected(),
     TResult errorMakingPayment(),
     TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -53,12 +74,20 @@ mixin _$PaymentFormErrors {
     @required TResult unexpected(Unexpected value),
     @required TResult errorMakingPayment(ErrorMakingPayment value),
     @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult unexpected(Unexpected value),
     TResult errorMakingPayment(ErrorMakingPayment value),
     TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
     @required TResult orElse(),
   });
 }
@@ -121,10 +150,16 @@ class _$Unexpected implements Unexpected {
     @required TResult unexpected(),
     @required TResult errorMakingPayment(),
     @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
   }) {
     assert(unexpected != null);
     assert(errorMakingPayment != null);
     assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
     return unexpected();
   }
 
@@ -134,6 +169,9 @@ class _$Unexpected implements Unexpected {
     TResult unexpected(),
     TResult errorMakingPayment(),
     TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -149,10 +187,18 @@ class _$Unexpected implements Unexpected {
     @required TResult unexpected(Unexpected value),
     @required TResult errorMakingPayment(ErrorMakingPayment value),
     @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
   }) {
     assert(unexpected != null);
     assert(errorMakingPayment != null);
     assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
     return unexpected(this);
   }
 
@@ -162,6 +208,9 @@ class _$Unexpected implements Unexpected {
     TResult unexpected(Unexpected value),
     TResult errorMakingPayment(ErrorMakingPayment value),
     TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -218,10 +267,16 @@ class _$ErrorMakingPayment implements ErrorMakingPayment {
     @required TResult unexpected(),
     @required TResult errorMakingPayment(),
     @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
   }) {
     assert(unexpected != null);
     assert(errorMakingPayment != null);
     assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
     return errorMakingPayment();
   }
 
@@ -231,6 +286,9 @@ class _$ErrorMakingPayment implements ErrorMakingPayment {
     TResult unexpected(),
     TResult errorMakingPayment(),
     TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -246,10 +304,18 @@ class _$ErrorMakingPayment implements ErrorMakingPayment {
     @required TResult unexpected(Unexpected value),
     @required TResult errorMakingPayment(ErrorMakingPayment value),
     @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
   }) {
     assert(unexpected != null);
     assert(errorMakingPayment != null);
     assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
     return errorMakingPayment(this);
   }
 
@@ -259,6 +325,9 @@ class _$ErrorMakingPayment implements ErrorMakingPayment {
     TResult unexpected(Unexpected value),
     TResult errorMakingPayment(ErrorMakingPayment value),
     TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -313,10 +382,16 @@ class _$Cancelled implements Cancelled {
     @required TResult unexpected(),
     @required TResult errorMakingPayment(),
     @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
   }) {
     assert(unexpected != null);
     assert(errorMakingPayment != null);
     assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
     return cancelled();
   }
 
@@ -326,6 +401,9 @@ class _$Cancelled implements Cancelled {
     TResult unexpected(),
     TResult errorMakingPayment(),
     TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -341,10 +419,18 @@ class _$Cancelled implements Cancelled {
     @required TResult unexpected(Unexpected value),
     @required TResult errorMakingPayment(ErrorMakingPayment value),
     @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
   }) {
     assert(unexpected != null);
     assert(errorMakingPayment != null);
     assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
     return cancelled(this);
   }
 
@@ -354,6 +440,9 @@ class _$Cancelled implements Cancelled {
     TResult unexpected(Unexpected value),
     TResult errorMakingPayment(ErrorMakingPayment value),
     TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -366,4 +455,357 @@ class _$Cancelled implements Cancelled {
 
 abstract class Cancelled implements PaymentFormErrors {
   const factory Cancelled() = _$Cancelled;
+}
+
+/// @nodoc
+abstract class $InvalidPersonalInformationCopyWith<$Res> {
+  factory $InvalidPersonalInformationCopyWith(InvalidPersonalInformation value,
+          $Res Function(InvalidPersonalInformation) then) =
+      _$InvalidPersonalInformationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InvalidPersonalInformationCopyWithImpl<$Res>
+    extends _$PaymentFormErrorsCopyWithImpl<$Res>
+    implements $InvalidPersonalInformationCopyWith<$Res> {
+  _$InvalidPersonalInformationCopyWithImpl(InvalidPersonalInformation _value,
+      $Res Function(InvalidPersonalInformation) _then)
+      : super(_value, (v) => _then(v as InvalidPersonalInformation));
+
+  @override
+  InvalidPersonalInformation get _value =>
+      super._value as InvalidPersonalInformation;
+}
+
+/// @nodoc
+class _$InvalidPersonalInformation implements InvalidPersonalInformation {
+  const _$InvalidPersonalInformation();
+
+  @override
+  String toString() {
+    return 'PaymentFormErrors.invalidPersonalInformation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is InvalidPersonalInformation);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult errorMakingPayment(),
+    @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
+  }) {
+    assert(unexpected != null);
+    assert(errorMakingPayment != null);
+    assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
+    return invalidPersonalInformation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult errorMakingPayment(),
+    TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidPersonalInformation != null) {
+      return invalidPersonalInformation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult errorMakingPayment(ErrorMakingPayment value),
+    @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
+  }) {
+    assert(unexpected != null);
+    assert(errorMakingPayment != null);
+    assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
+    return invalidPersonalInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult errorMakingPayment(ErrorMakingPayment value),
+    TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidPersonalInformation != null) {
+      return invalidPersonalInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidPersonalInformation implements PaymentFormErrors {
+  const factory InvalidPersonalInformation() = _$InvalidPersonalInformation;
+}
+
+/// @nodoc
+abstract class $InvalidAddressInformationCopyWith<$Res> {
+  factory $InvalidAddressInformationCopyWith(InvalidAddressInformation value,
+          $Res Function(InvalidAddressInformation) then) =
+      _$InvalidAddressInformationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InvalidAddressInformationCopyWithImpl<$Res>
+    extends _$PaymentFormErrorsCopyWithImpl<$Res>
+    implements $InvalidAddressInformationCopyWith<$Res> {
+  _$InvalidAddressInformationCopyWithImpl(InvalidAddressInformation _value,
+      $Res Function(InvalidAddressInformation) _then)
+      : super(_value, (v) => _then(v as InvalidAddressInformation));
+
+  @override
+  InvalidAddressInformation get _value =>
+      super._value as InvalidAddressInformation;
+}
+
+/// @nodoc
+class _$InvalidAddressInformation implements InvalidAddressInformation {
+  const _$InvalidAddressInformation();
+
+  @override
+  String toString() {
+    return 'PaymentFormErrors.invalidAddressInformation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is InvalidAddressInformation);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult errorMakingPayment(),
+    @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
+  }) {
+    assert(unexpected != null);
+    assert(errorMakingPayment != null);
+    assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
+    return invalidAddressInformation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult errorMakingPayment(),
+    TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidAddressInformation != null) {
+      return invalidAddressInformation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult errorMakingPayment(ErrorMakingPayment value),
+    @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
+  }) {
+    assert(unexpected != null);
+    assert(errorMakingPayment != null);
+    assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
+    return invalidAddressInformation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult errorMakingPayment(ErrorMakingPayment value),
+    TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidAddressInformation != null) {
+      return invalidAddressInformation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidAddressInformation implements PaymentFormErrors {
+  const factory InvalidAddressInformation() = _$InvalidAddressInformation;
+}
+
+/// @nodoc
+abstract class $ErrorFindingAddressCopyWith<$Res> {
+  factory $ErrorFindingAddressCopyWith(
+          ErrorFindingAddress value, $Res Function(ErrorFindingAddress) then) =
+      _$ErrorFindingAddressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ErrorFindingAddressCopyWithImpl<$Res>
+    extends _$PaymentFormErrorsCopyWithImpl<$Res>
+    implements $ErrorFindingAddressCopyWith<$Res> {
+  _$ErrorFindingAddressCopyWithImpl(
+      ErrorFindingAddress _value, $Res Function(ErrorFindingAddress) _then)
+      : super(_value, (v) => _then(v as ErrorFindingAddress));
+
+  @override
+  ErrorFindingAddress get _value => super._value as ErrorFindingAddress;
+}
+
+/// @nodoc
+class _$ErrorFindingAddress implements ErrorFindingAddress {
+  const _$ErrorFindingAddress();
+
+  @override
+  String toString() {
+    return 'PaymentFormErrors.errorFindingAddress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ErrorFindingAddress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult unexpected(),
+    @required TResult errorMakingPayment(),
+    @required TResult cancelled(),
+    @required TResult invalidPersonalInformation(),
+    @required TResult invalidAddressInformation(),
+    @required TResult errorFindingAddress(),
+  }) {
+    assert(unexpected != null);
+    assert(errorMakingPayment != null);
+    assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
+    return errorFindingAddress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult unexpected(),
+    TResult errorMakingPayment(),
+    TResult cancelled(),
+    TResult invalidPersonalInformation(),
+    TResult invalidAddressInformation(),
+    TResult errorFindingAddress(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (errorFindingAddress != null) {
+      return errorFindingAddress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult unexpected(Unexpected value),
+    @required TResult errorMakingPayment(ErrorMakingPayment value),
+    @required TResult cancelled(Cancelled value),
+    @required
+        TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    @required
+        TResult invalidAddressInformation(InvalidAddressInformation value),
+    @required TResult errorFindingAddress(ErrorFindingAddress value),
+  }) {
+    assert(unexpected != null);
+    assert(errorMakingPayment != null);
+    assert(cancelled != null);
+    assert(invalidPersonalInformation != null);
+    assert(invalidAddressInformation != null);
+    assert(errorFindingAddress != null);
+    return errorFindingAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult unexpected(Unexpected value),
+    TResult errorMakingPayment(ErrorMakingPayment value),
+    TResult cancelled(Cancelled value),
+    TResult invalidPersonalInformation(InvalidPersonalInformation value),
+    TResult invalidAddressInformation(InvalidAddressInformation value),
+    TResult errorFindingAddress(ErrorFindingAddress value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (errorFindingAddress != null) {
+      return errorFindingAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ErrorFindingAddress implements PaymentFormErrors {
+  const factory ErrorFindingAddress() = _$ErrorFindingAddress;
 }

@@ -108,6 +108,7 @@ class ItemRepository implements IItemFacade {
 
       final HomeItem newHomeItem = HomeItem(
           id: userDoc.id,
+          item_id: item.id.getOrCrash(),
           timestamp: timestamp,
           description: item.description,
           price: item.price,
@@ -163,6 +164,7 @@ class ItemRepository implements IItemFacade {
 
       final HomeItem newHomeItem = HomeItem(
           id: userDoc.id,
+          item_id: item.id.getOrCrash(),
           timestamp: item.timestamp,
           description: item.description,
           price: item.price,

@@ -2,15 +2,19 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:creatispace/domain/items/item/item.dart';
+import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/payment_form/payment_form/payment_form.dart';
 import 'package:creatispace/domain/payment_form/payment_form_errors/payment_form_errors.dart';
 import 'package:creatispace/domain/payment_setup/i_payment_setup_facade.dart';
 import 'package:creatispace/domain/payment_setup/payment_response/payment_response.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_error/payment_setup_error.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_model/payment_setup.dart';
+import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:creatispace/infrastructure/payment_setup/payment_setup_dto.dart';
 import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/core/firebase_storage_helpers.dart';
+import 'package:creatispace/infrastructure/payment_setup/payment_setup_helpers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:dartz/dartz.dart';
@@ -18,7 +22,6 @@ import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io' as Io;
-
 import 'package:stripe_sdk/stripe_sdk.dart';
 import 'package:stripe_sdk/stripe_sdk_ui.dart';
 
@@ -66,75 +69,92 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
   }
 
   @override
-  Future<Either<PaymentFormErrors, Unit>> createPayment(StripeCard card) async {
-      //todo get merchant id from firebase
+  Future<Either<PaymentFormErrors, Map<String, dynamic>>> createPayment(StripeCard card,
+      String peerId, String amount, String itemId, PaymentFormSetup paymentFormSetup) async {
+    try {
+      final peerDoc = await _firebaseFirestore.peerDocument(peerId);
+      final userDoc = await _firebaseFirestore.userDocument();
+      final paymentDoc = peerDoc.paymentCollection.doc("accounts");
+      var paymentData = (await paymentDoc.get()).data();
+      var accountId = paymentData["account_id"] as String;
       final Stripe stripe = Stripe(
-        "pk_test_51HeGE8CySRExChgokc87eHbqYfFRXZ6ERVo5QkjokzOjCcAeBUoNGHmMJOQHne2qQluAywStyOKloYAnEL9I8EMw00EcxRCDOk", //Your Publishable Key
-        stripeAccount: "acct_1IO0d22QZBHK6moO", //Merchant Connected Account ID. It is the same ID set on server-side.
+        "pk_test_51HeGE8CySRExChgokc87eHbqYfFRXZ6ERVo5QkjokzOjCcAeBUoNGHmMJOQHne2qQluAywStyOKloYAnEL9I8EMw00EcxRCDOk",
+        stripeAccount: accountId ,
         returnUrlForSca: "stripesdk://3ds.stripesdk.io", //Return URL for SCA
       );
-      // //todo Retrieve customer email from firebase
-      Map<String, dynamic> paymentIntentRes = await createPaymentIntent(card, 'hugotomas55@hotmail.com', stripe);
+      Map<String, dynamic> paymentIntentRes = await createPaymentIntent(
+          card, _firebaseAuth.currentUser.email, stripe, accountId, peerId, amount, itemId);
       String clientSecret = paymentIntentRes['client_secret'] as String;
       String paymentMethodId = paymentIntentRes['payment_method'] as String;
       String status = paymentIntentRes['status'] as String;
 
-      if(status == 'requires_action') //3D secure is enable in this card
+      if(status == 'requires_action')
         paymentIntentRes = await confirmPayment3DSecure(clientSecret, paymentMethodId, stripe);
 
       // Return left Cancelled
       if(paymentIntentRes['status'] != 'succeeded'){
         return Left(PaymentFormErrors.cancelled());
       }
-      // return right
+
       if(paymentIntentRes['status'] == 'succeeded'){
-        return Right(unit);
+
+        var itemDocument = await peerDoc.itemCollection.doc(itemId);
+        var userItem = await itemDocument.get();
+        var userData = userItem.data();
+        // update for seller
+        var updatedQuantity = (userData["quantity"] as int) - int.parse(amount);
+        await itemDocument.update({
+          "quantity": updatedQuantity,
+        });
+        // update for all users
+        var data = await peerDoc.collection('followers').get();
+        var dataFromFirebase = await data.docs.map((e) => e.id);
+
+        var batch = _firebaseFirestore.batch();
+        await dataFromFirebase.forEach((element) {
+          var docRef = _firebaseFirestore
+              .collection('users')
+              .doc(element.toString())
+              .collection('home')
+              .doc(userData["timestamp"] as String);
+          batch.update(docRef, {"quantity" : updatedQuantity});
+        });
+
+        await batch.commit();
+
+        paymentIntentRes["shipping"] = {
+          "line_1": paymentFormSetup.line1.getOrCrash(),
+          "line_2": paymentFormSetup.line2.getOrCrash(),
+          "postcode": paymentFormSetup.postcode.getOrCrash(),
+          "house_number": paymentFormSetup.houseNumber.getOrCrash(),
+          "city": paymentFormSetup.city.getOrCrash(),
+          "country": paymentFormSetup.country.getOrCrash(),
+          "county": paymentFormSetup.county.getOrCrash(),
+        };
+        paymentIntentRes["delivery_status"] = "placed";
+        paymentIntentRes["quantity"] = amount;
+        paymentIntentRes["item_id"] = itemId;
+        await userDoc.paymentReceivingOrders.doc(paymentIntentRes["id"] as String).set(paymentIntentRes);
+        await peerDoc.paymentSendingOrders.doc(paymentIntentRes["id"] as String).set(paymentIntentRes);
+        return Right(paymentIntentRes);
       }
+    } catch(e) {
       return Left(PaymentFormErrors.errorMakingPayment());
-  }
-
-  Future<Map<String, dynamic>> confirmPayment3DSecure(String clientSecret, String paymentMethodId, Stripe stripe) async{
-    Map<String, dynamic> paymentIntentRes_3dSecure;
-    try{
-      await stripe.confirmPayment(clientSecret, paymentMethodId: paymentMethodId);
-      paymentIntentRes_3dSecure = await stripe.api.retrievePaymentIntent(clientSecret);
-    }catch(e){
-      print("ERROR_ConfirmPayment3DSecure: $e");
     }
-    return paymentIntentRes_3dSecure;
+    return Left(PaymentFormErrors.errorMakingPayment());
   }
 
-
-  Future<Map<String, dynamic>> createPaymentIntent(StripeCard stripeCard, String customerEmail, Stripe stripe) async{
-    String clientSecret;
-    Map<String, dynamic> paymentIntentRes, paymentMethod;
-    try{
-      paymentMethod = await stripe.api.createPaymentMethodFromCard(stripeCard);
-      clientSecret = await postCreatePaymentIntent(customerEmail, paymentMethod['id'] as String);
-      paymentIntentRes = await stripe.api.retrievePaymentIntent(clientSecret);
-    }catch(e){
-      print("ERROR_CreatePaymentIntentAndSubmit: $e");
+  @override
+  Future<Either<ItemErrorFailure, ItemDto>> getPurchasedItem(String id, String peerId) async {
+    try {
+      var userDoc = await _firebaseFirestore.peerDocument(peerId);
+      var userItem = await userDoc.itemCollection.doc(id).get();
+      var userData = userItem.data();
+      ItemDto item = ItemDto.fromJson(userData);
+      return Right(item);
+    } catch(e) {
+      return Left(ItemErrorFailure.unexpected());
     }
-    return paymentIntentRes;
+
   }
-
-  Future<String> postCreatePaymentIntent(String email, String paymentMethodId) async{
-    // todo post the merchent account id, retrieve from firebase
-    String clientSecret;
-    Map<String, String> customHeaders = {
-    "content-type": "application/json"
-    };
-    var bodyData =  jsonEncode(<String, String>{
-      'email': email,
-      'payment_method_id' : paymentMethodId,
-      'merchant': "temp"
-    });
-    var response = await http.post('http://10.0.2.2:3000/v1/payment/make-payment', headers: customHeaders, body: bodyData);
-
-    clientSecret = response.body;
-    return clientSecret;
-  }
-
-
-
 }

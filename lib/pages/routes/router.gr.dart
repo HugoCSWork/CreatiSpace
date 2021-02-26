@@ -9,6 +9,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/items/home_item/home_item.dart';
 import '../../domain/items/item/item.dart';
 import '../../domain/profile/profile_data/user_profile.dart';
 import '../../domain/user_messaging/user_list/user_messaging.dart';
@@ -30,12 +31,14 @@ import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/following_followers/user_friends_scaffold.dart';
 import '../profile/peer_profile/peer_profile_scaffold.dart';
 import '../profile/user_profile/user_profile_scaffold.dart';
+import '../purchase/more_info/more_info_scaffold.dart';
 import '../purchase/payment_form/payment_form_scaffold.dart';
+import '../purchase/payment_form/payment_successful.dart';
 import '../search/search_scaffold.dart';
 import '../splash/splash_page.dart';
 
 class Routes {
-  static const String splashPage = '/splash-page';
+  static const String splashPage = '/';
   static const String signInPage = '/sign-in-page';
   static const String signUpPage = '/sign-up-page';
   static const String forgottenPasswordPage = '/forgotten-password-page';
@@ -50,11 +53,13 @@ class Routes {
   static const String searchScaffold = '/search-scaffold';
   static const String userProfileScaffold = '/user-profile-scaffold';
   static const String peerProfileScaffold = '/peer-profile-scaffold';
+  static const String moreInfoScaffold = '/more-info-scaffold';
   static const String homeScaffold = '/home-scaffold';
   static const String messagingScaffold = '/messaging-scaffold';
   static const String fullScreenImage = '/full-screen-image';
   static const String paymentStepper = '/payment-stepper';
-  static const String paymentFormScaffold = '/';
+  static const String paymentSuccessful = '/payment-successful';
+  static const String paymentFormScaffold = '/payment-form-scaffold';
   static const String itemFormPage = '/item-form-page';
   static const all = <String>{
     splashPage,
@@ -72,10 +77,12 @@ class Routes {
     searchScaffold,
     userProfileScaffold,
     peerProfileScaffold,
+    moreInfoScaffold,
     homeScaffold,
     messagingScaffold,
     fullScreenImage,
     paymentStepper,
+    paymentSuccessful,
     paymentFormScaffold,
     itemFormPage,
   };
@@ -100,10 +107,12 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.searchScaffold, page: SearchScaffold),
     RouteDef(Routes.userProfileScaffold, page: UserProfileScaffold),
     RouteDef(Routes.peerProfileScaffold, page: PeerProfileScaffold),
+    RouteDef(Routes.moreInfoScaffold, page: MoreInfoScaffold),
     RouteDef(Routes.homeScaffold, page: HomeScaffold),
     RouteDef(Routes.messagingScaffold, page: MessagingScaffold),
     RouteDef(Routes.fullScreenImage, page: FullScreenImage),
     RouteDef(Routes.paymentStepper, page: PaymentStepper),
+    RouteDef(Routes.paymentSuccessful, page: PaymentSuccessful),
     RouteDef(Routes.paymentFormScaffold, page: PaymentFormScaffold),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
   ];
@@ -229,6 +238,18 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    MoreInfoScaffold: (data) {
+      final args = data.getArgs<MoreInfoScaffoldArguments>(
+        orElse: () => MoreInfoScaffoldArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => MoreInfoScaffold(
+          key: args.key,
+          homeItem: args.homeItem,
+        ),
+        settings: data,
+      );
+    },
     HomeScaffold: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => HomeScaffold(),
@@ -271,9 +292,34 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
-    PaymentFormScaffold: (data) {
+    PaymentSuccessful: (data) {
+      final args = data.getArgs<PaymentSuccessfulArguments>(
+        orElse: () => PaymentSuccessfulArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => PaymentFormScaffold(),
+        builder: (context) => PaymentSuccessful(
+          key: args.key,
+          amount: args.amount,
+          quantity: args.quantity,
+          itemId: args.itemId,
+          address: args.address,
+          peerId: args.peerId,
+        ),
+        settings: data,
+      );
+    },
+    PaymentFormScaffold: (data) {
+      final args = data.getArgs<PaymentFormScaffoldArguments>(
+        orElse: () => PaymentFormScaffoldArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PaymentFormScaffold(
+          key: args.key,
+          amount: args.amount,
+          cost: args.cost,
+          itemId: args.itemId,
+          peerId: args.peerId,
+        ),
         settings: data,
       );
     },
@@ -368,6 +414,15 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: PeerProfileScaffoldArguments(key: key, id: id),
       );
 
+  Future<dynamic> pushMoreInfoScaffold({
+    Key key,
+    HomeItem homeItem,
+  }) =>
+      push<dynamic>(
+        Routes.moreInfoScaffold,
+        arguments: MoreInfoScaffoldArguments(key: key, homeItem: homeItem),
+      );
+
   Future<dynamic> pushHomeScaffold() => push<dynamic>(Routes.homeScaffold);
 
   Future<dynamic> pushMessagingScaffold({
@@ -400,8 +455,41 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: PaymentStepperArguments(key: key, steps: steps),
       );
 
-  Future<dynamic> pushPaymentFormScaffold() =>
-      push<dynamic>(Routes.paymentFormScaffold);
+  Future<dynamic> pushPaymentSuccessful({
+    Key key,
+    String amount,
+    String quantity,
+    String itemId,
+    Map<String, dynamic> address,
+    String peerId,
+  }) =>
+      push<dynamic>(
+        Routes.paymentSuccessful,
+        arguments: PaymentSuccessfulArguments(
+            key: key,
+            amount: amount,
+            quantity: quantity,
+            itemId: itemId,
+            address: address,
+            peerId: peerId),
+      );
+
+  Future<dynamic> pushPaymentFormScaffold({
+    Key key,
+    int amount,
+    double cost,
+    String itemId,
+    String peerId,
+  }) =>
+      push<dynamic>(
+        Routes.paymentFormScaffold,
+        arguments: PaymentFormScaffoldArguments(
+            key: key,
+            amount: amount,
+            cost: cost,
+            itemId: itemId,
+            peerId: peerId),
+      );
 
   Future<dynamic> pushItemFormPage({
     Key key,
@@ -452,6 +540,13 @@ class PeerProfileScaffoldArguments {
   PeerProfileScaffoldArguments({this.key, this.id});
 }
 
+/// MoreInfoScaffold arguments holder class
+class MoreInfoScaffoldArguments {
+  final Key key;
+  final HomeItem homeItem;
+  MoreInfoScaffoldArguments({this.key, this.homeItem});
+}
+
 /// MessagingScaffold arguments holder class
 class MessagingScaffoldArguments {
   final Key key;
@@ -477,6 +572,34 @@ class PaymentStepperArguments {
   final Key key;
   final List<Step> steps;
   PaymentStepperArguments({this.key, this.steps});
+}
+
+/// PaymentSuccessful arguments holder class
+class PaymentSuccessfulArguments {
+  final Key key;
+  final String amount;
+  final String quantity;
+  final String itemId;
+  final Map<String, dynamic> address;
+  final String peerId;
+  PaymentSuccessfulArguments(
+      {this.key,
+      this.amount,
+      this.quantity,
+      this.itemId,
+      this.address,
+      this.peerId});
+}
+
+/// PaymentFormScaffold arguments holder class
+class PaymentFormScaffoldArguments {
+  final Key key;
+  final int amount;
+  final double cost;
+  final String itemId;
+  final String peerId;
+  PaymentFormScaffoldArguments(
+      {this.key, this.amount, this.cost, this.itemId, this.peerId});
 }
 
 /// ItemFormPage arguments holder class

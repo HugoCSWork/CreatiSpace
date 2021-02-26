@@ -19,6 +19,7 @@ class _$HomeItemDtoTearOff {
 // ignore: unused_element
   _HomeItemDto call(
       {@required String id,
+      @required String item_id,
       @required String timestamp,
       @required String name,
       @required String username,
@@ -31,6 +32,7 @@ class _$HomeItemDtoTearOff {
       @required List<IndividualImagesDto> images}) {
     return _HomeItemDto(
       id: id,
+      item_id: item_id,
       timestamp: timestamp,
       name: name,
       username: username,
@@ -57,6 +59,7 @@ const $HomeItemDto = _$HomeItemDtoTearOff();
 /// @nodoc
 mixin _$HomeItemDto {
   String get id;
+  String get item_id;
   String get timestamp;
   String get name;
   String get username;
@@ -79,6 +82,7 @@ abstract class $HomeItemDtoCopyWith<$Res> {
       _$HomeItemDtoCopyWithImpl<$Res>;
   $Res call(
       {String id,
+      String item_id,
       String timestamp,
       String name,
       String username,
@@ -102,6 +106,7 @@ class _$HomeItemDtoCopyWithImpl<$Res> implements $HomeItemDtoCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object item_id = freezed,
     Object timestamp = freezed,
     Object name = freezed,
     Object username = freezed,
@@ -115,6 +120,7 @@ class _$HomeItemDtoCopyWithImpl<$Res> implements $HomeItemDtoCopyWith<$Res> {
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      item_id: item_id == freezed ? _value.item_id : item_id as String,
       timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       name: name == freezed ? _value.name : name as String,
       username: username == freezed ? _value.username : username as String,
@@ -144,6 +150,7 @@ abstract class _$HomeItemDtoCopyWith<$Res>
   @override
   $Res call(
       {String id,
+      String item_id,
       String timestamp,
       String name,
       String username,
@@ -169,6 +176,7 @@ class __$HomeItemDtoCopyWithImpl<$Res> extends _$HomeItemDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object item_id = freezed,
     Object timestamp = freezed,
     Object name = freezed,
     Object username = freezed,
@@ -182,6 +190,7 @@ class __$HomeItemDtoCopyWithImpl<$Res> extends _$HomeItemDtoCopyWithImpl<$Res>
   }) {
     return _then(_HomeItemDto(
       id: id == freezed ? _value.id : id as String,
+      item_id: item_id == freezed ? _value.item_id : item_id as String,
       timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       name: name == freezed ? _value.name : name as String,
       username: username == freezed ? _value.username : username as String,
@@ -208,6 +217,7 @@ class __$HomeItemDtoCopyWithImpl<$Res> extends _$HomeItemDtoCopyWithImpl<$Res>
 class _$_HomeItemDto extends _HomeItemDto {
   const _$_HomeItemDto(
       {@required this.id,
+      @required this.item_id,
       @required this.timestamp,
       @required this.name,
       @required this.username,
@@ -219,6 +229,7 @@ class _$_HomeItemDto extends _HomeItemDto {
       @required this.purchasable,
       @required this.images})
       : assert(id != null),
+        assert(item_id != null),
         assert(timestamp != null),
         assert(name != null),
         assert(username != null),
@@ -236,6 +247,8 @@ class _$_HomeItemDto extends _HomeItemDto {
 
   @override
   final String id;
+  @override
+  final String item_id;
   @override
   final String timestamp;
   @override
@@ -259,7 +272,7 @@ class _$_HomeItemDto extends _HomeItemDto {
 
   @override
   String toString() {
-    return 'HomeItemDto(id: $id, timestamp: $timestamp, name: $name, username: $username, profileImageURL: $profileImageURL, description: $description, price: $price, delivery: $delivery, quantity: $quantity, purchasable: $purchasable, images: $images)';
+    return 'HomeItemDto(id: $id, item_id: $item_id, timestamp: $timestamp, name: $name, username: $username, profileImageURL: $profileImageURL, description: $description, price: $price, delivery: $delivery, quantity: $quantity, purchasable: $purchasable, images: $images)';
   }
 
   @override
@@ -268,6 +281,9 @@ class _$_HomeItemDto extends _HomeItemDto {
         (other is _HomeItemDto &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.item_id, item_id) ||
+                const DeepCollectionEquality()
+                    .equals(other.item_id, item_id)) &&
             (identical(other.timestamp, timestamp) ||
                 const DeepCollectionEquality()
                     .equals(other.timestamp, timestamp)) &&
@@ -301,6 +317,7 @@ class _$_HomeItemDto extends _HomeItemDto {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(item_id) ^
       const DeepCollectionEquality().hash(timestamp) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(username) ^
@@ -326,6 +343,7 @@ abstract class _HomeItemDto extends HomeItemDto {
   const _HomeItemDto._() : super._();
   const factory _HomeItemDto(
       {@required String id,
+      @required String item_id,
       @required String timestamp,
       @required String name,
       @required String username,
@@ -342,6 +360,8 @@ abstract class _HomeItemDto extends HomeItemDto {
 
   @override
   String get id;
+  @override
+  String get item_id;
   @override
   String get timestamp;
   @override

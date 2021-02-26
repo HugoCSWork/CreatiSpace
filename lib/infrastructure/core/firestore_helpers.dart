@@ -12,6 +12,12 @@ extension FirestoreX on FirebaseFirestore {
         .doc(user.id.getOrCrash());
   }
 
+  Future<DocumentReference> peerDocument(String id) async {
+    return FirebaseFirestore.instance
+        .collection('users')
+        .doc(id);
+  }
+
 
   Future<DocumentReference> userDocumentMessage(String id) async {
     final userOption = await getIt<IAuthFacade>().getSignedInUser();
@@ -98,6 +104,7 @@ extension FirestoreX on FirebaseFirestore {
         .doc(user.id.getOrCrash());
   }
 
+
   // Messages check if document is empty for updates
   Future<bool> checkIfEmptyDocumentForMessages(DocumentReference reference) async {
     var options = (await reference.get()).data();
@@ -121,6 +128,8 @@ extension DocumentReferenceX on DocumentReference {
   CollectionReference get userCollection => collection('users');
   CollectionReference get itemCollection => collection('items');
   CollectionReference get paymentCollection => collection('payment_account');
+  CollectionReference get paymentSendingOrders => collection('sending_orders');
+  CollectionReference get paymentReceivingOrders => collection('receiving_orders');
   CollectionReference get homeItemCollection => collection('home');
   CollectionReference get UserMessagesCollection => collection('messages');
   CollectionReference get UserFollowingCollection => collection('following');

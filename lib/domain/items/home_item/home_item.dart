@@ -13,6 +13,7 @@ part 'home_item.freezed.dart';
 abstract class HomeItem implements _$HomeItem {
   const factory HomeItem({
     @required String id,
+    @required String item_id,
     @required String timestamp,
     @required ItemName name,
     @required ItemDescription description,
@@ -29,6 +30,7 @@ abstract class HomeItem implements _$HomeItem {
 
   factory HomeItem.empty() => HomeItem(
       id: '',
+      item_id: '',
       timestamp: '',
       name: ItemName(''),
       description: ItemDescription(''),

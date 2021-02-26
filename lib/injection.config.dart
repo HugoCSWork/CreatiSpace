@@ -31,6 +31,7 @@ import 'app/item/item_form/item_form_bloc.dart';
 import 'app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
+import 'app/payment_confirmation/payment_confirmation_bloc.dart';
 import 'app/payment_form/payment_form_bloc.dart';
 import 'app/payment_setup/payment_setup_bloc.dart';
 import 'infrastructure/payment_setup/payment_setup_repository.dart';
@@ -98,6 +99,8 @@ GetIt $initGetIt(
   gh.factory<ItemHomeWatcherBloc>(
       () => ItemHomeWatcherBloc(get<IItemFacade>()));
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
+  gh.factory<PaymentConfirmationBloc>(
+      () => PaymentConfirmationBloc(get<IPaymentSetupFacade>()));
   gh.factory<PaymentFormBloc>(
       () => PaymentFormBloc(get<IPaymentSetupFacade>()));
   gh.factory<PaymentSetupBloc>(

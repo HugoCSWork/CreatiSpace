@@ -106,10 +106,11 @@ class Home extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 10.0),
                     child: Text(
                       homeItem.purchasable.getOrCrash()
-                          ?  '£${homeItem.price.getOrCrash().toString()}'
+                          ?  '£${homeItem.price.getOrCrash().toStringAsFixed(2)}'
                           : 'Non-Purchasable',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16
                       ),
                     ),
                   )
@@ -128,11 +129,10 @@ class Home extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(0,0,9,5),
                     child: FlatButton(
                         onPressed: () {
-                          // ExtendedNavigator.of(context).push(Routes.profileFormPageScaffold,
-                          //     arguments: ProfileFormPageScaffoldArguments(
-                          //         data: widget.data
-                          //     )
-                          // );
+                          ExtendedNavigator.of(context).push(Routes.moreInfoScaffold,
+                              arguments: MoreInfoScaffoldArguments(
+                                homeItem: homeItem
+                              ));
                         },
                         color: Colors.blue[200],
                         shape: RoundedRectangleBorder(

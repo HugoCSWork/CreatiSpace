@@ -73,8 +73,10 @@ class ItemFormPage extends StatelessWidget {
 
 class SavingInProgress extends StatelessWidget {
   final bool isSaving;
+  final String message;
 
-  const SavingInProgress({Key key, @required this.isSaving}) : super(key: key);
+  const SavingInProgress({Key key,
+    @required this.isSaving, this.message = ''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +95,7 @@ class SavingInProgress extends StatelessWidget {
               Transform.scale(
                   scale: 2, child: const CircularProgressIndicator()),
               const SizedBox(height: 40),
-              Text('Saving',
+              Text(message.isNotEmpty ? message : 'Saving',
                   style: Theme.of(context).textTheme.bodyText2.copyWith(
                         color: Colors.white,
                         fontSize: 25,
