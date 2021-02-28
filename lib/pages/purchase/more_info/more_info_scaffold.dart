@@ -100,7 +100,9 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                       padding: const EdgeInsets.only(right: 10.0),
                       child: Text(
                         widget.homeItem.purchasable.getOrCrash()
-                            ?  '£${widget.homeItem.price.getOrCrash().toStringAsFixed(2)}'
+                            ?  widget.homeItem.quantity.getOrCrash() > 0
+                                ? '£${widget.homeItem.price.getOrCrash().toStringAsFixed(2)}'
+                                : 'Out of stock'
                             : 'Non-Purchasable',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -117,70 +119,74 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                       widget.homeItem.description.getOrCrash()
                   ),
                 ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
-                    child: Text("Delivery -  3 to 5 days", style: TextStyle(
-                        fontWeight: FontWeight.bold
-                    ),),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 5, 15, 0),
-                        child: SizedBox(
-                          height: 75,
-                          width: 100,
-                          child: DropdownButtonFormField(
-                              value: _quantityController,
-                              items: List.generate(widget.homeItem.quantity.getOrCrash(), (index) {
-                                index = index + 1;
-                                return DropdownMenuItem(
-                                  child: Text(index.toString()),
-                                  value: index,
-                                );
-                              }),
-                              onChanged: (int value) {
-                                setState(() {
-                                  _quantityController = value;
-                                });
-                              },
+                widget.homeItem.quantity.getOrCrash() > 0
+                ? Container(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
+                      child: Text("Delivery -  3 to 5 days", style: TextStyle(
+                          fontWeight: FontWeight.bold
+                      ),),
+                    ),
+                  )
+                  : Container(),
+                widget.homeItem.quantity.getOrCrash() > 0
+                    ? Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 5, 15, 0),
+                          child: SizedBox(
+                            height: 75,
+                            width: 100,
+                            child: DropdownButtonFormField(
+                                value: _quantityController,
+                                items: List.generate(widget.homeItem.quantity.getOrCrash(), (index) {
+                                  index = index + 1;
+                                  return DropdownMenuItem(
+                                    child: Text(index.toString()),
+                                    value: index,
+                                  );
+                                }),
+                                onChanged: (int value) {
+                                  setState(() {
+                                    _quantityController = value;
+                                  });
+                                },
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right:16),
-                        child: SizedBox(
-                          width: 100,
-                          height: 60,
-                          child: FlatButton(
-                            onPressed: () {
-                              ExtendedNavigator.of(context).push(Routes.paymentFormScaffold,
-                                  arguments: PaymentFormScaffoldArguments(
-                                    amount: _quantityController,
-                                    peerId: widget.homeItem.id,
-                                    itemId: widget.homeItem.item_id,
-                                    cost: widget.homeItem.price.getOrCrash()
-                                  )
-                              );
-                            },
-                            color: Colors.blue[200],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: BorderSide(color: Colors.blue[200])
+                        Padding(
+                          padding: EdgeInsets.only(right:16),
+                          child: SizedBox(
+                            width: 100,
+                            height: 60,
+                            child: FlatButton(
+                              onPressed: () {
+                                ExtendedNavigator.of(context).push(Routes.paymentFormScaffold,
+                                    arguments: PaymentFormScaffoldArguments(
+                                      amount: _quantityController,
+                                      peerId: widget.homeItem.id,
+                                      itemId: widget.homeItem.item_id,
+                                      cost: widget.homeItem.price.getOrCrash()
+                                    )
+                                );
+                              },
+                              color: Colors.blue[200],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18.0),
+                                  side: BorderSide(color: Colors.blue[200])
+                              ),
+                              child: Text("Buy")
                             ),
-                            child: Text("Buy")
+                          ),
+                        )
+                      ],
                     ),
-                        ),
-                      )
-                    ],
-                  ),
-                )
+                  )
+                : Container()
                 // Container(
                 //   alignment: Alignment.topRight,
                 //   child: Padding(

@@ -21,6 +21,7 @@ import 'app/auth/forgotten_password/forgotten_password_bloc.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/following_followers/i_following_followers_facade.dart';
 import 'domain/items/i_item_facade.dart';
+import 'domain/payment_details/i_payment_details_facade.dart';
 import 'domain/payment_setup/i_payment_setup_facade.dart';
 import 'domain/profile/i_profile_facade.dart';
 import 'domain/search/i_search_facade.dart';
@@ -32,8 +33,14 @@ import 'app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
 import 'app/payment_confirmation/payment_confirmation_bloc.dart';
+import 'app/payment_details/payment_details_form/payment_details_form_bloc.dart';
 import 'app/payment_form/payment_form_bloc.dart';
+import 'app/payment_details/payment_item_details/payment_item_details_bloc.dart';
+import 'app/payment_details/payment_receiver/payment_receiver_bloc.dart';
+import 'app/payment_details/payment_sender/payment_sender_bloc.dart';
 import 'app/payment_setup/payment_setup_bloc.dart';
+import 'infrastructure/payment_details/payment_details_repository.dart'
+    as creatispace;
 import 'infrastructure/payment_setup/payment_setup_repository.dart';
 import 'app/auth/payment_verified/payment_verified_bloc.dart';
 import 'app/profile/profile_actor/profile_actor_bloc.dart';
@@ -76,6 +83,9 @@ GetIt $initGetIt(
         get<FirebaseStorage>(),
         get<FirebaseAuth>(),
       ));
+  gh.lazySingleton<IPaymentDetailsFacade>(() =>
+      creatispace.PaymentSetupRepository(
+          get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.lazySingleton<IPaymentSetupFacade>(() => PaymentSetupRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),
@@ -101,8 +111,16 @@ GetIt $initGetIt(
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
   gh.factory<PaymentConfirmationBloc>(
       () => PaymentConfirmationBloc(get<IPaymentSetupFacade>()));
+  gh.factory<PaymentDetailsFormBloc>(
+      () => PaymentDetailsFormBloc(get<IPaymentDetailsFacade>()));
   gh.factory<PaymentFormBloc>(
       () => PaymentFormBloc(get<IPaymentSetupFacade>()));
+  gh.factory<PaymentItemDetailsBloc>(
+      () => PaymentItemDetailsBloc(get<IPaymentDetailsFacade>()));
+  gh.factory<PaymentReceiverBloc>(
+      () => PaymentReceiverBloc(get<IPaymentDetailsFacade>()));
+  gh.factory<PaymentSenderBloc>(
+      () => PaymentSenderBloc(get<IPaymentDetailsFacade>()));
   gh.factory<PaymentSetupBloc>(
       () => PaymentSetupBloc(get<IPaymentSetupFacade>()));
   gh.factory<PaymentVerifiedBloc>(

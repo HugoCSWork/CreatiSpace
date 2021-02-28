@@ -37,7 +37,7 @@ class FollowingBloc extends Bloc<FollowingEvent, FollowingState> {
                     add(FollowingEvent.FollowingListReceived(failureOrItems)),
               );
         },
-        FollowingListReceived:(e) async* {
+        FollowingListReceived: (e) async* {
           yield e.failureOrMessages.fold(
                 (f) => FollowingState.loadFailure(f),
                 (following) => FollowingState.loadSuccess(following),

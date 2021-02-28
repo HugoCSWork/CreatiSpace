@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
 import 'package:creatispace/injection.dart';
@@ -12,9 +13,10 @@ class MessagingScaffold extends StatelessWidget {
   final String peerId;
   final String peerName;
   final String userId;
+  final String imageUrl;
 
   const MessagingScaffold({Key key,
-    @required this.peerId, @required this.peerName, @required this.userId})
+    @required this.peerId, @required this.peerName, @required this.userId, @required this.imageUrl})
       : super(key: key);
 
   @override
@@ -43,13 +45,20 @@ class MessagingScaffold extends StatelessWidget {
                           }
                       ),
                       SizedBox(width: 2),
-                      CircularProfileAvatar(
-                          '',
-                          radius: 20,
-                          child: Image(
-                            image: AssetImage(
-                                'assets/images/placeholder_profile_male.jpg'
+                      CircularProfileAvatar('',
+                          radius: 25,
+                          child: CachedNetworkImage(
+                            imageUrl: imageUrl,
+                            fit: BoxFit.fitWidth,
+                            placeholder: (context, url) => Center(
+                              child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  margin: const EdgeInsets.all(5),
+                                  child: const CircularProgressIndicator()
+                              ),
                             ),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
                           )
                       ),
                       SizedBox(width: 12),

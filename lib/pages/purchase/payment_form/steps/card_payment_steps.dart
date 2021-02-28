@@ -151,24 +151,6 @@ class _CardPaymentStepState extends State<CardPaymentStep> {
                     }
                   },
                 )
-              //  CardForm(
-              //     formKey: formKey,
-              //     card: card
-              //  ),
-              // Container(
-              //     child: RaisedButton(
-              //         color: Colors.green,
-              //         textColor: Colors.white,
-              //         child: const Text('Buy', style: TextStyle(fontSize: 20)),
-              //         onPressed: () {
-              //           FocusScope.of(context).requestFocus(new FocusNode());
-              //           if(formKey.currentState.validate() == true) {
-              //             formKey.currentState.save();
-              //             context.read<PaymentFormBloc>().add(PaymentFormEvent.saved(card, peerId, amount, itemId));
-              //           }
-              //         }
-              //     ),
-              //   ),
               ],
             ),
           ),

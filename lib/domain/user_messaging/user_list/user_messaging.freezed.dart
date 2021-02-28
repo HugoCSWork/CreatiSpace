@@ -17,6 +17,7 @@ class _$UserMessagingTearOff {
   _UserMessaging call(
       {@required String id,
       @required String userMessagingName,
+      @required String imageUrl,
       String lastMessage,
       String lastSeen,
       bool unreadMessages,
@@ -24,6 +25,7 @@ class _$UserMessagingTearOff {
     return _UserMessaging(
       id: id,
       userMessagingName: userMessagingName,
+      imageUrl: imageUrl,
       lastMessage: lastMessage,
       lastSeen: lastSeen,
       unreadMessages: unreadMessages,
@@ -40,6 +42,7 @@ const $UserMessaging = _$UserMessagingTearOff();
 mixin _$UserMessaging {
   String get id;
   String get userMessagingName;
+  String get imageUrl;
   String get lastMessage;
   String get lastSeen;
   bool get unreadMessages;
@@ -56,6 +59,7 @@ abstract class $UserMessagingCopyWith<$Res> {
   $Res call(
       {String id,
       String userMessagingName,
+      String imageUrl,
       String lastMessage,
       String lastSeen,
       bool unreadMessages,
@@ -75,6 +79,7 @@ class _$UserMessagingCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userMessagingName = freezed,
+    Object imageUrl = freezed,
     Object lastMessage = freezed,
     Object lastSeen = freezed,
     Object unreadMessages = freezed,
@@ -85,6 +90,7 @@ class _$UserMessagingCopyWithImpl<$Res>
       userMessagingName: userMessagingName == freezed
           ? _value.userMessagingName
           : userMessagingName as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
       lastMessage:
           lastMessage == freezed ? _value.lastMessage : lastMessage as String,
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
@@ -106,6 +112,7 @@ abstract class _$UserMessagingCopyWith<$Res>
   $Res call(
       {String id,
       String userMessagingName,
+      String imageUrl,
       String lastMessage,
       String lastSeen,
       bool unreadMessages,
@@ -127,6 +134,7 @@ class __$UserMessagingCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userMessagingName = freezed,
+    Object imageUrl = freezed,
     Object lastMessage = freezed,
     Object lastSeen = freezed,
     Object unreadMessages = freezed,
@@ -137,6 +145,7 @@ class __$UserMessagingCopyWithImpl<$Res>
       userMessagingName: userMessagingName == freezed
           ? _value.userMessagingName
           : userMessagingName as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
       lastMessage:
           lastMessage == freezed ? _value.lastMessage : lastMessage as String,
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
@@ -153,18 +162,22 @@ class _$_UserMessaging extends _UserMessaging {
   const _$_UserMessaging(
       {@required this.id,
       @required this.userMessagingName,
+      @required this.imageUrl,
       this.lastMessage,
       this.lastSeen,
       this.unreadMessages,
       this.userId})
       : assert(id != null),
         assert(userMessagingName != null),
+        assert(imageUrl != null),
         super._();
 
   @override
   final String id;
   @override
   final String userMessagingName;
+  @override
+  final String imageUrl;
   @override
   final String lastMessage;
   @override
@@ -176,7 +189,7 @@ class _$_UserMessaging extends _UserMessaging {
 
   @override
   String toString() {
-    return 'UserMessaging(id: $id, userMessagingName: $userMessagingName, lastMessage: $lastMessage, lastSeen: $lastSeen, unreadMessages: $unreadMessages, userId: $userId)';
+    return 'UserMessaging(id: $id, userMessagingName: $userMessagingName, imageUrl: $imageUrl, lastMessage: $lastMessage, lastSeen: $lastSeen, unreadMessages: $unreadMessages, userId: $userId)';
   }
 
   @override
@@ -188,6 +201,9 @@ class _$_UserMessaging extends _UserMessaging {
             (identical(other.userMessagingName, userMessagingName) ||
                 const DeepCollectionEquality()
                     .equals(other.userMessagingName, userMessagingName)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageUrl, imageUrl)) &&
             (identical(other.lastMessage, lastMessage) ||
                 const DeepCollectionEquality()
                     .equals(other.lastMessage, lastMessage)) &&
@@ -206,6 +222,7 @@ class _$_UserMessaging extends _UserMessaging {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(userMessagingName) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
       const DeepCollectionEquality().hash(lastMessage) ^
       const DeepCollectionEquality().hash(lastSeen) ^
       const DeepCollectionEquality().hash(unreadMessages) ^
@@ -221,6 +238,7 @@ abstract class _UserMessaging extends UserMessaging {
   const factory _UserMessaging(
       {@required String id,
       @required String userMessagingName,
+      @required String imageUrl,
       String lastMessage,
       String lastSeen,
       bool unreadMessages,
@@ -230,6 +248,8 @@ abstract class _UserMessaging extends UserMessaging {
   String get id;
   @override
   String get userMessagingName;
+  @override
+  String get imageUrl;
   @override
   String get lastMessage;
   @override

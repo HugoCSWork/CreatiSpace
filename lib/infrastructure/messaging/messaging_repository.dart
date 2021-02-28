@@ -125,6 +125,7 @@ class UserMessagesRepository implements IUserFacade {
     });
   }
 
+  //todo refactor messaging
   @override
   Future<Either<UserErrorFailure, Unit>> sendMessage({String peerId, String message, int type}) async {
     final userDoc = await _firebaseFirestore.userDocumentMessage(peerId.replaceAll(' ', ''));
@@ -136,6 +137,13 @@ class UserMessagesRepository implements IUserFacade {
     if(type == 1) {
       message = await _firebaseStorage.uploadImage(uploadPath, message);
     }
+    var peerDocument = await _firebaseFirestore.peerDocument(peerId);
+    var peerItem = await peerDocument.get();
+    var peerData = peerItem.data();
+
+    var userDocument = await _firebaseFirestore.userDocument();
+    var userItem = await userDocument.get();
+    var userData = userItem.data();
 
     UserConversationDto userMessage = new UserConversationDto(
         content: message,
@@ -144,6 +152,10 @@ class UserMessagesRepository implements IUserFacade {
         timestamp: timestamp,
         type: type
     );
+
+
+    var peerImage = peerData["profileImageURL"] as String;
+    var userImage = userData["profileImageURL"] as String;
 
     await userDoc.UserMessagesConversationCollection
               .doc(timestamp)
@@ -155,7 +167,8 @@ class UserMessagesRepository implements IUserFacade {
 
     await userDoc.update({
       "lastMessage" : type == 0 ? message : "Image Sent",
-      "unreadMessages" : false
+      "unreadMessages" : false,
+      "imageUrl" : peerImage
     });
 
     if(await _firebaseFirestore.checkIfEmptyDocumentForMessages(peerDoc)) {
@@ -163,12 +176,15 @@ class UserMessagesRepository implements IUserFacade {
         "unreadMessages" : true,
         "lastMessage":  type == 0 ? message : "Image Sent",
         "lastSeen": timestamp,
-        "userMessagingName": await _firebaseFirestore.userDocumentName(userId)
+        "userMessagingName": await _firebaseFirestore.userDocumentName(userId),
+        "imageUrl" : userImage
       });
     } else {
       await peerDoc.update({
         "lastMessage" : type == 0 ? message : "Image Sent",
-        "unreadMessages" : true
+        "unreadMessages" : true,
+        "imageUrl" : userImage,
+        "userMessagingName": await _firebaseFirestore.userDocumentName(userId),
       });
     }
     return right(unit);

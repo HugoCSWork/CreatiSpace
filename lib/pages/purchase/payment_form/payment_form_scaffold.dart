@@ -15,8 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PaymentFormScaffold extends StatefulWidget {
 
 
-  // amount: "2", totalCost:23.43, itemId: "1e8ce140-776a-11eb-a446-8770d751280d", peerId: "yFEuYmwD5ZNTeym5piMwKuXzqB52"
-
   final int amount;
   final double cost;
   final String itemId;

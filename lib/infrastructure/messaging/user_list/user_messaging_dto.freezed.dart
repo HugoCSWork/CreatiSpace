@@ -22,6 +22,7 @@ class _$UserMessagingDtoTearOff {
       @required String userMessagingName,
       String lastMessage,
       String lastSeen,
+      String imageUrl,
       bool unreadMessages,
       String userId}) {
     return _UserMessagingDto(
@@ -29,6 +30,7 @@ class _$UserMessagingDtoTearOff {
       userMessagingName: userMessagingName,
       lastMessage: lastMessage,
       lastSeen: lastSeen,
+      imageUrl: imageUrl,
       unreadMessages: unreadMessages,
       userId: userId,
     );
@@ -51,6 +53,7 @@ mixin _$UserMessagingDto {
   String get userMessagingName;
   String get lastMessage;
   String get lastSeen;
+  String get imageUrl;
   bool get unreadMessages;
   String get userId;
 
@@ -68,6 +71,7 @@ abstract class $UserMessagingDtoCopyWith<$Res> {
       String userMessagingName,
       String lastMessage,
       String lastSeen,
+      String imageUrl,
       bool unreadMessages,
       String userId});
 }
@@ -87,6 +91,7 @@ class _$UserMessagingDtoCopyWithImpl<$Res>
     Object userMessagingName = freezed,
     Object lastMessage = freezed,
     Object lastSeen = freezed,
+    Object imageUrl = freezed,
     Object unreadMessages = freezed,
     Object userId = freezed,
   }) {
@@ -98,6 +103,7 @@ class _$UserMessagingDtoCopyWithImpl<$Res>
       lastMessage:
           lastMessage == freezed ? _value.lastMessage : lastMessage as String,
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
       unreadMessages: unreadMessages == freezed
           ? _value.unreadMessages
           : unreadMessages as bool,
@@ -118,6 +124,7 @@ abstract class _$UserMessagingDtoCopyWith<$Res>
       String userMessagingName,
       String lastMessage,
       String lastSeen,
+      String imageUrl,
       bool unreadMessages,
       String userId});
 }
@@ -139,6 +146,7 @@ class __$UserMessagingDtoCopyWithImpl<$Res>
     Object userMessagingName = freezed,
     Object lastMessage = freezed,
     Object lastSeen = freezed,
+    Object imageUrl = freezed,
     Object unreadMessages = freezed,
     Object userId = freezed,
   }) {
@@ -150,6 +158,7 @@ class __$UserMessagingDtoCopyWithImpl<$Res>
       lastMessage:
           lastMessage == freezed ? _value.lastMessage : lastMessage as String,
       lastSeen: lastSeen == freezed ? _value.lastSeen : lastSeen as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
       unreadMessages: unreadMessages == freezed
           ? _value.unreadMessages
           : unreadMessages as bool,
@@ -167,6 +176,7 @@ class _$_UserMessagingDto extends _UserMessagingDto {
       @required this.userMessagingName,
       this.lastMessage,
       this.lastSeen,
+      this.imageUrl,
       this.unreadMessages,
       this.userId})
       : assert(userMessagingName != null),
@@ -185,13 +195,15 @@ class _$_UserMessagingDto extends _UserMessagingDto {
   @override
   final String lastSeen;
   @override
+  final String imageUrl;
+  @override
   final bool unreadMessages;
   @override
   final String userId;
 
   @override
   String toString() {
-    return 'UserMessagingDto(id: $id, userMessagingName: $userMessagingName, lastMessage: $lastMessage, lastSeen: $lastSeen, unreadMessages: $unreadMessages, userId: $userId)';
+    return 'UserMessagingDto(id: $id, userMessagingName: $userMessagingName, lastMessage: $lastMessage, lastSeen: $lastSeen, imageUrl: $imageUrl, unreadMessages: $unreadMessages, userId: $userId)';
   }
 
   @override
@@ -209,6 +221,9 @@ class _$_UserMessagingDto extends _UserMessagingDto {
             (identical(other.lastSeen, lastSeen) ||
                 const DeepCollectionEquality()
                     .equals(other.lastSeen, lastSeen)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageUrl, imageUrl)) &&
             (identical(other.unreadMessages, unreadMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.unreadMessages, unreadMessages)) &&
@@ -223,6 +238,7 @@ class _$_UserMessagingDto extends _UserMessagingDto {
       const DeepCollectionEquality().hash(userMessagingName) ^
       const DeepCollectionEquality().hash(lastMessage) ^
       const DeepCollectionEquality().hash(lastSeen) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
       const DeepCollectionEquality().hash(unreadMessages) ^
       const DeepCollectionEquality().hash(userId);
 
@@ -243,6 +259,7 @@ abstract class _UserMessagingDto extends UserMessagingDto {
       @required String userMessagingName,
       String lastMessage,
       String lastSeen,
+      String imageUrl,
       bool unreadMessages,
       String userId}) = _$_UserMessagingDto;
 
@@ -258,6 +275,8 @@ abstract class _UserMessagingDto extends UserMessagingDto {
   String get lastMessage;
   @override
   String get lastSeen;
+  @override
+  String get imageUrl;
   @override
   bool get unreadMessages;
   @override

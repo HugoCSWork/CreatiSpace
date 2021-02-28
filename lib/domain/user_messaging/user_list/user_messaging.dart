@@ -6,6 +6,7 @@ abstract class UserMessaging implements _$UserMessaging {
   const factory UserMessaging({
     @required String id,
     @required String userMessagingName,
+    @required String imageUrl,
     String lastMessage,
     String lastSeen,
     bool unreadMessages,

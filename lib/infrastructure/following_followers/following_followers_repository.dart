@@ -1,6 +1,3 @@
-
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:creatispace/domain/following_followers/following_follower_error/following_follower_error_failures.dart';
@@ -15,6 +12,7 @@ import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
+
 @LazySingleton(as: IFollowingFollowerFacade)
 class FollowingFollowerRepository implements IFollowingFollowerFacade {
   final FirebaseFirestore _firebaseFirestore;
@@ -68,7 +66,6 @@ class FollowingFollowerRepository implements IFollowingFollowerFacade {
             .map(
                 (doc) {
               FollowingFollowers dto = FollowingFollowerDto.fromFirestore(doc).toDomain();
-              // TODO Add profile images when actually implemented
               return dto;
             })
             .toImmutableList(),

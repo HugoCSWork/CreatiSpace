@@ -37,6 +37,10 @@ class ItemsOverview extends StatelessWidget {
                     unauthenticated: (_) {
                       return Column(
                         children: [
+                          FlatButton(
+                              onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentDetailsScaffold),
+                              child: Text("Payments")
+                          ),
                           Container(
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 8.0),

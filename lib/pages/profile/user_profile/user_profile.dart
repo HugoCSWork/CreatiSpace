@@ -67,23 +67,40 @@ class _UserProfileState extends State<UserProfile> {
                       padding: EdgeInsets.only(bottom:8),
                       child: Text(widget.data.description.getOrCrash()),
                     ),
-                    Padding(
-                        padding: EdgeInsets.only(bottom:8),
-                        child: FlatButton(
-                            onPressed: () {
-                              ExtendedNavigator.of(context).push(Routes.profileFormPageScaffold,
-                                  arguments: ProfileFormPageScaffoldArguments(
-                                      data: widget.data
-                                  )
-                              );
-                            },
-                            color: Colors.blue[200],
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: BorderSide(color: Colors.blue[200])
-                            ),
-                            child: Text("Edit profile")
-                        )
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(bottom:8),
+                            child: FlatButton(
+                                onPressed: () {
+                                  ExtendedNavigator.of(context).push(Routes.profileFormPageScaffold,
+                                      arguments: ProfileFormPageScaffoldArguments(
+                                          data: widget.data
+                                      )
+                                  );
+                                },
+                                color: Colors.blue[200],
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: BorderSide(color: Colors.blue[200])
+                                ),
+                                child: Text("Edit profile")
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(bottom:8),
+                            child: FlatButton(
+                                onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentDetailsScaffold),
+                                color: Colors.blue[200],
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: BorderSide(color: Colors.blue[200])
+                                ),
+                                child: Text("Purchases")
+                            )
+                        ),
+                      ],
                     ),
                     BlocBuilder<IsVerifiedBloc, IsVerifiedState>(
                         builder: (context, state) {

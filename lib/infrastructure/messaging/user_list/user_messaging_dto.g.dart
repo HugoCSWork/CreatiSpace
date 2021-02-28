@@ -11,6 +11,7 @@ _$_UserMessagingDto _$_$_UserMessagingDtoFromJson(Map<String, dynamic> json) {
     userMessagingName: json['userMessagingName'] as String,
     lastMessage: json['lastMessage'] as String,
     lastSeen: json['lastSeen'] as String,
+    imageUrl: json['imageUrl'] as String,
     unreadMessages: json['unreadMessages'] as bool,
     userId: json['userId'] as String,
   );
@@ -22,6 +23,7 @@ Map<String, dynamic> _$_$_UserMessagingDtoToJson(
       'userMessagingName': instance.userMessagingName,
       'lastMessage': instance.lastMessage,
       'lastSeen': instance.lastSeen,
+      'imageUrl': instance.imageUrl,
       'unreadMessages': instance.unreadMessages,
       'userId': instance.userId,
     };

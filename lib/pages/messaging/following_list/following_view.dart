@@ -1,12 +1,16 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
+import 'package:creatispace/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FollowingView extends StatelessWidget {
 
-  final UserMessaging userMessaging;
+  final FollowingFollowers userMessaging;
   const FollowingView({Key key, this.userMessaging}) : super(key: key);
 
   @override
@@ -22,8 +26,9 @@ class FollowingView extends StatelessWidget {
             ExtendedNavigator.of(context).push(Routes.messagingScaffold,
                 arguments: MessagingScaffoldArguments(
                     peerId: userMessaging.id,
-                    peerName: userMessaging.userMessagingName,
-                    userId: userMessaging.userId
+                    peerName: userMessaging.username,
+                    userId: await FirebaseAuth.instance.currentUser.uid,
+                    imageUrl: userMessaging.profileImageURL
                 )
             );
           },
@@ -36,13 +41,20 @@ class FollowingView extends StatelessWidget {
                     Expanded(
                       child: Row(
                         children: <Widget>[
-                          CircularProfileAvatar(
-                              '',
+                          CircularProfileAvatar('',
                               radius: 25,
-                              child: Image(
-                                image: AssetImage(
-                                    'assets/images/placeholder_profile_male.jpg'
+                              child: CachedNetworkImage(
+                                imageUrl: userMessaging.profileImageURL,
+                                fit: BoxFit.fitWidth,
+                                placeholder: (context, url) => Center(
+                                  child: Container(
+                                      width: 30,
+                                      height: 30,
+                                      margin: const EdgeInsets.all(5),
+                                      child: const CircularProgressIndicator()
+                                  ),
                                 ),
+                                errorWidget: (context, url, error) => const Icon(Icons.error),
                               )
                           ),
                           SizedBox(width: 16,),
@@ -53,7 +65,7 @@ class FollowingView extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    userMessaging.userMessagingName
+                                    userMessaging.username
                                   ),
                                 ],
                               ),

@@ -117,7 +117,7 @@ class ItemCard extends StatelessWidget {
                       )
                     else
                       Text(
-                        '£${item.price.getOrCrash().toString()}',
+                        '£${item.price.getOrCrash().toStringAsFixed(2)}}',
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 14.0,

@@ -1,4 +1,6 @@
+import 'package:creatispace/app/following_followers/following/following_bloc.dart';
 import 'package:creatispace/app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
+import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
 import 'package:creatispace/pages/messaging/following_list/following_view.dart';
 import 'package:flutter/material.dart';
@@ -10,23 +12,23 @@ class FollowingBuilder extends StatefulWidget {
 }
 
 class _FollowingBuilderState extends State<FollowingBuilder> {
-  List<UserMessaging> _messages;
-  List<UserMessaging> _currentItems;
+  List<FollowingFollowers> _messages;
+  List<FollowingFollowers> _currentItems;
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserMessagingWatcherBloc, UserMessagingWatcherState>(
+    return BlocBuilder<FollowingBloc, FollowingState>(
       builder: (context, state) {
         return state.map(
             initial: (_) => Container(),
             loadInProgress: (_) =>
             const Center(child: CircularProgressIndicator()),
             loadSuccess: (state) {
-              _messages == null ? _messages = state.items.asList() : "";
-              _currentItems == null ? _messages = state.items.asList() : "";
-              if(_currentItems != state.items.asList()) {
-                _messages = state.items.asList();
-                _currentItems = state.items.asList();
+              _messages == null ? _messages = state.following.asList() : "";
+              _currentItems == null ? _messages = state.following.asList() : "";
+              if(_currentItems != state.following.asList()) {
+                _messages = state.following.asList();
+                _currentItems = state.following.asList();
               }
               return Column(
                 children: [
@@ -36,9 +38,9 @@ class _FollowingBuilderState extends State<FollowingBuilder> {
                       onChanged: (text) {
                         text = text.toLowerCase();
                         setState(() {
-                          _messages =  state.items.asList()
+                          _messages =  state.following.asList()
                               .where((element) {
-                            var userName = element.userMessagingName.toLowerCase();
+                            var userName = element.username.toLowerCase();
                             return userName.contains(text);
                           }).toList();
                         });

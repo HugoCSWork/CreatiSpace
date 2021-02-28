@@ -97,10 +97,14 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
       }
 
       if(paymentIntentRes['status'] == 'succeeded'){
+        final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
 
         var itemDocument = await peerDoc.itemCollection.doc(itemId);
         var userItem = await itemDocument.get();
         var userData = userItem.data();
+
+        var userDocument = await userDoc.get();
+        var userProfileData = userDocument.data();
         // update for seller
         var updatedQuantity = (userData["quantity"] as int) - int.parse(amount);
         await itemDocument.update({
@@ -131,9 +135,16 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
           "country": paymentFormSetup.country.getOrCrash(),
           "county": paymentFormSetup.county.getOrCrash(),
         };
-        paymentIntentRes["delivery_status"] = "placed";
+        paymentIntentRes["delivery_status"] = "Placed";
         paymentIntentRes["quantity"] = amount;
         paymentIntentRes["item_id"] = itemId;
+        paymentIntentRes["timestamp"] = timestamp;
+        paymentIntentRes["image"] = userData["images"][0]["url"];
+        paymentIntentRes["username"] = userData["username"];
+        paymentIntentRes["user_id"] = userData["id"];
+        paymentIntentRes["peer_username"] = userProfileData["username"];
+        paymentIntentRes["peer_id"] = userDoc.id;
+
         await userDoc.paymentReceivingOrders.doc(paymentIntentRes["id"] as String).set(paymentIntentRes);
         await peerDoc.paymentSendingOrders.doc(paymentIntentRes["id"] as String).set(paymentIntentRes);
         return Right(paymentIntentRes);

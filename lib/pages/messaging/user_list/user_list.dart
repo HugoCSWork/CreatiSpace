@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
@@ -23,7 +24,8 @@ class UserList extends StatelessWidget {
                   arguments: MessagingScaffoldArguments(
                       peerId: userMessaging.id,
                       peerName: userMessaging.userMessagingName,
-                      userId: userMessaging.userId
+                      userId: userMessaging.userId,
+                      imageUrl: userMessaging.imageUrl
                   )
               );
             },
@@ -36,14 +38,21 @@ class UserList extends StatelessWidget {
                       Expanded(
                         child: Row(
                           children: <Widget>[
-                            CircularProfileAvatar(
-                              '',
-                              radius: 25,
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/placeholder_profile_male.jpg'
-                                ),
-                              )
+                            CircularProfileAvatar('',
+                                radius: 25,
+                                child: CachedNetworkImage(
+                                  imageUrl: userMessaging.imageUrl,
+                                  fit: BoxFit.fitWidth,
+                                  placeholder: (context, url) => Center(
+                                    child: Container(
+                                        width: 30,
+                                        height: 30,
+                                        margin: const EdgeInsets.all(5),
+                                        child: const CircularProgressIndicator()
+                                    ),
+                                  ),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                )
                             ),
                             SizedBox(width: 16,),
                             Expanded(

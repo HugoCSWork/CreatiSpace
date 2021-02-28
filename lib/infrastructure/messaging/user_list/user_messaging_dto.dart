@@ -14,6 +14,7 @@ abstract class UserMessagingDto implements _$UserMessagingDto {
     @required String userMessagingName,
     String lastMessage,
     String lastSeen,
+    String imageUrl,
     bool unreadMessages,
     String userId
   }) = _UserMessagingDto;
@@ -24,6 +25,7 @@ abstract class UserMessagingDto implements _$UserMessagingDto {
         userMessagingName: userMessages.userMessagingName,
         lastMessage: userMessages.lastMessage,
         lastSeen: userMessages.lastSeen,
+        imageUrl: userMessages.imageUrl,
         unreadMessages: userMessages.unreadMessages,
         userId: userMessages.userId
     );
@@ -32,6 +34,7 @@ abstract class UserMessagingDto implements _$UserMessagingDto {
   UserMessaging toDomain() {
     return UserMessaging(
         id: id,
+        imageUrl: imageUrl,
         userMessagingName: userMessagingName,
         lastMessage: lastMessage.length >= 40 ? lastMessage.substring(0, 40) + " ..." : lastMessage,
         lastSeen: lastSeen == "never" ? lastSeen : sortLastSeen(lastSeen),
@@ -44,7 +47,8 @@ abstract class UserMessagingDto implements _$UserMessagingDto {
     return UserMessaging(
         id: id,
         userMessagingName: userMessagingName,
-        userId: userId
+        userId: userId,
+        imageUrl: imageUrl
     );
   }
   
