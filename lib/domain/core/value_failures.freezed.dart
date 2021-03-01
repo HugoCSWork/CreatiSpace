@@ -42,6 +42,13 @@ class _$ValueFailureTearOff {
   }
 
 // ignore: unused_element
+  _Workshop<T> workshop<T>(WorkshopValueFailure<T> i) {
+    return _Workshop<T>(
+      i,
+    );
+  }
+
+// ignore: unused_element
   _UserMessaging<T> messaging<T>(UserValueFailure<T> i) {
     return _UserMessaging<T>(
       i,
@@ -68,6 +75,7 @@ mixin _$ValueFailure<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   });
@@ -77,6 +85,7 @@ mixin _$ValueFailure<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -87,6 +96,7 @@ mixin _$ValueFailure<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   });
@@ -96,6 +106,7 @@ mixin _$ValueFailure<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),
@@ -192,6 +203,7 @@ class _$_Auth<T> implements _Auth<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
@@ -199,6 +211,7 @@ class _$_Auth<T> implements _Auth<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return auth(f);
@@ -211,6 +224,7 @@ class _$_Auth<T> implements _Auth<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -229,6 +243,7 @@ class _$_Auth<T> implements _Auth<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
@@ -236,6 +251,7 @@ class _$_Auth<T> implements _Auth<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return auth(this);
@@ -248,6 +264,7 @@ class _$_Auth<T> implements _Auth<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),
@@ -343,6 +360,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
@@ -350,6 +368,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return paymentSetup(f);
@@ -362,6 +381,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -380,6 +400,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
@@ -387,6 +408,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return paymentSetup(this);
@@ -399,6 +421,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),
@@ -495,6 +518,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
@@ -502,6 +526,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return paymentForm(f);
@@ -514,6 +539,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -532,6 +558,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
@@ -539,6 +566,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return paymentForm(this);
@@ -551,6 +579,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),
@@ -643,6 +672,7 @@ class _$_Item<T> implements _Item<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
@@ -650,6 +680,7 @@ class _$_Item<T> implements _Item<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return item(i);
@@ -662,6 +693,7 @@ class _$_Item<T> implements _Item<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -680,6 +712,7 @@ class _$_Item<T> implements _Item<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
@@ -687,6 +720,7 @@ class _$_Item<T> implements _Item<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return item(this);
@@ -699,6 +733,7 @@ class _$_Item<T> implements _Item<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),
@@ -716,6 +751,163 @@ abstract class _Item<T> implements ValueFailure<T> {
 
   ItemValueFailure<T> get i;
   _$ItemCopyWith<T, _Item<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class _$WorkshopCopyWith<T, $Res> {
+  factory _$WorkshopCopyWith(
+          _Workshop<T> value, $Res Function(_Workshop<T>) then) =
+      __$WorkshopCopyWithImpl<T, $Res>;
+  $Res call({WorkshopValueFailure<T> i});
+
+  $WorkshopValueFailureCopyWith<T, $Res> get i;
+}
+
+/// @nodoc
+class __$WorkshopCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$WorkshopCopyWith<T, $Res> {
+  __$WorkshopCopyWithImpl(
+      _Workshop<T> _value, $Res Function(_Workshop<T>) _then)
+      : super(_value, (v) => _then(v as _Workshop<T>));
+
+  @override
+  _Workshop<T> get _value => super._value as _Workshop<T>;
+
+  @override
+  $Res call({
+    Object i = freezed,
+  }) {
+    return _then(_Workshop<T>(
+      i == freezed ? _value.i : i as WorkshopValueFailure<T>,
+    ));
+  }
+
+  @override
+  $WorkshopValueFailureCopyWith<T, $Res> get i {
+    if (_value.i == null) {
+      return null;
+    }
+    return $WorkshopValueFailureCopyWith<T, $Res>(_value.i, (value) {
+      return _then(_value.copyWith(i: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_Workshop<T> implements _Workshop<T> {
+  const _$_Workshop(this.i) : assert(i != null);
+
+  @override
+  final WorkshopValueFailure<T> i;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.workshop(i: $i)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Workshop<T> &&
+            (identical(other.i, i) ||
+                const DeepCollectionEquality().equals(other.i, i)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
+
+  @override
+  _$WorkshopCopyWith<T, _Workshop<T>> get copyWith =>
+      __$WorkshopCopyWithImpl<T, _Workshop<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult auth(AuthValueFailure<T> f),
+    @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
+    @required TResult paymentForm(PaymentFormValueFailure<T> f),
+    @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
+    @required TResult messaging(UserValueFailure<T> i),
+    @required TResult profile(ProfileValueFailure<T> i),
+  }) {
+    assert(auth != null);
+    assert(paymentSetup != null);
+    assert(paymentForm != null);
+    assert(item != null);
+    assert(workshop != null);
+    assert(messaging != null);
+    assert(profile != null);
+    return workshop(i);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult auth(AuthValueFailure<T> f),
+    TResult paymentSetup(PaymentSetupValueFailures<T> f),
+    TResult paymentForm(PaymentFormValueFailure<T> f),
+    TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
+    TResult messaging(UserValueFailure<T> i),
+    TResult profile(ProfileValueFailure<T> i),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (workshop != null) {
+      return workshop(i);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult auth(_Auth<T> value),
+    @required TResult paymentSetup(_PaymentSetup<T> value),
+    @required TResult paymentForm(_PaymentForm<T> value),
+    @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
+    @required TResult messaging(_UserMessaging<T> value),
+    @required TResult profile(_Profile<T> value),
+  }) {
+    assert(auth != null);
+    assert(paymentSetup != null);
+    assert(paymentForm != null);
+    assert(item != null);
+    assert(workshop != null);
+    assert(messaging != null);
+    assert(profile != null);
+    return workshop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult auth(_Auth<T> value),
+    TResult paymentSetup(_PaymentSetup<T> value),
+    TResult paymentForm(_PaymentForm<T> value),
+    TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
+    TResult messaging(_UserMessaging<T> value),
+    TResult profile(_Profile<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (workshop != null) {
+      return workshop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Workshop<T> implements ValueFailure<T> {
+  const factory _Workshop(WorkshopValueFailure<T> i) = _$_Workshop<T>;
+
+  WorkshopValueFailure<T> get i;
+  _$WorkshopCopyWith<T, _Workshop<T>> get copyWith;
 }
 
 /// @nodoc
@@ -794,6 +986,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
@@ -801,6 +994,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return messaging(i);
@@ -813,6 +1007,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -831,6 +1026,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
@@ -838,6 +1034,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return messaging(this);
@@ -850,6 +1047,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),
@@ -944,6 +1142,7 @@ class _$_Profile<T> implements _Profile<T> {
     @required TResult paymentSetup(PaymentSetupValueFailures<T> f),
     @required TResult paymentForm(PaymentFormValueFailure<T> f),
     @required TResult item(ItemValueFailure<T> i),
+    @required TResult workshop(WorkshopValueFailure<T> i),
     @required TResult messaging(UserValueFailure<T> i),
     @required TResult profile(ProfileValueFailure<T> i),
   }) {
@@ -951,6 +1150,7 @@ class _$_Profile<T> implements _Profile<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return profile(i);
@@ -963,6 +1163,7 @@ class _$_Profile<T> implements _Profile<T> {
     TResult paymentSetup(PaymentSetupValueFailures<T> f),
     TResult paymentForm(PaymentFormValueFailure<T> f),
     TResult item(ItemValueFailure<T> i),
+    TResult workshop(WorkshopValueFailure<T> i),
     TResult messaging(UserValueFailure<T> i),
     TResult profile(ProfileValueFailure<T> i),
     @required TResult orElse(),
@@ -981,6 +1182,7 @@ class _$_Profile<T> implements _Profile<T> {
     @required TResult paymentSetup(_PaymentSetup<T> value),
     @required TResult paymentForm(_PaymentForm<T> value),
     @required TResult item(_Item<T> value),
+    @required TResult workshop(_Workshop<T> value),
     @required TResult messaging(_UserMessaging<T> value),
     @required TResult profile(_Profile<T> value),
   }) {
@@ -988,6 +1190,7 @@ class _$_Profile<T> implements _Profile<T> {
     assert(paymentSetup != null);
     assert(paymentForm != null);
     assert(item != null);
+    assert(workshop != null);
     assert(messaging != null);
     assert(profile != null);
     return profile(this);
@@ -1000,6 +1203,7 @@ class _$_Profile<T> implements _Profile<T> {
     TResult paymentSetup(_PaymentSetup<T> value),
     TResult paymentForm(_PaymentForm<T> value),
     TResult item(_Item<T> value),
+    TResult workshop(_Workshop<T> value),
     TResult messaging(_UserMessaging<T> value),
     TResult profile(_Profile<T> value),
     @required TResult orElse(),

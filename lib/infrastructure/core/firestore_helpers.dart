@@ -127,6 +127,7 @@ extension FirestoreX on FirebaseFirestore {
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get userCollection => collection('users');
   CollectionReference get itemCollection => collection('items');
+  CollectionReference get workshopCollection => collection('workshops');
   CollectionReference get paymentCollection => collection('payment_account');
   CollectionReference get paymentSendingOrders => collection('sending_orders');
   CollectionReference get paymentReceivingOrders => collection('receiving_orders');

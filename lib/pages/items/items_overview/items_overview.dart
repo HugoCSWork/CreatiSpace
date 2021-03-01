@@ -1,7 +1,6 @@
 import 'package:creatispace/app/auth/auth_bloc.dart';
 import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/item_overview_body_wdget.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/item_switch.dart';
+import 'package:creatispace/pages/items/items_overview/widgets/items/item_overview_body_wdget.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,20 +9,7 @@ import 'package:auto_route/auto_route.dart';
 class ItemsOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: const Text('Listings'),
-          leading: IconButton(
-            icon: const Icon(Icons.exit_to_app),
-            onPressed: () {
-              context.read<AuthBloc>().add(const AuthEvent.signOut());
-            },
-          ),
-          actions: <Widget>[
-            ItemSwitch(),
-          ],
-        ),
-        body: BlocBuilder<PaymentVerifiedBloc, PaymentVerifiedState>(
+    return BlocBuilder<PaymentVerifiedBloc, PaymentVerifiedState>(
               builder: (context, state) {
                 return state.map(
                     initial: (_) => Container(),
@@ -37,10 +23,6 @@ class ItemsOverview extends StatelessWidget {
                     unauthenticated: (_) {
                       return Column(
                         children: [
-                          FlatButton(
-                              onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentDetailsScaffold),
-                              child: Text("Payments")
-                          ),
                           Container(
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
@@ -61,13 +43,6 @@ class ItemsOverview extends StatelessWidget {
                     }
                   );
                 },
-            ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            ExtendedNavigator.of(context).pushItemFormPage(editedItem: null);
-          },
-          child: const Icon(Icons.add),
-        ),
       );
   }
 }

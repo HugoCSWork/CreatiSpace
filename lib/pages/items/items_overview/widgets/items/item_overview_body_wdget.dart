@@ -1,7 +1,7 @@
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/critical_failure_display_widget.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/error_item_card.dart';
-import 'package:creatispace/pages/items/items_overview/widgets/item_card_widget.dart';
+import 'package:creatispace/pages/items/items_overview/widgets/items/critical_failure_display_widget.dart';
+import 'package:creatispace/pages/items/items_overview/widgets/items/error_item_card.dart';
+import 'package:creatispace/pages/items/items_overview/widgets/items/item_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

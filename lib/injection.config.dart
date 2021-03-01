@@ -26,6 +26,7 @@ import 'domain/payment_setup/i_payment_setup_facade.dart';
 import 'domain/profile/i_profile_facade.dart';
 import 'domain/search/i_search_facade.dart';
 import 'domain/user_messaging/IUserFacade.dart';
+import 'domain/workshop/i_workshop_facade.dart';
 import 'app/auth/is_verified/is_verified_bloc.dart';
 import 'app/item/item_actor/item_actor_bloc.dart';
 import 'app/item/item_form/item_form_bloc.dart';
@@ -39,9 +40,9 @@ import 'app/payment_details/payment_item_details/payment_item_details_bloc.dart'
 import 'app/payment_details/payment_receiver/payment_receiver_bloc.dart';
 import 'app/payment_details/payment_sender/payment_sender_bloc.dart';
 import 'app/payment_setup/payment_setup_bloc.dart';
-import 'infrastructure/payment_details/payment_details_repository.dart'
+import 'infrastructure/payment_setup/payment_setup_repository.dart'
     as creatispace;
-import 'infrastructure/payment_setup/payment_setup_repository.dart';
+import 'infrastructure/payment_details/payment_details_repository.dart';
 import 'app/auth/payment_verified/payment_verified_bloc.dart';
 import 'app/profile/profile_actor/profile_actor_bloc.dart';
 import 'app/profile/profile_form/profile_form_bloc.dart';
@@ -55,6 +56,9 @@ import 'app/auth/sign_up/sign_up_bloc.dart';
 import 'app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
 import 'infrastructure/messaging/messaging_repository.dart';
 import 'app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
+import 'app/workshop/workshop_form/workshop_form_bloc.dart';
+import 'infrastructure/workshop/workshop_repository.dart';
+import 'app/workshop/workshop_watcher/workshop_watcher_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -84,13 +88,13 @@ GetIt $initGetIt(
         get<FirebaseAuth>(),
       ));
   gh.lazySingleton<IPaymentDetailsFacade>(() =>
-      creatispace.PaymentSetupRepository(
-          get<FirebaseFirestore>(), get<FirebaseAuth>()));
-  gh.lazySingleton<IPaymentSetupFacade>(() => PaymentSetupRepository(
-        get<FirebaseFirestore>(),
-        get<FirebaseStorage>(),
-        get<FirebaseAuth>(),
-      ));
+      PaymentSetupRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
+  gh.lazySingleton<IPaymentSetupFacade>(
+      () => creatispace.PaymentSetupRepository(
+            get<FirebaseFirestore>(),
+            get<FirebaseStorage>(),
+            get<FirebaseAuth>(),
+          ));
   gh.lazySingleton<IProfileFacade>(() => ProfileRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),
@@ -103,6 +107,8 @@ GetIt $initGetIt(
         get<FirebaseStorage>(),
         get<FirebaseAuth>(),
       ));
+  gh.lazySingleton<IWorkshopFacade>(
+      () => WorkshopRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.factory<IsVerifiedBloc>(() => IsVerifiedBloc(get<IAuthFacade>()));
   gh.factory<ItemActorBloc>(() => ItemActorBloc(get<IItemFacade>()));
   gh.factory<ItemFormBloc>(() => ItemFormBloc(get<IItemFacade>()));
@@ -137,6 +143,9 @@ GetIt $initGetIt(
       () => UserConversationBloc(get<IUserFacade>()));
   gh.factory<UserMessagingWatcherBloc>(
       () => UserMessagingWatcherBloc(get<IUserFacade>()));
+  gh.factory<WorkshopFormBloc>(() => WorkshopFormBloc(get<IWorkshopFacade>()));
+  gh.factory<WorkshopWatcherBloc>(
+      () => WorkshopWatcherBloc(get<IWorkshopFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<FollowersBloc>(
       () => FollowersBloc(get<IFollowingFollowerFacade>()));

@@ -5,6 +5,7 @@ import 'package:creatispace/pages/auth/sign_up/sign_up_page.dart';
 import 'package:creatispace/pages/auth/verify_email/email_verified_page.dart';
 import 'package:creatispace/pages/home/home_scaffold.dart';
 import 'package:creatispace/pages/items/items_form/item_form_page.dart';
+import 'package:creatispace/pages/items/items_form/workshop_form_page.dart';
 import 'package:creatispace/pages/items/items_overview/items_overview_page.dart';
 import 'package:creatispace/pages/messaging/following_list/following_scaffold.dart';
 import 'package:creatispace/pages/messaging/messaging/messaging_scaffold.dart';
@@ -39,6 +40,7 @@ import 'package:creatispace/shared/navigation_bar.dart';
     MaterialRoute(page: ProfileFormPageScaffold),
     MaterialRoute(page: UserList),
     MaterialRoute(page: UserListScaffold),
+    MaterialRoute(page: WorkshopForm),
     MaterialRoute(page: FollowingScaffold),
     MaterialRoute(page: UserFriendsScaffold),
     MaterialRoute(page: SearchScaffold),

@@ -21,6 +21,7 @@ import '../auth/sign_up/sign_up_page.dart';
 import '../auth/verify_email/email_verified_page.dart';
 import '../home/home_scaffold.dart';
 import '../items/items_form/item_form_page.dart';
+import '../items/items_form/workshop_form_page.dart';
 import '../items/items_overview/items_overview_page.dart';
 import '../messaging/following_list/following_scaffold.dart';
 import '../messaging/messaging/messaging_scaffold.dart';
@@ -51,6 +52,7 @@ class Routes {
   static const String profileFormPageScaffold = '/profile-form-page-scaffold';
   static const String userList = '/user-list';
   static const String userListScaffold = '/user-list-scaffold';
+  static const String workshopForm = '/workshop-form';
   static const String followingScaffold = '/following-scaffold';
   static const String userFriendsScaffold = '/user-friends-scaffold';
   static const String searchScaffold = '/search-scaffold';
@@ -78,6 +80,7 @@ class Routes {
     profileFormPageScaffold,
     userList,
     userListScaffold,
+    workshopForm,
     followingScaffold,
     userFriendsScaffold,
     searchScaffold,
@@ -110,6 +113,7 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.profileFormPageScaffold, page: ProfileFormPageScaffold),
     RouteDef(Routes.userList, page: UserList),
     RouteDef(Routes.userListScaffold, page: UserListScaffold),
+    RouteDef(Routes.workshopForm, page: WorkshopForm),
     RouteDef(Routes.followingScaffold, page: FollowingScaffold),
     RouteDef(Routes.userFriendsScaffold, page: UserFriendsScaffold),
     RouteDef(Routes.searchScaffold, page: SearchScaffold),
@@ -204,6 +208,12 @@ class BaseRouter extends RouterBase {
     UserListScaffold: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => UserListScaffold(),
+        settings: data,
+      );
+    },
+    WorkshopForm: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => WorkshopForm(),
         settings: data,
       );
     },
@@ -417,6 +427,8 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushUserListScaffold() =>
       push<dynamic>(Routes.userListScaffold);
+
+  Future<dynamic> pushWorkshopForm() => push<dynamic>(Routes.workshopForm);
 
   Future<dynamic> pushFollowingScaffold() =>
       push<dynamic>(Routes.followingScaffold);

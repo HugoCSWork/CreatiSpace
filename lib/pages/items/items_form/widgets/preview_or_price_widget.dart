@@ -64,7 +64,7 @@ class PreviewOrPay extends HookWidget {
                           onChanged: null,
                       ),
                       const SizedBox(height: 20),
-                      Text("Become a selling users to be able to sell items")
+                      Text("You Must be a seller to to sell items", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14),)
                     ],
                   );
                 }

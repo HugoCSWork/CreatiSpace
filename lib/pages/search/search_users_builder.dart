@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/search/user/search_user_bloc.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
@@ -67,13 +68,20 @@ class SearchUsers extends StatelessWidget {
                 Expanded(
                   child: Row(
                     children: <Widget>[
-                      CircularProfileAvatar(
-                          '',
+                      CircularProfileAvatar('',
                           radius: 25,
-                          child: Image(
-                            image: AssetImage(
-                                'assets/images/placeholder_profile_male.jpg'
+                          child: CachedNetworkImage(
+                            imageUrl: data.profileImageURL.getOrCrash(),
+                            fit: BoxFit.fitWidth,
+                            placeholder: (context, url) => Center(
+                              child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  margin: const EdgeInsets.all(5),
+                                  child: const CircularProgressIndicator()
+                              ),
                             ),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
                           )
                       ),
                       SizedBox(width: 16,),

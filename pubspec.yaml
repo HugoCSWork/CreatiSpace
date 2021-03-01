@@ -56,7 +56,8 @@ dependencies:
   fa_stepper: ^0.0.2
   stripe_sdk: ^3.2.0
   flutter_credit_card: ^0.1.4
-
+  agora_rtc_engine: 3.2.0
+  agora_rtm: 0.9.14
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
