@@ -23,8 +23,10 @@ class WorkshopRepository implements IWorkshopFacade {
   Future<Either<WorkshopErrorFailures, Unit>> create(Workshop item) async {
     try {
       final userDoc = await _firebaseFirestore.userDocument();
+      var username = await _firebaseFirestore.userDocumentName(userDoc.id);
+      var profileImage = await _firebaseFirestore.userDocumentProfileImage(userDoc.id);
       final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
-      final workshopDto = WorkshopDto.fromDomain(item, userDoc.id, timestamp);
+      final workshopDto = WorkshopDto.fromDomain(item, userDoc.id, timestamp, username, profileImage);
       await userDoc.workshopCollection.doc(item.id.getOrCrash()).set(workshopDto.toJson());
       await _firebaseFirestore.collection('workshops').doc(item.id.getOrCrash()).set(workshopDto.toJson());
       return right(unit);

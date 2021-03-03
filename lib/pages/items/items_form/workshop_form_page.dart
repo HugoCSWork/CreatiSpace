@@ -60,14 +60,15 @@ class WorkshopForm extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Center(child: Text("Once confirmed you cannot modify the event. Ensure everything is filled in correctly.", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold),)),
+                          child: Center(child: Text("Once confirmed you cannot modify the event. Ensure all details are filled in correctly.", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold),)),
                         ),
                         WorkshopNameField(),
                         WorkshopDescriptionField(),
                         WorkshopRequirementsField(),
                         WorkshopCostField(),
                         WorkshopDurationField(),
-                        WorkshopDateField(initialValue: DateTime.now().toLocal().toString().split(' ')[0])
+                        WorkshopDateField(initialValue: DateTime.now().toLocal().toString().split(' ')[0]),
+                        WorkshopTimeField()
                       ],
                     )
                   ),

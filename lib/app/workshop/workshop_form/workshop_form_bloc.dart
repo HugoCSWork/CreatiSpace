@@ -55,6 +55,12 @@ class WorkshopFormBloc extends Bloc<WorkshopFormEvent, WorkshopFormState> {
             saveFailureOrSuccessOption: none(),
           );
         },
+      timeChanged: (e) async* {
+        yield state.copyWith(
+          item: state.item.copyWith(workshopTime: WorkshopTime(e.time)),
+          saveFailureOrSuccessOption: none(),
+        );
+      },
         requirementsChanged: (e) async* {
           yield state.copyWith(
             item: state.item.copyWith(workshopRequirements: WorkshopRequirements(e.requirements)),

@@ -19,21 +19,31 @@ class _$WorkshopTearOff {
       @required WorkshopName workshopName,
       @required WorkshopDescription workshopDescription,
       @required WorkshopDate workshopDate,
+      @required WorkshopTime workshopTime,
       @required WorkshopRequirements workshopRequirements,
       @required WorkshopPrice workshopPrice,
       @required WorkshopDuration workshopDuration,
       @required String userId,
-      @required String timestamp}) {
+      @required String timestamp,
+      @required String hasStarted,
+      @required String username,
+      @required String profileImage,
+      @required List<String> attendees}) {
     return _Workshop(
       id: id,
       workshopName: workshopName,
       workshopDescription: workshopDescription,
       workshopDate: workshopDate,
+      workshopTime: workshopTime,
       workshopRequirements: workshopRequirements,
       workshopPrice: workshopPrice,
       workshopDuration: workshopDuration,
       userId: userId,
       timestamp: timestamp,
+      hasStarted: hasStarted,
+      username: username,
+      profileImage: profileImage,
+      attendees: attendees,
     );
   }
 }
@@ -48,11 +58,16 @@ mixin _$Workshop {
   WorkshopName get workshopName;
   WorkshopDescription get workshopDescription;
   WorkshopDate get workshopDate;
+  WorkshopTime get workshopTime;
   WorkshopRequirements get workshopRequirements;
   WorkshopPrice get workshopPrice;
   WorkshopDuration get workshopDuration;
   String get userId;
   String get timestamp;
+  String get hasStarted;
+  String get username;
+  String get profileImage;
+  List<String> get attendees;
 
   $WorkshopCopyWith<Workshop> get copyWith;
 }
@@ -66,11 +81,16 @@ abstract class $WorkshopCopyWith<$Res> {
       WorkshopName workshopName,
       WorkshopDescription workshopDescription,
       WorkshopDate workshopDate,
+      WorkshopTime workshopTime,
       WorkshopRequirements workshopRequirements,
       WorkshopPrice workshopPrice,
       WorkshopDuration workshopDuration,
       String userId,
-      String timestamp});
+      String timestamp,
+      String hasStarted,
+      String username,
+      String profileImage,
+      List<String> attendees});
 }
 
 /// @nodoc
@@ -87,11 +107,16 @@ class _$WorkshopCopyWithImpl<$Res> implements $WorkshopCopyWith<$Res> {
     Object workshopName = freezed,
     Object workshopDescription = freezed,
     Object workshopDate = freezed,
+    Object workshopTime = freezed,
     Object workshopRequirements = freezed,
     Object workshopPrice = freezed,
     Object workshopDuration = freezed,
     Object userId = freezed,
     Object timestamp = freezed,
+    Object hasStarted = freezed,
+    Object username = freezed,
+    Object profileImage = freezed,
+    Object attendees = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -104,6 +129,9 @@ class _$WorkshopCopyWithImpl<$Res> implements $WorkshopCopyWith<$Res> {
       workshopDate: workshopDate == freezed
           ? _value.workshopDate
           : workshopDate as WorkshopDate,
+      workshopTime: workshopTime == freezed
+          ? _value.workshopTime
+          : workshopTime as WorkshopTime,
       workshopRequirements: workshopRequirements == freezed
           ? _value.workshopRequirements
           : workshopRequirements as WorkshopRequirements,
@@ -115,6 +143,14 @@ class _$WorkshopCopyWithImpl<$Res> implements $WorkshopCopyWith<$Res> {
           : workshopDuration as WorkshopDuration,
       userId: userId == freezed ? _value.userId : userId as String,
       timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
+      hasStarted:
+          hasStarted == freezed ? _value.hasStarted : hasStarted as String,
+      username: username == freezed ? _value.username : username as String,
+      profileImage: profileImage == freezed
+          ? _value.profileImage
+          : profileImage as String,
+      attendees:
+          attendees == freezed ? _value.attendees : attendees as List<String>,
     ));
   }
 }
@@ -129,11 +165,16 @@ abstract class _$WorkshopCopyWith<$Res> implements $WorkshopCopyWith<$Res> {
       WorkshopName workshopName,
       WorkshopDescription workshopDescription,
       WorkshopDate workshopDate,
+      WorkshopTime workshopTime,
       WorkshopRequirements workshopRequirements,
       WorkshopPrice workshopPrice,
       WorkshopDuration workshopDuration,
       String userId,
-      String timestamp});
+      String timestamp,
+      String hasStarted,
+      String username,
+      String profileImage,
+      List<String> attendees});
 }
 
 /// @nodoc
@@ -151,11 +192,16 @@ class __$WorkshopCopyWithImpl<$Res> extends _$WorkshopCopyWithImpl<$Res>
     Object workshopName = freezed,
     Object workshopDescription = freezed,
     Object workshopDate = freezed,
+    Object workshopTime = freezed,
     Object workshopRequirements = freezed,
     Object workshopPrice = freezed,
     Object workshopDuration = freezed,
     Object userId = freezed,
     Object timestamp = freezed,
+    Object hasStarted = freezed,
+    Object username = freezed,
+    Object profileImage = freezed,
+    Object attendees = freezed,
   }) {
     return _then(_Workshop(
       id: id == freezed ? _value.id : id as UniqueId,
@@ -168,6 +214,9 @@ class __$WorkshopCopyWithImpl<$Res> extends _$WorkshopCopyWithImpl<$Res>
       workshopDate: workshopDate == freezed
           ? _value.workshopDate
           : workshopDate as WorkshopDate,
+      workshopTime: workshopTime == freezed
+          ? _value.workshopTime
+          : workshopTime as WorkshopTime,
       workshopRequirements: workshopRequirements == freezed
           ? _value.workshopRequirements
           : workshopRequirements as WorkshopRequirements,
@@ -179,6 +228,14 @@ class __$WorkshopCopyWithImpl<$Res> extends _$WorkshopCopyWithImpl<$Res>
           : workshopDuration as WorkshopDuration,
       userId: userId == freezed ? _value.userId : userId as String,
       timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
+      hasStarted:
+          hasStarted == freezed ? _value.hasStarted : hasStarted as String,
+      username: username == freezed ? _value.username : username as String,
+      profileImage: profileImage == freezed
+          ? _value.profileImage
+          : profileImage as String,
+      attendees:
+          attendees == freezed ? _value.attendees : attendees as List<String>,
     ));
   }
 }
@@ -190,20 +247,30 @@ class _$_Workshop extends _Workshop {
       @required this.workshopName,
       @required this.workshopDescription,
       @required this.workshopDate,
+      @required this.workshopTime,
       @required this.workshopRequirements,
       @required this.workshopPrice,
       @required this.workshopDuration,
       @required this.userId,
-      @required this.timestamp})
+      @required this.timestamp,
+      @required this.hasStarted,
+      @required this.username,
+      @required this.profileImage,
+      @required this.attendees})
       : assert(id != null),
         assert(workshopName != null),
         assert(workshopDescription != null),
         assert(workshopDate != null),
+        assert(workshopTime != null),
         assert(workshopRequirements != null),
         assert(workshopPrice != null),
         assert(workshopDuration != null),
         assert(userId != null),
         assert(timestamp != null),
+        assert(hasStarted != null),
+        assert(username != null),
+        assert(profileImage != null),
+        assert(attendees != null),
         super._();
 
   @override
@@ -215,6 +282,8 @@ class _$_Workshop extends _Workshop {
   @override
   final WorkshopDate workshopDate;
   @override
+  final WorkshopTime workshopTime;
+  @override
   final WorkshopRequirements workshopRequirements;
   @override
   final WorkshopPrice workshopPrice;
@@ -224,10 +293,18 @@ class _$_Workshop extends _Workshop {
   final String userId;
   @override
   final String timestamp;
+  @override
+  final String hasStarted;
+  @override
+  final String username;
+  @override
+  final String profileImage;
+  @override
+  final List<String> attendees;
 
   @override
   String toString() {
-    return 'Workshop(id: $id, workshopName: $workshopName, workshopDescription: $workshopDescription, workshopDate: $workshopDate, workshopRequirements: $workshopRequirements, workshopPrice: $workshopPrice, workshopDuration: $workshopDuration, userId: $userId, timestamp: $timestamp)';
+    return 'Workshop(id: $id, workshopName: $workshopName, workshopDescription: $workshopDescription, workshopDate: $workshopDate, workshopTime: $workshopTime, workshopRequirements: $workshopRequirements, workshopPrice: $workshopPrice, workshopDuration: $workshopDuration, userId: $userId, timestamp: $timestamp, hasStarted: $hasStarted, username: $username, profileImage: $profileImage, attendees: $attendees)';
   }
 
   @override
@@ -245,6 +322,9 @@ class _$_Workshop extends _Workshop {
             (identical(other.workshopDate, workshopDate) ||
                 const DeepCollectionEquality()
                     .equals(other.workshopDate, workshopDate)) &&
+            (identical(other.workshopTime, workshopTime) ||
+                const DeepCollectionEquality()
+                    .equals(other.workshopTime, workshopTime)) &&
             (identical(other.workshopRequirements, workshopRequirements) ||
                 const DeepCollectionEquality().equals(
                     other.workshopRequirements, workshopRequirements)) &&
@@ -258,7 +338,19 @@ class _$_Workshop extends _Workshop {
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.timestamp, timestamp) ||
                 const DeepCollectionEquality()
-                    .equals(other.timestamp, timestamp)));
+                    .equals(other.timestamp, timestamp)) &&
+            (identical(other.hasStarted, hasStarted) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasStarted, hasStarted)) &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality()
+                    .equals(other.username, username)) &&
+            (identical(other.profileImage, profileImage) ||
+                const DeepCollectionEquality()
+                    .equals(other.profileImage, profileImage)) &&
+            (identical(other.attendees, attendees) ||
+                const DeepCollectionEquality()
+                    .equals(other.attendees, attendees)));
   }
 
   @override
@@ -268,11 +360,16 @@ class _$_Workshop extends _Workshop {
       const DeepCollectionEquality().hash(workshopName) ^
       const DeepCollectionEquality().hash(workshopDescription) ^
       const DeepCollectionEquality().hash(workshopDate) ^
+      const DeepCollectionEquality().hash(workshopTime) ^
       const DeepCollectionEquality().hash(workshopRequirements) ^
       const DeepCollectionEquality().hash(workshopPrice) ^
       const DeepCollectionEquality().hash(workshopDuration) ^
       const DeepCollectionEquality().hash(userId) ^
-      const DeepCollectionEquality().hash(timestamp);
+      const DeepCollectionEquality().hash(timestamp) ^
+      const DeepCollectionEquality().hash(hasStarted) ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(profileImage) ^
+      const DeepCollectionEquality().hash(attendees);
 
   @override
   _$WorkshopCopyWith<_Workshop> get copyWith =>
@@ -286,11 +383,16 @@ abstract class _Workshop extends Workshop {
       @required WorkshopName workshopName,
       @required WorkshopDescription workshopDescription,
       @required WorkshopDate workshopDate,
+      @required WorkshopTime workshopTime,
       @required WorkshopRequirements workshopRequirements,
       @required WorkshopPrice workshopPrice,
       @required WorkshopDuration workshopDuration,
       @required String userId,
-      @required String timestamp}) = _$_Workshop;
+      @required String timestamp,
+      @required String hasStarted,
+      @required String username,
+      @required String profileImage,
+      @required List<String> attendees}) = _$_Workshop;
 
   @override
   UniqueId get id;
@@ -301,6 +403,8 @@ abstract class _Workshop extends Workshop {
   @override
   WorkshopDate get workshopDate;
   @override
+  WorkshopTime get workshopTime;
+  @override
   WorkshopRequirements get workshopRequirements;
   @override
   WorkshopPrice get workshopPrice;
@@ -310,6 +414,14 @@ abstract class _Workshop extends Workshop {
   String get userId;
   @override
   String get timestamp;
+  @override
+  String get hasStarted;
+  @override
+  String get username;
+  @override
+  String get profileImage;
+  @override
+  List<String> get attendees;
   @override
   _$WorkshopCopyWith<_Workshop> get copyWith;
 }

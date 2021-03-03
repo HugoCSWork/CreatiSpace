@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/payment_form/payment_form_bloc.dart';
+import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/items/items_form/item_form_page.dart';
 import 'package:creatispace/pages/payment_setup/payment_stepper.dart';
@@ -19,8 +20,9 @@ class PaymentFormScaffold extends StatefulWidget {
   final double cost;
   final String itemId;
   final String peerId;
-
-  const PaymentFormScaffold({Key key, this.amount, this.cost, this.itemId, this.peerId}) : super(key: key);
+  final bool isItem;
+  final Workshop workshop;
+  const PaymentFormScaffold({Key key, this.amount, this.cost, this.itemId, this.peerId, this.isItem, this.workshop}) : super(key: key);
 
   @override
   _PaymentFormScaffoldState createState() => _PaymentFormScaffoldState();
@@ -117,14 +119,22 @@ class _PaymentFormScaffoldState extends State<PaymentFormScaffold> {
                           orElse: () => null,
                         )
                     ).show(context);
-                  }, (Map<String, dynamic> results) =>
-                       ExtendedNavigator.of(context).pushAndRemoveUntilPath(Routes.paymentSuccessful, Routes.navigationBar, arguments: PaymentSuccessfulArguments(
-                         itemId: results["item_id"].toString(),
-                         amount: results["amount"].toString(),
-                         address: results["shipping"] as Map<String, dynamic>,
-                         quantity: results["quantity"].toString(),
-                         peerId: "yFEuYmwD5ZNTeym5piMwKuXzqB52"
-                       ))
+                  }, (Map<String, dynamic> results) {
+                        if(widget.isItem) {
+                          return ExtendedNavigator.of(context).pushAndRemoveUntilPath(Routes.paymentSuccessful, Routes.navigationBar, arguments: PaymentSuccessfulArguments(
+                              itemId: results["item_id"].toString(),
+                              amount: results["amount"].toString(),
+                              address: results["shipping"] as Map<String, dynamic>,
+                              quantity: results["quantity"].toString(),
+                              peerId: "yFEuYmwD5ZNTeym5piMwKuXzqB52"
+                          ));
+                        } else {
+                          return ExtendedNavigator.of(context).pushAndRemoveUntilPath(Routes.workshopConfirmation, Routes.navigationBar, arguments: WorkshopConfirmationArguments(
+                            workshop: widget.workshop
+                          ));
+                        }
+                      }
+
                   )
               );
             },
@@ -188,7 +198,7 @@ class _PaymentFormScaffoldState extends State<PaymentFormScaffold> {
                             ),
                             Step(
                               title: Text("Payment"),
-                              content: CardPaymentStep(amount: widget.amount, totalCost: widget.cost, itemId: widget.itemId, peerId: widget.peerId),
+                              content: CardPaymentStep(amount: widget.amount, totalCost: widget.cost, itemId: widget.itemId, peerId: widget.peerId, isItem: widget.isItem),
                               isActive:  state.step == 2 ? true : false,
                               state:  state.step > 2 ? StepState.complete : StepState.indexed,
                             ),

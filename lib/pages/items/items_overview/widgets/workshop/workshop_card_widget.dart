@@ -15,7 +15,7 @@ class WorkshopCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // ExtendedNavigator.of(context).pushItemFormPage(editedItem: item);
+        ExtendedNavigator.of(context).pushWorkshopItemDetails(workshop: item);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 2.0),

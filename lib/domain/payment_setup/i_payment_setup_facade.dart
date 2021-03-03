@@ -12,6 +12,6 @@ import 'package:stripe_sdk/stripe_sdk_ui.dart';
 abstract class IPaymentSetupFacade {
   Future<Either<PaymentSetupErrorFailure, Unit>> createPaymentUser(PaymentItemSetup paymentItemSetup);
   Future<Either<PaymentFormErrors, Map<String, dynamic>>> createPayment(StripeCard stripeCard, String peerId, String amount, String itemId, PaymentFormSetup paymentFormSetup);
+  Future<Either<PaymentFormErrors, Map<String, dynamic>>> createPaymentWorkshop(StripeCard stripeCard, String peerId, String workshopId, PaymentFormSetup paymentFormSetup);
   Future<Either<ItemErrorFailure, ItemDto>> getPurchasedItem(String id, String peerId);
-
 }

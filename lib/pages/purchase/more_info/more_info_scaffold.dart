@@ -170,7 +170,8 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                                       amount: _quantityController,
                                       peerId: widget.homeItem.id,
                                       itemId: widget.homeItem.item_id,
-                                      cost: widget.homeItem.price.getOrCrash()
+                                      cost: widget.homeItem.price.getOrCrash(),
+                                      isItem: true,
                                     )
                                 );
                               },
@@ -187,35 +188,6 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                     ),
                   )
                 : Container()
-                // Container(
-                //   alignment: Alignment.topRight,
-                //   child: Padding(
-                //       padding: EdgeInsets.fromLTRB(0,0,9,5),
-                //       child: FlatButton(
-                //           onPressed: () {
-                //             // ExtendedNavigator.of(context).push(Routes.paymentFormScaffold,
-                //             //     arguments: PaymentFormScaffoldArguments(
-                //             //       amount: "2",
-                //             //       peerId: homeItem.id,
-                //             //       itemId: homeItem.item_id
-                //             //     )
-                //             // );
-                //           },
-                //           color: Colors.blue[200],
-                //           shape: RoundedRectangleBorder(
-                //               borderRadius: BorderRadius.circular(18.0),
-                //               side: BorderSide(color: Colors.blue[200])
-                //           ),
-                //           child: Text("Buy")
-                //       )
-                //   ),
-                // ),
-                // Padding(
-                //   padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-                //   child: Divider(
-                //     color: Colors.black87,
-                //   ),
-                // )
               ],
             ),
           ),

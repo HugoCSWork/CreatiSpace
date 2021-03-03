@@ -52,6 +52,18 @@ class WorkshopDate extends ValueObject<String> {
   const WorkshopDate._(this.value);
 }
 
+class WorkshopTime extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory WorkshopTime(String input) {
+    assert(input != null);
+    return WorkshopTime._(validateWorkshopTime(input));
+  }
+
+  const WorkshopTime._(this.value);
+}
+
 class WorkshopPrice extends ValueObject<double> {
   @override
   final Either<ValueFailure<double>, double> value;

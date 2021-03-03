@@ -3,13 +3,19 @@ import 'dart:async';
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
+import 'package:creatispace/app/streaming/stream_conversation_watcher/stream_conversation_watcher_bloc.dart';
+import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/pages/streaming/widgets/agora.dart';
+import 'package:creatispace/pages/streaming/widgets/message_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Streaming extends StatefulWidget {
   final String channelName;
   final ClientRole role;
-  const Streaming({Key key, this.channelName, this.role}) : super(key: key);
+  final String channelId;
+  final String hostId;
+  const Streaming({Key key, this.channelName, this.role, this.channelId, this.hostId}) : super(key: key);
 
   @override
   _StreamingState createState() => _StreamingState();
@@ -21,7 +27,7 @@ class _StreamingState extends State<Streaming> {
   bool muted = false;
   bool showMessages = false;
   RtcEngine _engine;
-  final String APP_ID = "PLACEHOLDER";
+  final String APP_ID = "RANDOM_ID";
 
   @override
   void dispose() {
@@ -43,7 +49,7 @@ class _StreamingState extends State<Streaming> {
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
     await _engine.setVideoEncoderConfiguration(configuration);
-    await _engine.joinChannel("PLACEHOLDER", widget.channelName, null, 0);
+    await _engine.joinChannel(widget.channelId, widget.channelName, null, 0);
   }
 
   Future<void> _initAgoraRtcEngine() async {
@@ -56,36 +62,16 @@ class _StreamingState extends State<Streaming> {
   void _addAgoraEventHandlers() {
     _engine.setEventHandler(RtcEngineEventHandler(error: (code) {
       setState(() {
-        final info = 'onError: $code';
-        _infoStrings.add(info);
-      });
-    }, joinChannelSuccess: (channel, uid, elapsed) {
-      setState(() {
-        final info = 'onJoinChannel: $channel, uid: $uid';
-        _infoStrings.add(info);
-      });
-    }, leaveChannel: (stats) {
-      setState(() {
-        _infoStrings.add('onLeaveChannel');
-        _users.clear();
       });
     }, userJoined: (uid, elapsed) {
       setState(() {
-        final info = 'userJoined: $uid';
-        _infoStrings.add(info);
         _users.add(uid);
       });
     }, userOffline: (uid, elapsed) {
       setState(() {
-        final info = 'userOffline: $uid';
-        _infoStrings.add(info);
         _users.remove(uid);
       });
     }, firstRemoteVideoFrame: (uid, width, height, elapsed) {
-      setState(() {
-        final info = 'firstRemoteVideo: $uid ${width}x $height';
-        _infoStrings.add(info);
-      });
     }));
   }
 
@@ -115,12 +101,15 @@ class _StreamingState extends State<Streaming> {
     final views = _getRenderViews();
     switch (views.length) {
       case 1:
-        return Container(
-            width: showMessages ? 400 : MediaQuery.of(context).size.width,
-            height: showMessages ? 400 : MediaQuery.of(context).size.height,
-            child: Column(
-              children: <Widget>[_videoView(views[0])],
-            ));
+        return Column(
+          children: [
+            Container(
+              height: showMessages ? 300 : MediaQuery.of(context).size.height,
+              child: Column(
+                children: <Widget>[_videoView(views[0])],
+              )),
+            ],
+        );
       case 2:
         return Container(
             child: Column(
@@ -173,23 +162,79 @@ class _StreamingState extends State<Streaming> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Agora Flutter QuickStart'),
-      ),
-      backgroundColor: Colors.black,
-      body: Center(
+    return Center(
         child: Stack(
           children: <Widget>[
             _viewRows(),
-            panel(_infoStrings),
-            // _toolbar(),
-            toolbar(widget.role, ClientRole.Audience, muted, _onToggleMute,
-              _onSwitchCamera, _onSwitchMessage, _onCallEnd,
+            showMessages ? Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 32, 16, 0),
+                child: Column(
+                  children: [
+                    toolbarWithChat(widget.role, ClientRole.Audience, muted, _onToggleMute,
+                    _onSwitchCamera, _onSwitchMessage, _onCallEnd,
+                  )
+                  ],
+                ),
+              )
+            ) :  toolbar(widget.role, ClientRole.Audience, muted, _onToggleMute,
+                _onSwitchCamera, _onSwitchMessage, _onCallEnd),
+            // showMessages ? toolbarWithChat(widget.role, ClientRole.Audience, muted, _onToggleMute,
+            //   _onSwitchCamera, _onSwitchMessage, _onCallEnd,
+            // )
+            // : toolbar(widget.role, ClientRole.Audience, muted, _onToggleMute,
+            //   _onSwitchCamera, _onSwitchMessage, _onCallEnd),
+            showMessages
+                ? BlocBuilder<StreamConversationWatcherBloc, StreamConversationWatcherState>(
+              builder: (context, state) {
+                return state.map(
+                    initial: (_) => Container(),
+                    loadInProgress: (_) => Container(),
+                    loadSuccess: (state) {
+                      return Container(
+                          margin: EdgeInsets.only(top: 300),
+                          height:   MediaQuery.of(context).size.height - 300,
+                          child: ListView.builder(
+                            padding: EdgeInsets.fromLTRB(10, 10, 10, 50),
+                            itemBuilder: (context, index) {
+                              final item = state.items[index];
+                              return Container(
+                                child: Text(
+                                  '${item.username} - ${item.message}',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
+                                width: 200,
+                                decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(8.0)),
+                                margin: EdgeInsets.only(
+                                    bottom: 10.0,
+                                    right: 0),
+                              );
+                            },
+                            itemCount: state.items.size,
+                          ),
+                      );
+                    },
+                    loadFailure: (_) => Container()
+                );
+              },
             )
+                : Container(),
+            showMessages
+                ? Align(
+              alignment: Alignment.bottomLeft,
+                child: StreamMessagingInput(workshopId: widget.channelName, peerId: widget.hostId)
+            ) : Container()
+
           ],
         ),
-      ),
     );
   }
 }
+
+
+
+// showMessages ? StreamMessagingInput(workshopId: widget.channelId, peerId: widget.hostId) : Container(),

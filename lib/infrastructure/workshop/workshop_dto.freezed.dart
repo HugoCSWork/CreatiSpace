@@ -20,23 +20,33 @@ class _$WorkshopDtoTearOff {
   _WorkshopDto call(
       {@required String id,
       @required String userId,
+      @required String username,
+      @required String imageUrl,
       @required String timestamp,
       @required String workshopName,
+      @required String hasStarted,
       @required String workshopDescription,
       @required String workshopDate,
+      @required String workshopTime,
       @required String workshopRequirements,
       @required double workshopPrice,
-      @required double workshopDuration}) {
+      @required double workshopDuration,
+      @required List<String> attendees}) {
     return _WorkshopDto(
       id: id,
       userId: userId,
+      username: username,
+      imageUrl: imageUrl,
       timestamp: timestamp,
       workshopName: workshopName,
+      hasStarted: hasStarted,
       workshopDescription: workshopDescription,
       workshopDate: workshopDate,
+      workshopTime: workshopTime,
       workshopRequirements: workshopRequirements,
       workshopPrice: workshopPrice,
       workshopDuration: workshopDuration,
+      attendees: attendees,
     );
   }
 
@@ -54,13 +64,18 @@ const $WorkshopDto = _$WorkshopDtoTearOff();
 mixin _$WorkshopDto {
   String get id;
   String get userId;
+  String get username;
+  String get imageUrl;
   String get timestamp;
   String get workshopName;
+  String get hasStarted;
   String get workshopDescription;
   String get workshopDate;
+  String get workshopTime;
   String get workshopRequirements;
   double get workshopPrice;
   double get workshopDuration;
+  List<String> get attendees;
 
   Map<String, dynamic> toJson();
   $WorkshopDtoCopyWith<WorkshopDto> get copyWith;
@@ -74,13 +89,18 @@ abstract class $WorkshopDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
+      String username,
+      String imageUrl,
       String timestamp,
       String workshopName,
+      String hasStarted,
       String workshopDescription,
       String workshopDate,
+      String workshopTime,
       String workshopRequirements,
       double workshopPrice,
-      double workshopDuration});
+      double workshopDuration,
+      List<String> attendees});
 }
 
 /// @nodoc
@@ -95,27 +115,39 @@ class _$WorkshopDtoCopyWithImpl<$Res> implements $WorkshopDtoCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object username = freezed,
+    Object imageUrl = freezed,
     Object timestamp = freezed,
     Object workshopName = freezed,
+    Object hasStarted = freezed,
     Object workshopDescription = freezed,
     Object workshopDate = freezed,
+    Object workshopTime = freezed,
     Object workshopRequirements = freezed,
     Object workshopPrice = freezed,
     Object workshopDuration = freezed,
+    Object attendees = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       userId: userId == freezed ? _value.userId : userId as String,
+      username: username == freezed ? _value.username : username as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
       timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       workshopName: workshopName == freezed
           ? _value.workshopName
           : workshopName as String,
+      hasStarted:
+          hasStarted == freezed ? _value.hasStarted : hasStarted as String,
       workshopDescription: workshopDescription == freezed
           ? _value.workshopDescription
           : workshopDescription as String,
       workshopDate: workshopDate == freezed
           ? _value.workshopDate
           : workshopDate as String,
+      workshopTime: workshopTime == freezed
+          ? _value.workshopTime
+          : workshopTime as String,
       workshopRequirements: workshopRequirements == freezed
           ? _value.workshopRequirements
           : workshopRequirements as String,
@@ -125,6 +157,8 @@ class _$WorkshopDtoCopyWithImpl<$Res> implements $WorkshopDtoCopyWith<$Res> {
       workshopDuration: workshopDuration == freezed
           ? _value.workshopDuration
           : workshopDuration as double,
+      attendees:
+          attendees == freezed ? _value.attendees : attendees as List<String>,
     ));
   }
 }
@@ -139,13 +173,18 @@ abstract class _$WorkshopDtoCopyWith<$Res>
   $Res call(
       {String id,
       String userId,
+      String username,
+      String imageUrl,
       String timestamp,
       String workshopName,
+      String hasStarted,
       String workshopDescription,
       String workshopDate,
+      String workshopTime,
       String workshopRequirements,
       double workshopPrice,
-      double workshopDuration});
+      double workshopDuration,
+      List<String> attendees});
 }
 
 /// @nodoc
@@ -162,27 +201,39 @@ class __$WorkshopDtoCopyWithImpl<$Res> extends _$WorkshopDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object userId = freezed,
+    Object username = freezed,
+    Object imageUrl = freezed,
     Object timestamp = freezed,
     Object workshopName = freezed,
+    Object hasStarted = freezed,
     Object workshopDescription = freezed,
     Object workshopDate = freezed,
+    Object workshopTime = freezed,
     Object workshopRequirements = freezed,
     Object workshopPrice = freezed,
     Object workshopDuration = freezed,
+    Object attendees = freezed,
   }) {
     return _then(_WorkshopDto(
       id: id == freezed ? _value.id : id as String,
       userId: userId == freezed ? _value.userId : userId as String,
+      username: username == freezed ? _value.username : username as String,
+      imageUrl: imageUrl == freezed ? _value.imageUrl : imageUrl as String,
       timestamp: timestamp == freezed ? _value.timestamp : timestamp as String,
       workshopName: workshopName == freezed
           ? _value.workshopName
           : workshopName as String,
+      hasStarted:
+          hasStarted == freezed ? _value.hasStarted : hasStarted as String,
       workshopDescription: workshopDescription == freezed
           ? _value.workshopDescription
           : workshopDescription as String,
       workshopDate: workshopDate == freezed
           ? _value.workshopDate
           : workshopDate as String,
+      workshopTime: workshopTime == freezed
+          ? _value.workshopTime
+          : workshopTime as String,
       workshopRequirements: workshopRequirements == freezed
           ? _value.workshopRequirements
           : workshopRequirements as String,
@@ -192,6 +243,8 @@ class __$WorkshopDtoCopyWithImpl<$Res> extends _$WorkshopDtoCopyWithImpl<$Res>
       workshopDuration: workshopDuration == freezed
           ? _value.workshopDuration
           : workshopDuration as double,
+      attendees:
+          attendees == freezed ? _value.attendees : attendees as List<String>,
     ));
   }
 }
@@ -203,22 +256,32 @@ class _$_WorkshopDto extends _WorkshopDto {
   const _$_WorkshopDto(
       {@required this.id,
       @required this.userId,
+      @required this.username,
+      @required this.imageUrl,
       @required this.timestamp,
       @required this.workshopName,
+      @required this.hasStarted,
       @required this.workshopDescription,
       @required this.workshopDate,
+      @required this.workshopTime,
       @required this.workshopRequirements,
       @required this.workshopPrice,
-      @required this.workshopDuration})
+      @required this.workshopDuration,
+      @required this.attendees})
       : assert(id != null),
         assert(userId != null),
+        assert(username != null),
+        assert(imageUrl != null),
         assert(timestamp != null),
         assert(workshopName != null),
+        assert(hasStarted != null),
         assert(workshopDescription != null),
         assert(workshopDate != null),
+        assert(workshopTime != null),
         assert(workshopRequirements != null),
         assert(workshopPrice != null),
         assert(workshopDuration != null),
+        assert(attendees != null),
         super._();
 
   factory _$_WorkshopDto.fromJson(Map<String, dynamic> json) =>
@@ -229,23 +292,33 @@ class _$_WorkshopDto extends _WorkshopDto {
   @override
   final String userId;
   @override
+  final String username;
+  @override
+  final String imageUrl;
+  @override
   final String timestamp;
   @override
   final String workshopName;
   @override
+  final String hasStarted;
+  @override
   final String workshopDescription;
   @override
   final String workshopDate;
+  @override
+  final String workshopTime;
   @override
   final String workshopRequirements;
   @override
   final double workshopPrice;
   @override
   final double workshopDuration;
+  @override
+  final List<String> attendees;
 
   @override
   String toString() {
-    return 'WorkshopDto(id: $id, userId: $userId, timestamp: $timestamp, workshopName: $workshopName, workshopDescription: $workshopDescription, workshopDate: $workshopDate, workshopRequirements: $workshopRequirements, workshopPrice: $workshopPrice, workshopDuration: $workshopDuration)';
+    return 'WorkshopDto(id: $id, userId: $userId, username: $username, imageUrl: $imageUrl, timestamp: $timestamp, workshopName: $workshopName, hasStarted: $hasStarted, workshopDescription: $workshopDescription, workshopDate: $workshopDate, workshopTime: $workshopTime, workshopRequirements: $workshopRequirements, workshopPrice: $workshopPrice, workshopDuration: $workshopDuration, attendees: $attendees)';
   }
 
   @override
@@ -256,18 +329,30 @@ class _$_WorkshopDto extends _WorkshopDto {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality()
+                    .equals(other.username, username)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageUrl, imageUrl)) &&
             (identical(other.timestamp, timestamp) ||
                 const DeepCollectionEquality()
                     .equals(other.timestamp, timestamp)) &&
             (identical(other.workshopName, workshopName) ||
                 const DeepCollectionEquality()
                     .equals(other.workshopName, workshopName)) &&
+            (identical(other.hasStarted, hasStarted) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasStarted, hasStarted)) &&
             (identical(other.workshopDescription, workshopDescription) ||
                 const DeepCollectionEquality()
                     .equals(other.workshopDescription, workshopDescription)) &&
             (identical(other.workshopDate, workshopDate) ||
                 const DeepCollectionEquality()
                     .equals(other.workshopDate, workshopDate)) &&
+            (identical(other.workshopTime, workshopTime) ||
+                const DeepCollectionEquality()
+                    .equals(other.workshopTime, workshopTime)) &&
             (identical(other.workshopRequirements, workshopRequirements) ||
                 const DeepCollectionEquality().equals(
                     other.workshopRequirements, workshopRequirements)) &&
@@ -276,7 +361,10 @@ class _$_WorkshopDto extends _WorkshopDto {
                     .equals(other.workshopPrice, workshopPrice)) &&
             (identical(other.workshopDuration, workshopDuration) ||
                 const DeepCollectionEquality()
-                    .equals(other.workshopDuration, workshopDuration)));
+                    .equals(other.workshopDuration, workshopDuration)) &&
+            (identical(other.attendees, attendees) ||
+                const DeepCollectionEquality()
+                    .equals(other.attendees, attendees)));
   }
 
   @override
@@ -284,13 +372,18 @@ class _$_WorkshopDto extends _WorkshopDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
       const DeepCollectionEquality().hash(timestamp) ^
       const DeepCollectionEquality().hash(workshopName) ^
+      const DeepCollectionEquality().hash(hasStarted) ^
       const DeepCollectionEquality().hash(workshopDescription) ^
       const DeepCollectionEquality().hash(workshopDate) ^
+      const DeepCollectionEquality().hash(workshopTime) ^
       const DeepCollectionEquality().hash(workshopRequirements) ^
       const DeepCollectionEquality().hash(workshopPrice) ^
-      const DeepCollectionEquality().hash(workshopDuration);
+      const DeepCollectionEquality().hash(workshopDuration) ^
+      const DeepCollectionEquality().hash(attendees);
 
   @override
   _$WorkshopDtoCopyWith<_WorkshopDto> get copyWith =>
@@ -307,13 +400,18 @@ abstract class _WorkshopDto extends WorkshopDto {
   const factory _WorkshopDto(
       {@required String id,
       @required String userId,
+      @required String username,
+      @required String imageUrl,
       @required String timestamp,
       @required String workshopName,
+      @required String hasStarted,
       @required String workshopDescription,
       @required String workshopDate,
+      @required String workshopTime,
       @required String workshopRequirements,
       @required double workshopPrice,
-      @required double workshopDuration}) = _$_WorkshopDto;
+      @required double workshopDuration,
+      @required List<String> attendees}) = _$_WorkshopDto;
 
   factory _WorkshopDto.fromJson(Map<String, dynamic> json) =
       _$_WorkshopDto.fromJson;
@@ -323,19 +421,29 @@ abstract class _WorkshopDto extends WorkshopDto {
   @override
   String get userId;
   @override
+  String get username;
+  @override
+  String get imageUrl;
+  @override
   String get timestamp;
   @override
   String get workshopName;
   @override
+  String get hasStarted;
+  @override
   String get workshopDescription;
   @override
   String get workshopDate;
+  @override
+  String get workshopTime;
   @override
   String get workshopRequirements;
   @override
   double get workshopPrice;
   @override
   double get workshopDuration;
+  @override
+  List<String> get attendees;
   @override
   _$WorkshopDtoCopyWith<_WorkshopDto> get copyWith;
 }

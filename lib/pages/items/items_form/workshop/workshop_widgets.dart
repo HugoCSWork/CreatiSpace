@@ -21,7 +21,7 @@ class WorkshopNameField extends HookWidget {
             alignLabelWithHint: true,
             counterText: '',
           ),
-          maxLength: 20,
+          maxLength: 100,
           onChanged: (value) => context.read<WorkshopFormBloc>().add(WorkshopFormEvent.nameChanged(value)),
           validator: (_) => context.read<WorkshopFormBloc>()
               .state.item.workshopName.value
@@ -155,7 +155,6 @@ class WorkshopDurationField extends HookWidget {
       const EdgeInsets.symmetric(vertical: 8.0),
       margin: const EdgeInsets.only(
           left: 8, top: 8, right: 8),
-
       child:
       DropdownButtonFormField<String>(
         items: ["30 Minutes", "60 Minutes", "90 Minutes", "120 Minutes"]
@@ -170,6 +169,9 @@ class WorkshopDurationField extends HookWidget {
           alignLabelWithHint: true,
           counterText: '',
         ),
+        onTap: () {
+          FocusManager.instance.primaryFocus.unfocus();
+        },
         onChanged: (value) {
           context.read<WorkshopFormBloc>().add(WorkshopFormEvent.durationChanged(double.parse(value.split(" ")[0])));
         },
@@ -194,7 +196,8 @@ class WorkshopDateField extends StatefulWidget {
 
 class _WorkshopDateFieldState extends State<WorkshopDateField> {
   final String initialValue;
-  DateTime currentTime = DateTime.now();
+  DateTime currentDate = DateTime.now();
+  TimeOfDay currentTime = TimeOfDay.now();
   TextEditingController _date = TextEditingController();
 
   _WorkshopDateFieldState(this.initialValue){
@@ -204,17 +207,17 @@ class _WorkshopDateFieldState extends State<WorkshopDateField> {
   Future<String> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
         context: context,
-        initialDate: currentTime,
+        initialDate: currentDate,
         firstDate: DateTime(1901, 1),
         lastDate: DateTime(2100));
-    if (picked != null && picked != currentTime) {
+    if (picked != null && picked != currentDate) {
       setState(() {
-        currentTime = picked;
+        currentDate = picked;
         _date.value = TextEditingValue(text: picked.toLocal().toString().split(' ')[0]);
       });
       return _date.value.text;
     }
-    return currentTime.toString();
+    return currentDate.toString();
   }
 
   @override
@@ -256,5 +259,77 @@ class _WorkshopDateFieldState extends State<WorkshopDateField> {
           ),
         ),
       );
+  }
+}
+
+
+class WorkshopTimeField extends StatefulWidget {
+
+  @override
+  _WorkshopTimeFieldState createState() => _WorkshopTimeFieldState();
+}
+
+class _WorkshopTimeFieldState extends State<WorkshopTimeField> {
+  TimeOfDay currentTime = TimeOfDay.now();
+  TextEditingController _time = TextEditingController();
+
+  _WorkshopTimeFieldState(){
+    _time.text = '${currentTime.hour.toString()}:${currentTime.minute.toString()}';
+  }
+
+  Future<String> _selectTime(BuildContext context) async {
+    final TimeOfDay picked = await showTimePicker(
+      context: context,
+      initialTime: currentTime,
+    );
+    if (picked != null && picked != currentTime) {
+      setState(() {
+        currentTime = picked;
+        _time.value = TextEditingValue(text: '${currentTime.hour.toString()}:${currentTime.minute.toString()}');
+      });
+      return _time.value.text;
+    }
+    return currentTime.toString();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return  GestureDetector(
+      onTap: () async {
+        String date = await _selectTime(context);
+        context
+            .read<WorkshopFormBloc>()
+            .add(WorkshopFormEvent.timeChanged(date));
+        FocusManager.instance.primaryFocus.unfocus();
+      },
+      child: AbsorbPointer(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          child: TextFormField(
+            controller: _time,
+            keyboardType: TextInputType.datetime,
+            decoration: InputDecoration(
+              hintText: 'Time of Event',
+              labelText: 'Event Time',
+              prefixIcon: Icon(
+                Icons.dialpad,
+              ),
+            ),
+            validator: (_) => context.read<WorkshopFormBloc>()
+                .state.item.workshopTime.value
+                .fold(
+                    (failure) => failure.maybeMap(
+                  workshop: (value) => value.i.maybeMap(
+                    invalidWorkshopTime: (_) => 'Time must be valid',
+                    orElse: () => null,
+                  ),
+                  orElse: () => null,
+                ),
+                    (_) => null
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

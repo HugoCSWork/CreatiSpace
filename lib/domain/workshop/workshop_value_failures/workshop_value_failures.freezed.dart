@@ -38,6 +38,14 @@ class _$WorkshopValueFailureTearOff {
   }
 
 // ignore: unused_element
+  InvalidWorkshopTime<T> invalidWorkshopTime<T>(
+      {@required String failedValue}) {
+    return InvalidWorkshopTime<T>(
+      failedValue: failedValue,
+    );
+  }
+
+// ignore: unused_element
   InvalidWorkshopRequirements<T> invalidWorkshopRequirements<T>(
       {@required String failedValue}) {
     return InvalidWorkshopRequirements<T>(
@@ -73,6 +81,7 @@ mixin _$WorkshopValueFailure<T> {
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -82,6 +91,7 @@ mixin _$WorkshopValueFailure<T> {
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -93,6 +103,7 @@ mixin _$WorkshopValueFailure<T> {
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -104,6 +115,7 @@ mixin _$WorkshopValueFailure<T> {
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
@@ -195,6 +207,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -202,6 +215,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -214,6 +228,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -233,6 +248,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -242,6 +258,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -254,6 +271,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
@@ -344,6 +362,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -351,6 +370,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -363,6 +383,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -382,6 +403,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -391,6 +413,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -403,6 +426,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
@@ -493,6 +517,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -500,6 +525,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -512,6 +538,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -531,6 +558,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -540,6 +568,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -552,6 +581,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
@@ -571,6 +601,159 @@ abstract class InvalidWorkshopDate<T> implements WorkshopValueFailure<T> {
 
   String get failedValue;
   $InvalidWorkshopDateCopyWith<T, InvalidWorkshopDate<T>> get copyWith;
+}
+
+/// @nodoc
+abstract class $InvalidWorkshopTimeCopyWith<T, $Res> {
+  factory $InvalidWorkshopTimeCopyWith(InvalidWorkshopTime<T> value,
+          $Res Function(InvalidWorkshopTime<T>) then) =
+      _$InvalidWorkshopTimeCopyWithImpl<T, $Res>;
+  $Res call({String failedValue});
+}
+
+/// @nodoc
+class _$InvalidWorkshopTimeCopyWithImpl<T, $Res>
+    extends _$WorkshopValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidWorkshopTimeCopyWith<T, $Res> {
+  _$InvalidWorkshopTimeCopyWithImpl(InvalidWorkshopTime<T> _value,
+      $Res Function(InvalidWorkshopTime<T>) _then)
+      : super(_value, (v) => _then(v as InvalidWorkshopTime<T>));
+
+  @override
+  InvalidWorkshopTime<T> get _value => super._value as InvalidWorkshopTime<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidWorkshopTime<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$InvalidWorkshopTime<T> implements InvalidWorkshopTime<T> {
+  const _$InvalidWorkshopTime({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final String failedValue;
+
+  @override
+  String toString() {
+    return 'WorkshopValueFailure<$T>.invalidWorkshopTime(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidWorkshopTime<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $InvalidWorkshopTimeCopyWith<T, InvalidWorkshopTime<T>> get copyWith =>
+      _$InvalidWorkshopTimeCopyWithImpl<T, InvalidWorkshopTime<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult invalidWorkshopName(String failedValue),
+    @required TResult invalidWorkshopDescription(String failedValue),
+    @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
+    @required TResult invalidWorkshopRequirements(String failedValue),
+    @required TResult invalidWorkshopPrice(double failedValue),
+    @required TResult invalidWorkshopDuration(double failedValue),
+  }) {
+    assert(invalidWorkshopName != null);
+    assert(invalidWorkshopDescription != null);
+    assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
+    assert(invalidWorkshopRequirements != null);
+    assert(invalidWorkshopPrice != null);
+    assert(invalidWorkshopDuration != null);
+    return invalidWorkshopTime(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult invalidWorkshopName(String failedValue),
+    TResult invalidWorkshopDescription(String failedValue),
+    TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
+    TResult invalidWorkshopRequirements(String failedValue),
+    TResult invalidWorkshopPrice(double failedValue),
+    TResult invalidWorkshopDuration(double failedValue),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidWorkshopTime != null) {
+      return invalidWorkshopTime(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult invalidWorkshopName(InvalidWorkshopName<T> value),
+    @required
+        TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
+    @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
+    @required
+        TResult invalidWorkshopRequirements(
+            InvalidWorkshopRequirements<T> value),
+    @required TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
+    @required TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
+  }) {
+    assert(invalidWorkshopName != null);
+    assert(invalidWorkshopDescription != null);
+    assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
+    assert(invalidWorkshopRequirements != null);
+    assert(invalidWorkshopPrice != null);
+    assert(invalidWorkshopDuration != null);
+    return invalidWorkshopTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult invalidWorkshopName(InvalidWorkshopName<T> value),
+    TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
+    TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
+    TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
+    TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
+    TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidWorkshopTime != null) {
+      return invalidWorkshopTime(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidWorkshopTime<T> implements WorkshopValueFailure<T> {
+  const factory InvalidWorkshopTime({@required String failedValue}) =
+      _$InvalidWorkshopTime<T>;
+
+  String get failedValue;
+  $InvalidWorkshopTimeCopyWith<T, InvalidWorkshopTime<T>> get copyWith;
 }
 
 /// @nodoc
@@ -644,6 +827,7 @@ class _$InvalidWorkshopRequirements<T>
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -651,6 +835,7 @@ class _$InvalidWorkshopRequirements<T>
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -663,6 +848,7 @@ class _$InvalidWorkshopRequirements<T>
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -682,6 +868,7 @@ class _$InvalidWorkshopRequirements<T>
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -691,6 +878,7 @@ class _$InvalidWorkshopRequirements<T>
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -703,6 +891,7 @@ class _$InvalidWorkshopRequirements<T>
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
@@ -793,6 +982,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -800,6 +990,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -812,6 +1003,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -831,6 +1023,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -840,6 +1033,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -852,6 +1046,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),
@@ -942,6 +1137,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
     @required TResult invalidWorkshopName(String failedValue),
     @required TResult invalidWorkshopDescription(String failedValue),
     @required TResult invalidWorkshopDate(String failedValue),
+    @required TResult invalidWorkshopTime(String failedValue),
     @required TResult invalidWorkshopRequirements(String failedValue),
     @required TResult invalidWorkshopPrice(double failedValue),
     @required TResult invalidWorkshopDuration(double failedValue),
@@ -949,6 +1145,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -961,6 +1158,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
     TResult invalidWorkshopName(String failedValue),
     TResult invalidWorkshopDescription(String failedValue),
     TResult invalidWorkshopDate(String failedValue),
+    TResult invalidWorkshopTime(String failedValue),
     TResult invalidWorkshopRequirements(String failedValue),
     TResult invalidWorkshopPrice(double failedValue),
     TResult invalidWorkshopDuration(double failedValue),
@@ -980,6 +1178,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
     @required
         TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     @required TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    @required TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     @required
         TResult invalidWorkshopRequirements(
             InvalidWorkshopRequirements<T> value),
@@ -989,6 +1188,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
     assert(invalidWorkshopName != null);
     assert(invalidWorkshopDescription != null);
     assert(invalidWorkshopDate != null);
+    assert(invalidWorkshopTime != null);
     assert(invalidWorkshopRequirements != null);
     assert(invalidWorkshopPrice != null);
     assert(invalidWorkshopDuration != null);
@@ -1001,6 +1201,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
     TResult invalidWorkshopName(InvalidWorkshopName<T> value),
     TResult invalidWorkshopDescription(InvalidWorkshopDescription<T> value),
     TResult invalidWorkshopDate(InvalidWorkshopDate<T> value),
+    TResult invalidWorkshopTime(InvalidWorkshopTime<T> value),
     TResult invalidWorkshopRequirements(InvalidWorkshopRequirements<T> value),
     TResult invalidWorkshopPrice(InvalidWorkshopPrice<T> value),
     TResult invalidWorkshopDuration(InvalidWorkshopDuration<T> value),

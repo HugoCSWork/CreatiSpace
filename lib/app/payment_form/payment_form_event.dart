@@ -28,5 +28,6 @@ abstract class PaymentFormEvent with _$PaymentFormEvent {
 
 
   const factory PaymentFormEvent.saved(StripeCard card, String peerId, String amount, String itemId) = _Saved;
+  const factory PaymentFormEvent.savedWorkshop(StripeCard card, String peerId, String workshopId) = _SavedWorkshop;
 
 }

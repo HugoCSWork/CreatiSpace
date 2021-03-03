@@ -3,9 +3,11 @@ import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/payment_details/i_payment_details_facade.dart';
 import 'package:creatispace/domain/payment_details/payment_details.dart';
 import 'package:creatispace/domain/payment_details/payment_details_error/payment_details_error.dart';
+import 'package:creatispace/domain/workshop/workshop_payment.dart';
 import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:creatispace/infrastructure/payment_details/payment_details_dto.dart';
+import 'package:creatispace/infrastructure/payment_details/workshop_payment_dto.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/src/collection/kt_list.dart';
@@ -94,13 +96,35 @@ class PaymentSetupRepository implements IPaymentDetailsFacade {
     try {
       var userDoc = await _firebaseFirestore.userDocument();
       var peerDoc = await _firebaseFirestore.peerDocument(userId);
-      var receivingUser = isSeller ? userDoc : peerDoc;
-      var sendingUser = isSeller ? peerDoc : userDoc;
-      await sendingUser.paymentSendingOrders.doc(paymentId).update({"delivery_status" : status});
-      await receivingUser.paymentReceivingOrders.doc(paymentId).update({"delivery_status" : status});
+      await userDoc.paymentSendingOrders.doc(paymentId).update({"delivery_status" : status});
+      await peerDoc.paymentReceivingOrders.doc(paymentId).update({"delivery_status" : status});
       return Right(unit);
     } catch (e) {
       return Left(ItemErrorFailure.unexpected());
     }
+  }
+
+  @override
+  Stream<Either<PaymentDetailsErrorFailure, KtList<WorkshopPayment>>> retrieveWorkshopPaymentDetails() async* {
+    var userDoc = await _firebaseFirestore.userDocument();
+    yield* userDoc.workshopAttendingCollection
+        .snapshots()
+        .map(
+          (snapshot) =>
+          right<PaymentDetailsErrorFailure, KtList<WorkshopPayment>>(
+            snapshot.docs.map((doc) {
+              WorkshopPayment dto = WorkshopPaymentDto.fromFirestore(doc).toDomain();
+              return dto;
+            }).toImmutableList(),
+          ),
+    )
+        .onErrorReturnWith((error) {
+      if (error is FirebaseException &&
+          error.message.contains('PERMISSION_DENIED')) {
+        return left(const PaymentDetailsErrorFailure.insufficientPermissions());
+      } else {
+        return left(const PaymentDetailsErrorFailure.unexpected());
+      }
+    });
   }
 }

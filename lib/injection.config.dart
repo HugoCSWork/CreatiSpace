@@ -12,6 +12,7 @@ import 'package:injectable/injectable.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'app/auth/auth_bloc.dart';
+import 'app/streaming/end_stream/end_stream_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'app/following_followers/followers/followers_bloc.dart';
@@ -25,6 +26,7 @@ import 'domain/payment_details/i_payment_details_facade.dart';
 import 'domain/payment_setup/i_payment_setup_facade.dart';
 import 'domain/profile/i_profile_facade.dart';
 import 'domain/search/i_search_facade.dart';
+import 'domain/streaming/i_streaming_facade.dart';
 import 'domain/user_messaging/IUserFacade.dart';
 import 'domain/workshop/i_workshop_facade.dart';
 import 'app/auth/is_verified/is_verified_bloc.dart';
@@ -33,6 +35,7 @@ import 'app/item/item_form/item_form_bloc.dart';
 import 'app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'infrastructure/items/item_repository.dart';
 import 'app/item/item_watcher/item_watcher_bloc.dart';
+import 'app/streaming/join_stream/join_stream_bloc.dart';
 import 'app/payment_confirmation/payment_confirmation_bloc.dart';
 import 'app/payment_details/payment_details_form/payment_details_form_bloc.dart';
 import 'app/payment_form/payment_form_bloc.dart';
@@ -44,6 +47,7 @@ import 'infrastructure/payment_setup/payment_setup_repository.dart'
     as creatispace;
 import 'infrastructure/payment_details/payment_details_repository.dart';
 import 'app/auth/payment_verified/payment_verified_bloc.dart';
+import 'app/payment_details/payment_workshop/payment_workshop_bloc.dart';
 import 'app/profile/profile_actor/profile_actor_bloc.dart';
 import 'app/profile/profile_form/profile_form_bloc.dart';
 import 'app/profile/profile_information_watcher/profile_information_watcher_bloc.dart';
@@ -51,8 +55,12 @@ import 'infrastructure/profile/profile_repository.dart';
 import 'app/search/item/search_item_bloc.dart';
 import 'infrastructure/search/search_repository.dart';
 import 'app/search/user/search_user_bloc.dart';
+import 'app/search/workshop/search_workshop_bloc.dart';
 import 'app/auth/sign_in/sign_in_bloc.dart';
 import 'app/auth/sign_up/sign_up_bloc.dart';
+import 'app/streaming/start_stream/start_stream_bloc.dart';
+import 'app/streaming/stream_conversation_watcher/stream_conversation_watcher_bloc.dart';
+import 'infrastructure/streaming/streaming_repository.dart';
 import 'app/user_messaging/user_conversation_watcher/user_conversation_bloc.dart';
 import 'infrastructure/messaging/messaging_repository.dart';
 import 'app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
@@ -102,6 +110,8 @@ GetIt $initGetIt(
       ));
   gh.lazySingleton<ISearchFacade>(
       () => SearchRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
+  gh.lazySingleton<IStreamingFacade>(
+      () => StreamingRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IUserFacade>(() => UserMessagesRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),
@@ -115,6 +125,7 @@ GetIt $initGetIt(
   gh.factory<ItemHomeWatcherBloc>(
       () => ItemHomeWatcherBloc(get<IItemFacade>()));
   gh.factory<ItemWatcherBloc>(() => ItemWatcherBloc(get<IItemFacade>()));
+  gh.factory<JoinStreamBloc>(() => JoinStreamBloc(get<IStreamingFacade>()));
   gh.factory<PaymentConfirmationBloc>(
       () => PaymentConfirmationBloc(get<IPaymentSetupFacade>()));
   gh.factory<PaymentDetailsFormBloc>(
@@ -131,14 +142,21 @@ GetIt $initGetIt(
       () => PaymentSetupBloc(get<IPaymentSetupFacade>()));
   gh.factory<PaymentVerifiedBloc>(
       () => PaymentVerifiedBloc(get<IAuthFacade>()));
+  gh.factory<PaymentWorkshopBloc>(
+      () => PaymentWorkshopBloc(get<IPaymentDetailsFacade>()));
   gh.factory<ProfileActorBloc>(() => ProfileActorBloc(get<IProfileFacade>()));
   gh.factory<ProfileFormBloc>(() => ProfileFormBloc(get<IProfileFacade>()));
   gh.factory<ProfileInformationWatcherBloc>(
       () => ProfileInformationWatcherBloc(get<IProfileFacade>()));
   gh.factory<SearchItemBloc>(() => SearchItemBloc(get<ISearchFacade>()));
   gh.factory<SearchUserBloc>(() => SearchUserBloc(get<ISearchFacade>()));
+  gh.factory<SearchWorkshopBloc>(
+      () => SearchWorkshopBloc(get<ISearchFacade>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<SignUpFormBloc>(() => SignUpFormBloc(get<IAuthFacade>()));
+  gh.factory<StartStreamBloc>(() => StartStreamBloc(get<IStreamingFacade>()));
+  gh.factory<StreamConversationWatcherBloc>(
+      () => StreamConversationWatcherBloc(get<IStreamingFacade>()));
   gh.factory<UserConversationBloc>(
       () => UserConversationBloc(get<IUserFacade>()));
   gh.factory<UserMessagingWatcherBloc>(
@@ -147,6 +165,7 @@ GetIt $initGetIt(
   gh.factory<WorkshopWatcherBloc>(
       () => WorkshopWatcherBloc(get<IWorkshopFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
+  gh.factory<EndStreamBloc>(() => EndStreamBloc(get<IStreamingFacade>()));
   gh.factory<FollowersBloc>(
       () => FollowersBloc(get<IFollowingFollowerFacade>()));
   gh.factory<FollowingBloc>(

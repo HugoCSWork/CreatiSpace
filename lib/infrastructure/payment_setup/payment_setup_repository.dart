@@ -10,11 +10,14 @@ import 'package:creatispace/domain/payment_setup/i_payment_setup_facade.dart';
 import 'package:creatispace/domain/payment_setup/payment_response/payment_response.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_error/payment_setup_error.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_model/payment_setup.dart';
+import 'package:creatispace/domain/workshop/workshop.dart';
+import 'package:creatispace/domain/workshop/workshop_payment.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:creatispace/infrastructure/payment_setup/payment_setup_dto.dart';
 import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/core/firebase_storage_helpers.dart';
 import 'package:creatispace/infrastructure/payment_setup/payment_setup_helpers.dart';
+import 'package:creatispace/infrastructure/workshop/workshop_dto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:dartz/dartz.dart';
@@ -167,5 +170,78 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
       return Left(ItemErrorFailure.unexpected());
     }
 
+  }
+
+  @override
+  Future<Either<PaymentFormErrors, Map<String, dynamic>>> createPaymentWorkshop(StripeCard stripeCard, String peerId, String workshopId, PaymentFormSetup paymentFormSetup) async {
+    try {
+      final peerDoc = await _firebaseFirestore.peerDocument(peerId);
+      final userDoc = await _firebaseFirestore.userDocument();
+      final paymentDoc = peerDoc.paymentCollection.doc("accounts");
+      var paymentData = (await paymentDoc.get()).data();
+      var accountId = paymentData["account_id"] as String;
+      final Stripe stripe = Stripe(
+        "pk_test_51HeGE8CySRExChgokc87eHbqYfFRXZ6ERVo5QkjokzOjCcAeBUoNGHmMJOQHne2qQluAywStyOKloYAnEL9I8EMw00EcxRCDOk",
+        stripeAccount: accountId ,
+        returnUrlForSca: "stripesdk://3ds.stripesdk.io", //Return URL for SCA
+      );
+      Map<String, dynamic> paymentIntentRes = await createPaymentIntentWorkshop(
+          stripeCard, _firebaseAuth.currentUser.email, stripe, accountId, peerId, "1", workshopId);
+      String clientSecret = paymentIntentRes['client_secret'] as String;
+      String paymentMethodId = paymentIntentRes['payment_method'] as String;
+      String status = paymentIntentRes['status'] as String;
+
+      if(status == 'requires_action')
+        paymentIntentRes = await confirmPayment3DSecure(clientSecret, paymentMethodId, stripe);
+
+      // Return left Cancelled
+      if(paymentIntentRes['status'] != 'succeeded'){
+        return Left(PaymentFormErrors.cancelled());
+      }
+
+      if(paymentIntentRes['status'] == 'succeeded'){
+        final timestamp = DateTime.now().millisecondsSinceEpoch.toString();
+
+        var itemDocument = await peerDoc.workshopCollection.doc(workshopId);
+        var userItem = await itemDocument.get();
+        var userData = userItem.data();
+
+        var userDocument = await userDoc.get();
+        var userProfileData = userDocument.data();
+
+        paymentIntentRes["shipping"] = {
+          "line_1": paymentFormSetup.line1.getOrCrash(),
+          "line_2": paymentFormSetup.line2.getOrCrash(),
+          "postcode": paymentFormSetup.postcode.getOrCrash(),
+          "house_number": paymentFormSetup.houseNumber.getOrCrash(),
+          "city": paymentFormSetup.city.getOrCrash(),
+          "country": paymentFormSetup.country.getOrCrash(),
+          "county": paymentFormSetup.county.getOrCrash(),
+        };
+
+        paymentIntentRes["workshop_id"] = workshopId;
+        paymentIntentRes["timestamp"] = timestamp;
+        paymentIntentRes["username"] = userData["username"];
+        paymentIntentRes["user_id"] = userData["userId"];
+        paymentIntentRes["peer_username"] = userProfileData["username"];
+        paymentIntentRes["peer_id"] = userDoc.id;
+        await peerDoc.workshopCollection.doc(workshopId).update({
+          'attendees' : FieldValue.arrayUnion([userDoc.id])
+        });
+
+        WorkshopPayment workshopPayment = new WorkshopPayment(
+            workshop: userData,
+            paymentIntentRes: paymentIntentRes,
+            hasStarted: "pending"
+        );
+        await userDoc.workshopAttendingCollection.doc(workshopId).set(workshopPayment.toJson());
+        // await userDoc.paymentReceivingOrders.doc(paymentIntentRes["id"] as String).set(paymentIntentRes);
+        // await peerDoc.paymentSendingOrders.doc(paymentIntentRes["id"] as String).set(paymentIntentRes);
+        return Right(paymentIntentRes);
+      }
+    } catch(e) {
+      return Left(PaymentFormErrors.errorMakingPayment());
+    }
+    return Left(PaymentFormErrors.errorMakingPayment());
   }
 }

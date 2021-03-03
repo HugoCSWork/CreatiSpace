@@ -193,6 +193,19 @@ class PaymentFormBloc extends Bloc<PaymentFormEvent, PaymentFormState> {
           saveFailureOrSuccessOption: optionOf(failureOrSuccess),
         );
       },
+      savedWorkshop:  (e) async* {
+        Either<PaymentFormErrors, Map<String, dynamic>> failureOrSuccess;
+        yield state.copyWith(
+          isSaving: true,
+          saveFailureOrSuccessOption: none(),
+        );
+        failureOrSuccess = await _iPaymentSetupFacade.createPaymentWorkshop(e.card, e.peerId, e.workshopId, state.paymentForm);
+
+        yield state.copyWith(
+          isSaving: false,
+          saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
+      },
     );
   }
 }

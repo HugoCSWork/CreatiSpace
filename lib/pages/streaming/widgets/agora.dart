@@ -1,8 +1,42 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
 
-Widget toolbar(ClientRole role, ClientRole audience, bool muted, Function() onMicPressed,  Function() onCameraPressed, Function() onMessagePressed, Function() onEndPressed) {
-  if (role == audience) return Container();
+Widget toolbar(ClientRole role, ClientRole audience, bool muted, VoidCallback onMicPressed,  VoidCallback onCameraPressed, VoidCallback onMessagePressed, VoidCallback onEndPressed) {
+  if (role == audience) return Container(
+    alignment: Alignment.bottomCenter,
+    child: Padding(
+      padding: const EdgeInsets.only(bottom: 24.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RawMaterialButton(
+            onPressed: onMessagePressed,
+            child: Icon(
+              Icons.message,
+              color: Colors.blueAccent,
+              size: 20.0,
+            ),
+            shape: CircleBorder(),
+            elevation: 2.0,
+            fillColor: Colors.white,
+            padding: const EdgeInsets.all(12.0),
+          ),
+          RawMaterialButton(
+            onPressed: onEndPressed,
+            child: Icon(
+              Icons.call_end,
+              color: Colors.white,
+              size: 35.0,
+            ),
+            shape: CircleBorder(),
+            elevation: 2.0,
+            fillColor: Colors.redAccent,
+            padding: const EdgeInsets.all(15.0),
+          ),
+        ],
+      ),
+    ),
+  );
   return Container(
     alignment: Alignment.bottomCenter,
     padding: const EdgeInsets.symmetric(vertical: 48),
@@ -62,6 +96,102 @@ Widget toolbar(ClientRole role, ClientRole audience, bool muted, Function() onMi
     ),
   );
 }
+
+Widget toolbarWithChat(ClientRole role, ClientRole audience, bool muted, VoidCallback onMicPressed,  VoidCallback onCameraPressed, VoidCallback onMessagePressed, VoidCallback onEndPressed) {
+  if (role == audience) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        RawMaterialButton(
+          onPressed: onMessagePressed,
+          child: Icon(
+            Icons.message,
+            color: Colors.blueAccent,
+            size: 20.0,
+          ),
+          shape: CircleBorder(),
+          elevation: 2.0,
+          fillColor: Colors.white,
+          padding: const EdgeInsets.all(12.0),
+        ),
+        SizedBox(height: 16),
+
+        RawMaterialButton(
+          onPressed: onEndPressed,
+          child: Icon(
+            Icons.call_end,
+            color: Colors.white,
+            size: 35.0,
+          ),
+          shape: CircleBorder(),
+          elevation: 2.0,
+          fillColor: Colors.redAccent,
+          padding: const EdgeInsets.all(15.0),
+        ),
+      ],
+    );
+  } else {
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          RawMaterialButton(
+            onPressed: onMicPressed,
+            child: Icon(
+              muted ? Icons.mic_off : Icons.mic,
+              color: muted ? Colors.white : Colors.blueAccent,
+              size: 20.0,
+            ),
+            shape: CircleBorder(),
+            elevation: 2.0,
+            fillColor: muted ? Colors.blueAccent : Colors.white,
+            padding: const EdgeInsets.all(12.0),
+          ),
+          SizedBox(height: 16),
+          RawMaterialButton(
+            onPressed: onCameraPressed,
+            child: Icon(
+              Icons.switch_camera,
+              color: Colors.blueAccent,
+              size: 20.0,
+            ),
+            shape: CircleBorder(),
+            elevation: 2.0,
+            fillColor: Colors.white,
+            padding: const EdgeInsets.all(12.0),
+          ),
+          SizedBox(height: 16),
+
+          RawMaterialButton(
+            onPressed: onMessagePressed,
+            child: Icon(
+              Icons.message,
+              color: Colors.blueAccent,
+              size: 20.0,
+            ),
+            shape: CircleBorder(),
+            elevation: 2.0,
+            fillColor: Colors.white,
+            padding: const EdgeInsets.all(12.0),
+          ),
+          SizedBox(height: 16),
+
+          RawMaterialButton(
+            onPressed: onEndPressed,
+            child: Icon(
+              Icons.call_end,
+              color: Colors.white,
+              size: 35.0,
+            ),
+            shape: CircleBorder(),
+            elevation: 2.0,
+            fillColor: Colors.redAccent,
+            padding: const EdgeInsets.all(15.0),
+          ),
+        ],
+    );
+  }
+}
+
 
 
 Widget panel(List infoStrings) {

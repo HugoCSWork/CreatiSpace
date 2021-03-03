@@ -30,6 +30,14 @@ Either<ValueFailure<String>, String> validateWorkshopDate(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateWorkshopTime(String input) {
+  if (input != '' || input != null) {
+    return right(input);
+  } else {
+    return left(ValueFailure.workshop(
+        WorkshopValueFailure.invalidWorkshopTime(failedValue: input)));
+  }
+}
 
 Either<ValueFailure<String>, String> validateWorkshopDescription(String input) {
   if (input.length >= 5 && input.length <= 100) {

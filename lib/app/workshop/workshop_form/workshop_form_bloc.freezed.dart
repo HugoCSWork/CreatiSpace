@@ -35,6 +35,13 @@ class _$WorkshopFormEventTearOff {
   }
 
 // ignore: unused_element
+  _TimeChanged timeChanged(String time) {
+    return _TimeChanged(
+      time,
+    );
+  }
+
+// ignore: unused_element
   _PriceChanged priceChanged(double price) {
     return _PriceChanged(
       price,
@@ -72,6 +79,7 @@ mixin _$WorkshopFormEvent {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -82,6 +90,7 @@ mixin _$WorkshopFormEvent {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -93,6 +102,7 @@ mixin _$WorkshopFormEvent {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -103,6 +113,7 @@ mixin _$WorkshopFormEvent {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -191,6 +202,7 @@ class _$_NameChanged implements _NameChanged {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -199,6 +211,7 @@ class _$_NameChanged implements _NameChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -212,6 +225,7 @@ class _$_NameChanged implements _NameChanged {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -231,6 +245,7 @@ class _$_NameChanged implements _NameChanged {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -239,6 +254,7 @@ class _$_NameChanged implements _NameChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -252,6 +268,7 @@ class _$_NameChanged implements _NameChanged {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -337,6 +354,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -345,6 +363,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -358,6 +377,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -377,6 +397,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -385,6 +406,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -398,6 +420,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -482,6 +505,7 @@ class _$_DateChanged implements _DateChanged {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -490,6 +514,7 @@ class _$_DateChanged implements _DateChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -503,6 +528,7 @@ class _$_DateChanged implements _DateChanged {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -522,6 +548,7 @@ class _$_DateChanged implements _DateChanged {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -530,6 +557,7 @@ class _$_DateChanged implements _DateChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -543,6 +571,7 @@ class _$_DateChanged implements _DateChanged {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -562,6 +591,157 @@ abstract class _DateChanged implements WorkshopFormEvent {
 
   String get date;
   _$DateChangedCopyWith<_DateChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$TimeChangedCopyWith<$Res> {
+  factory _$TimeChangedCopyWith(
+          _TimeChanged value, $Res Function(_TimeChanged) then) =
+      __$TimeChangedCopyWithImpl<$Res>;
+  $Res call({String time});
+}
+
+/// @nodoc
+class __$TimeChangedCopyWithImpl<$Res>
+    extends _$WorkshopFormEventCopyWithImpl<$Res>
+    implements _$TimeChangedCopyWith<$Res> {
+  __$TimeChangedCopyWithImpl(
+      _TimeChanged _value, $Res Function(_TimeChanged) _then)
+      : super(_value, (v) => _then(v as _TimeChanged));
+
+  @override
+  _TimeChanged get _value => super._value as _TimeChanged;
+
+  @override
+  $Res call({
+    Object time = freezed,
+  }) {
+    return _then(_TimeChanged(
+      time == freezed ? _value.time : time as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_TimeChanged implements _TimeChanged {
+  const _$_TimeChanged(this.time) : assert(time != null);
+
+  @override
+  final String time;
+
+  @override
+  String toString() {
+    return 'WorkshopFormEvent.timeChanged(time: $time)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _TimeChanged &&
+            (identical(other.time, time) ||
+                const DeepCollectionEquality().equals(other.time, time)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(time);
+
+  @override
+  _$TimeChangedCopyWith<_TimeChanged> get copyWith =>
+      __$TimeChangedCopyWithImpl<_TimeChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult nameChanged(String name),
+    @required TResult descriptionChanged(String description),
+    @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
+    @required TResult priceChanged(double price),
+    @required TResult durationChanged(double duration),
+    @required TResult requirementsChanged(String requirements),
+    @required TResult saved(),
+  }) {
+    assert(nameChanged != null);
+    assert(descriptionChanged != null);
+    assert(dateChanged != null);
+    assert(timeChanged != null);
+    assert(priceChanged != null);
+    assert(durationChanged != null);
+    assert(requirementsChanged != null);
+    assert(saved != null);
+    return timeChanged(time);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult nameChanged(String name),
+    TResult descriptionChanged(String description),
+    TResult dateChanged(String date),
+    TResult timeChanged(String time),
+    TResult priceChanged(double price),
+    TResult durationChanged(double duration),
+    TResult requirementsChanged(String requirements),
+    TResult saved(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (timeChanged != null) {
+      return timeChanged(time);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult nameChanged(_NameChanged value),
+    @required TResult descriptionChanged(_DescriptionChanged value),
+    @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
+    @required TResult priceChanged(_PriceChanged value),
+    @required TResult durationChanged(_DurationChanged value),
+    @required TResult requirementsChanged(_RequirementsChanged value),
+    @required TResult saved(_Saved value),
+  }) {
+    assert(nameChanged != null);
+    assert(descriptionChanged != null);
+    assert(dateChanged != null);
+    assert(timeChanged != null);
+    assert(priceChanged != null);
+    assert(durationChanged != null);
+    assert(requirementsChanged != null);
+    assert(saved != null);
+    return timeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult nameChanged(_NameChanged value),
+    TResult descriptionChanged(_DescriptionChanged value),
+    TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
+    TResult priceChanged(_PriceChanged value),
+    TResult durationChanged(_DurationChanged value),
+    TResult requirementsChanged(_RequirementsChanged value),
+    TResult saved(_Saved value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (timeChanged != null) {
+      return timeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TimeChanged implements WorkshopFormEvent {
+  const factory _TimeChanged(String time) = _$_TimeChanged;
+
+  String get time;
+  _$TimeChangedCopyWith<_TimeChanged> get copyWith;
 }
 
 /// @nodoc
@@ -627,6 +807,7 @@ class _$_PriceChanged implements _PriceChanged {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -635,6 +816,7 @@ class _$_PriceChanged implements _PriceChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -648,6 +830,7 @@ class _$_PriceChanged implements _PriceChanged {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -667,6 +850,7 @@ class _$_PriceChanged implements _PriceChanged {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -675,6 +859,7 @@ class _$_PriceChanged implements _PriceChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -688,6 +873,7 @@ class _$_PriceChanged implements _PriceChanged {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -773,6 +959,7 @@ class _$_DurationChanged implements _DurationChanged {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -781,6 +968,7 @@ class _$_DurationChanged implements _DurationChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -794,6 +982,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -813,6 +1002,7 @@ class _$_DurationChanged implements _DurationChanged {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -821,6 +1011,7 @@ class _$_DurationChanged implements _DurationChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -834,6 +1025,7 @@ class _$_DurationChanged implements _DurationChanged {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -921,6 +1113,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -929,6 +1122,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -942,6 +1136,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -961,6 +1156,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -969,6 +1165,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -982,6 +1179,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),
@@ -1043,6 +1241,7 @@ class _$_Saved implements _Saved {
     @required TResult nameChanged(String name),
     @required TResult descriptionChanged(String description),
     @required TResult dateChanged(String date),
+    @required TResult timeChanged(String time),
     @required TResult priceChanged(double price),
     @required TResult durationChanged(double duration),
     @required TResult requirementsChanged(String requirements),
@@ -1051,6 +1250,7 @@ class _$_Saved implements _Saved {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -1064,6 +1264,7 @@ class _$_Saved implements _Saved {
     TResult nameChanged(String name),
     TResult descriptionChanged(String description),
     TResult dateChanged(String date),
+    TResult timeChanged(String time),
     TResult priceChanged(double price),
     TResult durationChanged(double duration),
     TResult requirementsChanged(String requirements),
@@ -1083,6 +1284,7 @@ class _$_Saved implements _Saved {
     @required TResult nameChanged(_NameChanged value),
     @required TResult descriptionChanged(_DescriptionChanged value),
     @required TResult dateChanged(_DateChanged value),
+    @required TResult timeChanged(_TimeChanged value),
     @required TResult priceChanged(_PriceChanged value),
     @required TResult durationChanged(_DurationChanged value),
     @required TResult requirementsChanged(_RequirementsChanged value),
@@ -1091,6 +1293,7 @@ class _$_Saved implements _Saved {
     assert(nameChanged != null);
     assert(descriptionChanged != null);
     assert(dateChanged != null);
+    assert(timeChanged != null);
     assert(priceChanged != null);
     assert(durationChanged != null);
     assert(requirementsChanged != null);
@@ -1104,6 +1307,7 @@ class _$_Saved implements _Saved {
     TResult nameChanged(_NameChanged value),
     TResult descriptionChanged(_DescriptionChanged value),
     TResult dateChanged(_DateChanged value),
+    TResult timeChanged(_TimeChanged value),
     TResult priceChanged(_PriceChanged value),
     TResult durationChanged(_DurationChanged value),
     TResult requirementsChanged(_RequirementsChanged value),

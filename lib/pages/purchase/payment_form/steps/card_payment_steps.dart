@@ -11,9 +11,10 @@ class CardPaymentStep extends StatefulWidget {
   final int amount;
   final String itemId;
   final double totalCost;
+  final bool isItem;
 
-  CardPaymentStep({Key key, @required this.peerId, @required this.amount,
-    @required this.itemId, this.totalCost}) : super(key: key);
+  CardPaymentStep({Key key, @required this.peerId, this.amount,
+    @required this.itemId, this.totalCost, @required this.isItem}) : super(key: key);
 
   @override
   _CardPaymentStepState createState() => _CardPaymentStepState();
@@ -147,7 +148,11 @@ class _CardPaymentStepState extends State<CardPaymentStep> {
                         cvc: cvvCode
                       );
                       formKey.currentState.save();
-                      context.read<PaymentFormBloc>().add(PaymentFormEvent.saved(card, widget.peerId, widget.amount.toString(), widget.itemId));
+                      if(widget.isItem) {
+                        context.read<PaymentFormBloc>().add(PaymentFormEvent.saved(card, widget.peerId, widget.amount.toString(), widget.itemId));
+                      } else {
+                        context.read<PaymentFormBloc>().add(PaymentFormEvent.savedWorkshop(card, widget.peerId, widget.itemId));
+                      }
                     }
                   },
                 )

@@ -14,6 +14,8 @@ import '../../domain/items/item/item.dart';
 import '../../domain/payment_details/payment_details.dart';
 import '../../domain/profile/profile_data/user_profile.dart';
 import '../../domain/user_messaging/user_list/user_messaging.dart';
+import '../../domain/workshop/workshop.dart';
+import '../../domain/workshop/workshop_payment.dart';
 import '../../shared/navigation_bar.dart';
 import '../auth/forgotten_password/forgotten_password.dart';
 import '../auth/sign_in/sign_in_page.dart';
@@ -23,6 +25,7 @@ import '../home/home_scaffold.dart';
 import '../items/items_form/item_form_page.dart';
 import '../items/items_form/workshop_form_page.dart';
 import '../items/items_overview/items_overview_page.dart';
+import '../items/workshop_details/workshop_details.dart';
 import '../messaging/following_list/following_scaffold.dart';
 import '../messaging/messaging/messaging_scaffold.dart';
 import '../messaging/messaging/widgets/full_screen_image.dart';
@@ -30,6 +33,7 @@ import '../messaging/user_list/user_list.dart';
 import '../messaging/user_list/user_list_with_scaffold.dart';
 import '../payment_detail_information/payment_detail_information_scaffold.dart';
 import '../payment_details/payment_details_scaffold.dart';
+import '../payment_details/workshop_details.dart';
 import '../payment_setup/payment_stepper.dart';
 import '../profile/edit_profile/edit_profile_form_page.dart';
 import '../profile/following_followers/user_friends_scaffold.dart';
@@ -40,6 +44,10 @@ import '../purchase/payment_form/payment_form_scaffold.dart';
 import '../purchase/payment_form/payment_successful.dart';
 import '../search/search_scaffold.dart';
 import '../splash/splash_page.dart';
+import '../streaming/audience/streaming_audience_scaffold.dart';
+import '../streaming/host/streaming_host_scaffold.dart';
+import '../workshop/workshop_confirmation/workshop_confirmation.dart';
+import '../workshop/workshop_details/workshop_details.dart';
 
 class Routes {
   static const String splashPage = '/';
@@ -66,7 +74,15 @@ class Routes {
   static const String paymentDetailsScaffold = '/payment-details-scaffold';
   static const String paymentDetailInformationScaffold =
       '/payment-detail-information-scaffold';
+  static const String workshopDetails = '/workshop-details';
+  static const String workshopConfirmation = '/workshop-confirmation';
+  static const String workshopDetailsInformation =
+      '/workshop-details-information';
   static const String paymentSuccessful = '/payment-successful';
+  static const String workshopItemDetails = '/workshop-item-details';
+  static const String streamingHostScaffold = '/streaming-host-scaffold';
+  static const String streamingAudienceScaffold =
+      '/streaming-audience-scaffold';
   static const String paymentFormScaffold = '/payment-form-scaffold';
   static const String itemFormPage = '/item-form-page';
   static const all = <String>{
@@ -93,7 +109,13 @@ class Routes {
     paymentStepper,
     paymentDetailsScaffold,
     paymentDetailInformationScaffold,
+    workshopDetails,
+    workshopConfirmation,
+    workshopDetailsInformation,
     paymentSuccessful,
+    workshopItemDetails,
+    streamingHostScaffold,
+    streamingAudienceScaffold,
     paymentFormScaffold,
     itemFormPage,
   };
@@ -127,7 +149,14 @@ class BaseRouter extends RouterBase {
     RouteDef(Routes.paymentDetailsScaffold, page: PaymentDetailsScaffold),
     RouteDef(Routes.paymentDetailInformationScaffold,
         page: PaymentDetailInformationScaffold),
+    RouteDef(Routes.workshopDetails, page: WorkshopDetails),
+    RouteDef(Routes.workshopConfirmation, page: WorkshopConfirmation),
+    RouteDef(Routes.workshopDetailsInformation,
+        page: WorkshopDetailsInformation),
     RouteDef(Routes.paymentSuccessful, page: PaymentSuccessful),
+    RouteDef(Routes.workshopItemDetails, page: WorkshopItemDetails),
+    RouteDef(Routes.streamingHostScaffold, page: StreamingHostScaffold),
+    RouteDef(Routes.streamingAudienceScaffold, page: StreamingAudienceScaffold),
     RouteDef(Routes.paymentFormScaffold, page: PaymentFormScaffold),
     RouteDef(Routes.itemFormPage, page: ItemFormPage),
   ];
@@ -333,6 +362,42 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    WorkshopDetails: (data) {
+      final args = data.getArgs<WorkshopDetailsArguments>(
+        orElse: () => WorkshopDetailsArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => WorkshopDetails(
+          key: args.key,
+          workshop: args.workshop,
+        ),
+        settings: data,
+      );
+    },
+    WorkshopConfirmation: (data) {
+      final args = data.getArgs<WorkshopConfirmationArguments>(
+        orElse: () => WorkshopConfirmationArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => WorkshopConfirmation(
+          key: args.key,
+          workshop: args.workshop,
+        ),
+        settings: data,
+      );
+    },
+    WorkshopDetailsInformation: (data) {
+      final args = data.getArgs<WorkshopDetailsInformationArguments>(
+        orElse: () => WorkshopDetailsInformationArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => WorkshopDetailsInformation(
+          key: args.key,
+          workshopPayment: args.workshopPayment,
+        ),
+        settings: data,
+      );
+    },
     PaymentSuccessful: (data) {
       final args = data.getArgs<PaymentSuccessfulArguments>(
         orElse: () => PaymentSuccessfulArguments(),
@@ -349,6 +414,44 @@ class BaseRouter extends RouterBase {
         settings: data,
       );
     },
+    WorkshopItemDetails: (data) {
+      final args = data.getArgs<WorkshopItemDetailsArguments>(
+        orElse: () => WorkshopItemDetailsArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => WorkshopItemDetails(
+          key: args.key,
+          workshop: args.workshop,
+        ),
+        settings: data,
+      );
+    },
+    StreamingHostScaffold: (data) {
+      final args = data.getArgs<StreamingHostScaffoldArguments>(
+        orElse: () => StreamingHostScaffoldArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StreamingHostScaffold(
+          key: args.key,
+          workshopId: args.workshopId,
+          hostId: args.hostId,
+        ),
+        settings: data,
+      );
+    },
+    StreamingAudienceScaffold: (data) {
+      final args = data.getArgs<StreamingAudienceScaffoldArguments>(
+        orElse: () => StreamingAudienceScaffoldArguments(),
+      );
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StreamingAudienceScaffold(
+          key: args.key,
+          workshopId: args.workshopId,
+          hostId: args.hostId,
+        ),
+        settings: data,
+      );
+    },
     PaymentFormScaffold: (data) {
       final args = data.getArgs<PaymentFormScaffoldArguments>(
         orElse: () => PaymentFormScaffoldArguments(),
@@ -360,6 +463,8 @@ class BaseRouter extends RouterBase {
           cost: args.cost,
           itemId: args.itemId,
           peerId: args.peerId,
+          isItem: args.isItem,
+          workshop: args.workshop,
         ),
         settings: data,
       );
@@ -517,6 +622,34 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             key: key, paymentDetails: paymentDetails, isSender: isSender),
       );
 
+  Future<dynamic> pushWorkshopDetails({
+    Key key,
+    Workshop workshop,
+  }) =>
+      push<dynamic>(
+        Routes.workshopDetails,
+        arguments: WorkshopDetailsArguments(key: key, workshop: workshop),
+      );
+
+  Future<dynamic> pushWorkshopConfirmation({
+    Key key,
+    Workshop workshop,
+  }) =>
+      push<dynamic>(
+        Routes.workshopConfirmation,
+        arguments: WorkshopConfirmationArguments(key: key, workshop: workshop),
+      );
+
+  Future<dynamic> pushWorkshopDetailsInformation({
+    Key key,
+    WorkshopPayment workshopPayment,
+  }) =>
+      push<dynamic>(
+        Routes.workshopDetailsInformation,
+        arguments: WorkshopDetailsInformationArguments(
+            key: key, workshopPayment: workshopPayment),
+      );
+
   Future<dynamic> pushPaymentSuccessful({
     Key key,
     String amount,
@@ -536,12 +669,45 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             peerId: peerId),
       );
 
+  Future<dynamic> pushWorkshopItemDetails({
+    Key key,
+    Workshop workshop,
+  }) =>
+      push<dynamic>(
+        Routes.workshopItemDetails,
+        arguments: WorkshopItemDetailsArguments(key: key, workshop: workshop),
+      );
+
+  Future<dynamic> pushStreamingHostScaffold({
+    Key key,
+    String workshopId,
+    String hostId,
+  }) =>
+      push<dynamic>(
+        Routes.streamingHostScaffold,
+        arguments: StreamingHostScaffoldArguments(
+            key: key, workshopId: workshopId, hostId: hostId),
+      );
+
+  Future<dynamic> pushStreamingAudienceScaffold({
+    Key key,
+    String workshopId,
+    String hostId,
+  }) =>
+      push<dynamic>(
+        Routes.streamingAudienceScaffold,
+        arguments: StreamingAudienceScaffoldArguments(
+            key: key, workshopId: workshopId, hostId: hostId),
+      );
+
   Future<dynamic> pushPaymentFormScaffold({
     Key key,
     int amount,
     double cost,
     String itemId,
     String peerId,
+    bool isItem,
+    Workshop workshop,
   }) =>
       push<dynamic>(
         Routes.paymentFormScaffold,
@@ -550,7 +716,9 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
             amount: amount,
             cost: cost,
             itemId: itemId,
-            peerId: peerId),
+            peerId: peerId,
+            isItem: isItem,
+            workshop: workshop),
       );
 
   Future<dynamic> pushItemFormPage({
@@ -647,6 +815,27 @@ class PaymentDetailInformationScaffoldArguments {
       {this.key, this.paymentDetails, this.isSender});
 }
 
+/// WorkshopDetails arguments holder class
+class WorkshopDetailsArguments {
+  final Key key;
+  final Workshop workshop;
+  WorkshopDetailsArguments({this.key, this.workshop});
+}
+
+/// WorkshopConfirmation arguments holder class
+class WorkshopConfirmationArguments {
+  final Key key;
+  final Workshop workshop;
+  WorkshopConfirmationArguments({this.key, this.workshop});
+}
+
+/// WorkshopDetailsInformation arguments holder class
+class WorkshopDetailsInformationArguments {
+  final Key key;
+  final WorkshopPayment workshopPayment;
+  WorkshopDetailsInformationArguments({this.key, this.workshopPayment});
+}
+
 /// PaymentSuccessful arguments holder class
 class PaymentSuccessfulArguments {
   final Key key;
@@ -664,6 +853,29 @@ class PaymentSuccessfulArguments {
       this.peerId});
 }
 
+/// WorkshopItemDetails arguments holder class
+class WorkshopItemDetailsArguments {
+  final Key key;
+  final Workshop workshop;
+  WorkshopItemDetailsArguments({this.key, this.workshop});
+}
+
+/// StreamingHostScaffold arguments holder class
+class StreamingHostScaffoldArguments {
+  final Key key;
+  final String workshopId;
+  final String hostId;
+  StreamingHostScaffoldArguments({this.key, this.workshopId, this.hostId});
+}
+
+/// StreamingAudienceScaffold arguments holder class
+class StreamingAudienceScaffoldArguments {
+  final Key key;
+  final String workshopId;
+  final String hostId;
+  StreamingAudienceScaffoldArguments({this.key, this.workshopId, this.hostId});
+}
+
 /// PaymentFormScaffold arguments holder class
 class PaymentFormScaffoldArguments {
   final Key key;
@@ -671,8 +883,16 @@ class PaymentFormScaffoldArguments {
   final double cost;
   final String itemId;
   final String peerId;
+  final bool isItem;
+  final Workshop workshop;
   PaymentFormScaffoldArguments(
-      {this.key, this.amount, this.cost, this.itemId, this.peerId});
+      {this.key,
+      this.amount,
+      this.cost,
+      this.itemId,
+      this.peerId,
+      this.isItem,
+      this.workshop});
 }
 
 /// ItemFormPage arguments holder class

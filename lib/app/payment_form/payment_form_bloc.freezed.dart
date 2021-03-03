@@ -136,6 +136,16 @@ class _$PaymentFormEventTearOff {
       itemId,
     );
   }
+
+// ignore: unused_element
+  _SavedWorkshop savedWorkshop(
+      StripeCard card, String peerId, String workshopId) {
+    return _SavedWorkshop(
+      card,
+      peerId,
+      workshopId,
+    );
+  }
 }
 
 /// @nodoc
@@ -167,6 +177,9 @@ mixin _$PaymentFormEvent {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -189,6 +202,7 @@ mixin _$PaymentFormEvent {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -212,6 +226,7 @@ mixin _$PaymentFormEvent {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -234,6 +249,7 @@ mixin _$PaymentFormEvent {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   });
 }
@@ -336,6 +352,9 @@ class _$_stepTapped implements _stepTapped {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -356,6 +375,7 @@ class _$_stepTapped implements _stepTapped {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return stepTapped(step);
   }
 
@@ -381,6 +401,7 @@ class _$_stepTapped implements _stepTapped {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -412,6 +433,7 @@ class _$_stepTapped implements _stepTapped {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -432,6 +454,7 @@ class _$_stepTapped implements _stepTapped {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return stepTapped(this);
   }
 
@@ -457,6 +480,7 @@ class _$_stepTapped implements _stepTapped {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -534,6 +558,9 @@ class _$_stepCancelled implements _stepCancelled {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -554,6 +581,7 @@ class _$_stepCancelled implements _stepCancelled {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return stepCancelled();
   }
 
@@ -579,6 +607,7 @@ class _$_stepCancelled implements _stepCancelled {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -610,6 +639,7 @@ class _$_stepCancelled implements _stepCancelled {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -630,6 +660,7 @@ class _$_stepCancelled implements _stepCancelled {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return stepCancelled(this);
   }
 
@@ -655,6 +686,7 @@ class _$_stepCancelled implements _stepCancelled {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -729,6 +761,9 @@ class _$_stepContinue implements _stepContinue {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -749,6 +784,7 @@ class _$_stepContinue implements _stepContinue {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return stepContinue();
   }
 
@@ -774,6 +810,7 @@ class _$_stepContinue implements _stepContinue {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -805,6 +842,7 @@ class _$_stepContinue implements _stepContinue {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -825,6 +863,7 @@ class _$_stepContinue implements _stepContinue {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return stepContinue(this);
   }
 
@@ -850,6 +889,7 @@ class _$_stepContinue implements _stepContinue {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -921,6 +961,9 @@ class _$_Started implements _Started {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -941,6 +984,7 @@ class _$_Started implements _Started {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return started();
   }
 
@@ -966,6 +1010,7 @@ class _$_Started implements _Started {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -997,6 +1042,7 @@ class _$_Started implements _Started {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1017,6 +1063,7 @@ class _$_Started implements _Started {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return started(this);
   }
 
@@ -1042,6 +1089,7 @@ class _$_Started implements _Started {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1138,6 +1186,9 @@ class _$FirstNameChanged implements FirstNameChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1158,6 +1209,7 @@ class _$FirstNameChanged implements FirstNameChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return firstNameChanged(firstName);
   }
 
@@ -1183,6 +1235,7 @@ class _$FirstNameChanged implements FirstNameChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1214,6 +1267,7 @@ class _$FirstNameChanged implements FirstNameChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1234,6 +1288,7 @@ class _$FirstNameChanged implements FirstNameChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return firstNameChanged(this);
   }
 
@@ -1259,6 +1314,7 @@ class _$FirstNameChanged implements FirstNameChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1358,6 +1414,9 @@ class _$LastNameChanged implements LastNameChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1378,6 +1437,7 @@ class _$LastNameChanged implements LastNameChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return lastNameChanged(lastName);
   }
 
@@ -1403,6 +1463,7 @@ class _$LastNameChanged implements LastNameChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1434,6 +1495,7 @@ class _$LastNameChanged implements LastNameChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1454,6 +1516,7 @@ class _$LastNameChanged implements LastNameChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return lastNameChanged(this);
   }
 
@@ -1479,6 +1542,7 @@ class _$LastNameChanged implements LastNameChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1577,6 +1641,9 @@ class _$EmailChanged implements EmailChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1597,6 +1664,7 @@ class _$EmailChanged implements EmailChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return emailChanged(email);
   }
 
@@ -1622,6 +1690,7 @@ class _$EmailChanged implements EmailChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1653,6 +1722,7 @@ class _$EmailChanged implements EmailChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1673,6 +1743,7 @@ class _$EmailChanged implements EmailChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return emailChanged(this);
   }
 
@@ -1698,6 +1769,7 @@ class _$EmailChanged implements EmailChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1797,6 +1869,9 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1817,6 +1892,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return phoneNumberChanged(phoneNumber);
   }
 
@@ -1842,6 +1918,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1873,6 +1950,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -1893,6 +1971,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return phoneNumberChanged(this);
   }
 
@@ -1918,6 +1997,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1995,6 +2075,9 @@ class _$ValidatePersonalSection implements ValidatePersonalSection {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2015,6 +2098,7 @@ class _$ValidatePersonalSection implements ValidatePersonalSection {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return validatePersonalSection();
   }
 
@@ -2040,6 +2124,7 @@ class _$ValidatePersonalSection implements ValidatePersonalSection {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2071,6 +2156,7 @@ class _$ValidatePersonalSection implements ValidatePersonalSection {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2091,6 +2177,7 @@ class _$ValidatePersonalSection implements ValidatePersonalSection {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return validatePersonalSection(this);
   }
 
@@ -2116,6 +2203,7 @@ class _$ValidatePersonalSection implements ValidatePersonalSection {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2211,6 +2299,9 @@ class _$CountyChanged implements CountyChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2231,6 +2322,7 @@ class _$CountyChanged implements CountyChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return countyChanged(county);
   }
 
@@ -2256,6 +2348,7 @@ class _$CountyChanged implements CountyChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2287,6 +2380,7 @@ class _$CountyChanged implements CountyChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2307,6 +2401,7 @@ class _$CountyChanged implements CountyChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return countyChanged(this);
   }
 
@@ -2332,6 +2427,7 @@ class _$CountyChanged implements CountyChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2431,6 +2527,9 @@ class _$HouseNumberChanged implements HouseNumberChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2451,6 +2550,7 @@ class _$HouseNumberChanged implements HouseNumberChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return houseNumberChanged(houseNumber);
   }
 
@@ -2476,6 +2576,7 @@ class _$HouseNumberChanged implements HouseNumberChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2507,6 +2608,7 @@ class _$HouseNumberChanged implements HouseNumberChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2527,6 +2629,7 @@ class _$HouseNumberChanged implements HouseNumberChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return houseNumberChanged(this);
   }
 
@@ -2552,6 +2655,7 @@ class _$HouseNumberChanged implements HouseNumberChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2650,6 +2754,9 @@ class _$Line1Changed implements Line1Changed {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2670,6 +2777,7 @@ class _$Line1Changed implements Line1Changed {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return line1Changed(line1);
   }
 
@@ -2695,6 +2803,7 @@ class _$Line1Changed implements Line1Changed {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2726,6 +2835,7 @@ class _$Line1Changed implements Line1Changed {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2746,6 +2856,7 @@ class _$Line1Changed implements Line1Changed {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return line1Changed(this);
   }
 
@@ -2771,6 +2882,7 @@ class _$Line1Changed implements Line1Changed {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2869,6 +2981,9 @@ class _$Line2hanged implements Line2hanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2889,6 +3004,7 @@ class _$Line2hanged implements Line2hanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return line2Changed(line2);
   }
 
@@ -2914,6 +3030,7 @@ class _$Line2hanged implements Line2hanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -2945,6 +3062,7 @@ class _$Line2hanged implements Line2hanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -2965,6 +3083,7 @@ class _$Line2hanged implements Line2hanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return line2Changed(this);
   }
 
@@ -2990,6 +3109,7 @@ class _$Line2hanged implements Line2hanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3089,6 +3209,9 @@ class _$PostcodeChanged implements PostcodeChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3109,6 +3232,7 @@ class _$PostcodeChanged implements PostcodeChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return postcodeChanged(postcode);
   }
 
@@ -3134,6 +3258,7 @@ class _$PostcodeChanged implements PostcodeChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3165,6 +3290,7 @@ class _$PostcodeChanged implements PostcodeChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3185,6 +3311,7 @@ class _$PostcodeChanged implements PostcodeChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return postcodeChanged(this);
   }
 
@@ -3210,6 +3337,7 @@ class _$PostcodeChanged implements PostcodeChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3308,6 +3436,9 @@ class _$CityChanged implements CityChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3328,6 +3459,7 @@ class _$CityChanged implements CityChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return cityChanged(city);
   }
 
@@ -3353,6 +3485,7 @@ class _$CityChanged implements CityChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3384,6 +3517,7 @@ class _$CityChanged implements CityChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3404,6 +3538,7 @@ class _$CityChanged implements CityChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return cityChanged(this);
   }
 
@@ -3429,6 +3564,7 @@ class _$CityChanged implements CityChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3527,6 +3663,9 @@ class _$CountryChanged implements CountryChanged {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3547,6 +3686,7 @@ class _$CountryChanged implements CountryChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return countryChanged(country);
   }
 
@@ -3572,6 +3712,7 @@ class _$CountryChanged implements CountryChanged {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3603,6 +3744,7 @@ class _$CountryChanged implements CountryChanged {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3623,6 +3765,7 @@ class _$CountryChanged implements CountryChanged {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return countryChanged(this);
   }
 
@@ -3648,6 +3791,7 @@ class _$CountryChanged implements CountryChanged {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3725,6 +3869,9 @@ class _$FindAddress implements FindAddress {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3745,6 +3892,7 @@ class _$FindAddress implements FindAddress {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return findAddress();
   }
 
@@ -3770,6 +3918,7 @@ class _$FindAddress implements FindAddress {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3801,6 +3950,7 @@ class _$FindAddress implements FindAddress {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3821,6 +3971,7 @@ class _$FindAddress implements FindAddress {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return findAddress(this);
   }
 
@@ -3846,6 +3997,7 @@ class _$FindAddress implements FindAddress {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3920,6 +4072,9 @@ class _$ValidateAddressSection implements ValidateAddressSection {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -3940,6 +4095,7 @@ class _$ValidateAddressSection implements ValidateAddressSection {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return validateAddressSection();
   }
 
@@ -3965,6 +4121,7 @@ class _$ValidateAddressSection implements ValidateAddressSection {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -3996,6 +4153,7 @@ class _$ValidateAddressSection implements ValidateAddressSection {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -4016,6 +4174,7 @@ class _$ValidateAddressSection implements ValidateAddressSection {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return validateAddressSection(this);
   }
 
@@ -4041,6 +4200,7 @@ class _$ValidateAddressSection implements ValidateAddressSection {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4159,6 +4319,9 @@ class _$_Saved implements _Saved {
     @required
         TResult saved(
             StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -4179,6 +4342,7 @@ class _$_Saved implements _Saved {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return saved(card, peerId, amount, itemId);
   }
 
@@ -4204,6 +4368,7 @@ class _$_Saved implements _Saved {
     TResult findAddress(),
     TResult validateAddressSection(),
     TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4235,6 +4400,7 @@ class _$_Saved implements _Saved {
     @required TResult findAddress(FindAddress value),
     @required TResult validateAddressSection(ValidateAddressSection value),
     @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
   }) {
     assert(stepTapped != null);
     assert(stepCancelled != null);
@@ -4255,6 +4421,7 @@ class _$_Saved implements _Saved {
     assert(findAddress != null);
     assert(validateAddressSection != null);
     assert(saved != null);
+    assert(savedWorkshop != null);
     return saved(this);
   }
 
@@ -4280,6 +4447,7 @@ class _$_Saved implements _Saved {
     TResult findAddress(FindAddress value),
     TResult validateAddressSection(ValidateAddressSection value),
     TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -4299,6 +4467,255 @@ abstract class _Saved implements PaymentFormEvent {
   String get amount;
   String get itemId;
   _$SavedCopyWith<_Saved> get copyWith;
+}
+
+/// @nodoc
+abstract class _$SavedWorkshopCopyWith<$Res> {
+  factory _$SavedWorkshopCopyWith(
+          _SavedWorkshop value, $Res Function(_SavedWorkshop) then) =
+      __$SavedWorkshopCopyWithImpl<$Res>;
+  $Res call({StripeCard card, String peerId, String workshopId});
+}
+
+/// @nodoc
+class __$SavedWorkshopCopyWithImpl<$Res>
+    extends _$PaymentFormEventCopyWithImpl<$Res>
+    implements _$SavedWorkshopCopyWith<$Res> {
+  __$SavedWorkshopCopyWithImpl(
+      _SavedWorkshop _value, $Res Function(_SavedWorkshop) _then)
+      : super(_value, (v) => _then(v as _SavedWorkshop));
+
+  @override
+  _SavedWorkshop get _value => super._value as _SavedWorkshop;
+
+  @override
+  $Res call({
+    Object card = freezed,
+    Object peerId = freezed,
+    Object workshopId = freezed,
+  }) {
+    return _then(_SavedWorkshop(
+      card == freezed ? _value.card : card as StripeCard,
+      peerId == freezed ? _value.peerId : peerId as String,
+      workshopId == freezed ? _value.workshopId : workshopId as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SavedWorkshop implements _SavedWorkshop {
+  const _$_SavedWorkshop(this.card, this.peerId, this.workshopId)
+      : assert(card != null),
+        assert(peerId != null),
+        assert(workshopId != null);
+
+  @override
+  final StripeCard card;
+  @override
+  final String peerId;
+  @override
+  final String workshopId;
+
+  @override
+  String toString() {
+    return 'PaymentFormEvent.savedWorkshop(card: $card, peerId: $peerId, workshopId: $workshopId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SavedWorkshop &&
+            (identical(other.card, card) ||
+                const DeepCollectionEquality().equals(other.card, card)) &&
+            (identical(other.peerId, peerId) ||
+                const DeepCollectionEquality().equals(other.peerId, peerId)) &&
+            (identical(other.workshopId, workshopId) ||
+                const DeepCollectionEquality()
+                    .equals(other.workshopId, workshopId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(card) ^
+      const DeepCollectionEquality().hash(peerId) ^
+      const DeepCollectionEquality().hash(workshopId);
+
+  @override
+  _$SavedWorkshopCopyWith<_SavedWorkshop> get copyWith =>
+      __$SavedWorkshopCopyWithImpl<_SavedWorkshop>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult stepTapped(int step),
+    @required TResult stepCancelled(),
+    @required TResult stepContinue(),
+    @required TResult started(),
+    @required TResult firstNameChanged(String firstName),
+    @required TResult lastNameChanged(String lastName),
+    @required TResult emailChanged(String email),
+    @required TResult phoneNumberChanged(String phoneNumber),
+    @required TResult validatePersonalSection(),
+    @required TResult countyChanged(String county),
+    @required TResult houseNumberChanged(String houseNumber),
+    @required TResult line1Changed(String line1),
+    @required TResult line2Changed(String line2),
+    @required TResult postcodeChanged(String postcode),
+    @required TResult cityChanged(String city),
+    @required TResult countryChanged(String country),
+    @required TResult findAddress(),
+    @required TResult validateAddressSection(),
+    @required
+        TResult saved(
+            StripeCard card, String peerId, String amount, String itemId),
+    @required
+        TResult savedWorkshop(
+            StripeCard card, String peerId, String workshopId),
+  }) {
+    assert(stepTapped != null);
+    assert(stepCancelled != null);
+    assert(stepContinue != null);
+    assert(started != null);
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(validatePersonalSection != null);
+    assert(countyChanged != null);
+    assert(houseNumberChanged != null);
+    assert(line1Changed != null);
+    assert(line2Changed != null);
+    assert(postcodeChanged != null);
+    assert(cityChanged != null);
+    assert(countryChanged != null);
+    assert(findAddress != null);
+    assert(validateAddressSection != null);
+    assert(saved != null);
+    assert(savedWorkshop != null);
+    return savedWorkshop(card, peerId, workshopId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult stepTapped(int step),
+    TResult stepCancelled(),
+    TResult stepContinue(),
+    TResult started(),
+    TResult firstNameChanged(String firstName),
+    TResult lastNameChanged(String lastName),
+    TResult emailChanged(String email),
+    TResult phoneNumberChanged(String phoneNumber),
+    TResult validatePersonalSection(),
+    TResult countyChanged(String county),
+    TResult houseNumberChanged(String houseNumber),
+    TResult line1Changed(String line1),
+    TResult line2Changed(String line2),
+    TResult postcodeChanged(String postcode),
+    TResult cityChanged(String city),
+    TResult countryChanged(String country),
+    TResult findAddress(),
+    TResult validateAddressSection(),
+    TResult saved(StripeCard card, String peerId, String amount, String itemId),
+    TResult savedWorkshop(StripeCard card, String peerId, String workshopId),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (savedWorkshop != null) {
+      return savedWorkshop(card, peerId, workshopId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult stepTapped(_stepTapped value),
+    @required TResult stepCancelled(_stepCancelled value),
+    @required TResult stepContinue(_stepContinue value),
+    @required TResult started(_Started value),
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult validatePersonalSection(ValidatePersonalSection value),
+    @required TResult countyChanged(CountyChanged value),
+    @required TResult houseNumberChanged(HouseNumberChanged value),
+    @required TResult line1Changed(Line1Changed value),
+    @required TResult line2Changed(Line2hanged value),
+    @required TResult postcodeChanged(PostcodeChanged value),
+    @required TResult cityChanged(CityChanged value),
+    @required TResult countryChanged(CountryChanged value),
+    @required TResult findAddress(FindAddress value),
+    @required TResult validateAddressSection(ValidateAddressSection value),
+    @required TResult saved(_Saved value),
+    @required TResult savedWorkshop(_SavedWorkshop value),
+  }) {
+    assert(stepTapped != null);
+    assert(stepCancelled != null);
+    assert(stepContinue != null);
+    assert(started != null);
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(validatePersonalSection != null);
+    assert(countyChanged != null);
+    assert(houseNumberChanged != null);
+    assert(line1Changed != null);
+    assert(line2Changed != null);
+    assert(postcodeChanged != null);
+    assert(cityChanged != null);
+    assert(countryChanged != null);
+    assert(findAddress != null);
+    assert(validateAddressSection != null);
+    assert(saved != null);
+    assert(savedWorkshop != null);
+    return savedWorkshop(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult stepTapped(_stepTapped value),
+    TResult stepCancelled(_stepCancelled value),
+    TResult stepContinue(_stepContinue value),
+    TResult started(_Started value),
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
+    TResult emailChanged(EmailChanged value),
+    TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult validatePersonalSection(ValidatePersonalSection value),
+    TResult countyChanged(CountyChanged value),
+    TResult houseNumberChanged(HouseNumberChanged value),
+    TResult line1Changed(Line1Changed value),
+    TResult line2Changed(Line2hanged value),
+    TResult postcodeChanged(PostcodeChanged value),
+    TResult cityChanged(CityChanged value),
+    TResult countryChanged(CountryChanged value),
+    TResult findAddress(FindAddress value),
+    TResult validateAddressSection(ValidateAddressSection value),
+    TResult saved(_Saved value),
+    TResult savedWorkshop(_SavedWorkshop value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (savedWorkshop != null) {
+      return savedWorkshop(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SavedWorkshop implements PaymentFormEvent {
+  const factory _SavedWorkshop(
+      StripeCard card, String peerId, String workshopId) = _$_SavedWorkshop;
+
+  StripeCard get card;
+  String get peerId;
+  String get workshopId;
+  _$SavedWorkshopCopyWith<_SavedWorkshop> get copyWith;
 }
 
 /// @nodoc

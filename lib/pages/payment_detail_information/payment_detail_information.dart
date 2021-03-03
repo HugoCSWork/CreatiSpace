@@ -49,7 +49,7 @@ class _PaymentDetailsInformationState extends State<PaymentDetailsInformation> {
           },
           updateFailed: (_) {
             isUpdating = !isUpdating;
-            return FlushbarHelper.createSuccess(
+            return FlushbarHelper.createError(
               message: 'Error updating status, try again later or contact support.',
             ).show(context);
           },
@@ -98,27 +98,6 @@ class _PaymentDetailsInformationState extends State<PaymentDetailsInformation> {
                           const EdgeInsets.symmetric(vertical: 8.0),
                           margin: const EdgeInsets.only(
                               left: 16, top: 8, right: 16),
-                          child: TextFormField(
-                            initialValue:
-                            widget.paymentDetails.deliveryStatus,
-                            decoration: const InputDecoration(
-                                labelText: 'Status',
-                                filled: true,
-                                errorMaxLines: 5),
-                            readOnly: true,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                    : Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding:
-                          const EdgeInsets.symmetric(vertical: 8.0),
-                          margin: const EdgeInsets.only(
-                              left: 16, top: 8, right: 16),
                           child:
                           DropdownButtonFormField<String>(
                             value: statusController,
@@ -145,9 +124,30 @@ class _PaymentDetailsInformationState extends State<PaymentDetailsInformation> {
                           child: FlatButton(
                             onPressed: currentStatus != statusController
                                 ?  () => context.read<PaymentDetailsFormBloc>()
-                                    .add(PaymentDetailsFormEvent.updateOrderStatus(statusController, widget.paymentDetails.id, widget.paymentDetails.peerId, widget.isSender))
+                                .add(PaymentDetailsFormEvent.updateOrderStatus(statusController, widget.paymentDetails.id, widget.paymentDetails.peerId, widget.isSender))
                                 : null,
                             child: Text("Update"),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                    : Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding:
+                          const EdgeInsets.symmetric(vertical: 8.0),
+                          margin: const EdgeInsets.only(
+                              left: 16, top: 8, right: 16),
+                          child: TextFormField(
+                            initialValue:
+                            widget.paymentDetails.deliveryStatus,
+                            decoration: const InputDecoration(
+                                labelText: 'Status',
+                                filled: true,
+                                errorMaxLines: 5),
+                            readOnly: true,
                           ),
                         ),
                       ),

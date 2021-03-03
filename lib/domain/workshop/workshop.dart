@@ -17,11 +17,16 @@ abstract class Workshop implements _$Workshop {
     @required WorkshopName workshopName,
     @required WorkshopDescription workshopDescription,
     @required WorkshopDate workshopDate,
+    @required WorkshopTime workshopTime,
     @required WorkshopRequirements workshopRequirements,
     @required WorkshopPrice workshopPrice,
     @required WorkshopDuration workshopDuration,
     @required String userId,
-    @required String timestamp
+    @required String timestamp,
+    @required String hasStarted,
+    @required String username,
+    @required String profileImage,
+    @required List<String> attendees,
   }) = _Workshop;
 
   const Workshop._();
@@ -30,9 +35,14 @@ abstract class Workshop implements _$Workshop {
       id: UniqueId(),
       userId: '',
       timestamp: '',
+      username: '',
+      hasStarted: 'pending',
+      profileImage: '',
+      attendees: [],
       workshopName: WorkshopName(''),
       workshopDescription: WorkshopDescription(''),
       workshopDate: WorkshopDate(''),
+      workshopTime: WorkshopTime(''),
       workshopPrice: WorkshopPrice(0),
       workshopDuration: WorkshopDuration(0),
       workshopRequirements: WorkshopRequirements('')
@@ -45,6 +55,7 @@ abstract class Workshop implements _$Workshop {
         .andThen(workshopPrice.failureOrUnit)
         .andThen(workshopDuration.failureOrUnit)
         .andThen(workshopDate.failureOrUnit)
+        .andThen(workshopTime.failureOrUnit)
         .fold((l) => some(l), (_) => none());
   }
 }

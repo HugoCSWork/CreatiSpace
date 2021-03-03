@@ -45,7 +45,6 @@ class UserConversationBloc extends Bloc<UserConversationEvent, UserConversationS
                     add(UserConversationEvent.MessagingListReceived(failureOrItems)),
               );
         },
-        // TODO Move sending message to its own form bloc to do correct validation
         sendMessage: (e) async* {
           await _iUserFacade.sendMessage(peerId: e.peerId, message: e.message, type: e.type);
         },
