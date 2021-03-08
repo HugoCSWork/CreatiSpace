@@ -81,6 +81,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                       ),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
+                        alignment: Alignment.center,
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(

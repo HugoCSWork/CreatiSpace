@@ -2,6 +2,7 @@ import 'package:creatispace/domain/core/value_failures.dart';
 import 'package:creatispace/domain/core/value_objects.dart';
 import 'package:creatispace/domain/items/item_image/item_image.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
+import 'package:creatispace/domain/streaming/streaming_user/streaming_user.dart';
 import 'package:creatispace/domain/workshop/value_objects.dart';
 
 import 'package:dartz/dartz.dart';
@@ -26,7 +27,7 @@ abstract class Workshop implements _$Workshop {
     @required String hasStarted,
     @required String username,
     @required String profileImage,
-    @required List<String> attendees,
+    @required List<StreamingUser> attendees,
   }) = _Workshop;
 
   const Workshop._();

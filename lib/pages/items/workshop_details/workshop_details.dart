@@ -182,7 +182,7 @@ class _WorkshopItemDetailsState extends State<WorkshopItemDetails> {
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                          child: Text(widget.workshop.attendees[index]),
+                          child: Text(widget.workshop.attendees[index].username),
                         );
                       },
                     ),

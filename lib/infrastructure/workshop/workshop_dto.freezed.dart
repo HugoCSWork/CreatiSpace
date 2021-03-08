@@ -31,7 +31,7 @@ class _$WorkshopDtoTearOff {
       @required String workshopRequirements,
       @required double workshopPrice,
       @required double workshopDuration,
-      @required List<String> attendees}) {
+      @required List<StreamingUser> attendees}) {
     return _WorkshopDto(
       id: id,
       userId: userId,
@@ -75,7 +75,7 @@ mixin _$WorkshopDto {
   String get workshopRequirements;
   double get workshopPrice;
   double get workshopDuration;
-  List<String> get attendees;
+  List<StreamingUser> get attendees;
 
   Map<String, dynamic> toJson();
   $WorkshopDtoCopyWith<WorkshopDto> get copyWith;
@@ -100,7 +100,7 @@ abstract class $WorkshopDtoCopyWith<$Res> {
       String workshopRequirements,
       double workshopPrice,
       double workshopDuration,
-      List<String> attendees});
+      List<StreamingUser> attendees});
 }
 
 /// @nodoc
@@ -157,8 +157,9 @@ class _$WorkshopDtoCopyWithImpl<$Res> implements $WorkshopDtoCopyWith<$Res> {
       workshopDuration: workshopDuration == freezed
           ? _value.workshopDuration
           : workshopDuration as double,
-      attendees:
-          attendees == freezed ? _value.attendees : attendees as List<String>,
+      attendees: attendees == freezed
+          ? _value.attendees
+          : attendees as List<StreamingUser>,
     ));
   }
 }
@@ -184,7 +185,7 @@ abstract class _$WorkshopDtoCopyWith<$Res>
       String workshopRequirements,
       double workshopPrice,
       double workshopDuration,
-      List<String> attendees});
+      List<StreamingUser> attendees});
 }
 
 /// @nodoc
@@ -243,8 +244,9 @@ class __$WorkshopDtoCopyWithImpl<$Res> extends _$WorkshopDtoCopyWithImpl<$Res>
       workshopDuration: workshopDuration == freezed
           ? _value.workshopDuration
           : workshopDuration as double,
-      attendees:
-          attendees == freezed ? _value.attendees : attendees as List<String>,
+      attendees: attendees == freezed
+          ? _value.attendees
+          : attendees as List<StreamingUser>,
     ));
   }
 }
@@ -314,7 +316,7 @@ class _$_WorkshopDto extends _WorkshopDto {
   @override
   final double workshopDuration;
   @override
-  final List<String> attendees;
+  final List<StreamingUser> attendees;
 
   @override
   String toString() {
@@ -411,7 +413,7 @@ abstract class _WorkshopDto extends WorkshopDto {
       @required String workshopRequirements,
       @required double workshopPrice,
       @required double workshopDuration,
-      @required List<String> attendees}) = _$_WorkshopDto;
+      @required List<StreamingUser> attendees}) = _$_WorkshopDto;
 
   factory _WorkshopDto.fromJson(Map<String, dynamic> json) =
       _$_WorkshopDto.fromJson;
@@ -443,7 +445,7 @@ abstract class _WorkshopDto extends WorkshopDto {
   @override
   double get workshopDuration;
   @override
-  List<String> get attendees;
+  List<StreamingUser> get attendees;
   @override
   _$WorkshopDtoCopyWith<_WorkshopDto> get copyWith;
 }

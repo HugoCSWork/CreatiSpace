@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/streaming/i_streaming_facade.dart';
 import 'package:creatispace/domain/streaming/streaming_message.dart';
+import 'package:creatispace/domain/streaming/streaming_user/streaming_user.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz_unsafe.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
@@ -46,12 +48,18 @@ class StreamingRepository implements IStreamingFacade {
 
       var workshopData = await retrievedData.data();
       var workshopParticipants = workshopData["attendees"] as List<dynamic>;
+      List<StreamingUser> users = [];
+      for(var item in workshopParticipants) {
+        var newItem = item as Map<String, dynamic>;
+        var jsonUser = (StreamingUser.fromJson(newItem));
+        users.add(jsonUser);
+      }
 
       var batch = _firebaseFirestore.batch();
-      await workshopParticipants.forEach((element) {
+      await users.forEach((element) {
         var docRef = _firebaseFirestore
             .collection('users')
-            .doc(element.toString())
+            .doc(element.id)
             .collection('workshops_attending')
             .doc(workshopId);
         batch.update(docRef, {"hasStarted" : "ended"});
@@ -92,9 +100,14 @@ class StreamingRepository implements IStreamingFacade {
       var retrievedData = await  userData.get();
 
       var workshopData = await retrievedData.data();
+
       var workshopParticipants = workshopData["attendees"] as List<dynamic>;
-
-
+      List<StreamingUser> users = [];
+      for(var item in workshopParticipants) {
+        var newItem = item as Map<String, dynamic>;
+        var jsonUser = (StreamingUser.fromJson(newItem));
+        users.add(jsonUser);
+      }
       Map<String, String> customHeaders = {
         "content-type": "application/json"
       };
@@ -106,11 +119,12 @@ class StreamingRepository implements IStreamingFacade {
         return left('Error retrieving code');
       }
 
+
       var batch = _firebaseFirestore.batch();
-      await workshopParticipants.forEach((element) {
+      await users.forEach((element) {
         var docRef = _firebaseFirestore
             .collection('users')
-            .doc(element.toString())
+            .doc(element.id)
             .collection('workshops_attending')
             .doc(workshopId);
         batch.update(docRef, {"hasStarted" : "started", "eventCode" : response.body});

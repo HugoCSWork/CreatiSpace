@@ -28,7 +28,7 @@ class _$WorkshopTearOff {
       @required String hasStarted,
       @required String username,
       @required String profileImage,
-      @required List<String> attendees}) {
+      @required List<StreamingUser> attendees}) {
     return _Workshop(
       id: id,
       workshopName: workshopName,
@@ -67,7 +67,7 @@ mixin _$Workshop {
   String get hasStarted;
   String get username;
   String get profileImage;
-  List<String> get attendees;
+  List<StreamingUser> get attendees;
 
   $WorkshopCopyWith<Workshop> get copyWith;
 }
@@ -90,7 +90,7 @@ abstract class $WorkshopCopyWith<$Res> {
       String hasStarted,
       String username,
       String profileImage,
-      List<String> attendees});
+      List<StreamingUser> attendees});
 }
 
 /// @nodoc
@@ -149,8 +149,9 @@ class _$WorkshopCopyWithImpl<$Res> implements $WorkshopCopyWith<$Res> {
       profileImage: profileImage == freezed
           ? _value.profileImage
           : profileImage as String,
-      attendees:
-          attendees == freezed ? _value.attendees : attendees as List<String>,
+      attendees: attendees == freezed
+          ? _value.attendees
+          : attendees as List<StreamingUser>,
     ));
   }
 }
@@ -174,7 +175,7 @@ abstract class _$WorkshopCopyWith<$Res> implements $WorkshopCopyWith<$Res> {
       String hasStarted,
       String username,
       String profileImage,
-      List<String> attendees});
+      List<StreamingUser> attendees});
 }
 
 /// @nodoc
@@ -234,8 +235,9 @@ class __$WorkshopCopyWithImpl<$Res> extends _$WorkshopCopyWithImpl<$Res>
       profileImage: profileImage == freezed
           ? _value.profileImage
           : profileImage as String,
-      attendees:
-          attendees == freezed ? _value.attendees : attendees as List<String>,
+      attendees: attendees == freezed
+          ? _value.attendees
+          : attendees as List<StreamingUser>,
     ));
   }
 }
@@ -300,7 +302,7 @@ class _$_Workshop extends _Workshop {
   @override
   final String profileImage;
   @override
-  final List<String> attendees;
+  final List<StreamingUser> attendees;
 
   @override
   String toString() {
@@ -392,7 +394,7 @@ abstract class _Workshop extends Workshop {
       @required String hasStarted,
       @required String username,
       @required String profileImage,
-      @required List<String> attendees}) = _$_Workshop;
+      @required List<StreamingUser> attendees}) = _$_Workshop;
 
   @override
   UniqueId get id;
@@ -421,7 +423,7 @@ abstract class _Workshop extends Workshop {
   @override
   String get profileImage;
   @override
-  List<String> get attendees;
+  List<StreamingUser> get attendees;
   @override
   _$WorkshopCopyWith<_Workshop> get copyWith;
 }

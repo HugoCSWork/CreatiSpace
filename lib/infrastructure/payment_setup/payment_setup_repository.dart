@@ -10,6 +10,7 @@ import 'package:creatispace/domain/payment_setup/i_payment_setup_facade.dart';
 import 'package:creatispace/domain/payment_setup/payment_response/payment_response.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_error/payment_setup_error.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_model/payment_setup.dart';
+import 'package:creatispace/domain/streaming/streaming_user/streaming_user.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/domain/workshop/workshop_payment.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
@@ -224,8 +225,10 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
         paymentIntentRes["user_id"] = userData["userId"];
         paymentIntentRes["peer_username"] = userProfileData["username"];
         paymentIntentRes["peer_id"] = userDoc.id;
+        StreamingUser user = new StreamingUser(userDoc.id, userDocument["username"].toString());
+
         await peerDoc.workshopCollection.doc(workshopId).update({
-          'attendees' : FieldValue.arrayUnion([userDoc.id])
+          'attendees' : FieldValue.arrayUnion([user.toJson()])
         });
 
         WorkshopPayment workshopPayment = new WorkshopPayment(

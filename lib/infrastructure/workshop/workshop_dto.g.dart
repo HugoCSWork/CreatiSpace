@@ -21,7 +21,11 @@ _$_WorkshopDto _$_$_WorkshopDtoFromJson(Map<String, dynamic> json) {
     workshopRequirements: json['workshopRequirements'] as String,
     workshopPrice: (json['workshopPrice'] as num)?.toDouble(),
     workshopDuration: (json['workshopDuration'] as num)?.toDouble(),
-    attendees: (json['attendees'] as List)?.map((e) => e as String)?.toList(),
+    attendees: (json['attendees'] as List)
+        ?.map((e) => e == null
+            ? null
+            : StreamingUser.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -40,5 +44,5 @@ Map<String, dynamic> _$_$_WorkshopDtoToJson(_$_WorkshopDto instance) =>
       'workshopRequirements': instance.workshopRequirements,
       'workshopPrice': instance.workshopPrice,
       'workshopDuration': instance.workshopDuration,
-      'attendees': instance.attendees,
+      'attendees': instance.attendees?.map((e) => e?.toJson())?.toList(),
     };

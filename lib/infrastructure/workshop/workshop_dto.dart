@@ -1,6 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/core/value_objects.dart';
+import 'package:creatispace/domain/streaming/streaming_user/streaming_user.dart';
 import 'package:creatispace/domain/workshop/value_objects.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,7 +27,7 @@ abstract class WorkshopDto implements _$WorkshopDto {
     @required String workshopRequirements,
     @required double workshopPrice,
     @required double workshopDuration,
-    @required List<String> attendees
+    @required List<StreamingUser> attendees
   }) = _WorkshopDto;
 
   factory WorkshopDto.fromDomain(Workshop item, String userId, String timestamp, String username, String imageUrl) {
