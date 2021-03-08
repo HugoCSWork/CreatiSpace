@@ -225,7 +225,7 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
         paymentIntentRes["peer_username"] = userProfileData["username"];
         paymentIntentRes["peer_id"] = userDoc.id;
         await peerDoc.workshopCollection.doc(workshopId).update({
-          'attendees' : FieldValue.arrayUnion([userData["username"]])
+          'attendees' : FieldValue.arrayUnion([userDoc.id])
         });
 
         WorkshopPayment workshopPayment = new WorkshopPayment(

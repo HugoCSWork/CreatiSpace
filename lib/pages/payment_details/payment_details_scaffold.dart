@@ -79,66 +79,72 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                           ),
                         ],
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          FlatButton(
-                            child: Text(
-                                "Orders to receive",
-                                style: TextStyle(
-                                    fontWeight: option.text == "receive"
-                                        ? FontWeight.bold
-                                        : FontWeight.normal
-                                )
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                option.text = "receive";
-                              });
-                            },
-                          ),
-                          Container(
-                            height: 30,
-                            width: 1.3,
-                            color: Colors.blue[200],
-                          ),
-                          FlatButton(
-                            child: Text(
-                              "Orders to send",
-                              style: TextStyle(
-                                  fontWeight: option.text == "send"
-                                      ? FontWeight.bold
-                                      : FontWeight.normal
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              FlatButton(
+                                child: Text(
+                                    "Orders to receive",
+                                    style: TextStyle(
+                                        fontWeight: option.text == "receive"
+                                            ? FontWeight.bold
+                                            : FontWeight.normal
+                                    )
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    option.text = "receive";
+                                  });
+                                },
                               ),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                option.text = "send";
-                              });
-                            },
-                          ),
+                              Container(
+                                height: 30,
+                                width: 1.3,
+                                color: Colors.blue[200],
+                              ),
+                              FlatButton(
+                                child: Text(
+                                  "Orders to send",
+                                  style: TextStyle(
+                                      fontWeight: option.text == "send"
+                                          ? FontWeight.bold
+                                          : FontWeight.normal
+                                  ),
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    option.text = "send";
+                                  });
+                                },
+                              ),
 
-                          Container(
-                            height: 30,
-                            width: 1.3,
-                            color: Colors.blue[200],
+                              Container(
+                                height: 30,
+                                width: 1.3,
+                                color: Colors.blue[200],
+                              ),
+                              FlatButton(
+                                child: Text(
+                                    "Workshops",
+                                    style: TextStyle(
+                                        fontWeight: option.text == "workshop"
+                                            ? FontWeight.bold
+                                            : FontWeight.normal
+                                    )
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    option.text = "workshop";
+                                  });
+                                },
+                              ),
+                            ],
                           ),
-                          FlatButton(
-                            child: Text(
-                                "Workshops",
-                                style: TextStyle(
-                                    fontWeight: option.text == "workshop"
-                                        ? FontWeight.bold
-                                        : FontWeight.normal
-                                )
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                option.text = "workshop";
-                              });
-                            },
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                     whichDisplay(),
