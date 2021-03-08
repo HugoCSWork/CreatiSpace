@@ -50,7 +50,7 @@ Future<String> postCreatePaymentIntent(String email, String paymentMethodId, Str
     'amount' : amount,
     'item_id': itemId
   });
-  var response = await http.post('http://10.0.2.2:3000/v1/payment/make-payment', headers: customHeaders, body: bodyData);
+  var response = await http.post('https://creatispacemobile.azurewebsites.net/v1/payment/make-payment', headers: customHeaders, body: bodyData);
 
   clientSecret = response.body;
   return clientSecret;
@@ -72,7 +72,6 @@ Future<Map<String, dynamic>> createPaymentIntentWorkshop(StripeCard stripeCard,
 }
 
 Future<String> postCreatePaymentIntentWorkshop(String email, String paymentMethodId, String merchant, String peerId, String amount, String itemId) async{
-  // todo post the merchent account id, retrieve from firebase
   String clientSecret;
   Map<String, String> customHeaders = {
     "content-type": "application/json"
@@ -85,7 +84,7 @@ Future<String> postCreatePaymentIntentWorkshop(String email, String paymentMetho
     'amount' : amount,
     'item_id': itemId
   });
-  var response = await http.post('http://10.0.2.2:3000/v1/payment/make-payment-workshop', headers: customHeaders, body: bodyData);
+  var response = await http.post('https://creatispacemobile.azurewebsites.net/v1/payment/make-payment-workshop', headers: customHeaders, body: bodyData);
 
   clientSecret = response.body;
   return clientSecret;

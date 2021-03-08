@@ -124,12 +124,23 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                     alignment: Alignment.centerRight,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
-                      child: Text("Delivery -  3 to 5 days", style: TextStyle(
+                      child: Text("Delivery - £${widget.homeItem.delivery.getOrCrash().toStringAsFixed(2)} ", style: TextStyle(
                           fontWeight: FontWeight.bold
                       ),),
                     ),
                   )
                   : Container(),
+                widget.homeItem.quantity.getOrCrash() > 0
+                    ? Container(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
+                    child: Text("(3 to 5 working days)", style: TextStyle(
+                        fontWeight: FontWeight.bold
+                    ),),
+                  ),
+                )
+                    : Container(),
                 widget.homeItem.quantity.getOrCrash() > 0
                     ? Padding(
                     padding: const EdgeInsets.only(top: 10.0),

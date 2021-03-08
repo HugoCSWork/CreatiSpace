@@ -21,7 +21,7 @@ class SearchWorkshopBuilder extends StatelessWidget {
             if(state.items.size == 0) {
               return Padding(
                 padding: const EdgeInsets.only(top: 60.0),
-                child: const Text("No users related to that search"),
+                child: const Text("No workshops related to that search"),
               );
             } else {
               return Expanded(

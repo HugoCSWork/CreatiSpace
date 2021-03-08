@@ -69,6 +69,7 @@ class FirebaseAuthFacade implements IAuthFacade {
                 'username': usernameStr,
                 'followers' : 0,
                 "following" : 0,
+                "description": "No description",
                 "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
                 "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash.jpg?alt=media&token=408b1965-795d-42e8-b91b-7a7e1b35fbb1"
               }
@@ -141,6 +142,7 @@ class FirebaseAuthFacade implements IAuthFacade {
                   'username': "new_user${rNum}",
                   'followers' : 0,
                   "following" : 0,
+                  "description": "No description",
                   "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
                   "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash.jpg?alt=media&token=408b1965-795d-42e8-b91b-7a7e1b35fbb1"
                 }

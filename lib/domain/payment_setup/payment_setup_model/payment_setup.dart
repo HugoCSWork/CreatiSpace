@@ -46,7 +46,7 @@ abstract class PaymentItemSetup implements _$PaymentItemSetup {
     line2: LineTwo(""),
     city: City(""),
     county: County(""),
-    country: Country(""),
+    country: Country("GB"),
     postcode: Postcode(""),
     cardName: CardName(""),
     cardNumber: CardNumber("00012345"),

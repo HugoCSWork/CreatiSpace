@@ -62,6 +62,7 @@ import 'package:creatispace/shared/navigation_bar.dart';
     MaterialRoute(page: WorkshopDetailsInformation),
     MaterialRoute(page: PaymentSuccessful),
     MaterialRoute(page: WorkshopItemDetails),
+    MaterialRoute(page: PaymentStepperScaffold),
     MaterialRoute(page: StreamingHostScaffold),
     MaterialRoute(page: StreamingAudienceScaffold),
     MaterialRoute(page: PaymentFormScaffold),

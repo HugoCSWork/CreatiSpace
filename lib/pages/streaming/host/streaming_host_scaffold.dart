@@ -1,4 +1,5 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
+import 'package:creatispace/app/streaming/end_stream/end_stream_bloc.dart';
 import 'package:creatispace/app/streaming/start_stream/start_stream_bloc.dart';
 import 'package:creatispace/app/streaming/stream_conversation_watcher/stream_conversation_watcher_bloc.dart';
 import 'package:creatispace/injection.dart';
@@ -20,6 +21,9 @@ class StreamingHostScaffold extends StatelessWidget {
           ..add(StartStreamEvent.startStream(workshopId)),
           ),
           BlocProvider(
+            create: (context) => getIt<EndStreamBloc>()
+          ),
+          BlocProvider(
             create: (context) => getIt<StreamConversationWatcherBloc>()
               ..add(StreamConversationWatcherEvent.watchAllUserConversation(hostId, workshopId)),
           ),
@@ -36,6 +40,7 @@ class StreamingHostScaffold extends StatelessWidget {
                       role: ClientRole.Broadcaster,
                       channelName: workshopId,
                       hostId: hostId,
+                      uid: -31234523,
                     ),
                   );
                 },

@@ -37,6 +37,7 @@ class StreamingAudienceScaffold extends StatelessWidget {
                       role: ClientRole.Audience,
                       channelName: workshopId,
                       hostId: hostId,
+                      uid: 0,
                     ),
                   );
                 },

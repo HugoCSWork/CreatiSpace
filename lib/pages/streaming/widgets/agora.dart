@@ -1,7 +1,39 @@
 import 'package:agora_rtc_engine/rtc_engine.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:creatispace/app/streaming/end_stream/end_stream_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-Widget toolbar(ClientRole role, ClientRole audience, bool muted, VoidCallback onMicPressed,  VoidCallback onCameraPressed, VoidCallback onMessagePressed, VoidCallback onEndPressed) {
+Future<void> confirmationDialog(BuildContext context, String title) {
+  Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed:  () =>  {
+        ExtendedNavigator.of(context).pop(),
+        FocusManager.instance.primaryFocus.unfocus()
+      }
+  );
+  Widget continueButton = FlatButton(
+      child: Text("Continue"),
+      onPressed:  () => {
+        ExtendedNavigator.of(context).pop(),
+        ExtendedNavigator.of(context).pop("completed"),
+        FocusManager.instance.primaryFocus.unfocus()
+      }
+  );
+
+  return showDialog(
+    context: context,
+    child: AlertDialog(
+      title: Text(title),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    ),
+  );
+}
+
+Widget toolbar(BuildContext context, ClientRole role, String workshopId, ClientRole audience, bool muted, VoidCallback onMicPressed,  VoidCallback onCameraPressed, VoidCallback onMessagePressed) {
   if (role == audience) return Container(
     alignment: Alignment.bottomCenter,
     child: Padding(
@@ -22,7 +54,7 @@ Widget toolbar(ClientRole role, ClientRole audience, bool muted, VoidCallback on
             padding: const EdgeInsets.all(12.0),
           ),
           RawMaterialButton(
-            onPressed: onEndPressed,
+            onPressed: () => confirmationDialog(context, "Are you sure you want to leave the workshop?"),
             child: Icon(
               Icons.call_end,
               color: Colors.white,
@@ -81,7 +113,10 @@ Widget toolbar(ClientRole role, ClientRole audience, bool muted, VoidCallback on
           padding: const EdgeInsets.all(12.0),
         ),
         RawMaterialButton(
-          onPressed: onEndPressed,
+          onPressed: () {
+            context.read<EndStreamBloc>().add(EndStreamEvent.endStream(workshopId));
+            return confirmationDialog(context, "Are you sure you want to leave the workshop?\n\nDoing this will end the stream!");
+          },
           child: Icon(
             Icons.call_end,
             color: Colors.white,
@@ -97,7 +132,7 @@ Widget toolbar(ClientRole role, ClientRole audience, bool muted, VoidCallback on
   );
 }
 
-Widget toolbarWithChat(ClientRole role, ClientRole audience, bool muted, VoidCallback onMicPressed,  VoidCallback onCameraPressed, VoidCallback onMessagePressed, VoidCallback onEndPressed) {
+Widget toolbarWithChat(BuildContext context, ClientRole role, ClientRole audience, bool muted, VoidCallback onMicPressed,  VoidCallback onCameraPressed, VoidCallback onMessagePressed) {
   if (role == audience) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +152,7 @@ Widget toolbarWithChat(ClientRole role, ClientRole audience, bool muted, VoidCal
         SizedBox(height: 16),
 
         RawMaterialButton(
-          onPressed: onEndPressed,
+          onPressed:  () => confirmationDialog(context, "Are you sure you want to leave the workshop?"),
           child: Icon(
             Icons.call_end,
             color: Colors.white,
@@ -176,7 +211,7 @@ Widget toolbarWithChat(ClientRole role, ClientRole audience, bool muted, VoidCal
           SizedBox(height: 16),
 
           RawMaterialButton(
-            onPressed: onEndPressed,
+            onPressed: () => confirmationDialog(context, "Are you sure you want to leave the workshop?\n\nDoing this will end the stream!"),
             child: Icon(
               Icons.call_end,
               color: Colors.white,

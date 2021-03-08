@@ -17,7 +17,7 @@ class PaymentDetailsScaffold extends StatefulWidget {
 
 class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
 
-  TextEditingController option = TextEditingController(text: "send");
+  TextEditingController option = TextEditingController(text: "receive");
 
   Widget whichDisplay() {
     if(option.text == "receive") {
@@ -84,26 +84,6 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                         children: [
                           FlatButton(
                             child: Text(
-                              "Orders to send",
-                              style: TextStyle(
-                                  fontWeight: option.text == "send"
-                                      ? FontWeight.bold
-                                      : FontWeight.normal
-                              ),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                option.text = "send";
-                              });
-                            },
-                          ),
-                          Container(
-                            height: 30,
-                            width: 1.3,
-                            color: Colors.blue[200],
-                          ),
-                          FlatButton(
-                            child: Text(
                                 "Orders to receive",
                                 style: TextStyle(
                                     fontWeight: option.text == "receive"
@@ -117,6 +97,27 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                               });
                             },
                           ),
+                          Container(
+                            height: 30,
+                            width: 1.3,
+                            color: Colors.blue[200],
+                          ),
+                          FlatButton(
+                            child: Text(
+                              "Orders to send",
+                              style: TextStyle(
+                                  fontWeight: option.text == "send"
+                                      ? FontWeight.bold
+                                      : FontWeight.normal
+                              ),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                option.text = "send";
+                              });
+                            },
+                          ),
+
                           Container(
                             height: 30,
                             width: 1.3,

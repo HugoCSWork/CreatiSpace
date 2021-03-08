@@ -27,14 +27,13 @@ import 'package:http/http.dart' as http;
 import 'dart:io' as Io;
 import 'package:stripe_sdk/stripe_sdk.dart';
 import 'package:stripe_sdk/stripe_sdk_ui.dart';
+import 'package:wifi/wifi.dart';
 
 @LazySingleton(as: IPaymentSetupFacade)
 class PaymentSetupRepository implements IPaymentSetupFacade {
   final FirebaseFirestore _firebaseFirestore;
   final FirebaseStorage _firebaseStorage;
   final FirebaseAuth _firebaseAuth;
-
-
 
   PaymentSetupRepository(
       this._firebaseFirestore, this._firebaseStorage, this._firebaseAuth);
@@ -53,8 +52,8 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
           paymentItemSetup, passportBytes, documentBytes);
       final jsonData = await paymentDto.toJson();
       jsonData["termsAndService"] = jsonData["termsAndService"].toString();
-
-      var url = 'http://10.0.2.2:3000/v1/payment/create-account';
+      jsonData["ip"] = await Wifi.ip;
+      var url = 'https://creatispacemobile.azurewebsites.net/v1/payment/create-account';
 
       var response = await http.post(url, body: jsonData);
       if(response.statusCode != HttpStatus.created) {
@@ -226,7 +225,7 @@ class PaymentSetupRepository implements IPaymentSetupFacade {
         paymentIntentRes["peer_username"] = userProfileData["username"];
         paymentIntentRes["peer_id"] = userDoc.id;
         await peerDoc.workshopCollection.doc(workshopId).update({
-          'attendees' : FieldValue.arrayUnion([userDoc.id])
+          'attendees' : FieldValue.arrayUnion([userData["username"]])
         });
 
         WorkshopPayment workshopPayment = new WorkshopPayment(

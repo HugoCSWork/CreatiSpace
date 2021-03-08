@@ -12,7 +12,7 @@ class PreviewOrPay extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prevOrPay = useState(true);
+    final prevOrPay = useState(false);
     final cost = useState(0.00);
     final delivery = useState(0.00);
     final quantity = useState(0);

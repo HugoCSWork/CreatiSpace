@@ -80,6 +80,7 @@ class Routes {
       '/workshop-details-information';
   static const String paymentSuccessful = '/payment-successful';
   static const String workshopItemDetails = '/workshop-item-details';
+  static const String paymentStepperScaffold = '/payment-stepper-scaffold';
   static const String streamingHostScaffold = '/streaming-host-scaffold';
   static const String streamingAudienceScaffold =
       '/streaming-audience-scaffold';
@@ -114,6 +115,7 @@ class Routes {
     workshopDetailsInformation,
     paymentSuccessful,
     workshopItemDetails,
+    paymentStepperScaffold,
     streamingHostScaffold,
     streamingAudienceScaffold,
     paymentFormScaffold,
@@ -155,6 +157,7 @@ class BaseRouter extends RouterBase {
         page: WorkshopDetailsInformation),
     RouteDef(Routes.paymentSuccessful, page: PaymentSuccessful),
     RouteDef(Routes.workshopItemDetails, page: WorkshopItemDetails),
+    RouteDef(Routes.paymentStepperScaffold, page: PaymentStepperScaffold),
     RouteDef(Routes.streamingHostScaffold, page: StreamingHostScaffold),
     RouteDef(Routes.streamingAudienceScaffold, page: StreamingAudienceScaffold),
     RouteDef(Routes.paymentFormScaffold, page: PaymentFormScaffold),
@@ -332,14 +335,8 @@ class BaseRouter extends RouterBase {
       );
     },
     PaymentStepper: (data) {
-      final args = data.getArgs<PaymentStepperArguments>(
-        orElse: () => PaymentStepperArguments(),
-      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => PaymentStepper(
-          key: args.key,
-          steps: args.steps,
-        ),
+        builder: (context) => const PaymentStepper(),
         settings: data,
       );
     },
@@ -423,6 +420,12 @@ class BaseRouter extends RouterBase {
           key: args.key,
           workshop: args.workshop,
         ),
+        settings: data,
+      );
+    },
+    PaymentStepperScaffold: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => PaymentStepperScaffold(),
         settings: data,
       );
     },
@@ -599,14 +602,7 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         arguments: FullScreenImageArguments(key: key, imageUrl: imageUrl),
       );
 
-  Future<dynamic> pushPaymentStepper({
-    Key key,
-    List<Step> steps,
-  }) =>
-      push<dynamic>(
-        Routes.paymentStepper,
-        arguments: PaymentStepperArguments(key: key, steps: steps),
-      );
+  Future<dynamic> pushPaymentStepper() => push<dynamic>(Routes.paymentStepper);
 
   Future<dynamic> pushPaymentDetailsScaffold() =>
       push<dynamic>(Routes.paymentDetailsScaffold);
@@ -677,6 +673,9 @@ extension BaseRouterExtendedNavigatorStateX on ExtendedNavigatorState {
         Routes.workshopItemDetails,
         arguments: WorkshopItemDetailsArguments(key: key, workshop: workshop),
       );
+
+  Future<dynamic> pushPaymentStepperScaffold() =>
+      push<dynamic>(Routes.paymentStepperScaffold);
 
   Future<dynamic> pushStreamingHostScaffold({
     Key key,
@@ -797,13 +796,6 @@ class FullScreenImageArguments {
   final Key key;
   final String imageUrl;
   FullScreenImageArguments({this.key, this.imageUrl});
-}
-
-/// PaymentStepper arguments holder class
-class PaymentStepperArguments {
-  final Key key;
-  final List<Step> steps;
-  PaymentStepperArguments({this.key, this.steps});
 }
 
 /// PaymentDetailInformationScaffold arguments holder class

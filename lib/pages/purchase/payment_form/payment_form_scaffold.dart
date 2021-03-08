@@ -126,7 +126,7 @@ class _PaymentFormScaffoldState extends State<PaymentFormScaffold> {
                               amount: results["amount"].toString(),
                               address: results["shipping"] as Map<String, dynamic>,
                               quantity: results["quantity"].toString(),
-                              peerId: "yFEuYmwD5ZNTeym5piMwKuXzqB52"
+                              peerId: widget.peerId
                           ));
                         } else {
                           return ExtendedNavigator.of(context).pushAndRemoveUntilPath(Routes.workshopConfirmation, Routes.navigationBar, arguments: WorkshopConfirmationArguments(

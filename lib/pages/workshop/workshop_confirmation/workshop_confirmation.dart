@@ -11,7 +11,7 @@ class WorkshopConfirmation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Successfully booked Workshop"),
+        title: Text("Workshop Booking"),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -27,56 +27,109 @@ class WorkshopConfirmation extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16),
-                Text(
-                  "Order Summary",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold
+                Padding(
+                    padding: EdgeInsets.fromLTRB(16, 12, 0, 0),
+                    child: Text(
+                      "Order Information",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16
+                      ),
+                    )
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.only(
+                      left: 16, top: 8, right: 16),
+                  child: TextFormField(
+                    initialValue: workshop.workshopName.getOrCrash(),
+                    decoration: InputDecoration(
+                        labelText: 'Workshop Name',
+                        filled: true,
+                        errorMaxLines: 5),
+                    readOnly: true,
                   ),
                 ),
-                SizedBox(height: 16),
-                Text(
-                  "Workshop Name: ${workshop.workshopName.getOrCrash()}",
-                  style: TextStyle(
-                      fontSize: 16
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.only(
+                      left: 16, top: 8, right: 16),
+                  child: TextFormField(
+                    initialValue: workshop.workshopDescription.getOrCrash(),
+                    decoration: InputDecoration(
+                        labelText: 'Workshop Description',
+                        filled: true,
+                        errorMaxLines: 5),
+                    maxLines: 5,
+                    readOnly: true,
                   ),
                 ),
-                SizedBox(height: 16),
-                Text(
-                  "Workshop Description: ${workshop.workshopDescription.getOrCrash()}",
-                  style: TextStyle(
-                      fontSize: 16
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.only(
+                      left: 16, top: 8, right: 16),
+                  child: TextFormField(
+                    initialValue: workshop.workshopRequirements.getOrCrash(),
+                    decoration: InputDecoration(
+                        labelText: 'Workshop Requirements',
+                        filled: true,
+                        errorMaxLines: 5),
+                    maxLines: 5,
+                    readOnly: true,
                   ),
                 ),
-                SizedBox(height: 16),
-                Text(
-                  "Workshop Requirements: ${workshop.workshopRequirements.getOrCrash()}",
-                  style: TextStyle(
-                      fontSize: 16
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  margin: const EdgeInsets.only(
+                      left: 16, top: 8, right: 16),
+                  child: TextFormField(
+                    initialValue: workshop.workshopDate.getOrCrash(),
+                    decoration: InputDecoration(
+                        labelText: 'Date',
+                        filled: true,
+                        errorMaxLines: 5),
+                    readOnly: true,
                   ),
                 ),
-                SizedBox(height: 16),
-                Text(
-                  "Workshop Date: ${workshop.workshopDate.getOrCrash()}",
-                  style: TextStyle(
-                      fontSize: 16
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding:
+                        const EdgeInsets.symmetric(vertical: 8.0),
+                        margin: const EdgeInsets.only(
+                            left: 16, top: 8, right: 16),
+                        child: TextFormField(
+                          initialValue:
+                          '${workshop.workshopDuration.getOrCrash().toStringAsFixed(0)} Minutes',
+                          decoration: const InputDecoration(
+                              labelText: 'Duration',
+                              filled: true,
+                              errorMaxLines: 5),
+                          readOnly: true,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding:
+                        const EdgeInsets.symmetric(vertical: 8.0),
+                        margin: const EdgeInsets.only(
+                            left: 16, top: 8, right: 16),
+                        child: TextFormField(
+                          initialValue:
+                          '£${workshop.workshopPrice.getOrCrash().toStringAsFixed(2)}',
+                          decoration: const InputDecoration(
+                              labelText: 'Price',
+                              filled: true,
+                              errorMaxLines: 5),
+                          readOnly: true,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 16),
-                Text(
-                  "Workshop Duration: ${workshop.workshopDuration.getOrCrash().toStringAsFixed(0)}",
-                  style: TextStyle(
-                      fontSize: 16
-                  ),
-                ),
-                SizedBox(height: 16),
-                Text(
-                  "Total Cost: £${workshop.workshopPrice.getOrCrash().toStringAsFixed(2)}",
-                  style: TextStyle(
-                      fontSize: 16
-                  ),
-                ),
-                SizedBox(height: 16),
+
               ],
             )
         ),

@@ -29,6 +29,8 @@ class SearchRepository implements ISearchFacade {
 
   @override
   Stream<Either<ItemErrorFailure, KtList<HomeItem>>> searchForItems(String search) async* {
+    var userDoc= await _firebaseFirestore.userDocument();
+
     yield* _firebaseFirestore.collection('posts')
         .snapshots()
         .map(
@@ -39,6 +41,7 @@ class SearchRepository implements ISearchFacade {
           (item) => right<ItemErrorFailure, KtList<HomeItem>>(
           item
               .where((item) => item.name.getOrCrash().toLowerCase().contains(search.toLowerCase()) || item.description.getOrCrash().toLowerCase().contains(search.toLowerCase()))
+              .where((item) => item.id != userDoc.id)
               .toImmutableList()
       ),
     ).onErrorReturnWith((error) {
@@ -89,7 +92,7 @@ class SearchRepository implements ISearchFacade {
           (user) => right<WorkshopErrorFailures,  KtList<Workshop>>(
           user
               .where((user) => user.workshopName.getOrCrash().toLowerCase().contains(search.toLowerCase()) || user.workshopDescription.getOrCrash().toLowerCase().contains(search.toLowerCase()))
-              // .where((user) => !user.userId.contains(currentUser.id))
+              .where((user) => !user.userId.contains(currentUser.id))
               .toImmutableList()
       ),
     ).onErrorReturnWith((error) {

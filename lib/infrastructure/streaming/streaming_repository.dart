@@ -101,7 +101,7 @@ class StreamingRepository implements IStreamingFacade {
       var bodyData =  jsonEncode(<String, String>{
         'channelName': workshopId,
       });
-      var response = await http.post('http://10.0.2.2:3000/v1/streaming/create-token', headers: customHeaders, body: bodyData);
+      var response = await http.post('https://creatispacemobile.azurewebsites.net/v1/streaming/create-token', headers: customHeaders, body: bodyData);
       if(response.statusCode != 201) {
         return left('Error retrieving code');
       }

@@ -20,9 +20,11 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   int _currentIndex;
+  int selectedPos;
 
   _NavigationBarState(int pos){
     this._currentIndex = pos;
+    this.selectedPos = pos;
   }
 
   final List<Widget> _childrenVerified = [
@@ -47,9 +49,21 @@ class _NavigationBarState extends State<NavigationBar> {
     });
   }
 
+  int resetPosition(bool auth) {
+    if(selectedPos > 0) {
+      if(auth) {
+        _currentIndex = selectedPos;
+      } else {
+        _currentIndex = selectedPos - 1;
+      }
+      selectedPos = 0;
+    }
+    return _currentIndex;
+  }
+
   Widget verifiedBar() {
     return Scaffold(
-      body: _childrenVerified[_currentIndex], // new
+      body: _childrenVerified[selectedPos > 0 ? resetPosition(true) :  _currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
         showUnselectedLabels: true,
@@ -57,7 +71,7 @@ class _NavigationBarState extends State<NavigationBar> {
         fixedColor: Colors.blue[800],
         type: BottomNavigationBarType.fixed,
         onTap: onTabTapped, // new
-        currentIndex: _currentIndex, // new
+        currentIndex: selectedPos > 0 ? resetPosition(true) : _currentIndex,
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
@@ -87,15 +101,15 @@ class _NavigationBarState extends State<NavigationBar> {
 
   Widget unVerifiedBar() {
     return Scaffold(
-      body: _childrenUnVerified[_currentIndex], // new
+      body: _childrenUnVerified[selectedPos > 0 ? resetPosition(false) : _currentIndex ],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
         showUnselectedLabels: true,
         unselectedItemColor: Colors.blue[200],
         fixedColor: Colors.blue[800],
         type: BottomNavigationBarType.fixed,
-        onTap: onTabTapped, // new
-        currentIndex: _currentIndex, // new
+        onTap: onTabTapped,
+        currentIndex: selectedPos > 0 ? resetPosition(false) : _currentIndex ,
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),

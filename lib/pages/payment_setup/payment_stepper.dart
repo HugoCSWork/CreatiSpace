@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/payment_setup/payment_setup_bloc.dart';
 import 'package:creatispace/injection.dart';
+import 'package:creatispace/pages/items/items_form/item_form_page.dart';
 import 'package:creatispace/pages/payment_setup/steps/address_step/address_step.dart';
 import 'package:creatispace/pages/payment_setup/steps/passport_step/passport_step.dart';
 import 'package:creatispace/pages/payment_setup/steps/payment_step/payment_step.dart';
 import 'package:creatispace/pages/payment_setup/steps/personal_step/personal_step.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:fa_stepper/fa_stepper.dart';
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,22 +41,17 @@ Future<bool> confirmationDialog(BuildContext context, String title, String conte
     ),
   );
 }
-
-//TODO FINISH ERROR HANDLING
 class PaymentStepper extends StatelessWidget {
-  final List<Step> steps;
 
-  const PaymentStepper({Key key, this.steps}) : super(key: key);
+  const PaymentStepper({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-
     return BlocProvider(
       create: (context) => getIt<PaymentSetupBloc>(),
       child: WillPopScope(
         onWillPop: () async {
-          return await confirmationDialog(context, "Cancel Payment Form", "If you leave this page all data will be lost!");
+          return await confirmationDialog(context, "Cancel Payment Setup", "If you leave this page all data will be lost!");
         },
         child: Scaffold(
           appBar: AppBar(
@@ -65,27 +62,24 @@ class PaymentStepper extends StatelessWidget {
             leading: new IconButton(
               icon: new Icon(Icons.arrow_back),
               onPressed: () async {
-               return await confirmationDialog(context, "Cancel Payment Form", "If you leave this page all data will be lost!");
+               return await confirmationDialog(context, "Cancel Payment Setup", "If you leave this page all data will be lost!");
               },
             ),
           ),
-          body: TestWidget(steps: steps),
+          body: PaymentStepperScaffold(),
         ),
       ),
     );
   }
 }
 
-class TestWidget extends StatefulWidget {
-  final List<Step> steps;
-
-  const TestWidget({Key key, this.steps}) : super(key: key);
+class PaymentStepperScaffold extends StatefulWidget {
 
   @override
-  _TestWidgetState createState() => _TestWidgetState();
+  _PaymentStepperScaffoldState createState() => _PaymentStepperScaffoldState();
 }
 
-class _TestWidgetState extends State<TestWidget> {
+class _PaymentStepperScaffoldState extends State<PaymentStepperScaffold> {
 
   TextEditingController _line1 = TextEditingController();
   TextEditingController _line2 = TextEditingController();
@@ -160,8 +154,8 @@ class _TestWidgetState extends State<TestWidget> {
                             (valid) => {
                               ExtendedNavigator.of(context).pop(),
                               ExtendedNavigator.of(context).replace(Routes.navigationBar, arguments: NavigationBarArguments(
-                                  pos: 2))
-                              }),
+                                  pos: 2)),
+                            }),
                 );
               },
           ),
@@ -184,10 +178,6 @@ class _TestWidgetState extends State<TestWidget> {
                             context
                                 .read<PaymentSetupBloc>()
                                 .add(PaymentSetupEvent.line2Changed(address[0].locality));
-                            _country.text = address[0].countryName;
-                            context
-                                .read<PaymentSetupBloc>()
-                                .add(PaymentSetupEvent.countryChanged(address[0].countryName));
                             _county.text = address[0].subAdminArea;
                             context
                                 .read<PaymentSetupBloc>()
@@ -198,160 +188,165 @@ class _TestWidgetState extends State<TestWidget> {
           );
           },
           builder: (context, state) {
-            return Padding(
-              padding: const EdgeInsets.only(right: 2.0),
-              child: Container(
-                child: FAStepper(
-                  currentStep: state.step,
-                  titleHeight: 70,
-                  stepNumberColor: Colors.blue[200],
-                  steps: [
-                    FAStep(
-                      title: Text("Personal"),
-                      content: Form(
-                        autovalidateMode: state.showErrorMessagesPersonal,
-                        child: Column(
-                          children: [
-                            PersonalEmailField(),
-                            PersonalFirstNameField(),
-                            PersonalLastNameField(),
-                            PersonalGenderField(),
-                            PersonalPhoneNumber(mode: state.showErrorMessagesPersonal),
-                            PersonalDateOfBirth(initialValue: context.watch<PaymentSetupBloc>().state.paymentSetup.dob.value.getOrElse(() => DateTime.now().toLocal().toString().split(' ')[0])),
-                          ],
+            return Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 2.0),
+                  child: Container(
+                    child: FAStepper(
+                      currentStep: state.step,
+                      titleHeight: 70,
+                      stepNumberColor: Colors.blue[200],
+                      steps: [
+                        FAStep(
+                            title: Text("Personal"),
+                            content: Form(
+                              autovalidateMode: state.showErrorMessagesPersonal,
+                              child: Column(
+                                children: [
+                                  PersonalEmailField(),
+                                  PersonalFirstNameField(),
+                                  PersonalLastNameField(),
+                                  PersonalGenderField(),
+                                  PersonalPhoneNumber(mode: state.showErrorMessagesPersonal),
+                                  PersonalDateOfBirth(initialValue: context.watch<PaymentSetupBloc>().state.paymentSetup.dob.value.getOrElse(() => DateTime.now().toLocal().toString().split(' ')[0])),
+                                ],
+                              ),
+                            ),
+                            isActive: state.step == 0 ? true : false,
+                            state:  state.step > 0 ? FAStepstate.complete : FAStepstate.editing
                         ),
-                      ),
-                      isActive: state.step == 0 ? true : false,
-                      state:  state.step > 0 ? FAStepstate.complete : FAStepstate.editing
-                    ),
-                    FAStep(
-                      title: Text("Address"),
-                      content: Form(
-                        autovalidateMode: state.showErrorMessagesAddress,
-                        child: Column(
-                          children: [
-                            AddressHouseNumberField(),
-                            AddressPostcodeField(),
-                            AddressFindAddressButton(),
-                            AddressLineOneField(lineOne: _line1),
-                            AddressLineTwoField(lineTwo: _line2),
-                            AddressCityField(city: _city),
-                            AddressCountryField(country: _country),
-                            AddressCountyField(county: _county,)
-                          ],
+                        FAStep(
+                          title: Text("Address"),
+                          content: Form(
+                            autovalidateMode: state.showErrorMessagesAddress,
+                            child: Column(
+                              children: [
+                                AddressHouseNumberField(),
+                                AddressPostcodeField(),
+                                AddressFindAddressButton(),
+                                AddressLineOneField(lineOne: _line1),
+                                AddressLineTwoField(lineTwo: _line2),
+                                AddressCityField(city: _city),
+                                AddressCountryField(country: _country),
+                                AddressCountyField(county: _county,)
+                              ],
+                            ),
+                          ),
+                          isActive:  state.step == 1 ? true : false,
+                          state:  state.step > 1 ? FAStepstate.complete : FAStepstate.editing ,
                         ),
-                      ),
-                      isActive:  state.step == 1 ? true : false,
-                      state:  state.step > 1 ? FAStepstate.complete : FAStepstate.editing ,
-                    ),
-                    FAStep(
-                      title: Text("Payment"),
-                      content: Form(
-                        autovalidateMode: state.showErrorMessagesPayment,
-                        child: Column(
-                          children: [
-                            PaymentCardNameField(),
-                            PaymentCardNumberField(),
-                            PaymentSortCodeField(),
-                          ],
+                        FAStep(
+                          title: Text("Payment"),
+                          content: Form(
+                            autovalidateMode: state.showErrorMessagesPayment,
+                            child: Column(
+                              children: [
+                                PaymentCardNameField(),
+                                PaymentCardNumberField(),
+                                PaymentSortCodeField(),
+                              ],
+                            ),
+                          ),
+                          isActive:  state.step == 2 ? true : false,
+                          state:  state.step > 2 ? FAStepstate.complete : FAStepstate.editing ,
                         ),
-                      ),
-                      isActive:  state.step == 2 ? true : false,
-                      state:  state.step > 2 ? FAStepstate.complete : FAStepstate.editing ,
-                    ),
-                    FAStep(
-                      title: Text("Documents"),
-                      content: Form(
-                        autovalidateMode: state.showErrorMessagesDocument,
-                        child: Column(
-                          children: [
-                            PassportImageField(),
-                            DocumentImageField(),
-                            PassportVerifyTermsAndService()
-                          ],
-                        ),
-                      ),
-                      isActive:  state.step == 3 ? true : false,
-                      state:  state.step > 3 ? FAStepstate.complete : FAStepstate.editing ,
+                        FAStep(
+                          title: Text("Documents"),
+                          content: Form(
+                            autovalidateMode: state.showErrorMessagesDocument,
+                            child: Column(
+                              children: [
+                                PassportImageField(),
+                                DocumentImageField(),
+                                PassportVerifyTermsAndService()
+                              ],
+                            ),
+                          ),
+                          isActive:  state.step == 3 ? true : false,
+                          state:  state.step > 3 ? FAStepstate.complete : FAStepstate.editing ,
 
-                    ),
-                    FAStep(
-                      title: Text("Confirm"),
-                      content: Form(
-                        autovalidateMode: state.showErrorMessagesDocument,
-                        child: Column(
-                          children: [
-                            Text("I Confirm all data supplied is accurate and my own. Providing invalid data will lead to the termination of your account!"),
-                            FlatButton(
-                              onPressed: () => context.read<PaymentSetupBloc>()
-                                .add(PaymentSetupEvent.createAccount()), 
-                              child: Text("Click me"))
-                          ],
                         ),
-                      ),
-                      isActive:  state.step == 3 ? true : false,
-                      state:  state.step > 3 ? FAStepstate.complete : FAStepstate.editing ,
+                        FAStep(
+                          title: Text("Confirm"),
+                          content: Form(
+                            autovalidateMode: state.showErrorMessagesDocument,
+                            child: Column(
+                              children: [
+                                Text("I Confirm all data supplied is accurate and my own. Providing invalid data will lead to the termination of your account!"),
+                                FlatButton(
+                                    onPressed: () => context.read<PaymentSetupBloc>()
+                                        .add(PaymentSetupEvent.createAccount()),
+                                    child: Text("Create"))
+                              ],
+                            ),
+                          ),
+                          isActive:  state.step == 3 ? true : false,
+                          state:  state.step > 3 ? FAStepstate.complete : FAStepstate.editing ,
 
+                        ),
+                      ],
+                      type: FAStepperType.horizontal,
+                      titleIconArrange: FAStepperTitleIconArrange.column,
+                      controlsBuilder: (context, {onStepCancel, onStepContinue}) {
+                        if(state.step == 0) {
+                          return Row(
+                            children: <Widget>[
+                              TextButton(
+                                onPressed: onStepContinue,
+                                child: const Text('NEXT'),
+                              ),
+                            ],
+                          );
+                        } else if(state.step == state.maxSteps - 1) {
+                          return Row(
+                            children: <Widget>[
+                              TextButton(
+                                onPressed: onStepCancel,
+                                child: const Text('Back'),
+                              ),
+                            ],
+                          );
+                        }
+                        else {
+                          return Row(
+                            children: <Widget>[
+                              TextButton(
+                                onPressed: onStepContinue,
+                                child: const Text('Next'),
+                              ),
+                              TextButton(
+                                onPressed: onStepCancel,
+                                child: const Text('Back'),
+                              ),
+                            ],
+                          );
+                        }
+                      },
+                      onStepCancel: () {
+                        context.read<PaymentSetupBloc>()
+                            .add(PaymentSetupEvent.stepCancelled());
+                      },
+                      onStepContinue: () async {
+                        if(state.step == 0) {
+                          context.read<PaymentSetupBloc>()
+                              .add(PaymentSetupEvent.validatePersonalSection());
+                        } else if (state.step == 1) {
+                          context.read<PaymentSetupBloc>()
+                              .add(PaymentSetupEvent.validateAddressSection());
+                        } else if (state.step == 2){
+                          context.read<PaymentSetupBloc>()
+                              .add(PaymentSetupEvent.validatePaymentSection());
+                        } else if (state.step == 3) {
+                          context.read<PaymentSetupBloc>()
+                              .add(PaymentSetupEvent.validateDocumentSection());
+                        }
+                      },
                     ),
-                  ],
-                  type: FAStepperType.horizontal,
-                  titleIconArrange: FAStepperTitleIconArrange.column,
-                  controlsBuilder: (context, {onStepCancel, onStepContinue}) {
-                    if(state.step == 0) {
-                      return Row(
-                        children: <Widget>[
-                          TextButton(
-                            onPressed: onStepContinue,
-                            child: const Text('NEXT'),
-                          ),
-                        ],
-                      );
-                    } else if(state.step == state.maxSteps - 1) {
-                      return Row(
-                        children: <Widget>[
-                          TextButton(
-                            onPressed: onStepCancel,
-                            child: const Text('Back'),
-                          ),
-                        ],
-                      );
-                    }
-                    else {
-                      return Row(
-                        children: <Widget>[
-                          TextButton(
-                            onPressed: onStepContinue,
-                            child: const Text('Next'),
-                          ),
-                          TextButton(
-                            onPressed: onStepCancel,
-                            child: const Text('Back'),
-                          ),
-                        ],
-                      );
-                    }
-                  },
-                  onStepCancel: () {
-                    context.read<PaymentSetupBloc>()
-                        .add(PaymentSetupEvent.stepCancelled());
-                  },
-                  onStepContinue: () async {
-                    if(state.step == 0) {
-                      context.read<PaymentSetupBloc>()
-                          .add(PaymentSetupEvent.validatePersonalSection());
-                    } else if (state.step == 1) {
-                      context.read<PaymentSetupBloc>()
-                          .add(PaymentSetupEvent.validateAddressSection());
-                    } else if (state.step == 2){
-                      context.read<PaymentSetupBloc>()
-                          .add(PaymentSetupEvent.validatePaymentSection());
-                    } else if (state.step == 3) {
-                      context.read<PaymentSetupBloc>()
-                          .add(PaymentSetupEvent.validateDocumentSection());
-                    }
-                  },
+                  ),
                 ),
-              ),
+                SavingInProgress(isSaving: state.isSaving, message: 'Processing'),
+              ],
             );
           },
         ),

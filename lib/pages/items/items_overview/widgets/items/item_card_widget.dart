@@ -142,7 +142,7 @@ class ItemCard extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Selected item:'),
+          title: const Text('Delete Selected item'),
           content: Text(
             item.name.getOrCrash(),
             maxLines: 3,

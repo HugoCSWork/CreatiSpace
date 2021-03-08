@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
+import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/streaming/stream_conversation_watcher/stream_conversation_watcher_bloc.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:creatispace/pages/streaming/widgets/agora.dart';
 import 'package:creatispace/pages/streaming/widgets/message_box.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,8 @@ class Streaming extends StatefulWidget {
   final ClientRole role;
   final String channelId;
   final String hostId;
-  const Streaming({Key key, this.channelName, this.role, this.channelId, this.hostId}) : super(key: key);
+  final int uid;
+  const Streaming({Key key, this.channelName, this.role, this.channelId, this.hostId, this.uid}) : super(key: key);
 
   @override
   _StreamingState createState() => _StreamingState();
@@ -23,11 +26,10 @@ class Streaming extends StatefulWidget {
 
 class _StreamingState extends State<Streaming> {
   final _users = <int>[];
-  final _infoStrings = <String>[];
   bool muted = false;
   bool showMessages = false;
   RtcEngine _engine;
-  final String APP_ID = "RANDOM_ID";
+  final String APP_ID = "40f7f278f4e24172964d899bc517ef40";
 
   @override
   void dispose() {
@@ -49,7 +51,7 @@ class _StreamingState extends State<Streaming> {
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
     await _engine.setVideoEncoderConfiguration(configuration);
-    await _engine.joinChannel(widget.channelId, widget.channelName, null, 0);
+    await _engine.joinChannel(widget.channelId, widget.channelName, null, widget.uid);
   }
 
   Future<void> _initAgoraRtcEngine() async {
@@ -71,8 +73,12 @@ class _StreamingState extends State<Streaming> {
       setState(() {
         _users.remove(uid);
       });
+      if(uid == -31234523) {
+        ExtendedNavigator.of(context).pop('done');
+      }
     }, firstRemoteVideoFrame: (uid, width, height, elapsed) {
-    }));
+    },
+    ));
   }
 
   List<Widget> _getRenderViews() {
@@ -139,9 +145,9 @@ class _StreamingState extends State<Streaming> {
     }
   }
 
-  void _onCallEnd() {
-    Navigator.pop(context);
-  }
+
+
+
 
   void _onToggleMute() {
     setState(() {
@@ -172,19 +178,13 @@ class _StreamingState extends State<Streaming> {
                 padding: const EdgeInsets.fromLTRB(0, 32, 16, 0),
                 child: Column(
                   children: [
-                    toolbarWithChat(widget.role, ClientRole.Audience, muted, _onToggleMute,
-                    _onSwitchCamera, _onSwitchMessage, _onCallEnd,
-                  )
+                    toolbarWithChat(context, widget.role, ClientRole.Audience, muted, _onToggleMute,
+                    _onSwitchCamera, _onSwitchMessage)
                   ],
                 ),
               )
-            ) :  toolbar(widget.role, ClientRole.Audience, muted, _onToggleMute,
-                _onSwitchCamera, _onSwitchMessage, _onCallEnd),
-            // showMessages ? toolbarWithChat(widget.role, ClientRole.Audience, muted, _onToggleMute,
-            //   _onSwitchCamera, _onSwitchMessage, _onCallEnd,
-            // )
-            // : toolbar(widget.role, ClientRole.Audience, muted, _onToggleMute,
-            //   _onSwitchCamera, _onSwitchMessage, _onCallEnd),
+            ) :  toolbar(context, widget.role, widget.channelName, ClientRole.Audience, muted, _onToggleMute,
+                _onSwitchCamera, _onSwitchMessage),
             showMessages
                 ? BlocBuilder<StreamConversationWatcherBloc, StreamConversationWatcherState>(
               builder: (context, state) {

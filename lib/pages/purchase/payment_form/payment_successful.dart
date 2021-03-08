@@ -49,76 +49,201 @@ class PaymentSuccessful extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 16),
-                                  Text(
-                                      "Order Summary",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold
-                                    ),
-                                  ),
-                                  SizedBox(height: 16),
-                                  Text(
-                                    "Product Name: ${state.item.name}",
-                                    style: TextStyle(
-                                        fontSize: 16
-                                    ),
-                                  ),
-                                  SizedBox(height: 16),
-                                  Text(
-                                      "Total Cost: £${(double.parse(amount) / 100).toStringAsFixed(2)}",
-                                      style: TextStyle(
-                                          fontSize: 16
-                                      ),
-                                  ),
-                                  SizedBox(height: 16),
-                                  Text(
-                                      "Quantity: ${quantity}",
-                                      style: TextStyle(
-                                          fontSize: 16
-                                      ),
-                                  ),
-                                  SizedBox(height: 16),
-                                  // Text("Delivering to: ${address["line_1"]}, ${address["line_2"]}, ${address["postcode"]}, ${address["city"]}, ${address["county"]}, ${address["country"]}"),
-                                  Text(
-                                      "Delivering to: 4 Pine Street, Seaton Burn, NE13 6HE, Newcastle upon Tyne, Tyne & Wear, UK",
-                                    style: TextStyle(
-                                        fontSize: 16
-                                    ),
-                                  ),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 18.0),
-                                    child: Center(
-                                      child: Material(
-                                        elevation: 0.5,
-                                        child: SizedBox(
-                                          height: 400,
-                                          width:  MediaQuery.of(context).size.width - 30,
-                                          child: ListView.builder(
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount: state.item.images.length,
-                                            itemBuilder: (context, index) {
-                                              return CachedNetworkImage(
-                                                imageUrl: state.item.images[index].url,
-                                                fit: BoxFit.fitWidth,
-                                                width: MediaQuery.of(context).size.width - 30,
-                                                height: 400,
-                                                placeholder: (context, url) => Center(
-                                                  child: Container(
-                                                      width: 30,
-                                                      height: 30,
-                                                      margin: const EdgeInsets.all(5),
-                                                      child:  Container()
-                                                  ),
-                                                ),
-                                                errorWidget: (context, url, error) => const Icon(Icons.error),
-                                              );
-                                            },
+                                      padding: EdgeInsets.fromLTRB(16, 12, 0, 0),
+                                      child: Text(
+                                        "Order Information",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16
+                                        ),
+                                      )
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue: state.item.name,
+                                      decoration: const InputDecoration(
+                                          labelText: 'Product Name',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          padding:
+                                          const EdgeInsets.symmetric(vertical: 8.0),
+                                          margin: const EdgeInsets.only(
+                                              left: 16, top: 8, right: 16),
+                                          child: TextFormField(
+                                            initialValue:
+                                            quantity.toString(),
+                                            decoration: const InputDecoration(
+                                                labelText: 'Quantity',
+                                                filled: true,
+                                                errorMaxLines: 5),
+                                            readOnly: true,
                                           ),
                                         ),
                                       ),
+                                      Expanded(
+                                        child: Container(
+                                          padding:
+                                          const EdgeInsets.symmetric(vertical: 8.0),
+                                          margin: const EdgeInsets.only(
+                                              left: 16, top: 8, right: 16),
+                                          child: TextFormField(
+                                            initialValue:
+                                            '£${((double.parse(amount) / 100 / int.parse(quantity))).toStringAsFixed(2)}',
+                                            decoration: const InputDecoration(
+                                                labelText: 'Price',
+                                                filled: true,
+                                                errorMaxLines: 5),
+                                            readOnly: true,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                Container(
+                                    padding:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      '£${(double.parse(amount) / 100).toStringAsFixed(2)}',
+                                      decoration: const InputDecoration(
+                                          labelText: 'Total Cost',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
                                     ),
                                   ),
+                                  Padding(
+                                      padding: EdgeInsets.fromLTRB(16, 12, 0, 0),
+                                      child: Text(
+                                        "Delivery Information",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16
+                                        ),
+                                      )
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          padding:
+                                          const EdgeInsets.symmetric(vertical: 8.0),
+                                          margin: const EdgeInsets.only(
+                                              left: 16, top: 8, right: 16),
+                                          child: TextFormField(
+                                            initialValue:
+                                            address["house_number"] as String,
+                                            decoration: const InputDecoration(
+                                                labelText: 'House Number',
+                                                filled: true,
+                                                errorMaxLines: 5),
+                                            readOnly: true,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          padding:
+                                          const EdgeInsets.symmetric(vertical: 8.0),
+                                          margin: const EdgeInsets.only(
+                                              left: 16, top: 8, right: 16),
+                                          child: TextFormField(
+                                            initialValue:
+                                            address["postcode"] as String,
+                                            decoration: const InputDecoration(
+                                                labelText: 'Postcode',
+                                                filled: true,
+                                                errorMaxLines: 5),
+                                            readOnly: true,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      address["line_1"] as String,
+                                      decoration: const InputDecoration(
+                                          labelText: 'Line One',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      address["line_2"] as String,
+                                      decoration: const InputDecoration(
+                                          labelText: 'Line Two',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      address["country"] as String,
+                                      decoration: const InputDecoration(
+                                          labelText: 'Country',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      address["city"] as String,
+                                      decoration: const InputDecoration(
+                                          labelText: 'City',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      address["county"] as String,
+                                      decoration: const InputDecoration(
+                                          labelText: 'County',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
+                                  ),
+                                  SizedBox(height: 16)
                                 ],
                               )
                             ),

@@ -93,14 +93,87 @@ class WorkshopDetailsUI extends StatelessWidget {
   }
 }
 
-class WorkshopDetailsInformation extends StatelessWidget {
+class WorkshopDetailsInformation extends StatefulWidget {
 
   final WorkshopPayment workshopPayment;
 
   const WorkshopDetailsInformation({Key key, this.workshopPayment}) : super(key: key);
+
+  @override
+  _WorkshopDetailsInformationState createState() => _WorkshopDetailsInformationState();
+}
+
+class _WorkshopDetailsInformationState extends State<WorkshopDetailsInformation> {
   Future<void> _handleCameraAndMic(Permission permission) async {
     await permission.request();
   }
+  bool isFinished = false;
+
+
+  Widget isEventDone() {
+    if(widget.workshopPayment.hasStarted == "ended") {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: Center(child: Text("Workshop has finished")),
+      );
+    } else if (isFinished == true) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: Center(child: Text("Workshop has finished")),
+      );
+    } else {
+      if(widget.workshopPayment.hasStarted == "pending") {
+        return FlatButton(
+            child: Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Join Event',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: widget.workshopPayment.hasStarted == "started" ? Colors.black87 : Colors.grey
+                  ),
+                ),
+              ),
+            ),
+            onPressed: () {}
+        );
+      }
+      return FlatButton(
+          child: Padding(
+            padding: EdgeInsets.only(top: 8),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Join Event',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: widget.workshopPayment.hasStarted == "started" ? Colors.black87 : Colors.grey
+                ),
+              ),
+            ),
+          ),
+          onPressed: () async {
+          await _handleCameraAndMic(Permission.camera);
+          await _handleCameraAndMic(Permission.microphone);
+          var result = await ExtendedNavigator.of(context)
+              .pushStreamingAudienceScaffold(
+              workshopId: widget.workshopPayment.workshop["id"].toString(),
+              hostId: widget.workshopPayment.workshop["userId"].toString()
+          );
+          if (result == "done") {
+            setState(() {
+              isFinished = true;
+            });
+          }
+      }
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,52 +185,13 @@ class WorkshopDetailsInformation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            workshopPayment.hasStarted != "ended"
-            ?
-            FlatButton(
-                onPressed: workshopPayment.hasStarted == "started"
-                ? () async {
-                  await _handleCameraAndMic(Permission.camera);
-                  await _handleCameraAndMic(Permission.microphone);
-                  ExtendedNavigator.of(context).pushStreamingAudienceScaffold(
-                    workshopId: workshopPayment.workshop["id"].toString(),
-                    hostId : workshopPayment.workshop["userId"].toString()
-                  );
-                }
-                : () {},
-                child: Padding(
-                  padding: EdgeInsets.only(top: 8),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                        'Join Event',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: workshopPayment.hasStarted == "started" ? Colors.black87 : Colors.grey
-                        ),
-                    ),
-                  ),
-                )
-            )
-            :  Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'This workshop has finished',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-              ),
-            ),
-            workshopPayment.hasStarted != "ended"
+            isEventDone(),
+            widget.workshopPayment.hasStarted != "ended"
                 ?
             Align(
               alignment: Alignment.center,
               child: Text(
-              workshopPayment.hasStarted == "started"
+              widget.workshopPayment.hasStarted == "started"
                   ? ""
                   :"Event has not started yet check back later",
                 style: TextStyle(
@@ -181,7 +215,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
               margin: const EdgeInsets.only(
                   left: 16, top: 8, right: 16),
               child: TextFormField(
-                initialValue: workshopPayment.paymentIntentRes["id"].toString(),
+                initialValue: widget.workshopPayment.paymentIntentRes["id"].toString(),
                 decoration: const InputDecoration(
                     labelText: 'Order ID',
                     filled: true,
@@ -204,7 +238,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
               margin: const EdgeInsets.only(
                   left: 16, top: 8, right: 16),
               child: TextFormField(
-                initialValue: workshopPayment.workshop["workshopName"].toString(),
+                initialValue: widget.workshopPayment.workshop["workshopName"].toString(),
                 decoration: InputDecoration(
                     labelText: 'Workshop Name',
                     filled: true,
@@ -217,7 +251,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
               margin: const EdgeInsets.only(
                   left: 16, top: 8, right: 16),
               child: TextFormField(
-                initialValue: workshopPayment.workshop["workshopDescription"].toString(),
+                initialValue: widget.workshopPayment.workshop["workshopDescription"].toString(),
                 decoration: InputDecoration(
                     labelText: 'Workshop Description',
                     filled: true,
@@ -231,7 +265,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
               margin: const EdgeInsets.only(
                   left: 16, top: 8, right: 16),
               child: TextFormField(
-                initialValue: workshopPayment.workshop["workshopRequirements"].toString(),
+                initialValue: widget.workshopPayment.workshop["workshopRequirements"].toString(),
                 decoration: InputDecoration(
                     labelText: 'Workshop Requirements',
                     filled: true,
@@ -245,7 +279,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
               margin: const EdgeInsets.only(
                   left: 16, top: 8, right: 16),
               child: TextFormField(
-                initialValue: workshopPayment.workshop["workshopDate"].toString(),
+                initialValue: widget.workshopPayment.workshop["workshopDate"].toString(),
                 decoration: InputDecoration(
                     labelText: 'Date',
                     filled: true,
@@ -263,7 +297,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                         left: 16, top: 8, right: 16),
                     child: TextFormField(
                       initialValue:
-                      '${double.parse(workshopPayment.workshop["workshopDuration"].toString()).toStringAsFixed(0)} Minutes',
+                      '${double.parse(widget.workshopPayment.workshop["workshopDuration"].toString()).toStringAsFixed(0)} Minutes',
                       decoration: const InputDecoration(
                           labelText: 'Duration',
                           filled: true,
@@ -280,7 +314,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                         left: 16, top: 8, right: 16),
                     child: TextFormField(
                       initialValue:
-                      '£${double.parse(workshopPayment.workshop["workshopPrice"].toString()).toStringAsFixed(2)}',
+                      '£${double.parse(widget.workshopPayment.workshop["workshopPrice"].toString()).toStringAsFixed(2)}',
                       decoration: const InputDecoration(
                           labelText: 'Price',
                           filled: true,
@@ -311,7 +345,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                         left: 16, top: 8, right: 16),
                     child: TextFormField(
                       initialValue:
-                      workshopPayment.paymentIntentRes["shipping"]["house_number"] as String,
+                      widget.workshopPayment.paymentIntentRes["shipping"]["house_number"] as String,
                       decoration: const InputDecoration(
                           labelText: 'House Number',
                           filled: true,
@@ -328,7 +362,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                         left: 16, top: 8, right: 16),
                     child: TextFormField(
                       initialValue:
-                    workshopPayment.paymentIntentRes["shipping"]["postcode"] as String,
+                    widget.workshopPayment.paymentIntentRes["shipping"]["postcode"] as String,
                       decoration: const InputDecoration(
                           labelText: 'Postcode',
                           filled: true,
@@ -345,7 +379,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                   left: 16, top: 8, right: 16),
               child: TextFormField(
                 initialValue:
-                workshopPayment.paymentIntentRes["shipping"]["line_1"] as String,
+                widget.workshopPayment.paymentIntentRes["shipping"]["line_1"] as String,
                 decoration: const InputDecoration(
                     labelText: 'Line One',
                     filled: true,
@@ -359,7 +393,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                   left: 16, top: 8, right: 16),
               child: TextFormField(
                 initialValue:
-                workshopPayment.paymentIntentRes["shipping"]["line_2"] as String,
+                widget.workshopPayment.paymentIntentRes["shipping"]["line_2"] as String,
                 decoration: const InputDecoration(
                     labelText: 'Line Two',
                     filled: true,
@@ -373,7 +407,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                   left: 16, top: 8, right: 16),
               child: TextFormField(
                 initialValue:
-                workshopPayment.paymentIntentRes["shipping"]["country"] as String,
+                widget.workshopPayment.paymentIntentRes["shipping"]["country"] as String,
                 decoration: const InputDecoration(
                     labelText: 'Country',
                     filled: true,
@@ -387,7 +421,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                   left: 16, top: 8, right: 16),
               child: TextFormField(
                 initialValue:
-                workshopPayment.paymentIntentRes["shipping"]["city"] as String,
+                widget.workshopPayment.paymentIntentRes["shipping"]["city"] as String,
                 decoration: const InputDecoration(
                     labelText: 'City',
                     filled: true,
@@ -401,7 +435,7 @@ class WorkshopDetailsInformation extends StatelessWidget {
                   left: 16, top: 8, right: 16),
               child: TextFormField(
                 initialValue:
-                workshopPayment.paymentIntentRes["shipping"]["county"] as String,
+                widget.workshopPayment.paymentIntentRes["shipping"]["county"] as String,
                 decoration: const InputDecoration(
                     labelText: 'County',
                     filled: true,

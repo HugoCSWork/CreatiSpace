@@ -43,9 +43,9 @@ import 'app/payment_details/payment_item_details/payment_item_details_bloc.dart'
 import 'app/payment_details/payment_receiver/payment_receiver_bloc.dart';
 import 'app/payment_details/payment_sender/payment_sender_bloc.dart';
 import 'app/payment_setup/payment_setup_bloc.dart';
+import 'infrastructure/payment_details/payment_details_repository.dart';
 import 'infrastructure/payment_setup/payment_setup_repository.dart'
     as creatispace;
-import 'infrastructure/payment_details/payment_details_repository.dart';
 import 'app/auth/payment_verified/payment_verified_bloc.dart';
 import 'app/payment_details/payment_workshop/payment_workshop_bloc.dart';
 import 'app/profile/profile_actor/profile_actor_bloc.dart';

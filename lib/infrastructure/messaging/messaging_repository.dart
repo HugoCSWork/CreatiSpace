@@ -90,7 +90,11 @@ class UserMessagesRepository implements IUserFacade {
         "unreadMessages": false,
         "lastMessage": "",
         "lastSeen": "never",
-        "userMessagingName": peerName
+        "userMessagingName": peerName,
+        "id": "",
+        "userId": "",
+        "imageUrl": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
+
       });
     } else {
       await userDoc.update({
@@ -125,7 +129,6 @@ class UserMessagesRepository implements IUserFacade {
     });
   }
 
-  //todo refactor messaging
   @override
   Future<Either<UserErrorFailure, Unit>> sendMessage({String peerId, String message, int type}) async {
     final userDoc = await _firebaseFirestore.userDocumentMessage(peerId.replaceAll(' ', ''));

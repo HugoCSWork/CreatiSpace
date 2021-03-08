@@ -199,23 +199,11 @@ class AddressCountryField extends StatelessWidget {
       child: TextFormField(
         decoration: const InputDecoration(
             labelText: 'Country',
+            filled: true,
             errorMaxLines: 5),
-        controller: country,
         autocorrect: false,
-        onChanged: (value) => context
-            .read<PaymentSetupBloc>()
-            .add(PaymentSetupEvent.countryChanged(value)),
-        validator: (_) =>
-            context.read<PaymentSetupBloc>().state.paymentSetup.country.value.fold(
-                  (failure) => failure.maybeMap(
-                paymentSetup: (value) => value.f.maybeMap(
-                  emptyField: (_) => 'Enter Country',
-                  orElse: () => null,
-                ),
-                orElse: () => null,
-              ),
-                  (_) => null,
-            ),
+        initialValue: 'GB',
+        readOnly: true,
       ),
     );
   }

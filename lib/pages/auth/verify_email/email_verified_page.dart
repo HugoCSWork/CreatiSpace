@@ -25,7 +25,7 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
       var user = await FirebaseAuth.instance.currentUser;
       if (user.emailVerified == true) {
         _timer.cancel();
-        ExtendedNavigator.of(context).push(Routes.navigationBar);
+        ExtendedNavigator.of(context).pushAndRemoveUntil(Routes.navigationBar, (Route<dynamic> route) => false);
       }
     });
   });
@@ -37,7 +37,7 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
     BlocListener<AuthBloc, AuthState>(listener: (context, state) {
       state.maybeMap(
           unauthenticated: (_) =>
-              ExtendedNavigator.of(context).replace(Routes.signInPage),
+              ExtendedNavigator.of(context).pushAndRemoveUntil(Routes.signInPage, (Route<dynamic> route) => false),
           orElse: () {});
     });
 

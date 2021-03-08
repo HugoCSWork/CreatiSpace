@@ -11,6 +11,14 @@ class Home extends StatelessWidget {
   const Home({Key key, @required this.homeItem}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
+    String getTextValue() {
+      if (homeItem.purchasable.getOrCrash())
+        return '£${homeItem.price.getOrCrash().toStringAsFixed(2)}';
+      else
+        return 'Non-Purchasable';
+    }
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -105,9 +113,7 @@ class Home extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 10.0),
                     child: Text(
-                      homeItem.purchasable.getOrCrash()
-                          ?  '£${homeItem.price.getOrCrash().toStringAsFixed(2)}'
-                          : 'Non-Purchasable',
+                      getTextValue(),
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16

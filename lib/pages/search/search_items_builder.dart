@@ -48,128 +48,149 @@ class SearchItems extends StatelessWidget {
 
   final HomeItem data;
 
+  String getTextValue() {
+    if (data.purchasable.getOrCrash())
+      return '£${data.price.getOrCrash().toStringAsFixed(2)}';
+    else
+      return 'Non-Purchasable';
+  }
+
   const SearchItems({Key key, this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            leading: CircularProfileAvatar('',
-                radius: 15,
-                child: CachedNetworkImage(
-                  imageUrl: data.profileImageURL,
-                  fit: BoxFit.fill,
-                  placeholder: (context, url) => Center(
-                    child: Container(
-                        width: 30,
-                        height: 30,
-                        margin: const EdgeInsets.all(1),
-                        child: Container()
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                )
-            ),
-            title: GestureDetector(
-              child: Text(data.username),
-              onTap: (){
-                FocusManager.instance.primaryFocus.unfocus();
-                ExtendedNavigator.of(context).push(Routes.peerProfileScaffold, arguments: PeerProfileScaffoldArguments(
-                    id: data.id
-                ));
-              },
-            ),
-          ),
-          SizedBox(
-            height: 400,
-            width:  MediaQuery.of(context).size.width - 30,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: data.images.length,
-              itemBuilder: (context, index) {
-                return CachedNetworkImage(
-                  imageUrl: data.images.getOrCrash()[index].url.getOrCrash(),
-                  fit: BoxFit.fitWidth,
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: 400,
-                  placeholder: (context, url) => Center(
-                    child: Container(
-                        width: 30,
-                        height: 30,
-                        margin: const EdgeInsets.all(5),
-                        child:  Container()
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                );
-              },
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget> [
-              Container(
-                  padding: EdgeInsets.fromLTRB(10, 8, 0, 5),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    data.name.getOrCrash(),
-                    style: TextStyle(
-                        fontSize: 20
-                    ),
-                  )
+      child: Container(
+        decoration: new BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[200],
+              blurRadius: 2.0,
+              spreadRadius: 2.0,
+            )
+          ],
+        ),
+        child: Material(
+          elevation: 5,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10)),
+          shadowColor: Colors.blue.withOpacity(.05),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: CircularProfileAvatar('',
+                    radius: 15,
+                    child: CachedNetworkImage(
+                      imageUrl: data.profileImageURL,
+                      fit: BoxFit.fill,
+                      placeholder: (context, url) => Center(
+                        child: Container(
+                            width: 30,
+                            height: 30,
+                            margin: const EdgeInsets.all(1),
+                            child: Container()
+                        ),
+                      ),
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                    )
+                ),
+                title: GestureDetector(
+                  child: Text(data.username),
+                  onTap: (){
+                    ExtendedNavigator.of(context).push(Routes.peerProfileScaffold, arguments: PeerProfileScaffoldArguments(
+                        id: data.id
+                    ));
+                  },
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: Text(
-                  data.purchasable.getOrCrash()
-                      ?  '£${data.price.getOrCrash().toString()}'
-                      : 'Non-Purchasable',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold
+              Material(
+                elevation: 0.5,
+                child: SizedBox(
+                  height: 400,
+                  width:  MediaQuery.of(context).size.width - 30,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: data.images.length,
+                    itemBuilder: (context, index) {
+                      return CachedNetworkImage(
+                        imageUrl: data.images.getOrCrash()[index].url.getOrCrash(),
+                        fit: BoxFit.fitWidth,
+                        width: MediaQuery.of(context).size.width - 30,
+                        height: 400,
+                        placeholder: (context, url) => Center(
+                          child: Container(
+                              width: 30,
+                              height: 30,
+                              margin: const EdgeInsets.all(5),
+                              child:  Container()
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => const Icon(Icons.error),
+                      );
+                    },
                   ),
                 ),
-              )
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget> [
+                  Container(
+                      padding: EdgeInsets.fromLTRB(10, 8, 0, 5),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        data.name.getOrCrash(),
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
+                      )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: Text(
+                      getTextValue(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(10, 5, 0, 5),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                    data.description.getOrCrash()
+                ),
+              ),
+              Container(
+                alignment: Alignment.topRight,
+                child: Padding(
+                    padding: EdgeInsets.fromLTRB(0,0,9,5),
+                    child: FlatButton(
+                        onPressed: () {
+                          ExtendedNavigator.of(context).push(Routes.moreInfoScaffold,
+                              arguments: MoreInfoScaffoldArguments(
+                                  homeItem: data
+                              ));
+                        },
+                        color: Colors.blue[200],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.blue[200])
+                        ),
+                        child: Text("More")
+                    )
+                ),
+              ),
             ],
           ),
-          Container(
-            padding: EdgeInsets.fromLTRB(10, 5, 0, 5),
-            alignment: Alignment.centerLeft,
-            child: Text(
-                data.description.getOrCrash()
-            ),
-          ),
-          Container(
-            alignment: Alignment.topRight,
-            child: Padding(
-                padding: EdgeInsets.only(right:9),
-                child: FlatButton(
-                    onPressed: () {
-                      // ExtendedNavigator.of(context).push(Routes.profileFormPageScaffold,
-                      //     arguments: ProfileFormPageScaffoldArguments(
-                      //         data: widget.data
-                      //     )
-                      // );
-                    },
-                    color: Colors.blue[200],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.blue[200])
-                    ),
-                    child: Text("More")
-                )
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-            child: Divider(
-              color: Colors.black87,
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
