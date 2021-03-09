@@ -39,7 +39,7 @@ Either<ValueFailure<double>, double> validateItemPrice(double input) {
 }
 
 Either<ValueFailure<int>, int> validateItemQuantity(int input) {
-  if (input >= 0 && input < 100000) {
+  if (input > 0 && input < 100000) {
     return right(input);
   } else {
     return left(ValueFailure.item(
@@ -79,7 +79,7 @@ Either<ValueFailure<String>, String> validateItemImage(String input) {
 }
 
 Either<ValueFailure<String>, String> validateItemImageName(String input) {
-  if (input.isNotEmpty && input.length <= 1000) {
+  if (input.isNotEmpty && input.length <= 50) {
     return right(input);
   } else {
     return left(ValueFailure.item(

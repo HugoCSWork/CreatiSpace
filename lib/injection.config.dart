@@ -38,14 +38,13 @@ import 'app/item/item_watcher/item_watcher_bloc.dart';
 import 'app/streaming/join_stream/join_stream_bloc.dart';
 import 'app/payment_confirmation/payment_confirmation_bloc.dart';
 import 'app/payment_details/payment_details_form/payment_details_form_bloc.dart';
+import 'infrastructure/payment_details/payment_details_repository.dart';
 import 'app/payment_form/payment_form_bloc.dart';
 import 'app/payment_details/payment_item_details/payment_item_details_bloc.dart';
 import 'app/payment_details/payment_receiver/payment_receiver_bloc.dart';
 import 'app/payment_details/payment_sender/payment_sender_bloc.dart';
 import 'app/payment_setup/payment_setup_bloc.dart';
-import 'infrastructure/payment_details/payment_details_repository.dart';
-import 'infrastructure/payment_setup/payment_setup_repository.dart'
-    as creatispace;
+import 'infrastructure/payment_setup/payment_setup_repository.dart';
 import 'app/auth/payment_verified/payment_verified_bloc.dart';
 import 'app/payment_details/payment_workshop/payment_workshop_bloc.dart';
 import 'app/profile/profile_actor/profile_actor_bloc.dart';
@@ -96,13 +95,12 @@ GetIt $initGetIt(
         get<FirebaseAuth>(),
       ));
   gh.lazySingleton<IPaymentDetailsFacade>(() =>
-      PaymentSetupRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
-  gh.lazySingleton<IPaymentSetupFacade>(
-      () => creatispace.PaymentSetupRepository(
-            get<FirebaseFirestore>(),
-            get<FirebaseStorage>(),
-            get<FirebaseAuth>(),
-          ));
+      PaymentDetailsRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
+  gh.lazySingleton<IPaymentSetupFacade>(() => PaymentSetupRepository(
+        get<FirebaseFirestore>(),
+        get<FirebaseStorage>(),
+        get<FirebaseAuth>(),
+      ));
   gh.lazySingleton<IProfileFacade>(() => ProfileRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),

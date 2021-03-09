@@ -56,5 +56,3 @@ Either<ValueFailure<String>, String> validateProfileImageUrl(String input) {
         ValueFailure.profile(ProfileValueFailure.invalidProfileImageUrl(failedValue: input)));
   }
 }
-
-// BackgroundImageURL

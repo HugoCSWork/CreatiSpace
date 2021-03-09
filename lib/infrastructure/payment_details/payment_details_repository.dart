@@ -18,11 +18,11 @@ import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IPaymentDetailsFacade)
-class PaymentSetupRepository implements IPaymentDetailsFacade {
+class PaymentDetailsRepository implements IPaymentDetailsFacade {
   final FirebaseFirestore _firebaseFirestore;
   final FirebaseAuth _firebaseAuth;
 
-  PaymentSetupRepository(this._firebaseFirestore, this._firebaseAuth);
+  PaymentDetailsRepository(this._firebaseFirestore, this._firebaseAuth);
 
   @override
   Stream<Either<PaymentDetailsErrorFailure, KtList<PaymentDetails>>>

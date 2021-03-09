@@ -14,7 +14,7 @@ Either<ValueFailure<String>, String> validateWorkshopName(String input) {
 }
 
 Either<ValueFailure<String>, String> validateWorkshopDate(String input) {
-  if(input == '' || input == null) {
+  if(input == '') {
     return left(ValueFailure.workshop(
         WorkshopValueFailure.invalidWorkshopDate(failedValue: input)));
   }
@@ -31,7 +31,7 @@ Either<ValueFailure<String>, String> validateWorkshopDate(String input) {
 }
 
 Either<ValueFailure<String>, String> validateWorkshopTime(String input) {
-  if (input != '' || input != null) {
+  if (input != '') {
     return right(input);
   } else {
     return left(ValueFailure.workshop(
