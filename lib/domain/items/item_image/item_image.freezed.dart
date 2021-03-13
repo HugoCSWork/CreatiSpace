@@ -36,6 +36,7 @@ mixin _$IndividualImages {
   ItemImage get url;
   ItemImageName get imageName;
 
+  @JsonKey(ignore: true)
   $IndividualImagesCopyWith<IndividualImages> get copyWith;
 }
 
@@ -148,6 +149,7 @@ class _$_IndividualImages extends _IndividualImages {
       const DeepCollectionEquality().hash(url) ^
       const DeepCollectionEquality().hash(imageName);
 
+  @JsonKey(ignore: true)
   @override
   _$IndividualImagesCopyWith<_IndividualImages> get copyWith =>
       __$IndividualImagesCopyWithImpl<_IndividualImages>(this, _$identity);
@@ -167,5 +169,6 @@ abstract class _IndividualImages extends IndividualImages {
   @override
   ItemImageName get imageName;
   @override
+  @JsonKey(ignore: true)
   _$IndividualImagesCopyWith<_IndividualImages> get copyWith;
 }

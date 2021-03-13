@@ -286,6 +286,7 @@ class _$_profileInformationReceived implements _profileInformationReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$profileInformationReceivedCopyWith<_profileInformationReceived>
       get copyWith => __$profileInformationReceivedCopyWithImpl<
@@ -372,6 +373,7 @@ abstract class _profileInformationReceived
       _$_profileInformationReceived;
 
   Either<ProfileErrorFailure, UserProfileData> get failureOrMessages;
+  @JsonKey(ignore: true)
   _$profileInformationReceivedCopyWith<_profileInformationReceived>
       get copyWith;
 }
@@ -432,6 +434,7 @@ class _$_watchPeerProfileInformation implements _watchPeerProfileInformation {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
 
+  @JsonKey(ignore: true)
   @override
   _$watchPeerProfileInformationCopyWith<_watchPeerProfileInformation>
       get copyWith => __$watchPeerProfileInformationCopyWithImpl<
@@ -517,6 +520,7 @@ abstract class _watchPeerProfileInformation
       _$_watchPeerProfileInformation;
 
   String get id;
+  @JsonKey(ignore: true)
   _$watchPeerProfileInformationCopyWith<_watchPeerProfileInformation>
       get copyWith;
 }
@@ -583,6 +587,7 @@ class _$_peerProfileInformationReceived
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$peerProfileInformationReceivedCopyWith<_peerProfileInformationReceived>
       get copyWith => __$peerProfileInformationReceivedCopyWithImpl<
@@ -669,6 +674,7 @@ abstract class _peerProfileInformationReceived
       _$_peerProfileInformationReceived;
 
   Either<ProfileErrorFailure, PeerProfileData> get failureOrMessages;
+  @JsonKey(ignore: true)
   _$peerProfileInformationReceivedCopyWith<_peerProfileInformationReceived>
       get copyWith;
 }
@@ -1099,6 +1105,7 @@ class _$_LoadSuccess implements _LoadSuccess {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(userProfileData);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -1188,6 +1195,7 @@ abstract class _LoadSuccess implements ProfileInformationWatcherState {
   const factory _LoadSuccess(UserProfileData userProfileData) = _$_LoadSuccess;
 
   UserProfileData get userProfileData;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -1259,6 +1267,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -1348,6 +1357,7 @@ abstract class _LoadFailure implements ProfileInformationWatcherState {
   const factory _LoadFailure(ProfileErrorFailure itemFailure) = _$_LoadFailure;
 
   ProfileErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }
 
@@ -1542,6 +1552,7 @@ class _$_LoadPeerSuccess implements _LoadPeerSuccess {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(peerProfileData);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadPeerSuccessCopyWith<_LoadPeerSuccess> get copyWith =>
       __$LoadPeerSuccessCopyWithImpl<_LoadPeerSuccess>(this, _$identity);
@@ -1632,6 +1643,7 @@ abstract class _LoadPeerSuccess implements ProfileInformationWatcherState {
       _$_LoadPeerSuccess;
 
   PeerProfileData get peerProfileData;
+  @JsonKey(ignore: true)
   _$LoadPeerSuccessCopyWith<_LoadPeerSuccess> get copyWith;
 }
 
@@ -1703,6 +1715,7 @@ class _$_LoadPeerFailure implements _LoadPeerFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadPeerFailureCopyWith<_LoadPeerFailure> get copyWith =>
       __$LoadPeerFailureCopyWithImpl<_LoadPeerFailure>(this, _$identity);
@@ -1793,5 +1806,6 @@ abstract class _LoadPeerFailure implements ProfileInformationWatcherState {
       _$_LoadPeerFailure;
 
   ProfileErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadPeerFailureCopyWith<_LoadPeerFailure> get copyWith;
 }

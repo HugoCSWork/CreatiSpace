@@ -45,6 +45,7 @@ mixin _$WorkshopPayment {
   String get hasStarted;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $WorkshopPaymentCopyWith<WorkshopPayment> get copyWith;
 }
 
@@ -180,6 +181,7 @@ class _$_WorkshopPayment extends _WorkshopPayment {
       const DeepCollectionEquality().hash(paymentIntentRes) ^
       const DeepCollectionEquality().hash(hasStarted);
 
+  @JsonKey(ignore: true)
   @override
   _$WorkshopPaymentCopyWith<_WorkshopPayment> get copyWith =>
       __$WorkshopPaymentCopyWithImpl<_WorkshopPayment>(this, _$identity);
@@ -207,5 +209,6 @@ abstract class _WorkshopPayment extends WorkshopPayment {
   @override
   String get hasStarted;
   @override
+  @JsonKey(ignore: true)
   _$WorkshopPaymentCopyWith<_WorkshopPayment> get copyWith;
 }

@@ -129,6 +129,7 @@ class _$_JoinStream implements _JoinStream {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(workshopId);
 
+  @JsonKey(ignore: true)
   @override
   _$JoinStreamCopyWith<_JoinStream> get copyWith =>
       __$JoinStreamCopyWithImpl<_JoinStream>(this, _$identity);
@@ -188,6 +189,7 @@ abstract class _JoinStream implements JoinStreamEvent {
   const factory _JoinStream(String workshopId) = _$_JoinStream;
 
   String get workshopId;
+  @JsonKey(ignore: true)
   _$JoinStreamCopyWith<_JoinStream> get copyWith;
 }
 
@@ -248,6 +250,7 @@ class _$_JoinStreamResponse implements _JoinStreamResponse {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failureOrItem);
 
+  @JsonKey(ignore: true)
   @override
   _$JoinStreamResponseCopyWith<_JoinStreamResponse> get copyWith =>
       __$JoinStreamResponseCopyWithImpl<_JoinStreamResponse>(this, _$identity);
@@ -308,6 +311,7 @@ abstract class _JoinStreamResponse implements JoinStreamEvent {
       _$_JoinStreamResponse;
 
   Either<String, String> get failureOrItem;
+  @JsonKey(ignore: true)
   _$JoinStreamResponseCopyWith<_JoinStreamResponse> get copyWith;
 }
 
@@ -652,6 +656,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(streamId);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -723,6 +728,7 @@ abstract class _LoadSuccess implements JoinStreamState {
   const factory _LoadSuccess(String streamId) = _$_LoadSuccess;
 
   String get streamId;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -779,6 +785,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -850,5 +857,6 @@ abstract class _LoadFailure implements JoinStreamState {
   const factory _LoadFailure(String error) = _$_LoadFailure;
 
   String get error;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

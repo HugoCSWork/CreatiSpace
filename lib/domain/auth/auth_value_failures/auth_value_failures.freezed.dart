@@ -81,6 +81,7 @@ mixin _$AuthValueFailure<T> {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $AuthValueFailureCopyWith<T, AuthValueFailure<T>> get copyWith;
 }
 
@@ -170,6 +171,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
       _$InvalidEmailCopyWithImpl<T, InvalidEmail<T>>(this, _$identity);
@@ -244,6 +246,7 @@ abstract class InvalidEmail<T> implements AuthValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
 }
 
@@ -305,6 +308,7 @@ class _$InvalidPassword<T> implements InvalidPassword<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidPasswordCopyWith<T, InvalidPassword<T>> get copyWith =>
       _$InvalidPasswordCopyWithImpl<T, InvalidPassword<T>>(this, _$identity);
@@ -379,6 +383,7 @@ abstract class InvalidPassword<T> implements AuthValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $InvalidPasswordCopyWith<T, InvalidPassword<T>> get copyWith;
 }
 
@@ -440,6 +445,7 @@ class _$ShortUsername<T> implements ShortUsername<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $ShortUsernameCopyWith<T, ShortUsername<T>> get copyWith =>
       _$ShortUsernameCopyWithImpl<T, ShortUsername<T>>(this, _$identity);
@@ -514,6 +520,7 @@ abstract class ShortUsername<T> implements AuthValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $ShortUsernameCopyWith<T, ShortUsername<T>> get copyWith;
 }
 
@@ -575,6 +582,7 @@ class _$OffensiveUsername<T> implements OffensiveUsername<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $OffensiveUsernameCopyWith<T, OffensiveUsername<T>> get copyWith =>
       _$OffensiveUsernameCopyWithImpl<T, OffensiveUsername<T>>(
@@ -650,5 +658,6 @@ abstract class OffensiveUsername<T> implements AuthValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $OffensiveUsernameCopyWith<T, OffensiveUsername<T>> get copyWith;
 }

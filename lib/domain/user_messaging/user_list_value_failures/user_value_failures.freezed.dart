@@ -48,6 +48,7 @@ mixin _$UserValueFailure<T> {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $UserValueFailureCopyWith<T, UserValueFailure<T>> get copyWith;
 }
 
@@ -137,6 +138,7 @@ class _$InvalidName<T> implements InvalidName<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidNameCopyWith<T, InvalidName<T>> get copyWith =>
       _$InvalidNameCopyWithImpl<T, InvalidName<T>>(this, _$identity);
@@ -192,5 +194,6 @@ abstract class InvalidName<T> implements UserValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $InvalidNameCopyWith<T, InvalidName<T>> get copyWith;
 }

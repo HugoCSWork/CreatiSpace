@@ -182,6 +182,7 @@ class _$InvalidProfileName<T> implements InvalidProfileName<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidProfileNameCopyWith<T, InvalidProfileName<T>> get copyWith =>
       _$InvalidProfileNameCopyWithImpl<T, InvalidProfileName<T>>(
@@ -269,6 +270,7 @@ abstract class InvalidProfileName<T> implements ProfileValueFailure<T> {
       _$InvalidProfileName<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidProfileNameCopyWith<T, InvalidProfileName<T>> get copyWith;
 }
 
@@ -329,6 +331,7 @@ class _$InvalidProfileDescription<T> implements InvalidProfileDescription<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidProfileDescriptionCopyWith<T, InvalidProfileDescription<T>>
       get copyWith => _$InvalidProfileDescriptionCopyWithImpl<T,
@@ -416,6 +419,7 @@ abstract class InvalidProfileDescription<T> implements ProfileValueFailure<T> {
       _$InvalidProfileDescription<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidProfileDescriptionCopyWith<T, InvalidProfileDescription<T>>
       get copyWith;
 }
@@ -477,6 +481,7 @@ class _$InvalidProfileFollowing<T> implements InvalidProfileFollowing<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidProfileFollowingCopyWith<T, InvalidProfileFollowing<T>>
       get copyWith =>
@@ -565,6 +570,7 @@ abstract class InvalidProfileFollowing<T> implements ProfileValueFailure<T> {
       _$InvalidProfileFollowing<T>;
 
   int get failedValue;
+  @JsonKey(ignore: true)
   $InvalidProfileFollowingCopyWith<T, InvalidProfileFollowing<T>> get copyWith;
 }
 
@@ -625,6 +631,7 @@ class _$InvalidProfileFollowers<T> implements InvalidProfileFollowers<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidProfileFollowersCopyWith<T, InvalidProfileFollowers<T>>
       get copyWith =>
@@ -713,6 +720,7 @@ abstract class InvalidProfileFollowers<T> implements ProfileValueFailure<T> {
       _$InvalidProfileFollowers<T>;
 
   int get failedValue;
+  @JsonKey(ignore: true)
   $InvalidProfileFollowersCopyWith<T, InvalidProfileFollowers<T>> get copyWith;
 }
 
@@ -773,6 +781,7 @@ class _$InvalidBackgroundImageUrl<T> implements InvalidBackgroundImageUrl<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidBackgroundImageUrlCopyWith<T, InvalidBackgroundImageUrl<T>>
       get copyWith => _$InvalidBackgroundImageUrlCopyWithImpl<T,
@@ -860,6 +869,7 @@ abstract class InvalidBackgroundImageUrl<T> implements ProfileValueFailure<T> {
       _$InvalidBackgroundImageUrl<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidBackgroundImageUrlCopyWith<T, InvalidBackgroundImageUrl<T>>
       get copyWith;
 }
@@ -921,6 +931,7 @@ class _$InvalidProfileImageUrl<T> implements InvalidProfileImageUrl<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidProfileImageUrlCopyWith<T, InvalidProfileImageUrl<T>> get copyWith =>
       _$InvalidProfileImageUrlCopyWithImpl<T, InvalidProfileImageUrl<T>>(
@@ -1008,5 +1019,6 @@ abstract class InvalidProfileImageUrl<T> implements ProfileValueFailure<T> {
       _$InvalidProfileImageUrl<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidProfileImageUrlCopyWith<T, InvalidProfileImageUrl<T>> get copyWith;
 }

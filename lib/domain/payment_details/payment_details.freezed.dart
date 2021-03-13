@@ -63,6 +63,7 @@ mixin _$PaymentDetails {
   double get amount;
   String get deliveryStatus;
 
+  @JsonKey(ignore: true)
   $PaymentDetailsCopyWith<PaymentDetails> get copyWith;
 }
 
@@ -319,6 +320,7 @@ class _$_PaymentDetails extends _PaymentDetails {
       const DeepCollectionEquality().hash(amount) ^
       const DeepCollectionEquality().hash(deliveryStatus);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentDetailsCopyWith<_PaymentDetails> get copyWith =>
       __$PaymentDetailsCopyWithImpl<_PaymentDetails>(this, _$identity);
@@ -365,5 +367,6 @@ abstract class _PaymentDetails extends PaymentDetails {
   @override
   String get deliveryStatus;
   @override
+  @JsonKey(ignore: true)
   _$PaymentDetailsCopyWith<_PaymentDetails> get copyWith;
 }

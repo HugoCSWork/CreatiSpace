@@ -171,6 +171,7 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
       const DeepCollectionEquality().hash(peerId) ^
       const DeepCollectionEquality().hash(peerName);
 
+  @JsonKey(ignore: true)
   @override
   _$watchAllUserConversationCopyWith<_watchAllUserConversation> get copyWith =>
       __$watchAllUserConversationCopyWithImpl<_watchAllUserConversation>(
@@ -249,6 +250,7 @@ abstract class _watchAllUserConversation implements UserConversationEvent {
 
   String get peerId;
   String get peerName;
+  @JsonKey(ignore: true)
   _$watchAllUserConversationCopyWith<_watchAllUserConversation> get copyWith;
 }
 
@@ -313,6 +315,7 @@ class _$_UserConversationReceived implements _UserConversationReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$UserConversationReceivedCopyWith<_UserConversationReceived> get copyWith =>
       __$UserConversationReceivedCopyWithImpl<_UserConversationReceived>(
@@ -391,6 +394,7 @@ abstract class _UserConversationReceived implements UserConversationEvent {
           failureOrMessages) = _$_UserConversationReceived;
 
   Either<UserErrorFailure, KtList<UserConversation>> get failureOrMessages;
+  @JsonKey(ignore: true)
   _$UserConversationReceivedCopyWith<_UserConversationReceived> get copyWith;
 }
 
@@ -466,6 +470,7 @@ class _$_SendMessage implements _SendMessage {
       const DeepCollectionEquality().hash(message) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$SendMessageCopyWith<_SendMessage> get copyWith =>
       __$SendMessageCopyWithImpl<_SendMessage>(this, _$identity);
@@ -544,6 +549,7 @@ abstract class _SendMessage implements UserConversationEvent {
   String get peerId;
   String get message;
   int get type;
+  @JsonKey(ignore: true)
   _$SendMessageCopyWith<_SendMessage> get copyWith;
 }
 
@@ -600,6 +606,7 @@ class _$_DeleteConversation implements _DeleteConversation {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(peerId);
 
+  @JsonKey(ignore: true)
   @override
   _$DeleteConversationCopyWith<_DeleteConversation> get copyWith =>
       __$DeleteConversationCopyWithImpl<_DeleteConversation>(this, _$identity);
@@ -675,6 +682,7 @@ abstract class _DeleteConversation implements UserConversationEvent {
   const factory _DeleteConversation(String peerId) = _$_DeleteConversation;
 
   String get peerId;
+  @JsonKey(ignore: true)
   _$DeleteConversationCopyWith<_DeleteConversation> get copyWith;
 }
 
@@ -1019,6 +1027,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -1090,6 +1099,7 @@ abstract class _LoadSuccess implements UserConversationState {
   const factory _LoadSuccess(KtList<UserConversation> items) = _$_LoadSuccess;
 
   KtList<UserConversation> get items;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -1161,6 +1171,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -1232,5 +1243,6 @@ abstract class _LoadFailure implements UserConversationState {
   const factory _LoadFailure(UserErrorFailure itemFailure) = _$_LoadFailure;
 
   UserErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

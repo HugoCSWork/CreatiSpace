@@ -78,6 +78,7 @@ mixin _$WorkshopDto {
   List<StreamingUser> get attendees;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $WorkshopDtoCopyWith<WorkshopDto> get copyWith;
 }
 
@@ -387,6 +388,7 @@ class _$_WorkshopDto extends _WorkshopDto {
       const DeepCollectionEquality().hash(workshopDuration) ^
       const DeepCollectionEquality().hash(attendees);
 
+  @JsonKey(ignore: true)
   @override
   _$WorkshopDtoCopyWith<_WorkshopDto> get copyWith =>
       __$WorkshopDtoCopyWithImpl<_WorkshopDto>(this, _$identity);
@@ -447,5 +449,6 @@ abstract class _WorkshopDto extends WorkshopDto {
   @override
   List<StreamingUser> get attendees;
   @override
+  @JsonKey(ignore: true)
   _$WorkshopDtoCopyWith<_WorkshopDto> get copyWith;
 }

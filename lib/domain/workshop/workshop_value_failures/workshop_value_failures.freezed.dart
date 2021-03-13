@@ -196,6 +196,7 @@ class _$InvalidWorkshopName<T> implements InvalidWorkshopName<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopNameCopyWith<T, InvalidWorkshopName<T>> get copyWith =>
       _$InvalidWorkshopNameCopyWithImpl<T, InvalidWorkshopName<T>>(
@@ -290,6 +291,7 @@ abstract class InvalidWorkshopName<T> implements WorkshopValueFailure<T> {
       _$InvalidWorkshopName<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopNameCopyWith<T, InvalidWorkshopName<T>> get copyWith;
 }
 
@@ -351,6 +353,7 @@ class _$InvalidWorkshopDescription<T> implements InvalidWorkshopDescription<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopDescriptionCopyWith<T, InvalidWorkshopDescription<T>>
       get copyWith => _$InvalidWorkshopDescriptionCopyWithImpl<T,
@@ -446,6 +449,7 @@ abstract class InvalidWorkshopDescription<T>
       _$InvalidWorkshopDescription<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopDescriptionCopyWith<T, InvalidWorkshopDescription<T>>
       get copyWith;
 }
@@ -506,6 +510,7 @@ class _$InvalidWorkshopDate<T> implements InvalidWorkshopDate<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopDateCopyWith<T, InvalidWorkshopDate<T>> get copyWith =>
       _$InvalidWorkshopDateCopyWithImpl<T, InvalidWorkshopDate<T>>(
@@ -600,6 +605,7 @@ abstract class InvalidWorkshopDate<T> implements WorkshopValueFailure<T> {
       _$InvalidWorkshopDate<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopDateCopyWith<T, InvalidWorkshopDate<T>> get copyWith;
 }
 
@@ -659,6 +665,7 @@ class _$InvalidWorkshopTime<T> implements InvalidWorkshopTime<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopTimeCopyWith<T, InvalidWorkshopTime<T>> get copyWith =>
       _$InvalidWorkshopTimeCopyWithImpl<T, InvalidWorkshopTime<T>>(
@@ -753,6 +760,7 @@ abstract class InvalidWorkshopTime<T> implements WorkshopValueFailure<T> {
       _$InvalidWorkshopTime<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopTimeCopyWith<T, InvalidWorkshopTime<T>> get copyWith;
 }
 
@@ -816,6 +824,7 @@ class _$InvalidWorkshopRequirements<T>
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopRequirementsCopyWith<T, InvalidWorkshopRequirements<T>>
       get copyWith => _$InvalidWorkshopRequirementsCopyWithImpl<T,
@@ -911,6 +920,7 @@ abstract class InvalidWorkshopRequirements<T>
       _$InvalidWorkshopRequirements<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopRequirementsCopyWith<T, InvalidWorkshopRequirements<T>>
       get copyWith;
 }
@@ -971,6 +981,7 @@ class _$InvalidWorkshopPrice<T> implements InvalidWorkshopPrice<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopPriceCopyWith<T, InvalidWorkshopPrice<T>> get copyWith =>
       _$InvalidWorkshopPriceCopyWithImpl<T, InvalidWorkshopPrice<T>>(
@@ -1065,6 +1076,7 @@ abstract class InvalidWorkshopPrice<T> implements WorkshopValueFailure<T> {
       _$InvalidWorkshopPrice<T>;
 
   double get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopPriceCopyWith<T, InvalidWorkshopPrice<T>> get copyWith;
 }
 
@@ -1125,6 +1137,7 @@ class _$InvalidWorkshopDuration<T> implements InvalidWorkshopDuration<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidWorkshopDurationCopyWith<T, InvalidWorkshopDuration<T>>
       get copyWith =>
@@ -1220,5 +1233,6 @@ abstract class InvalidWorkshopDuration<T> implements WorkshopValueFailure<T> {
       _$InvalidWorkshopDuration<T>;
 
   double get failedValue;
+  @JsonKey(ignore: true)
   $InvalidWorkshopDurationCopyWith<T, InvalidWorkshopDuration<T>> get copyWith;
 }

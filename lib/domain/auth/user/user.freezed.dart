@@ -31,6 +31,7 @@ mixin _$CurrentUser {
   UniqueId get id;
   bool get emailVerified;
 
+  @JsonKey(ignore: true)
   $CurrentUserCopyWith<CurrentUser> get copyWith;
 }
 
@@ -131,6 +132,7 @@ class _$_CurrentUser implements _CurrentUser {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(emailVerified);
 
+  @JsonKey(ignore: true)
   @override
   _$CurrentUserCopyWith<_CurrentUser> get copyWith =>
       __$CurrentUserCopyWithImpl<_CurrentUser>(this, _$identity);
@@ -145,5 +147,6 @@ abstract class _CurrentUser implements CurrentUser {
   @override
   bool get emailVerified;
   @override
+  @JsonKey(ignore: true)
   _$CurrentUserCopyWith<_CurrentUser> get copyWith;
 }

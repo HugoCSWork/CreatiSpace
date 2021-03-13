@@ -192,6 +192,7 @@ class _$_NameChanged implements _NameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$NameChangedCopyWith<_NameChanged> get copyWith =>
       __$NameChangedCopyWithImpl<_NameChanged>(this, _$identity);
@@ -287,6 +288,7 @@ abstract class _NameChanged implements WorkshopFormEvent {
   const factory _NameChanged(String name) = _$_NameChanged;
 
   String get name;
+  @JsonKey(ignore: true)
   _$NameChangedCopyWith<_NameChanged> get copyWith;
 }
 
@@ -344,6 +346,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   _$DescriptionChangedCopyWith<_DescriptionChanged> get copyWith =>
       __$DescriptionChangedCopyWithImpl<_DescriptionChanged>(this, _$identity);
@@ -439,6 +442,7 @@ abstract class _DescriptionChanged implements WorkshopFormEvent {
   const factory _DescriptionChanged(String description) = _$_DescriptionChanged;
 
   String get description;
+  @JsonKey(ignore: true)
   _$DescriptionChangedCopyWith<_DescriptionChanged> get copyWith;
 }
 
@@ -495,6 +499,7 @@ class _$_DateChanged implements _DateChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
 
+  @JsonKey(ignore: true)
   @override
   _$DateChangedCopyWith<_DateChanged> get copyWith =>
       __$DateChangedCopyWithImpl<_DateChanged>(this, _$identity);
@@ -590,6 +595,7 @@ abstract class _DateChanged implements WorkshopFormEvent {
   const factory _DateChanged(String date) = _$_DateChanged;
 
   String get date;
+  @JsonKey(ignore: true)
   _$DateChangedCopyWith<_DateChanged> get copyWith;
 }
 
@@ -646,6 +652,7 @@ class _$_TimeChanged implements _TimeChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(time);
 
+  @JsonKey(ignore: true)
   @override
   _$TimeChangedCopyWith<_TimeChanged> get copyWith =>
       __$TimeChangedCopyWithImpl<_TimeChanged>(this, _$identity);
@@ -741,6 +748,7 @@ abstract class _TimeChanged implements WorkshopFormEvent {
   const factory _TimeChanged(String time) = _$_TimeChanged;
 
   String get time;
+  @JsonKey(ignore: true)
   _$TimeChangedCopyWith<_TimeChanged> get copyWith;
 }
 
@@ -797,6 +805,7 @@ class _$_PriceChanged implements _PriceChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(price);
 
+  @JsonKey(ignore: true)
   @override
   _$PriceChangedCopyWith<_PriceChanged> get copyWith =>
       __$PriceChangedCopyWithImpl<_PriceChanged>(this, _$identity);
@@ -892,6 +901,7 @@ abstract class _PriceChanged implements WorkshopFormEvent {
   const factory _PriceChanged(double price) = _$_PriceChanged;
 
   double get price;
+  @JsonKey(ignore: true)
   _$PriceChangedCopyWith<_PriceChanged> get copyWith;
 }
 
@@ -949,6 +959,7 @@ class _$_DurationChanged implements _DurationChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(duration);
 
+  @JsonKey(ignore: true)
   @override
   _$DurationChangedCopyWith<_DurationChanged> get copyWith =>
       __$DurationChangedCopyWithImpl<_DurationChanged>(this, _$identity);
@@ -1044,6 +1055,7 @@ abstract class _DurationChanged implements WorkshopFormEvent {
   const factory _DurationChanged(double duration) = _$_DurationChanged;
 
   double get duration;
+  @JsonKey(ignore: true)
   _$DurationChangedCopyWith<_DurationChanged> get copyWith;
 }
 
@@ -1102,6 +1114,7 @@ class _$_RequirementsChanged implements _RequirementsChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(requirements);
 
+  @JsonKey(ignore: true)
   @override
   _$RequirementsChangedCopyWith<_RequirementsChanged> get copyWith =>
       __$RequirementsChangedCopyWithImpl<_RequirementsChanged>(
@@ -1199,6 +1212,7 @@ abstract class _RequirementsChanged implements WorkshopFormEvent {
       _$_RequirementsChanged;
 
   String get requirements;
+  @JsonKey(ignore: true)
   _$RequirementsChangedCopyWith<_RequirementsChanged> get copyWith;
 }
 
@@ -1361,6 +1375,7 @@ mixin _$WorkshopFormState {
   bool get isSaving;
   Option<Either<WorkshopErrorFailures, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $WorkshopFormStateCopyWith<WorkshopFormState> get copyWith;
 }
 
@@ -1520,6 +1535,7 @@ class _$_WorkshopFormState implements _WorkshopFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$WorkshopFormStateCopyWith<_WorkshopFormState> get copyWith =>
       __$WorkshopFormStateCopyWithImpl<_WorkshopFormState>(this, _$identity);
@@ -1546,5 +1562,6 @@ abstract class _WorkshopFormState implements WorkshopFormState {
   @override
   Option<Either<WorkshopErrorFailures, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$WorkshopFormStateCopyWith<_WorkshopFormState> get copyWith;
 }

@@ -228,6 +228,7 @@ class _$_ItemsReceived implements _ItemsReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrNotes);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith =>
       __$ItemsReceivedCopyWithImpl<_ItemsReceived>(this, _$identity);
@@ -292,6 +293,7 @@ abstract class _ItemsReceived implements ItemHomeWatcherEvent {
       _$_ItemsReceived;
 
   Either<ItemErrorFailure, KtList<HomeItem>> get failureOrNotes;
+  @JsonKey(ignore: true)
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith;
 }
 
@@ -636,6 +638,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -707,6 +710,7 @@ abstract class _LoadSuccess implements ItemHomeWatcherState {
   const factory _LoadSuccess(KtList<HomeItem> items) = _$_LoadSuccess;
 
   KtList<HomeItem> get items;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -778,6 +782,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -849,5 +854,6 @@ abstract class _LoadFailure implements ItemHomeWatcherState {
   const factory _LoadFailure(ItemErrorFailure itemFailure) = _$_LoadFailure;
 
   ItemErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

@@ -69,6 +69,7 @@ mixin _$Workshop {
   String get profileImage;
   List<StreamingUser> get attendees;
 
+  @JsonKey(ignore: true)
   $WorkshopCopyWith<Workshop> get copyWith;
 }
 
@@ -373,6 +374,7 @@ class _$_Workshop extends _Workshop {
       const DeepCollectionEquality().hash(profileImage) ^
       const DeepCollectionEquality().hash(attendees);
 
+  @JsonKey(ignore: true)
   @override
   _$WorkshopCopyWith<_Workshop> get copyWith =>
       __$WorkshopCopyWithImpl<_Workshop>(this, _$identity);
@@ -425,5 +427,6 @@ abstract class _Workshop extends Workshop {
   @override
   List<StreamingUser> get attendees;
   @override
+  @JsonKey(ignore: true)
   _$WorkshopCopyWith<_Workshop> get copyWith;
 }

@@ -60,6 +60,7 @@ mixin _$PaymentFormSetup {
   Country get country;
   County get county;
 
+  @JsonKey(ignore: true)
   $PaymentFormSetupCopyWith<PaymentFormSetup> get copyWith;
 }
 
@@ -297,6 +298,7 @@ class _$_PaymentFormSetup extends _PaymentFormSetup {
       const DeepCollectionEquality().hash(country) ^
       const DeepCollectionEquality().hash(county);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentFormSetupCopyWith<_PaymentFormSetup> get copyWith =>
       __$PaymentFormSetupCopyWithImpl<_PaymentFormSetup>(this, _$identity);
@@ -340,5 +342,6 @@ abstract class _PaymentFormSetup extends PaymentFormSetup {
   @override
   County get county;
   @override
+  @JsonKey(ignore: true)
   _$PaymentFormSetupCopyWith<_PaymentFormSetup> get copyWith;
 }

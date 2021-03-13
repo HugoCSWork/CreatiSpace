@@ -143,6 +143,7 @@ class _$_WatchAllStarted implements _WatchAllStarted {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(peerId);
 
+  @JsonKey(ignore: true)
   @override
   _$WatchAllStartedCopyWith<_WatchAllStarted> get copyWith =>
       __$WatchAllStartedCopyWithImpl<_WatchAllStarted>(this, _$identity);
@@ -206,6 +207,7 @@ abstract class _WatchAllStarted implements PaymentConfirmationEvent {
 
   String get id;
   String get peerId;
+  @JsonKey(ignore: true)
   _$WatchAllStartedCopyWith<_WatchAllStarted> get copyWith;
 }
 
@@ -265,6 +267,7 @@ class _$_ItemsReceived implements _ItemsReceived {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failureOrItem);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith =>
       __$ItemsReceivedCopyWithImpl<_ItemsReceived>(this, _$identity);
@@ -328,6 +331,7 @@ abstract class _ItemsReceived implements PaymentConfirmationEvent {
       Either<ItemErrorFailure, ItemDto> failureOrItem) = _$_ItemsReceived;
 
   Either<ItemErrorFailure, ItemDto> get failureOrItem;
+  @JsonKey(ignore: true)
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith;
 }
 
@@ -684,6 +688,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(item);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -755,6 +760,7 @@ abstract class _LoadSuccess implements PaymentConfirmationState {
   const factory _LoadSuccess(ItemDto item) = _$_LoadSuccess;
 
   ItemDto get item;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -826,6 +832,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -897,5 +904,6 @@ abstract class _LoadFailure implements PaymentConfirmationState {
   const factory _LoadFailure(ItemErrorFailure itemFailure) = _$_LoadFailure;
 
   ItemErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

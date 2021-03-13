@@ -63,6 +63,7 @@ mixin _$HomeItem {
   String get profileImageURL;
   ItemImageList<IndividualImages> get images;
 
+  @JsonKey(ignore: true)
   $HomeItemCopyWith<HomeItem> get copyWith;
 }
 
@@ -319,6 +320,7 @@ class _$_HomeItem extends _HomeItem {
       const DeepCollectionEquality().hash(profileImageURL) ^
       const DeepCollectionEquality().hash(images);
 
+  @JsonKey(ignore: true)
   @override
   _$HomeItemCopyWith<_HomeItem> get copyWith =>
       __$HomeItemCopyWithImpl<_HomeItem>(this, _$identity);
@@ -365,5 +367,6 @@ abstract class _HomeItem extends HomeItem {
   @override
   ItemImageList<IndividualImages> get images;
   @override
+  @JsonKey(ignore: true)
   _$HomeItemCopyWith<_HomeItem> get copyWith;
 }

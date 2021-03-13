@@ -31,6 +31,7 @@ mixin _$Search {
   String get search;
   bool get searchOption;
 
+  @JsonKey(ignore: true)
   $SearchCopyWith<Search> get copyWith;
 }
 
@@ -126,6 +127,7 @@ class _$_Search extends _Search {
       const DeepCollectionEquality().hash(search) ^
       const DeepCollectionEquality().hash(searchOption);
 
+  @JsonKey(ignore: true)
   @override
   _$SearchCopyWith<_Search> get copyWith =>
       __$SearchCopyWithImpl<_Search>(this, _$identity);
@@ -141,5 +143,6 @@ abstract class _Search extends Search {
   @override
   bool get searchOption;
   @override
+  @JsonKey(ignore: true)
   _$SearchCopyWith<_Search> get copyWith;
 }

@@ -207,6 +207,7 @@ class _$_Initialized implements _Initialized {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(initialItemOption);
 
+  @JsonKey(ignore: true)
   @override
   _$InitializedCopyWith<_Initialized> get copyWith =>
       __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
@@ -308,6 +309,7 @@ abstract class _Initialized implements ItemFormEvent {
   const factory _Initialized(Option<Item> initialItemOption) = _$_Initialized;
 
   Option<Item> get initialItemOption;
+  @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
 
@@ -363,6 +365,7 @@ class _$_NameChanged implements _NameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$NameChangedCopyWith<_NameChanged> get copyWith =>
       __$NameChangedCopyWithImpl<_NameChanged>(this, _$identity);
@@ -464,6 +467,7 @@ abstract class _NameChanged implements ItemFormEvent {
   const factory _NameChanged(String name) = _$_NameChanged;
 
   String get name;
+  @JsonKey(ignore: true)
   _$NameChangedCopyWith<_NameChanged> get copyWith;
 }
 
@@ -521,6 +525,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   _$DescriptionChangedCopyWith<_DescriptionChanged> get copyWith =>
       __$DescriptionChangedCopyWithImpl<_DescriptionChanged>(this, _$identity);
@@ -622,6 +627,7 @@ abstract class _DescriptionChanged implements ItemFormEvent {
   const factory _DescriptionChanged(String description) = _$_DescriptionChanged;
 
   String get description;
+  @JsonKey(ignore: true)
   _$DescriptionChangedCopyWith<_DescriptionChanged> get copyWith;
 }
 
@@ -678,6 +684,7 @@ class _$_PriceChanged implements _PriceChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(price);
 
+  @JsonKey(ignore: true)
   @override
   _$PriceChangedCopyWith<_PriceChanged> get copyWith =>
       __$PriceChangedCopyWithImpl<_PriceChanged>(this, _$identity);
@@ -779,6 +786,7 @@ abstract class _PriceChanged implements ItemFormEvent {
   const factory _PriceChanged(double price) = _$_PriceChanged;
 
   double get price;
+  @JsonKey(ignore: true)
   _$PriceChangedCopyWith<_PriceChanged> get copyWith;
 }
 
@@ -836,6 +844,7 @@ class _$_DeliveryChanged implements _DeliveryChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(delivery);
 
+  @JsonKey(ignore: true)
   @override
   _$DeliveryChangedCopyWith<_DeliveryChanged> get copyWith =>
       __$DeliveryChangedCopyWithImpl<_DeliveryChanged>(this, _$identity);
@@ -937,6 +946,7 @@ abstract class _DeliveryChanged implements ItemFormEvent {
   const factory _DeliveryChanged(double delivery) = _$_DeliveryChanged;
 
   double get delivery;
+  @JsonKey(ignore: true)
   _$DeliveryChangedCopyWith<_DeliveryChanged> get copyWith;
 }
 
@@ -994,6 +1004,7 @@ class _$_QuantityChanged implements _QuantityChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(quantity);
 
+  @JsonKey(ignore: true)
   @override
   _$QuantityChangedCopyWith<_QuantityChanged> get copyWith =>
       __$QuantityChangedCopyWithImpl<_QuantityChanged>(this, _$identity);
@@ -1095,6 +1106,7 @@ abstract class _QuantityChanged implements ItemFormEvent {
   const factory _QuantityChanged(int quantity) = _$_QuantityChanged;
 
   int get quantity;
+  @JsonKey(ignore: true)
   _$QuantityChangedCopyWith<_QuantityChanged> get copyWith;
 }
 
@@ -1152,6 +1164,7 @@ class _$_PurchasableChanged implements _PurchasableChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(purchasable);
 
+  @JsonKey(ignore: true)
   @override
   _$PurchasableChangedCopyWith<_PurchasableChanged> get copyWith =>
       __$PurchasableChangedCopyWithImpl<_PurchasableChanged>(this, _$identity);
@@ -1253,6 +1266,7 @@ abstract class _PurchasableChanged implements ItemFormEvent {
   const factory _PurchasableChanged(bool purchasable) = _$_PurchasableChanged;
 
   bool get purchasable;
+  @JsonKey(ignore: true)
   _$PurchasableChangedCopyWith<_PurchasableChanged> get copyWith;
 }
 
@@ -1309,6 +1323,7 @@ class _$_ItemsChanged implements _ItemsChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemsChangedCopyWith<_ItemsChanged> get copyWith =>
       __$ItemsChangedCopyWithImpl<_ItemsChanged>(this, _$identity);
@@ -1411,6 +1426,7 @@ abstract class _ItemsChanged implements ItemFormEvent {
       _$_ItemsChanged;
 
   KtList<ImageItemPrimitive> get items;
+  @JsonKey(ignore: true)
   _$ItemsChangedCopyWith<_ItemsChanged> get copyWith;
 }
 
@@ -1582,6 +1598,7 @@ mixin _$ItemFormState {
   bool get isSaving;
   Option<Either<ItemErrorFailure, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $ItemFormStateCopyWith<ItemFormState> get copyWith;
 }
 
@@ -1755,6 +1772,7 @@ class _$_ItemFormState implements _ItemFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemFormStateCopyWith<_ItemFormState> get copyWith =>
       __$ItemFormStateCopyWithImpl<_ItemFormState>(this, _$identity);
@@ -1785,5 +1803,6 @@ abstract class _ItemFormState implements ItemFormState {
   @override
   Option<Either<ItemErrorFailure, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$ItemFormStateCopyWith<_ItemFormState> get copyWith;
 }

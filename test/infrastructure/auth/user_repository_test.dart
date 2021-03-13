@@ -45,7 +45,7 @@ void main() {
     });
     test('sign in with email and password failed', () async {
       when(_auth.signInWithEmailAndPassword(email: email.getOrCrash(), password: password.getOrCrash()))
-          .thenThrow(new FirebaseAuthException(message: "error"));
+          .thenThrow(new FirebaseAuthException(message: "error", code: "400"));
 
       var isSignedIn = await authFacade.signInWithEmailAndPassword(emailAddress: email, password: password);
       expect(isSignedIn, await getResult(false));

@@ -72,6 +72,7 @@ mixin _$HomeItemDto {
   List<IndividualImagesDto> get images;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $HomeItemDtoCopyWith<HomeItemDto> get copyWith;
 }
 
@@ -329,6 +330,7 @@ class _$_HomeItemDto extends _HomeItemDto {
       const DeepCollectionEquality().hash(purchasable) ^
       const DeepCollectionEquality().hash(images);
 
+  @JsonKey(ignore: true)
   @override
   _$HomeItemDtoCopyWith<_HomeItemDto> get copyWith =>
       __$HomeItemDtoCopyWithImpl<_HomeItemDto>(this, _$identity);
@@ -383,6 +385,7 @@ abstract class _HomeItemDto extends HomeItemDto {
   @override
   List<IndividualImagesDto> get images;
   @override
+  @JsonKey(ignore: true)
   _$HomeItemDtoCopyWith<_HomeItemDto> get copyWith;
 }
 
@@ -421,6 +424,7 @@ mixin _$IndividualImagesDto {
   String get imageName;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $IndividualImagesDtoCopyWith<IndividualImagesDto> get copyWith;
 }
 
@@ -536,6 +540,7 @@ class _$_IndividualImagesDto extends _IndividualImagesDto {
       const DeepCollectionEquality().hash(url) ^
       const DeepCollectionEquality().hash(imageName);
 
+  @JsonKey(ignore: true)
   @override
   _$IndividualImagesDtoCopyWith<_IndividualImagesDto> get copyWith =>
       __$IndividualImagesDtoCopyWithImpl<_IndividualImagesDto>(
@@ -564,5 +569,6 @@ abstract class _IndividualImagesDto extends IndividualImagesDto {
   @override
   String get imageName;
   @override
+  @JsonKey(ignore: true)
   _$IndividualImagesDtoCopyWith<_IndividualImagesDto> get copyWith;
 }

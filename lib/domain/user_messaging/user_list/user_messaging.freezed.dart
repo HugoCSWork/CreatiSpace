@@ -48,6 +48,7 @@ mixin _$UserMessaging {
   bool get unreadMessages;
   String get userId;
 
+  @JsonKey(ignore: true)
   $UserMessagingCopyWith<UserMessaging> get copyWith;
 }
 
@@ -228,6 +229,7 @@ class _$_UserMessaging extends _UserMessaging {
       const DeepCollectionEquality().hash(unreadMessages) ^
       const DeepCollectionEquality().hash(userId);
 
+  @JsonKey(ignore: true)
   @override
   _$UserMessagingCopyWith<_UserMessaging> get copyWith =>
       __$UserMessagingCopyWithImpl<_UserMessaging>(this, _$identity);
@@ -259,5 +261,6 @@ abstract class _UserMessaging extends UserMessaging {
   @override
   String get userId;
   @override
+  @JsonKey(ignore: true)
   _$UserMessagingCopyWith<_UserMessaging> get copyWith;
 }

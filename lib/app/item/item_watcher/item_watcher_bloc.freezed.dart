@@ -547,6 +547,7 @@ class _$_ItemsReceived implements _ItemsReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrNotes);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith =>
       __$ItemsReceivedCopyWithImpl<_ItemsReceived>(this, _$identity);
@@ -638,6 +639,7 @@ abstract class _ItemsReceived implements ItemWatcherEvent {
       Either<ItemErrorFailure, KtList<Item>> failureOrNotes) = _$_ItemsReceived;
 
   Either<ItemErrorFailure, KtList<Item>> get failureOrNotes;
+  @JsonKey(ignore: true)
   _$ItemsReceivedCopyWith<_ItemsReceived> get copyWith;
 }
 
@@ -694,6 +696,7 @@ class _$_WatchAllPeerStarted implements _WatchAllPeerStarted {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
 
+  @JsonKey(ignore: true)
   @override
   _$WatchAllPeerStartedCopyWith<_WatchAllPeerStarted> get copyWith =>
       __$WatchAllPeerStartedCopyWithImpl<_WatchAllPeerStarted>(
@@ -785,6 +788,7 @@ abstract class _WatchAllPeerStarted implements ItemWatcherEvent {
   const factory _WatchAllPeerStarted(String id) = _$_WatchAllPeerStarted;
 
   String get id;
+  @JsonKey(ignore: true)
   _$WatchAllPeerStartedCopyWith<_WatchAllPeerStarted> get copyWith;
 }
 
@@ -846,6 +850,7 @@ class _$_PeerItemsReceived implements _PeerItemsReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrNotes);
 
+  @JsonKey(ignore: true)
   @override
   _$PeerItemsReceivedCopyWith<_PeerItemsReceived> get copyWith =>
       __$PeerItemsReceivedCopyWithImpl<_PeerItemsReceived>(this, _$identity);
@@ -938,6 +943,7 @@ abstract class _PeerItemsReceived implements ItemWatcherEvent {
       _$_PeerItemsReceived;
 
   Either<ItemErrorFailure, KtList<Item>> get failureOrNotes;
+  @JsonKey(ignore: true)
   _$PeerItemsReceivedCopyWith<_PeerItemsReceived> get copyWith;
 }
 
@@ -1281,6 +1287,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -1352,6 +1359,7 @@ abstract class _LoadSuccess implements ItemWatcherState {
   const factory _LoadSuccess(KtList<Item> items) = _$_LoadSuccess;
 
   KtList<Item> get items;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -1423,6 +1431,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -1494,5 +1503,6 @@ abstract class _LoadFailure implements ItemWatcherState {
   const factory _LoadFailure(ItemErrorFailure itemFailure) = _$_LoadFailure;
 
   ItemErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

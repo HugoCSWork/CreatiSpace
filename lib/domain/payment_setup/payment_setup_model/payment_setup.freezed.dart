@@ -90,6 +90,7 @@ mixin _$PaymentItemSetup {
   DocumentName get documentNameImage;
   TermsAndService get termsAndService;
 
+  @JsonKey(ignore: true)
   $PaymentItemSetupCopyWith<PaymentItemSetup> get copyWith;
 }
 
@@ -487,6 +488,7 @@ class _$_PaymentSetup extends _PaymentSetup {
       const DeepCollectionEquality().hash(documentNameImage) ^
       const DeepCollectionEquality().hash(termsAndService);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentSetupCopyWith<_PaymentSetup> get copyWith =>
       __$PaymentSetupCopyWithImpl<_PaymentSetup>(this, _$identity);
@@ -560,5 +562,6 @@ abstract class _PaymentSetup extends PaymentItemSetup {
   @override
   TermsAndService get termsAndService;
   @override
+  @JsonKey(ignore: true)
   _$PaymentSetupCopyWith<_PaymentSetup> get copyWith;
 }

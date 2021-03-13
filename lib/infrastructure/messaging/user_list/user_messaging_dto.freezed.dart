@@ -58,6 +58,7 @@ mixin _$UserMessagingDto {
   String get userId;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $UserMessagingDtoCopyWith<UserMessagingDto> get copyWith;
 }
 
@@ -242,6 +243,7 @@ class _$_UserMessagingDto extends _UserMessagingDto {
       const DeepCollectionEquality().hash(unreadMessages) ^
       const DeepCollectionEquality().hash(userId);
 
+  @JsonKey(ignore: true)
   @override
   _$UserMessagingDtoCopyWith<_UserMessagingDto> get copyWith =>
       __$UserMessagingDtoCopyWithImpl<_UserMessagingDto>(this, _$identity);
@@ -282,5 +284,6 @@ abstract class _UserMessagingDto extends UserMessagingDto {
   @override
   String get userId;
   @override
+  @JsonKey(ignore: true)
   _$UserMessagingDtoCopyWith<_UserMessagingDto> get copyWith;
 }

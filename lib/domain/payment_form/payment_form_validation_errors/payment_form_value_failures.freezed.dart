@@ -70,6 +70,7 @@ mixin _$PaymentFormValueFailure<T> {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $PaymentFormValueFailureCopyWith<T, PaymentFormValueFailure<T>> get copyWith;
 }
 
@@ -159,6 +160,7 @@ class _$InvalidCardNumber<T> implements InvalidCardNumber<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidCardNumberCopyWith<T, InvalidCardNumber<T>> get copyWith =>
       _$InvalidCardNumberCopyWithImpl<T, InvalidCardNumber<T>>(
@@ -228,6 +230,7 @@ abstract class InvalidCardNumber<T> implements PaymentFormValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $InvalidCardNumberCopyWith<T, InvalidCardNumber<T>> get copyWith;
 }
 
@@ -289,6 +292,7 @@ class _$InvalidCardCVC<T> implements InvalidCardCVC<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidCardCVCCopyWith<T, InvalidCardCVC<T>> get copyWith =>
       _$InvalidCardCVCCopyWithImpl<T, InvalidCardCVC<T>>(this, _$identity);
@@ -357,6 +361,7 @@ abstract class InvalidCardCVC<T> implements PaymentFormValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $InvalidCardCVCCopyWith<T, InvalidCardCVC<T>> get copyWith;
 }
 
@@ -418,6 +423,7 @@ class _$InvalidCardDate<T> implements InvalidCardDate<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidCardDateCopyWith<T, InvalidCardDate<T>> get copyWith =>
       _$InvalidCardDateCopyWithImpl<T, InvalidCardDate<T>>(this, _$identity);
@@ -486,5 +492,6 @@ abstract class InvalidCardDate<T> implements PaymentFormValueFailure<T> {
   @override
   String get failedValue;
   @override
+  @JsonKey(ignore: true)
   $InvalidCardDateCopyWith<T, InvalidCardDate<T>> get copyWith;
 }

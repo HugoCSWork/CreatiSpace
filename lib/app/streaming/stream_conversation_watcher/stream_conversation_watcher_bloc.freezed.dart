@@ -163,6 +163,7 @@ class _$_watchAllUserConversation implements _watchAllUserConversation {
       const DeepCollectionEquality().hash(hostId) ^
       const DeepCollectionEquality().hash(workshopId);
 
+  @JsonKey(ignore: true)
   @override
   _$watchAllUserConversationCopyWith<_watchAllUserConversation> get copyWith =>
       __$watchAllUserConversationCopyWithImpl<_watchAllUserConversation>(
@@ -237,6 +238,7 @@ abstract class _watchAllUserConversation
 
   String get hostId;
   String get workshopId;
+  @JsonKey(ignore: true)
   _$watchAllUserConversationCopyWith<_watchAllUserConversation> get copyWith;
 }
 
@@ -299,6 +301,7 @@ class _$_UserConversationReceived implements _UserConversationReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$UserConversationReceivedCopyWith<_UserConversationReceived> get copyWith =>
       __$UserConversationReceivedCopyWithImpl<_UserConversationReceived>(
@@ -373,6 +376,7 @@ abstract class _UserConversationReceived
       _$_UserConversationReceived;
 
   Either<String, KtList<StreamingMessage>> get failureOrMessages;
+  @JsonKey(ignore: true)
   _$UserConversationReceivedCopyWith<_UserConversationReceived> get copyWith;
 }
 
@@ -449,6 +453,7 @@ class _$_SendMessage implements _SendMessage {
       const DeepCollectionEquality().hash(message) ^
       const DeepCollectionEquality().hash(workshopId);
 
+  @JsonKey(ignore: true)
   @override
   _$SendMessageCopyWith<_SendMessage> get copyWith =>
       __$SendMessageCopyWithImpl<_SendMessage>(this, _$identity);
@@ -522,6 +527,7 @@ abstract class _SendMessage implements StreamConversationWatcherEvent {
   String get peerId;
   String get message;
   String get workshopId;
+  @JsonKey(ignore: true)
   _$SendMessageCopyWith<_SendMessage> get copyWith;
 }
 
@@ -868,6 +874,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -939,6 +946,7 @@ abstract class _LoadSuccess implements StreamConversationWatcherState {
   const factory _LoadSuccess(KtList<StreamingMessage> items) = _$_LoadSuccess;
 
   KtList<StreamingMessage> get items;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -996,6 +1004,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -1067,5 +1076,6 @@ abstract class _LoadFailure implements StreamConversationWatcherState {
   const factory _LoadFailure(String itemFailure) = _$_LoadFailure;
 
   String get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

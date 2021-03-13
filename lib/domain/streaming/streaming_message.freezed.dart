@@ -45,6 +45,7 @@ mixin _$StreamingMessage {
   String get message;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $StreamingMessageCopyWith<StreamingMessage> get copyWith;
 }
 
@@ -160,6 +161,7 @@ class _$_StreamingMessage extends _StreamingMessage {
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(message);
 
+  @JsonKey(ignore: true)
   @override
   _$StreamingMessageCopyWith<_StreamingMessage> get copyWith =>
       __$StreamingMessageCopyWithImpl<_StreamingMessage>(this, _$identity);
@@ -187,5 +189,6 @@ abstract class _StreamingMessage extends StreamingMessage {
   @override
   String get message;
   @override
+  @JsonKey(ignore: true)
   _$StreamingMessageCopyWith<_StreamingMessage> get copyWith;
 }

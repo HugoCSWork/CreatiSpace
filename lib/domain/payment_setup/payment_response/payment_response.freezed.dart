@@ -41,6 +41,7 @@ mixin _$PaymentResponse {
   String get person_id;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $PaymentResponseCopyWith<PaymentResponse> get copyWith;
 }
 
@@ -149,6 +150,7 @@ class _$_PaymentResponse extends _PaymentResponse {
       const DeepCollectionEquality().hash(account_id) ^
       const DeepCollectionEquality().hash(person_id);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentResponseCopyWith<_PaymentResponse> get copyWith =>
       __$PaymentResponseCopyWithImpl<_PaymentResponse>(this, _$identity);
@@ -173,5 +175,6 @@ abstract class _PaymentResponse extends PaymentResponse {
   @override
   String get person_id;
   @override
+  @JsonKey(ignore: true)
   _$PaymentResponseCopyWith<_PaymentResponse> get copyWith;
 }

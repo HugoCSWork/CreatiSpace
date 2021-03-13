@@ -217,6 +217,7 @@ class _$EmailChanged implements EmailChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
 
+  @JsonKey(ignore: true)
   @override
   $EmailChangedCopyWith<EmailChanged> get copyWith =>
       _$EmailChangedCopyWithImpl<EmailChanged>(this, _$identity);
@@ -276,6 +277,7 @@ abstract class EmailChanged implements ForgottenPasswordEvent {
   const factory EmailChanged(String email) = _$EmailChanged;
 
   String get email;
+  @JsonKey(ignore: true)
   $EmailChangedCopyWith<EmailChanged> get copyWith;
 }
 
@@ -309,6 +311,7 @@ mixin _$ForgottenPasswordState {
   bool get isSubmitting;
   Option<Either<AuthErrorFailure, Unit>> get authFailureOrSuccess;
 
+  @JsonKey(ignore: true)
   $ForgottenPasswordStateCopyWith<ForgottenPasswordState> get copyWith;
 }
 
@@ -456,6 +459,7 @@ class _$_ForgottenPasswordState implements _ForgottenPasswordState {
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccess);
 
+  @JsonKey(ignore: true)
   @override
   _$ForgottenPasswordStateCopyWith<_ForgottenPasswordState> get copyWith =>
       __$ForgottenPasswordStateCopyWithImpl<_ForgottenPasswordState>(
@@ -483,5 +487,6 @@ abstract class _ForgottenPasswordState implements ForgottenPasswordState {
   @override
   Option<Either<AuthErrorFailure, Unit>> get authFailureOrSuccess;
   @override
+  @JsonKey(ignore: true)
   _$ForgottenPasswordStateCopyWith<_ForgottenPasswordState> get copyWith;
 }

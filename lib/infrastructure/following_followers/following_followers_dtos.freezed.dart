@@ -46,6 +46,7 @@ mixin _$FollowingFollowerDto {
   String get profileImageURL;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $FollowingFollowerDtoCopyWith<FollowingFollowerDto> get copyWith;
 }
 
@@ -174,6 +175,7 @@ class _$_FollowingFollowerDto extends _FollowingFollowerDto {
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(profileImageURL);
 
+  @JsonKey(ignore: true)
   @override
   _$FollowingFollowerDtoCopyWith<_FollowingFollowerDto> get copyWith =>
       __$FollowingFollowerDtoCopyWithImpl<_FollowingFollowerDto>(
@@ -203,5 +205,6 @@ abstract class _FollowingFollowerDto extends FollowingFollowerDto {
   @override
   String get profileImageURL;
   @override
+  @JsonKey(ignore: true)
   _$FollowingFollowerDtoCopyWith<_FollowingFollowerDto> get copyWith;
 }
