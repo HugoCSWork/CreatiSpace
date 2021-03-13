@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/auth/auth_bloc.dart';
 import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
 import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
@@ -12,7 +13,6 @@ import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:auto_route/auto_route.dart';
 
 class ItemsOverviewPage extends StatefulWidget {
   @override
@@ -116,7 +116,7 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FlatButton(
+                      TextButton(
                         child: Text(
                           "Items",
                           style: TextStyle(
@@ -136,7 +136,7 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
                         width: 1.3,
                         color: Colors.blue[200],
                       ),
-                      FlatButton(
+                      TextButton(
                         child: Text(
                             "Workshops",
                             style: TextStyle(

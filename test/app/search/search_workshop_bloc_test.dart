@@ -1,13 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:creatispace/app/search/item/search_item_bloc.dart';
-import 'package:creatispace/app/search/user/search_user_bloc.dart';
 import 'package:creatispace/app/search/workshop/search_workshop_bloc.dart';
-import 'package:creatispace/domain/items/home_item/home_item.dart';
-import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
-import 'package:creatispace/domain/items/item_image/item_image.dart';
-import 'package:creatispace/domain/items/value_objects.dart';
-import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
-import 'package:creatispace/domain/profile/value_objects.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/domain/workshop/workshop_error_failures/workshop_error_failures.dart';
 import 'package:creatispace/infrastructure/search/search_repository.dart';

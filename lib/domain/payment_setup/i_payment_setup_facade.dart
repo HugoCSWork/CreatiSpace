@@ -1,4 +1,3 @@
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/payment_form/payment_form/payment_form.dart';
 import 'package:creatispace/domain/payment_form/payment_form_errors/payment_form_errors.dart';
@@ -6,7 +5,6 @@ import 'package:creatispace/domain/payment_setup/payment_setup_error/payment_set
 import 'package:creatispace/domain/payment_setup/payment_setup_model/payment_setup.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:stripe_sdk/stripe_sdk_ui.dart';
 
 abstract class IPaymentSetupFacade {

@@ -5,8 +5,6 @@ import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/streaming/stream_conversation_watcher/stream_conversation_watcher_bloc.dart';
-import 'package:creatispace/domain/workshop/workshop.dart';
-import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:creatispace/pages/streaming/widgets/agora.dart';
 import 'package:creatispace/pages/streaming/widgets/message_box.dart';
 import 'package:flutter/material.dart';

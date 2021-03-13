@@ -172,17 +172,21 @@ class SearchItems extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(0,0,9,5),
-                    child: FlatButton(
+                    child: TextButton(
                         onPressed: () {
                           ExtendedNavigator.of(context).push(Routes.moreInfoScaffold,
                               arguments: MoreInfoScaffoldArguments(
                                   homeItem: data
                               ));
                         },
-                        color: Colors.blue[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(color: Colors.blue[200])
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.blue[200]),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.blue[200])
+                            ),
+                          )
                         ),
                         child: Text("More")
                     )

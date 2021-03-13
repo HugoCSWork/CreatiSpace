@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:creatispace/domain/payment_details/payment_details.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 
 part 'payment_details_dto.freezed.dart';
 part 'payment_details_dto.g.dart';

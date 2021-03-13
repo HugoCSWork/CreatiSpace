@@ -23,7 +23,7 @@ Future<void> confirmationDialog(BuildContext context, String title) {
 
   return showDialog(
     context: context,
-    child: AlertDialog(
+    builder: (_) => new AlertDialog(
       title: Text(title),
       actions: [
         cancelButton,

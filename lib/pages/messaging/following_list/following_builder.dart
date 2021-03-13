@@ -1,7 +1,5 @@
 import 'package:creatispace/app/following_followers/following/following_bloc.dart';
-import 'package:creatispace/app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
-import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
 import 'package:creatispace/pages/messaging/following_list/following_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

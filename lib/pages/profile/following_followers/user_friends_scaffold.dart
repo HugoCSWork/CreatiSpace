@@ -60,7 +60,7 @@ class _UserFriendsScaffoldState extends State<UserFriendsScaffold> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  FlatButton(
+                  TextButton(
                     child: Text(
                       "Following",
                       style: TextStyle(
@@ -81,7 +81,7 @@ class _UserFriendsScaffoldState extends State<UserFriendsScaffold> {
                     width: 1.3,
                     color: Colors.blue[200],
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text(
                         "Followers",
                         style: TextStyle(

@@ -7,9 +7,9 @@ import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'item_actor_bloc.freezed.dart';
 part 'item_actor_event.dart';
 part 'item_actor_state.dart';
-part 'item_actor_bloc.freezed.dart';
 
 @injectable
 class ItemActorBloc extends Bloc<ItemActorEvent, ItemActorState> {

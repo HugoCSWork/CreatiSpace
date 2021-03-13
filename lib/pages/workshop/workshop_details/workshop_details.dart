@@ -142,7 +142,18 @@ class WorkshopDetails extends StatelessWidget {
              Container(
                width: 150,
                height: 50,
-               child: FlatButton(
+               child: TextButton(
+                 style: ButtonStyle(
+                   backgroundColor: MaterialStateProperty.all(
+                       Colors.blue[200]
+                   ),
+                   shape: MaterialStateProperty.all(
+                     RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(18.0),
+                         side: BorderSide(color: Colors.blue[200])
+                     ),
+                   )
+                 ),
                  onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentFormScaffold, arguments: PaymentFormScaffoldArguments(
                    amount: 1,
                    cost: workshop.workshopPrice.getOrCrash(),
@@ -151,11 +162,6 @@ class WorkshopDetails extends StatelessWidget {
                    isItem: false,
                    workshop: workshop
                  )),
-                 color: Colors.blue[200],
-                 shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(18.0),
-                     side: BorderSide(color: Colors.blue[200])
-                 ),
                  child: Text("Book", style: TextStyle(
                    color: Colors.white
                  ),),

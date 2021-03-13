@@ -39,7 +39,7 @@ Either<ValueFailure<double>, double> validateItemPrice(double input) {
 }
 
 Either<ValueFailure<int>, int> validateItemQuantity(int input) {
-  if (input > 0 && input < 100000) {
+  if (input >= 0 && input < 100000) {
     return right(input);
   } else {
     return left(ValueFailure.item(

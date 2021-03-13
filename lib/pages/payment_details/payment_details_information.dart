@@ -111,7 +111,7 @@
 //                                   const EdgeInsets.symmetric(vertical: 8.0),
 //                                   margin: const EdgeInsets.only(
 //                                       left: 16, top: 8, right: 16),
-//                                   child: FlatButton(
+//                                   child: TextButton(
 //                                     onPressed: currentStatus != statusController
 //                                         ?  () => context.read<PaymentDetailsFormBloc>()
 //                                         .add(PaymentDetailsFormEvent.updateOrderStatus(statusController, widget.paymentDetails.id, widget.paymentDetails.peerId, widget.isSender))

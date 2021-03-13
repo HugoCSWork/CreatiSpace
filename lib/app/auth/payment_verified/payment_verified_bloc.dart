@@ -5,9 +5,9 @@ import 'package:creatispace/domain/auth/i_auth_facade.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'payment_verified_bloc.freezed.dart';
 part 'payment_verified_event.dart';
 part 'payment_verified_state.dart';
-part 'payment_verified_bloc.freezed.dart';
 
 @injectable
 class PaymentVerifiedBloc extends Bloc<PaymentVerifiedEvent, PaymentVerifiedState> {

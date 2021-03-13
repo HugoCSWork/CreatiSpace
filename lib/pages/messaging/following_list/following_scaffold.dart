@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/following_followers/following/following_bloc.dart';
-import 'package:creatispace/app/user_messaging/user_messaging_watcher/user_messaging_watcher_bloc.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/messaging/following_list/following_builder.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';

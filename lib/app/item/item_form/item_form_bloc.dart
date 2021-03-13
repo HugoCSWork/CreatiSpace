@@ -12,9 +12,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
+part 'item_form_bloc.freezed.dart';
 part 'item_form_event.dart';
 part 'item_form_state.dart';
-part 'item_form_bloc.freezed.dart';
 
 @injectable
 class ItemFormBloc extends Bloc<ItemFormEvent, ItemFormState> {

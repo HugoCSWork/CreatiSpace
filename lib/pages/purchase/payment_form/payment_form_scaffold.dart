@@ -8,7 +8,6 @@ import 'package:creatispace/pages/purchase/payment_form/steps/address_steps.dart
 import 'package:creatispace/pages/purchase/payment_form/steps/card_payment_steps.dart';
 import 'package:creatispace/pages/purchase/payment_form/steps/personal_steps.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
-import 'package:fa_stepper/fa_stepper.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

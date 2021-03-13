@@ -25,7 +25,7 @@ class _SearchScaffoldState extends State<SearchScaffold> {
 
   Widget buildView() {
     if(optionController.text == "workshops") {
-      return SearchWorkshopBuilder();;
+      return SearchWorkshopBuilder();
     } else if(optionController.text == "users") {
       return SearchUserBuilder();
     } else {
@@ -83,7 +83,7 @@ class _SearchScaffoldState extends State<SearchScaffold> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  FlatButton(
+                  TextButton(
                     child: Text(
                       "Items",
                       style: TextStyle(
@@ -104,7 +104,7 @@ class _SearchScaffoldState extends State<SearchScaffold> {
                     width: 1.3,
                     color: Colors.blue[200],
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text(
                         "Workshops",
                         style: TextStyle(
@@ -125,7 +125,7 @@ class _SearchScaffoldState extends State<SearchScaffold> {
                     width: 1.3,
                     color: Colors.blue[200],
                   ),
-                  FlatButton(
+                  TextButton(
                     child: Text(
                         "Users",
                         style: TextStyle(

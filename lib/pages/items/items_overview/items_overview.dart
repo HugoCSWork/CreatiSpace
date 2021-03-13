@@ -1,10 +1,9 @@
-import 'package:creatispace/app/auth/auth_bloc.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/pages/items/items_overview/widgets/items/item_overview_body_wdget.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:auto_route/auto_route.dart';
 
 class ItemsOverview extends StatelessWidget {
   @override
@@ -26,13 +25,15 @@ class ItemsOverview extends StatelessWidget {
                           Container(
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: FlatButton(
+                                child: TextButton(
                                   onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentStepper),
                                   child: Text("Become a Seller"),
-                                  color: Colors.blue[200],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.blue[200])
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(Colors.blue[200]),
+                                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                        side: BorderSide(color: Colors.blue[200])
+                                    )),
                                   ),
                                 ),
                               ),

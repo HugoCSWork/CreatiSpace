@@ -34,8 +34,9 @@ class PeerMessages extends StatelessWidget {
                 right: 10.0),
           )
               : Container(
-            child: FlatButton(
-              padding: EdgeInsets.all(0),
+            child: TextButton(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(EdgeInsets.all(0))),
               onPressed: () {
                 FocusManager.instance.primaryFocus.unfocus();
                 ExtendedNavigator.of(context).push(Routes.fullScreenImage,

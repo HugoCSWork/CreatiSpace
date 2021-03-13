@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
+part 'payment_receiver_bloc.freezed.dart';
 part 'payment_receiver_event.dart';
 part 'payment_receiver_state.dart';
-part 'payment_receiver_bloc.freezed.dart';
 
 @injectable
 class PaymentReceiverBloc extends Bloc<PaymentReceiverEvent, PaymentReceiverState> {

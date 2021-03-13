@@ -8,20 +8,19 @@ import 'package:creatispace/pages/payment_setup/steps/payment_step/payment_step.
 import 'package:creatispace/pages/payment_setup/steps/personal_step/personal_step.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:fa_stepper/fa_stepper.dart';
-import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 Future<bool> confirmationDialog(BuildContext context, String title, String contentText) {
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = TextButton(
       child: Text("Cancel"),
       onPressed:  () =>  {
         ExtendedNavigator.of(context).pop(),
         FocusManager.instance.primaryFocus.unfocus()
       }
     );
-    Widget continueButton = FlatButton(
+    Widget continueButton = TextButton(
       child: Text("Continue"),
       onPressed:  () => {
         ExtendedNavigator.of(context).popUntil((route) => route.settings.name == Routes.navigationBar),
@@ -31,7 +30,7 @@ Future<bool> confirmationDialog(BuildContext context, String title, String conte
 
   return showDialog(
     context: context,
-    child: AlertDialog(
+    builder: (_) => new AlertDialog(
       title: Text(title),
       content: Text(contentText),
       actions: [
@@ -274,7 +273,7 @@ class _PaymentStepperScaffoldState extends State<PaymentStepperScaffold> {
                             child: Column(
                               children: [
                                 Text("I Confirm all data supplied is accurate and my own. Providing invalid data will lead to the termination of your account!"),
-                                FlatButton(
+                                TextButton(
                                     onPressed: () => context.read<PaymentSetupBloc>()
                                         .add(PaymentSetupEvent.createAccount()),
                                     child: Text("Create"))

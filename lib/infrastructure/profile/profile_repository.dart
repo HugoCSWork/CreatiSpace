@@ -43,11 +43,10 @@ class ProfileRepository implements IProfileFacade {
 
   @override
   Stream<Either<ProfileErrorFailure, PeerProfileData>> getPeerData(String id) async* {
-    DocumentReference peerDoc = await _firebaseFirestore.collection('users').doc(id);
-    var userId = await _firebaseAuth.currentUser.uid;
-    var followingRef = await _firebaseFirestore.collection('users').doc(userId).collection('following').doc(id).get();
-
     try {
+      DocumentReference peerDoc = await _firebaseFirestore.collection('users').doc(id);
+      var userId = await _firebaseAuth.currentUser.uid;
+      var followingRef = await _firebaseFirestore.collection('users').doc(userId).collection('following').doc(id).get();
       PeerProfileData dto = await PeerProfileDto.fromFirestore(
           await peerDoc.get(), followingRef.exists ? true : false).toDomain();
       yield right(dto);

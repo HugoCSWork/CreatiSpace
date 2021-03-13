@@ -2,7 +2,6 @@ import 'package:creatispace/app/payment_setup/payment_setup_bloc.dart';
 import 'package:creatispace/pages/auth/shared/input_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class PaymentCardNameField extends StatelessWidget {
 
@@ -10,6 +9,7 @@ class PaymentCardNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: Key('payment_name'),
         decoration: const InputDecoration(
             labelText: 'Card Name',
             errorMaxLines: 5),
@@ -39,6 +39,7 @@ class PaymentCardNumberField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: Key('payment_card'),
         decoration: const InputDecoration(
             labelText: 'Card Number',
             errorMaxLines: 5),
@@ -69,6 +70,7 @@ class PaymentSortCodeField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: Key('payment_sort_code'),
         decoration: const InputDecoration(
             labelText: 'Sort Code',
             errorMaxLines: 5),

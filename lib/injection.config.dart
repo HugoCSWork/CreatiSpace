@@ -94,13 +94,10 @@ GetIt $initGetIt(
         get<FirebaseStorage>(),
         get<FirebaseAuth>(),
       ));
-  gh.lazySingleton<IPaymentDetailsFacade>(() =>
-      PaymentDetailsRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
-  gh.lazySingleton<IPaymentSetupFacade>(() => PaymentSetupRepository(
-        get<FirebaseFirestore>(),
-        get<FirebaseStorage>(),
-        get<FirebaseAuth>(),
-      ));
+  gh.lazySingleton<IPaymentDetailsFacade>(
+      () => PaymentDetailsRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<IPaymentSetupFacade>(() =>
+      PaymentSetupRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
   gh.lazySingleton<IProfileFacade>(() => ProfileRepository(
         get<FirebaseFirestore>(),
         get<FirebaseStorage>(),
@@ -116,7 +113,7 @@ GetIt $initGetIt(
         get<FirebaseAuth>(),
       ));
   gh.lazySingleton<IWorkshopFacade>(
-      () => WorkshopRepository(get<FirebaseFirestore>(), get<FirebaseAuth>()));
+      () => WorkshopRepository(get<FirebaseFirestore>()));
   gh.factory<IsVerifiedBloc>(() => IsVerifiedBloc(get<IAuthFacade>()));
   gh.factory<ItemActorBloc>(() => ItemActorBloc(get<IItemFacade>()));
   gh.factory<ItemFormBloc>(() => ItemFormBloc(get<IItemFacade>()));

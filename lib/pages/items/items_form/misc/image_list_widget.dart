@@ -1,5 +1,6 @@
 import 'package:creatispace/app/item/item_form/item_form_bloc.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
+import 'package:creatispace/pages/items/items_form/misc/build_context_x.dart';
 import 'package:creatispace/pages/items/items_form/misc/item_image_helpers.dart';
 import 'package:creatispace/pages/items/items_form/misc/todo_item_presentation_classes.dart';
 import 'package:flushbar/flushbar_helper.dart';
@@ -11,7 +12,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:implicitly_animated_reorderable_list/implicitly_animated_reorderable_list.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:provider/provider.dart';
-import 'package:creatispace/pages/items/items_form/misc/build_context_x.dart';
 
 class ItemList extends StatelessWidget {
   @override

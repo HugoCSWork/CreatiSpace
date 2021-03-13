@@ -1,6 +1,6 @@
 import 'package:creatispace/app/payment_form/payment_form_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:creatispace/pages/auth/shared/input_fields.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddressHouseNumberField extends StatelessWidget {
@@ -65,9 +65,15 @@ class AddressPostcodeField extends StatelessWidget {
 class AddressFindAddressButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-      color: const Color(0xFF3E81B5),
+    return TextButton(
+      style: ButtonStyle(
+          padding: MaterialStateProperty.all(
+              const EdgeInsets.symmetric(vertical: 20, horizontal: 40)
+          ),
+          backgroundColor: MaterialStateProperty.all(
+             const Color(0xFF3E81B5)
+          )
+      ),
       onPressed: () {
         context.read<PaymentFormBloc>().add(
           const PaymentFormEvent.findAddress(),

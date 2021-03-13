@@ -73,10 +73,10 @@ void main() {
   });
 
   group('ItemQuantity', () {
-    test('Invalid with quantity less than 1', () {
-      final ItemQuantity itemQuantity = ItemQuantity(0);
+    test('Invalid with quantity less than 0', () {
+      final ItemQuantity itemQuantity = ItemQuantity(-1);
       var errorType = itemQuantity.value.fold((l) => l, (r) => r);
-      expect(errorType.toString(), equals('ValueFailure<int>.item(i: ItemValueFailure<int>.invalidQuantity(failedValue: 0))'));
+      expect(errorType.toString(), equals('ValueFailure<int>.item(i: ItemValueFailure<int>.invalidQuantity(failedValue: -1))'));
       expect(itemQuantity.isValid(), equals(false));
     });
 

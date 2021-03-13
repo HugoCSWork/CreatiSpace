@@ -4,7 +4,6 @@ import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
-import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

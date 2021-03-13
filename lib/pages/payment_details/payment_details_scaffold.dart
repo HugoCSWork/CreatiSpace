@@ -6,7 +6,6 @@ import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/payment_details/payment_details_receiving_builder.dart';
 import 'package:creatispace/pages/payment_details/payment_details_sending_builder.dart';
 import 'package:creatispace/pages/payment_details/payment_details_workshop_builder.dart';
-import 'package:creatispace/pages/payment_details/workshop_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -87,7 +86,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              FlatButton(
+                              TextButton(
                                 child: Text(
                                     "Orders to receive",
                                     style: TextStyle(
@@ -107,7 +106,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                                 width: 1.3,
                                 color: Colors.blue[200],
                               ),
-                              FlatButton(
+                              TextButton(
                                 child: Text(
                                   "Orders to send",
                                   style: TextStyle(
@@ -128,7 +127,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                                 width: 1.3,
                                 color: Colors.blue[200],
                               ),
-                              FlatButton(
+                              TextButton(
                                 child: Text(
                                     "Workshops",
                                     style: TextStyle(
@@ -169,7 +168,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          FlatButton(
+                          TextButton(
                             child: Text(
                                 "Orders to receive",
                                 style: TextStyle(
@@ -189,7 +188,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                             width: 1.3,
                             color: Colors.blue[200],
                           ),
-                          FlatButton(
+                          TextButton(
                             child: Text(
                                 "Workshops",
                                 style: TextStyle(

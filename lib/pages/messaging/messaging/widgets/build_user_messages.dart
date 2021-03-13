@@ -36,8 +36,9 @@ class UserMessages  extends StatelessWidget {
               margin: EdgeInsets.only(
                   bottom: 10.0,
                   right: 10.0),
-              child: FlatButton(
-                padding: EdgeInsets.all(0),
+              child: TextButton(
+                style: ButtonStyle(
+                    padding: MaterialStateProperty.all(EdgeInsets.all(0))),
                 onPressed: () {
                   FocusManager.instance.primaryFocus.unfocus();
                   ExtendedNavigator.of(context).push(Routes.fullScreenImage,

@@ -1,4 +1,3 @@
-import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:creatispace/domain/profile/value_objects.dart';
 import 'package:test/test.dart';
 

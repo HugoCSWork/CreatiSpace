@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:creatispace/app/payment_setup/payment_setup_bloc.dart';
 import 'package:creatispace/pages/auth/shared/input_fields.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddressHouseNumberField extends StatelessWidget {
@@ -9,6 +9,7 @@ class AddressHouseNumberField extends StatelessWidget {
   Widget build(BuildContext context) {
     return  TextFieldContainer(
       child: TextFormField(
+        key: Key('address_home_number'),
         decoration: const InputDecoration(
             labelText: 'Home Number',
             errorMaxLines: 5),
@@ -38,6 +39,7 @@ class AddressPostcodeField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: Key('address_postcode'),
         decoration: const InputDecoration(
             labelText: 'Postcode',
             errorMaxLines: 5),
@@ -65,9 +67,15 @@ class AddressPostcodeField extends StatelessWidget {
 class AddressFindAddressButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-      color: const Color(0xFF3E81B5),
+    return TextButton(
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(vertical: 20, horizontal: 40)
+        ),
+        backgroundColor: MaterialStateProperty.all(
+            const Color(0xFF3E81B5)
+        )
+      ),
       onPressed: () {
         context.read<PaymentSetupBloc>().add(
           const PaymentSetupEvent.findAddress(),
@@ -91,6 +99,7 @@ class AddressLineOneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
+      key: Key("address_line_one"),
       child: TextFormField(
         decoration: const InputDecoration(
             labelText: 'Line 1',
@@ -126,6 +135,7 @@ class AddressLineTwoField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
+      key: Key("address_line_two"),
       child: TextFormField(
         decoration: const InputDecoration(
             labelText: 'Line 2',
@@ -161,6 +171,7 @@ class AddressCityField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
+      key: Key('address_city'),
       child: TextFormField(
         decoration: const InputDecoration(
             labelText: 'City',
@@ -197,6 +208,7 @@ class AddressCountryField extends StatelessWidget {
   Widget build(BuildContext context) {
     return  TextFieldContainer(
       child: TextFormField(
+        key: Key('address_country'),
         decoration: const InputDecoration(
             labelText: 'Country',
             filled: true,
@@ -219,6 +231,7 @@ class AddressCountyField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: Key('address_county'),
         decoration: const InputDecoration(
             labelText: 'County',
             errorMaxLines: 5),

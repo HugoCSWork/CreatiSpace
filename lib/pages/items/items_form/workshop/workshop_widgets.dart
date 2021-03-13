@@ -1,10 +1,8 @@
-import 'package:creatispace/app/payment_form/payment_form_bloc.dart';
 import 'package:creatispace/app/workshop/workshop_form/workshop_form_bloc.dart';
-import 'package:creatispace/pages/auth/shared/input_fields.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 class WorkshopNameField extends HookWidget {
 

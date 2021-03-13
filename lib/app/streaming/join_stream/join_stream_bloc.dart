@@ -6,9 +6,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'join_stream_bloc.freezed.dart';
 part 'join_stream_event.dart';
 part 'join_stream_state.dart';
-part 'join_stream_bloc.freezed.dart';
 
 @injectable
 class JoinStreamBloc extends Bloc<JoinStreamEvent, JoinStreamState> {

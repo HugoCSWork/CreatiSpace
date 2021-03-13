@@ -108,9 +108,11 @@ class RegisterButton extends StatelessWidget {
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
-        child: FlatButton(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          color: const Color(0xFF3E81B5),
+        child: TextButton(
+          style: ButtonStyle(
+              padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 20, horizontal: 40)),
+              backgroundColor: MaterialStateProperty.all(const Color(0xFF3E81B5))
+          ),
            onPressed: () { 
             context.read<SignUpFormBloc>().add(
                   const SignUpFormEvent

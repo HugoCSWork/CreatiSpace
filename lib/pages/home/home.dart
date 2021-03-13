@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
+import 'package:creatispace/pages/home/widgets/home_widgets.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +11,6 @@ class Home extends StatelessWidget {
   const Home({Key key, @required this.homeItem}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
-    String getTextValue() {
-      if (homeItem.purchasable.getOrCrash())
-        return '£${homeItem.price.getOrCrash().toStringAsFixed(2)}';
-      else
-        return 'Non-Purchasable';
-    }
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -43,30 +35,8 @@ class Home extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                leading: CircularProfileAvatar('',
-                    radius: 15,
-                    child: CachedNetworkImage(
-                      imageUrl: homeItem.profileImageURL,
-                      fit: BoxFit.fill,
-                      placeholder: (context, url) => Center(
-                        child: Container(
-                            width: 30,
-                            height: 30,
-                            margin: const EdgeInsets.all(1),
-                            child: Container()
-                        ),
-                      ),
-                      errorWidget: (context, url, error) => const Icon(Icons.error),
-                    )
-                ),
-                title: GestureDetector(
-                  child: Text(homeItem.username),
-                  onTap: (){
-                    ExtendedNavigator.of(context).push(Routes.peerProfileScaffold, arguments: PeerProfileScaffoldArguments(
-                      id: homeItem.id
-                    ));
-                  },
-                ),
+                leading: homePostImageIcon(url: homeItem.profileImageURL),
+                title: homePostUsername(id: homeItem.id, username: homeItem.username, context: context)
               ),
               Material(
                 elevation: 0.5,
@@ -100,61 +70,33 @@ class Home extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget> [
-                  Container(
-                      padding: EdgeInsets.fromLTRB(10, 8, 0, 5),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        homeItem.name.getOrCrash(),
-                        style: TextStyle(
-                            fontSize: 20
-                        ),
-                      )
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
-                    child: Text(
-                      getTextValue(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                      ),
-                    ),
-                  )
+                  homePostItemName(name: homeItem.name.getOrCrash()),
+                  homePostIsPurchasable(isPurchasable: homeItem.purchasable.getOrCrash(), price: homeItem.price.getOrCrash())
                 ],
               ),
-              Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 0, 5),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                      homeItem.description.getOrCrash()
-                  ),
-              ),
+              homePostItemDescription(description: homeItem.description.getOrCrash()),
               Container(
                 alignment: Alignment.topRight,
                 child: Padding(
                     padding: EdgeInsets.fromLTRB(0,0,9,5),
-                    child: FlatButton(
+                    child: TextButton(
                         onPressed: () {
                           ExtendedNavigator.of(context).push(Routes.moreInfoScaffold,
                               arguments: MoreInfoScaffoldArguments(
                                 homeItem: homeItem
                               ));
                         },
-                        color: Colors.blue[200],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(color: Colors.blue[200])
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.blue[200]),
+                            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.blue[200])
+                            )),
                         ),
                         child: Text("More")
                     )
                 ),
               ),
-              // Padding(
-              //   padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
-              //   child: Divider(
-              //     color: Colors.black87,
-              //   ),
-              // )
             ],
           ),
         ),

@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/user_messaging/user_list/user_messaging.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'user_messaging_dto.freezed.dart';
 part 'user_messaging_dto.g.dart';
 

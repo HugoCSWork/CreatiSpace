@@ -4,7 +4,6 @@ import 'package:creatispace/domain/profile/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'peer_profile.freezed.dart';
 
 @freezed

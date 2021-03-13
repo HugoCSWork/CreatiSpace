@@ -10,9 +10,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'workshop_form_bloc.freezed.dart';
 part 'workshop_form_event.dart';
 part 'workshop_form_state.dart';
-part 'workshop_form_bloc.freezed.dart';
 
 @injectable
 class WorkshopFormBloc extends Bloc<WorkshopFormEvent, WorkshopFormState> {

@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
+part 'search_workshop_bloc.freezed.dart';
 part 'search_workshop_event.dart';
 part 'search_workshop_state.dart';
-part 'search_workshop_bloc.freezed.dart';
 
 @injectable
 class SearchWorkshopBloc extends Bloc<SearchWorkshopEvent, SearchWorkshopState> {

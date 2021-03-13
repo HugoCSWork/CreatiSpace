@@ -6,8 +6,8 @@ import 'package:creatispace/domain/workshop/value_objects.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'workshop_dto.g.dart';
 part 'workshop_dto.freezed.dart';
+part 'workshop_dto.g.dart';
 
 @freezed
 abstract class WorkshopDto implements _$WorkshopDto {

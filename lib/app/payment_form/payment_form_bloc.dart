@@ -13,9 +13,9 @@ import 'package:geocoder/model.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stripe_sdk/stripe_sdk_ui.dart';
 
+part 'payment_form_bloc.freezed.dart';
 part 'payment_form_event.dart';
 part 'payment_form_state.dart';
-part 'payment_form_bloc.freezed.dart';
 
 @injectable
 class PaymentFormBloc extends Bloc<PaymentFormEvent, PaymentFormState> {

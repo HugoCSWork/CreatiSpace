@@ -1,12 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:creatispace/app/item/item_actor/item_actor_bloc.dart';
-import 'package:creatispace/domain/items/item/item.dart';
-import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WorkshopCard extends StatelessWidget {
   final Workshop item;

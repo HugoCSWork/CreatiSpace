@@ -21,6 +21,7 @@ class ItemNameField extends HookWidget {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: TextFormField(
+          key: Key('item_form_field_name'),
           controller: textEditingController,
           decoration: const InputDecoration(
             labelText: 'Name',

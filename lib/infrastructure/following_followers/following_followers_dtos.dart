@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'following_followers_dtos.freezed.dart';
 part 'following_followers_dtos.g.dart';
 
