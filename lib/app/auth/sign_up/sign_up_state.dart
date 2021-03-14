@@ -12,9 +12,9 @@ abstract class SignUpFormState with _$SignUpFormState {
   }) = _SignUpFormState;
 
   factory SignUpFormState.initial() => SignUpFormState(
-      emailAddress: EmailAddress('boby@bob.com'),
-      password: Password('Password1231!'),
-      username: Username('Jenkins'),
+      emailAddress: EmailAddress(''),
+      password: Password(''),
+      username: Username(''),
       showErrorMessages: AutovalidateMode.disabled,
       isSubmitting: false,
       authFailureOrSuccess: none(),
