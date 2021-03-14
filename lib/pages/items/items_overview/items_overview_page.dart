@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:creatispace/app/auth/auth_bloc.dart';
 import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
 import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/app/item/item_actor/item_actor_bloc.dart';
