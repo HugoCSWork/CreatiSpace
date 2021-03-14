@@ -97,7 +97,10 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
                             ),
                           )
                       ),
-                      onPressed: () => {},
+                      onPressed: () => {
+                        context.read<AuthBloc>().add(const AuthEvent.signOut()),
+                        ExtendedNavigator.of(context).pushAndRemoveUntil(Routes.signInPage, (Route<dynamic> route) => false),
+                      },
                       child: Text("Logout"),
                     ),
                   ),

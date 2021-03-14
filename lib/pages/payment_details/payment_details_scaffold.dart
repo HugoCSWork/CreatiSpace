@@ -84,42 +84,47 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TextButton(
-                                child: Text(
-                                    "Orders to receive",
-                                    style: TextStyle(
-                                        fontWeight: option.text == "receive"
-                                            ? FontWeight.bold
-                                            : FontWeight.normal
-                                    )
+                              Padding(
+                                padding: const EdgeInsets.only(right:8.0),
+                                child: TextButton(
+                                  child: Text(
+                                      "Orders to receive",
+                                      style: TextStyle(
+                                          fontWeight: option.text == "receive"
+                                              ? FontWeight.bold
+                                              : FontWeight.normal
+                                      )
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      option.text = "receive";
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    option.text = "receive";
-                                  });
-                                },
                               ),
                               Container(
                                 height: 30,
                                 width: 1.3,
                                 color: Colors.blue[200],
                               ),
-                              TextButton(
-                                child: Text(
-                                  "Orders to send",
-                                  style: TextStyle(
-                                      fontWeight: option.text == "send"
-                                          ? FontWeight.bold
-                                          : FontWeight.normal
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: TextButton(
+                                  child: Text(
+                                    "Orders to send",
+                                    style: TextStyle(
+                                        fontWeight: option.text == "send"
+                                            ? FontWeight.bold
+                                            : FontWeight.normal
+                                    ),
                                   ),
+                                  onPressed: () {
+                                    setState(() {
+                                      option.text = "send";
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    option.text = "send";
-                                  });
-                                },
                               ),
 
                               Container(
@@ -127,20 +132,23 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                                 width: 1.3,
                                 color: Colors.blue[200],
                               ),
-                              TextButton(
-                                child: Text(
-                                    "Workshops",
-                                    style: TextStyle(
-                                        fontWeight: option.text == "workshop"
-                                            ? FontWeight.bold
-                                            : FontWeight.normal
-                                    )
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: TextButton(
+                                  child: Text(
+                                      "Workshops",
+                                      style: TextStyle(
+                                          fontWeight: option.text == "workshop"
+                                              ? FontWeight.bold
+                                              : FontWeight.normal
+                                      )
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      option.text = "workshop";
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    option.text = "workshop";
-                                  });
-                                },
                               ),
                             ],
                           ),
