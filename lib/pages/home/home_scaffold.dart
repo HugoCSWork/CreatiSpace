@@ -13,12 +13,6 @@ class HomeScaffold extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("CreatiSpace"),
-        leading: IconButton(
-          icon: const Icon(Icons.exit_to_app),
-          onPressed: () {
-            context.read<AuthBloc>().add(const AuthEvent.signOut());
-          },
-        ),
       ),
       body: BlocProvider(
         create: (context) => getIt<ItemHomeWatcherBloc>()

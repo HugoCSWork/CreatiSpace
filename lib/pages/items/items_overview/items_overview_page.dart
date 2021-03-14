@@ -53,14 +53,6 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
         ],
         child: MultiBlocListener(
           listeners: [
-            BlocListener<AuthBloc, AuthState>(listener: (context, state) {
-              state.maybeMap(
-                  unauthenticated: (_) {
-                    context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
-                    ExtendedNavigator.of(context).replace(Routes.signInPage);
-                  },
-                  orElse: () {});
-            }),
             BlocListener<ItemActorBloc, ItemActorState>(
                 listener: (context, state) {
               state.maybeMap(
@@ -80,12 +72,6 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
           child: Scaffold(
             appBar: AppBar(
               title: const Text('Listings'),
-              leading: IconButton(
-                icon: const Icon(Icons.exit_to_app),
-                onPressed: () {
-                  context.read<AuthBloc>().add(const AuthEvent.signOut());
-                },
-              ),
               actions: <Widget>[
                 ItemSwitch(),
               ],

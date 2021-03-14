@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+import 'package:creatispace/app/auth/auth_bloc.dart';
 import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/pages/profile/user_profile/user_profile_items.dart';
@@ -29,6 +30,7 @@ class _UserProfileState extends State<UserProfile> {
           children: [
             Column(
               children: [
+
                 Container(
                   height: 200,
                   color: Colors.blue,
@@ -50,6 +52,7 @@ class _UserProfileState extends State<UserProfile> {
                     )
                   ),
                 ),
+
                 SizedBox(height: 45),
                 Column(
                   children: [
@@ -92,6 +95,26 @@ class _UserProfileState extends State<UserProfile> {
                                     )
                                 ),
                                 child: Text("Edit profile")
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(bottom:8),
+                            child: TextButton(
+                                onPressed: () {
+                                  context.read<AuthBloc>().add(const AuthEvent.signOut());
+                                },
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.blue[200]
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18.0),
+                                          side: BorderSide(color: Colors.blue[200])
+                                      ),
+                                    )
+                                ),
+                                child: Text("Logout")
                             )
                         ),
                         Padding(
