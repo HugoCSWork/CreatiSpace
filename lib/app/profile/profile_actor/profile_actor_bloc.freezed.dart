@@ -50,6 +50,7 @@ mixin _$ProfileActorEvent {
     @required TResult orElse(),
   });
 
+  @JsonKey(ignore: true)
   $ProfileActorEventCopyWith<ProfileActorEvent> get copyWith;
 }
 
@@ -147,6 +148,7 @@ class _$_FollowUpdate implements _FollowUpdate {
       const DeepCollectionEquality().hash(option) ^
       const DeepCollectionEquality().hash(id);
 
+  @JsonKey(ignore: true)
   @override
   _$FollowUpdateCopyWith<_FollowUpdate> get copyWith =>
       __$FollowUpdateCopyWithImpl<_FollowUpdate>(this, _$identity);
@@ -204,6 +206,7 @@ abstract class _FollowUpdate implements ProfileActorEvent {
   @override
   String get id;
   @override
+  @JsonKey(ignore: true)
   _$FollowUpdateCopyWith<_FollowUpdate> get copyWith;
 }
 
@@ -567,6 +570,7 @@ class _$_FollowUpdateFailure implements _FollowUpdateFailure {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(profileErrorFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$FollowUpdateFailureCopyWith<_FollowUpdateFailure> get copyWith =>
       __$FollowUpdateFailureCopyWithImpl<_FollowUpdateFailure>(
@@ -641,6 +645,7 @@ abstract class _FollowUpdateFailure implements ProfileActorState {
       _$_FollowUpdateFailure;
 
   ProfileErrorFailure get profileErrorFailure;
+  @JsonKey(ignore: true)
   _$FollowUpdateFailureCopyWith<_FollowUpdateFailure> get copyWith;
 }
 

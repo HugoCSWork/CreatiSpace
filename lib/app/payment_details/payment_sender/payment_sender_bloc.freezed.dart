@@ -245,6 +245,7 @@ class _$_PaymentSendersListReceived implements _PaymentSendersListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentSendersListReceivedCopyWith<_PaymentSendersListReceived>
       get copyWith => __$PaymentSendersListReceivedCopyWithImpl<
@@ -315,6 +316,7 @@ abstract class _PaymentSendersListReceived implements PaymentSenderEvent {
 
   Either<PaymentDetailsErrorFailure, KtList<PaymentDetails>>
       get failureOrMessages;
+  @JsonKey(ignore: true)
   _$PaymentSendersListReceivedCopyWith<_PaymentSendersListReceived>
       get copyWith;
 }
@@ -671,6 +673,7 @@ class _$_LoadSuccess implements _LoadSuccess {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(paymentDetails);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -745,6 +748,7 @@ abstract class _LoadSuccess implements PaymentSenderState {
       _$_LoadSuccess;
 
   KtList<PaymentDetails> get paymentDetails;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -821,6 +825,7 @@ class _$_LoadFailure implements _LoadFailure {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(paymentDetailsErrorFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -895,5 +900,6 @@ abstract class _LoadFailure implements PaymentSenderState {
       PaymentDetailsErrorFailure paymentDetailsErrorFailure) = _$_LoadFailure;
 
   PaymentDetailsErrorFailure get paymentDetailsErrorFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

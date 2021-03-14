@@ -48,6 +48,7 @@ mixin _$PeerProfileData {
   ProfileBackgroundImageURL get backgroundImageURL;
   bool get isFollowing;
 
+  @JsonKey(ignore: true)
   $PeerProfileDataCopyWith<PeerProfileData> get copyWith;
 }
 
@@ -246,6 +247,7 @@ class _$_PeerProfileData extends _PeerProfileData {
       const DeepCollectionEquality().hash(backgroundImageURL) ^
       const DeepCollectionEquality().hash(isFollowing);
 
+  @JsonKey(ignore: true)
   @override
   _$PeerProfileDataCopyWith<_PeerProfileData> get copyWith =>
       __$PeerProfileDataCopyWithImpl<_PeerProfileData>(this, _$identity);
@@ -277,5 +279,6 @@ abstract class _PeerProfileData extends PeerProfileData {
   @override
   bool get isFollowing;
   @override
+  @JsonKey(ignore: true)
   _$PeerProfileDataCopyWith<_PeerProfileData> get copyWith;
 }

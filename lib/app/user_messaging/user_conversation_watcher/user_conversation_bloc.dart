@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
+part 'user_conversation_bloc.freezed.dart';
 part 'user_conversation_event.dart';
 part 'user_conversation_state.dart';
-part 'user_conversation_bloc.freezed.dart';
 
 @injectable
 class UserConversationBloc extends Bloc<UserConversationEvent, UserConversationState> {

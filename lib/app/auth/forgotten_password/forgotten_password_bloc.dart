@@ -9,10 +9,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'forgotten_password_bloc.freezed.dart';
 part 'forgotten_password_event.dart';
 part 'forgotten_password_state.dart';
-
-part 'forgotten_password_bloc.freezed.dart';
 
 @injectable
 class ForgottenPasswordBloc

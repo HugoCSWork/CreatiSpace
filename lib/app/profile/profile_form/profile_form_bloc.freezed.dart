@@ -177,6 +177,7 @@ class _$_Initialized implements _Initialized {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(initialItemOption);
 
+  @JsonKey(ignore: true)
   @override
   _$InitializedCopyWith<_Initialized> get copyWith =>
       __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
@@ -262,6 +263,7 @@ abstract class _Initialized implements ProfileFormEvent {
       _$_Initialized;
 
   Option<UserProfileData> get initialItemOption;
+  @JsonKey(ignore: true)
   _$InitializedCopyWith<_Initialized> get copyWith;
 }
 
@@ -319,6 +321,7 @@ class _$_UsernameChanged implements _UsernameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(username);
 
+  @JsonKey(ignore: true)
   @override
   _$UsernameChangedCopyWith<_UsernameChanged> get copyWith =>
       __$UsernameChangedCopyWithImpl<_UsernameChanged>(this, _$identity);
@@ -403,6 +406,7 @@ abstract class _UsernameChanged implements ProfileFormEvent {
   const factory _UsernameChanged(String username) = _$_UsernameChanged;
 
   String get username;
+  @JsonKey(ignore: true)
   _$UsernameChangedCopyWith<_UsernameChanged> get copyWith;
 }
 
@@ -465,6 +469,7 @@ class _$_BackgroundImageURLChanged implements _BackgroundImageURLChanged {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(backgroundImageURL);
 
+  @JsonKey(ignore: true)
   @override
   _$BackgroundImageURLChangedCopyWith<_BackgroundImageURLChanged>
       get copyWith =>
@@ -552,6 +557,7 @@ abstract class _BackgroundImageURLChanged implements ProfileFormEvent {
       _$_BackgroundImageURLChanged;
 
   String get backgroundImageURL;
+  @JsonKey(ignore: true)
   _$BackgroundImageURLChangedCopyWith<_BackgroundImageURLChanged> get copyWith;
 }
 
@@ -613,6 +619,7 @@ class _$_ProfileImageURL implements _ProfileImageURL {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(profileImageURL);
 
+  @JsonKey(ignore: true)
   @override
   _$ProfileImageURLCopyWith<_ProfileImageURL> get copyWith =>
       __$ProfileImageURLCopyWithImpl<_ProfileImageURL>(this, _$identity);
@@ -697,6 +704,7 @@ abstract class _ProfileImageURL implements ProfileFormEvent {
   const factory _ProfileImageURL(String profileImageURL) = _$_ProfileImageURL;
 
   String get profileImageURL;
+  @JsonKey(ignore: true)
   _$ProfileImageURLCopyWith<_ProfileImageURL> get copyWith;
 }
 
@@ -754,6 +762,7 @@ class _$_DescriptionChanged implements _DescriptionChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   _$DescriptionChangedCopyWith<_DescriptionChanged> get copyWith =>
       __$DescriptionChangedCopyWithImpl<_DescriptionChanged>(this, _$identity);
@@ -838,6 +847,7 @@ abstract class _DescriptionChanged implements ProfileFormEvent {
   const factory _DescriptionChanged(String description) = _$_DescriptionChanged;
 
   String get description;
+  @JsonKey(ignore: true)
   _$DescriptionChangedCopyWith<_DescriptionChanged> get copyWith;
 }
 
@@ -993,6 +1003,7 @@ mixin _$ProfileFormState {
   bool get isSaving;
   Option<Either<ProfileErrorFailure, Unit>> get saveFailureOrSuccessOption;
 
+  @JsonKey(ignore: true)
   $ProfileFormStateCopyWith<ProfileFormState> get copyWith;
 }
 
@@ -1166,6 +1177,7 @@ class _$_ProfileFormState implements _ProfileFormState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
+  @JsonKey(ignore: true)
   @override
   _$ProfileFormStateCopyWith<_ProfileFormState> get copyWith =>
       __$ProfileFormStateCopyWithImpl<_ProfileFormState>(this, _$identity);
@@ -1196,5 +1208,6 @@ abstract class _ProfileFormState implements ProfileFormState {
   @override
   Option<Either<ProfileErrorFailure, Unit>> get saveFailureOrSuccessOption;
   @override
+  @JsonKey(ignore: true)
   _$ProfileFormStateCopyWith<_ProfileFormState> get copyWith;
 }

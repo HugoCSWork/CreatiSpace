@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:creatispace/domain/items/home_item/home_item.dart';
+import 'package:creatispace/pages/purchase/more_info/widgets/more_info_widgets.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 
@@ -86,61 +87,17 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget> [
-                    Container(
-                        padding: EdgeInsets.fromLTRB(10, 8, 0, 5),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          widget.homeItem.name.getOrCrash(),
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
-                        )
+                    moreInfoName(widget.homeItem.name.getOrCrash()),
+                    moreInfoPurchasable(
+                      widget.homeItem.purchasable.getOrCrash(),
+                      widget.homeItem.quantity.getOrCrash(),
+                      widget.homeItem.price.getOrCrash()
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10.0),
-                      child: Text(
-                        widget.homeItem.purchasable.getOrCrash()
-                            ?  widget.homeItem.quantity.getOrCrash() > 0
-                                ? '£${widget.homeItem.price.getOrCrash().toStringAsFixed(2)}'
-                                : 'Out of stock'
-                            : 'Non-Purchasable',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
-                        ),
-                      ),
-                    )
                   ],
                 ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 0, 0, 5),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                      widget.homeItem.description.getOrCrash()
-                  ),
-                ),
-                widget.homeItem.quantity.getOrCrash() > 0
-                ? Container(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
-                      child: Text("Delivery - £${widget.homeItem.delivery.getOrCrash().toStringAsFixed(2)} ", style: TextStyle(
-                          fontWeight: FontWeight.bold
-                      ),),
-                    ),
-                  )
-                  : Container(),
-                widget.homeItem.quantity.getOrCrash() > 0
-                    ? Container(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8, 10, 0),
-                    child: Text("(3 to 5 working days)", style: TextStyle(
-                        fontWeight: FontWeight.bold
-                    ),),
-                  ),
-                )
-                    : Container(),
+                moreInfoDescription(widget.homeItem.description.getOrCrash()),
+                moreInfoDelivery(widget.homeItem.quantity.getOrCrash(), widget.homeItem.delivery.getOrCrash()),
+                moreInfoDeliveryDuration(widget.homeItem.quantity.getOrCrash()),
                 widget.homeItem.quantity.getOrCrash() > 0
                     ? Padding(
                     padding: const EdgeInsets.only(top: 10.0),
@@ -174,7 +131,7 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                           child: SizedBox(
                             width: 100,
                             height: 60,
-                            child: FlatButton(
+                            child: TextButton(
                               onPressed: () {
                                 ExtendedNavigator.of(context).push(Routes.paymentFormScaffold,
                                     arguments: PaymentFormScaffoldArguments(
@@ -186,10 +143,16 @@ class _MoreInfoScaffoldState extends State<MoreInfoScaffold> {
                                     )
                                 );
                               },
-                              color: Colors.blue[200],
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                  side: BorderSide(color: Colors.blue[200])
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.blue[200]
+                                  ),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18.0),
+                                        side: BorderSide(color: Colors.blue[200])
+                                    ),
+                                  )
                               ),
                               child: Text("Buy")
                             ),

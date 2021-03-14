@@ -51,6 +51,7 @@ mixin _$UserConversationDto {
   int get type;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $UserConversationDtoCopyWith<UserConversationDto> get copyWith;
 }
 
@@ -193,6 +194,7 @@ class _$_UserConversationDto extends _UserConversationDto {
       const DeepCollectionEquality().hash(timestamp) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$UserConversationDtoCopyWith<_UserConversationDto> get copyWith =>
       __$UserConversationDtoCopyWithImpl<_UserConversationDto>(
@@ -227,5 +229,6 @@ abstract class _UserConversationDto extends UserConversationDto {
   @override
   int get type;
   @override
+  @JsonKey(ignore: true)
   _$UserConversationDtoCopyWith<_UserConversationDto> get copyWith;
 }

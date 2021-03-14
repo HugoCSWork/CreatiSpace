@@ -42,6 +42,7 @@ class PersonalFirstNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return  TextFieldContainer(
       child: TextFormField(
+        key: Key('personal_name'),
         decoration: const InputDecoration(
             labelText: 'First Name',
             errorMaxLines: 5),
@@ -71,6 +72,7 @@ class PersonalLastNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
+        key: Key('personal_last_name'),
         decoration: const InputDecoration(
             labelText: 'Last Name',
             errorMaxLines: 5),
@@ -100,6 +102,7 @@ class PersonalGenderField extends StatelessWidget {
   Widget build(BuildContext context) {
     return   TextFieldContainer(
       child: DropdownButtonFormField(
+        key: Key('personal_gender'),
         decoration: const InputDecoration(
             labelText: 'Gender',
             errorMaxLines: 5),
@@ -140,8 +143,9 @@ class PersonalPhoneNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    TextFieldContainer(
+    return   TextFieldContainer(
       child: InternationalPhoneNumberInput(
+        key: Key('personal_phone_number'),
         onInputChanged: (value) => context
             .read<PaymentSetupBloc>()
             .add(PaymentSetupEvent.phoneNumberChanged(value.toString())),

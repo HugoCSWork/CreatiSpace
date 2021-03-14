@@ -127,6 +127,7 @@ class _$_EndStream implements _EndStream {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(workshopId);
 
+  @JsonKey(ignore: true)
   @override
   _$EndStreamCopyWith<_EndStream> get copyWith =>
       __$EndStreamCopyWithImpl<_EndStream>(this, _$identity);
@@ -186,6 +187,7 @@ abstract class _EndStream implements EndStreamEvent {
   const factory _EndStream(String workshopId) = _$_EndStream;
 
   String get workshopId;
+  @JsonKey(ignore: true)
   _$EndStreamCopyWith<_EndStream> get copyWith;
 }
 
@@ -246,6 +248,7 @@ class _$_EndStreamResponse implements _EndStreamResponse {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failureOrItem);
 
+  @JsonKey(ignore: true)
   @override
   _$EndStreamResponseCopyWith<_EndStreamResponse> get copyWith =>
       __$EndStreamResponseCopyWithImpl<_EndStreamResponse>(this, _$identity);
@@ -306,6 +309,7 @@ abstract class _EndStreamResponse implements EndStreamEvent {
       _$_EndStreamResponse;
 
   Either<String, Unit> get failureOrItem;
+  @JsonKey(ignore: true)
   _$EndStreamResponseCopyWith<_EndStreamResponse> get copyWith;
 }
 
@@ -750,6 +754,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -821,5 +826,6 @@ abstract class _LoadFailure implements EndStreamState {
   const factory _LoadFailure(String error) = _$_LoadFailure;
 
   String get error;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

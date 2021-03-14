@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:io' as Io;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/domain/payment_form/payment_form/payment_form.dart';
 import 'package:creatispace/domain/payment_form/payment_form_errors/payment_form_errors.dart';
@@ -11,21 +11,15 @@ import 'package:creatispace/domain/payment_setup/payment_response/payment_respon
 import 'package:creatispace/domain/payment_setup/payment_setup_error/payment_setup_error.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_model/payment_setup.dart';
 import 'package:creatispace/domain/streaming/streaming_user/streaming_user.dart';
-import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/domain/workshop/workshop_payment.dart';
+import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:creatispace/infrastructure/payment_setup/payment_setup_dto.dart';
-import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
-import 'package:creatispace/infrastructure/core/firebase_storage_helpers.dart';
 import 'package:creatispace/infrastructure/payment_setup/payment_setup_helpers.dart';
-import 'package:creatispace/infrastructure/workshop/workshop_dto.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/services.dart';
-import 'package:injectable/injectable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
-import 'dart:io' as Io;
+import 'package:injectable/injectable.dart';
 import 'package:stripe_sdk/stripe_sdk.dart';
 import 'package:stripe_sdk/stripe_sdk_ui.dart';
 import 'package:wifi/wifi.dart';
@@ -33,11 +27,10 @@ import 'package:wifi/wifi.dart';
 @LazySingleton(as: IPaymentSetupFacade)
 class PaymentSetupRepository implements IPaymentSetupFacade {
   final FirebaseFirestore _firebaseFirestore;
-  final FirebaseStorage _firebaseStorage;
   final FirebaseAuth _firebaseAuth;
 
   PaymentSetupRepository(
-      this._firebaseFirestore, this._firebaseStorage, this._firebaseAuth);
+      this._firebaseFirestore, this._firebaseAuth);
 
   @override
   Future<Either<PaymentSetupErrorFailure, Unit>> createPaymentUser(

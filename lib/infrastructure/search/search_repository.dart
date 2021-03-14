@@ -7,17 +7,17 @@ import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/domain/search/i_search_facade.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/domain/workshop/workshop_error_failures/workshop_error_failures.dart';
+import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/items/home_item_dtos.dart';
 import 'package:creatispace/infrastructure/profile/profile_dtos.dart';
-import 'package:creatispace/infrastructure/core/firestore_helpers.dart';
 import 'package:creatispace/infrastructure/workshop/workshop_dto.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:injectable/injectable.dart';
-import 'package:kt_dart/src/collection/kt_list.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:kt_dart/kt.dart';
+import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: ISearchFacade)

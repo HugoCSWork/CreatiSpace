@@ -72,6 +72,7 @@ mixin _$PaymentDetailsDto {
   String get delivery_status;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $PaymentDetailsDtoCopyWith<PaymentDetailsDto> get copyWith;
 }
 
@@ -336,6 +337,7 @@ class _$_PaymentDetailsDto extends _PaymentDetailsDto {
       const DeepCollectionEquality().hash(amount) ^
       const DeepCollectionEquality().hash(delivery_status);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentDetailsDtoCopyWith<_PaymentDetailsDto> get copyWith =>
       __$PaymentDetailsDtoCopyWithImpl<_PaymentDetailsDto>(this, _$identity);
@@ -390,5 +392,6 @@ abstract class _PaymentDetailsDto extends PaymentDetailsDto {
   @override
   String get delivery_status;
   @override
+  @JsonKey(ignore: true)
   _$PaymentDetailsDtoCopyWith<_PaymentDetailsDto> get copyWith;
 }

@@ -6,9 +6,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'start_stream_bloc.freezed.dart';
 part 'start_stream_event.dart';
 part 'start_stream_state.dart';
-part 'start_stream_bloc.freezed.dart';
 
 @injectable
 class StartStreamBloc extends Bloc<StartStreamEvent, StartStreamState> {

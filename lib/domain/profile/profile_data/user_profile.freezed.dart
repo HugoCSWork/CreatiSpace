@@ -48,6 +48,7 @@ mixin _$UserProfileData {
   ProfileImageURL get profileImageURL;
   ProfileBackgroundImageURL get backgroundImageURL;
 
+  @JsonKey(ignore: true)
   $UserProfileDataCopyWith<UserProfileData> get copyWith;
 }
 
@@ -243,6 +244,7 @@ class _$_UserProfileData extends _UserProfileData {
       const DeepCollectionEquality().hash(profileImageURL) ^
       const DeepCollectionEquality().hash(backgroundImageURL);
 
+  @JsonKey(ignore: true)
   @override
   _$UserProfileDataCopyWith<_UserProfileData> get copyWith =>
       __$UserProfileDataCopyWithImpl<_UserProfileData>(this, _$identity);
@@ -275,5 +277,6 @@ abstract class _UserProfileData extends UserProfileData {
   @override
   ProfileBackgroundImageURL get backgroundImageURL;
   @override
+  @JsonKey(ignore: true)
   _$UserProfileDataCopyWith<_UserProfileData> get copyWith;
 }

@@ -1,6 +1,6 @@
-import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
+import 'package:creatispace/pages/items/workshop_details/widgets/workshop_detail_widgets.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -29,7 +29,7 @@ class _WorkshopItemDetailsState extends State<WorkshopItemDetails> {
     } else if (isDone == true) {
       return Text("Workshop has Finished");
     } else {
-      return FlatButton(
+      return TextButton(
           onPressed: () async {
             await _handleCameraAndMic(Permission.camera);
             await _handleCameraAndMic(Permission.microphone);
@@ -68,108 +68,21 @@ class _WorkshopItemDetailsState extends State<WorkshopItemDetails> {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: TextFormField(
-                  initialValue: widget.workshop.workshopName.getOrCrash(),
-                  decoration: const InputDecoration(
-                      labelText: 'Workshop Name',
-                      filled: true,
-                      errorMaxLines: 5),
-                  readOnly: true,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: TextFormField(
-                  initialValue: widget.workshop.workshopDescription.getOrCrash(),
-                  decoration: const InputDecoration(
-                      labelText: 'Description',
-                      filled: true,
-                      errorMaxLines: 5),
-                  maxLines: 5,
-                  readOnly: true,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: TextFormField(
-                  initialValue: widget.workshop.workshopRequirements.getOrCrash(),
-                  decoration: const InputDecoration(
-                      labelText: 'Requirements',
-                      filled: true,
-                      errorMaxLines: 5),
-                  maxLines: 5,
-                  readOnly: true,
-                ),
-              ),
+              workshopDetailsName(name:  widget.workshop.workshopName.getOrCrash()),
+              workshopDetailsDescription(description:  widget.workshop.workshopDescription.getOrCrash()),
+              workshopDetailsRequirements(requirements: widget.workshop.workshopRequirements.getOrCrash()),
               Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding:
-                      const EdgeInsets.symmetric(vertical: 8.0),
-                      child:
-                      TextFormField(
-                        initialValue: widget.workshop.workshopDate.getOrCrash(),
-                        decoration: const InputDecoration(
-                            labelText: 'Date',
-                            filled: true,
-                            errorMaxLines: 5),
-                        readOnly: true,
-                      ),
-                    ),
-                  ),
+                  workshopDetailsDate(date: widget.workshop.workshopDate.getOrCrash()),
                   SizedBox(width: 10),
-                  Expanded(
-                    child: Container(
-                      padding:
-                      const EdgeInsets.symmetric(vertical: 8.0),
-                      child: TextFormField(
-                        initialValue: '${widget.workshop.workshopTime.getOrCrash()}',
-                        decoration: const InputDecoration(
-                            labelText: 'Time',
-                            filled: true,
-                            errorMaxLines: 5),
-                        readOnly: true,
-                      ),
-                    ),
-                  ),
+                  workshopDetailsTime(time: widget.workshop.workshopTime.getOrCrash()),
                 ],
               ),
               Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding:
-                      const EdgeInsets.symmetric(vertical: 8.0),
-                      child: TextFormField(
-                        initialValue: '${widget.workshop.workshopDuration.getOrCrash().toStringAsFixed(0)} Minutes',
-                        decoration: const InputDecoration(
-                            labelText: 'Duration',
-                            filled: true,
-                            errorMaxLines: 5),
-                        readOnly: true,
-                      ),
-                    ),
-                  ),
+                  workshopDetailsDuration(duration: widget.workshop.workshopDuration.getOrCrash()),
                   SizedBox(width: 10),
-                  Expanded(
-                    child: Container(
-                      padding:
-                      const EdgeInsets.symmetric(vertical: 8.0),
-                      child:
-                      TextFormField(
-                        initialValue: '£${widget.workshop.workshopPrice.getOrCrash().toStringAsFixed(2)}',
-                        decoration: const InputDecoration(
-                            labelText: 'Price',
-                            filled: true,
-                            errorMaxLines: 5),
-                        readOnly: true,
-                      ),
-                    ),
-                  ),
-
+                  workshopDetailsPrice(price: widget.workshop.workshopPrice.getOrCrash()),
                 ],
               ),
               ExpansionTile(

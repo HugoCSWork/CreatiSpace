@@ -238,6 +238,7 @@ class _$_Search implements _Search {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(search);
 
+  @JsonKey(ignore: true)
   @override
   _$SearchCopyWith<_Search> get copyWith =>
       __$SearchCopyWithImpl<_Search>(this, _$identity);
@@ -306,6 +307,7 @@ abstract class _Search implements SearchItemEvent {
   const factory _Search(String search) = _$_Search;
 
   String get search;
+  @JsonKey(ignore: true)
   _$SearchCopyWith<_Search> get copyWith;
 }
 
@@ -367,6 +369,7 @@ class _$_SearchReceived implements _SearchReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(searchOrFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$SearchReceivedCopyWith<_SearchReceived> get copyWith =>
       __$SearchReceivedCopyWithImpl<_SearchReceived>(this, _$identity);
@@ -437,6 +440,7 @@ abstract class _SearchReceived implements SearchItemEvent {
       _$_SearchReceived;
 
   Either<ItemErrorFailure, KtList<HomeItem>> get searchOrFailure;
+  @JsonKey(ignore: true)
   _$SearchReceivedCopyWith<_SearchReceived> get copyWith;
 }
 
@@ -780,6 +784,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -851,6 +856,7 @@ abstract class _LoadSuccess implements SearchItemState {
   const factory _LoadSuccess(KtList<HomeItem> items) = _$_LoadSuccess;
 
   KtList<HomeItem> get items;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -922,6 +928,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -993,5 +1000,6 @@ abstract class _LoadFailure implements SearchItemState {
   const factory _LoadFailure(ItemErrorFailure itemFailure) = _$_LoadFailure;
 
   ItemErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

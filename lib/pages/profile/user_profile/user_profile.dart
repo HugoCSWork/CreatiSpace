@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+import 'package:creatispace/app/auth/auth_bloc.dart';
 import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
 import 'package:creatispace/domain/profile/profile_data/user_profile.dart';
 import 'package:creatispace/pages/profile/user_profile/user_profile_items.dart';
+import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserProfile extends StatefulWidget {
@@ -29,6 +30,7 @@ class _UserProfileState extends State<UserProfile> {
           children: [
             Column(
               children: [
+
                 Container(
                   height: 200,
                   color: Colors.blue,
@@ -50,6 +52,7 @@ class _UserProfileState extends State<UserProfile> {
                     )
                   ),
                 ),
+
                 SizedBox(height: 45),
                 Column(
                   children: [
@@ -72,7 +75,7 @@ class _UserProfileState extends State<UserProfile> {
                       children: [
                         Padding(
                             padding: EdgeInsets.only(bottom:8),
-                            child: FlatButton(
+                            child: TextButton(
                                 onPressed: () {
                                   ExtendedNavigator.of(context).push(Routes.profileFormPageScaffold,
                                       arguments: ProfileFormPageScaffoldArguments(
@@ -80,22 +83,54 @@ class _UserProfileState extends State<UserProfile> {
                                       )
                                   );
                                 },
-                                color: Colors.blue[200],
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                    side: BorderSide(color: Colors.blue[200])
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.blue[200]
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18.0),
+                                          side: BorderSide(color: Colors.blue[200])
+                                      ),
+                                    )
                                 ),
                                 child: Text("Edit profile")
                             )
                         ),
                         Padding(
                             padding: EdgeInsets.only(bottom:8),
-                            child: FlatButton(
+                            child: TextButton(
+                                onPressed: () {
+                                  context.read<AuthBloc>().add(const AuthEvent.signOut());
+                                },
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.blue[200]
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18.0),
+                                          side: BorderSide(color: Colors.blue[200])
+                                      ),
+                                    )
+                                ),
+                                child: Text("Logout")
+                            )
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(bottom:8),
+                            child: TextButton(
                                 onPressed: () => ExtendedNavigator.of(context).push(Routes.paymentDetailsScaffold),
-                                color: Colors.blue[200],
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                    side: BorderSide(color: Colors.blue[200])
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.blue[200]
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(18.0),
+                                          side: BorderSide(color: Colors.blue[200])
+                                      ),
+                                    )
                                 ),
                                 child: Text("Purchases")
                             )
@@ -129,7 +164,7 @@ class _UserProfileState extends State<UserProfile> {
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          FlatButton(
+                                          TextButton(
                                             child: Text(
                                               "Grid",
                                               style: TextStyle(
@@ -150,7 +185,7 @@ class _UserProfileState extends State<UserProfile> {
                                             width: 1.3,
                                             color: Colors.blue[200],
                                           ),
-                                          FlatButton(
+                                          TextButton(
                                             child: Text(
                                                 "List",
                                                 style: TextStyle(

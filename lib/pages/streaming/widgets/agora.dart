@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> confirmationDialog(BuildContext context, String title) {
-  Widget cancelButton = FlatButton(
+  Widget cancelButton = TextButton(
       child: Text("Cancel"),
       onPressed:  () =>  {
         ExtendedNavigator.of(context).pop(),
         FocusManager.instance.primaryFocus.unfocus()
       }
   );
-  Widget continueButton = FlatButton(
+  Widget continueButton = TextButton(
       child: Text("Continue"),
       onPressed:  () => {
         ExtendedNavigator.of(context).pop(),
@@ -23,7 +23,7 @@ Future<void> confirmationDialog(BuildContext context, String title) {
 
   return showDialog(
     context: context,
-    child: AlertDialog(
+    builder: (_) => new AlertDialog(
       title: Text(title),
       actions: [
         cancelButton,

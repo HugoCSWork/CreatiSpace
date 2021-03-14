@@ -99,6 +99,7 @@ mixin _$PaymentSetupDto {
   bool get termsAndService;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $PaymentSetupDtoCopyWith<PaymentSetupDto> get copyWith;
 }
 
@@ -495,6 +496,7 @@ class _$_PaymentSetupDto extends _PaymentSetupDto {
       const DeepCollectionEquality().hash(documentNameImage) ^
       const DeepCollectionEquality().hash(termsAndService);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentSetupDtoCopyWith<_PaymentSetupDto> get copyWith =>
       __$PaymentSetupDtoCopyWithImpl<_PaymentSetupDto>(this, _$identity);
@@ -576,5 +578,6 @@ abstract class _PaymentSetupDto extends PaymentSetupDto {
   @override
   bool get termsAndService;
   @override
+  @JsonKey(ignore: true)
   _$PaymentSetupDtoCopyWith<_PaymentSetupDto> get copyWith;
 }

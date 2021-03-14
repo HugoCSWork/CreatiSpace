@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:creatispace/domain/core/value_objects.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_image/item_image.dart';
 import 'package:creatispace/domain/items/value_objects.dart';
@@ -53,10 +52,7 @@ extension FirestorageX on FirebaseStorage {
   Future<String> uploadPaymentImage(
       String imageUrl, String imageName, String userDoc, String type) async {
     if (!imageUrl.startsWith('https://firebasestorage.googleapis.com')) {
-      final uploadExtension =
-          lookupMimeType(imageUrl).replaceAll('/', '.').replaceAll('image', '');
 
-      final uploadName = '$imageName$uploadExtension';
       final imageReference = FirebaseStorage.instance
           .ref()
           .child('payment/$userDoc/$type');

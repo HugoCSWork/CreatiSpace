@@ -36,6 +36,7 @@ mixin _$FollowingFollowers {
   String get username;
   String get profileImageURL;
 
+  @JsonKey(ignore: true)
   $FollowingFollowersCopyWith<FollowingFollowers> get copyWith;
 }
 
@@ -153,6 +154,7 @@ class _$_FollowingFollowers extends _FollowingFollowers {
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(profileImageURL);
 
+  @JsonKey(ignore: true)
   @override
   _$FollowingFollowersCopyWith<_FollowingFollowers> get copyWith =>
       __$FollowingFollowersCopyWithImpl<_FollowingFollowers>(this, _$identity);
@@ -172,6 +174,7 @@ abstract class _FollowingFollowers extends FollowingFollowers {
   @override
   String get profileImageURL;
   @override
+  @JsonKey(ignore: true)
   _$FollowingFollowersCopyWith<_FollowingFollowers> get copyWith;
 }
 
@@ -209,6 +212,7 @@ mixin _$FollowingFollowersGrouped {
   Stream<Either<FollowingFollowerErrorFailure, KtList<FollowingFollowers>>>
       get following;
 
+  @JsonKey(ignore: true)
   $FollowingFollowersGroupedCopyWith<FollowingFollowersGrouped> get copyWith;
 }
 
@@ -339,6 +343,7 @@ class _$_FollowingFollowersGrouped extends _FollowingFollowersGrouped {
       const DeepCollectionEquality().hash(followers) ^
       const DeepCollectionEquality().hash(following);
 
+  @JsonKey(ignore: true)
   @override
   _$FollowingFollowersGroupedCopyWith<_FollowingFollowersGrouped>
       get copyWith =>
@@ -367,5 +372,6 @@ abstract class _FollowingFollowersGrouped extends FollowingFollowersGrouped {
   Stream<Either<FollowingFollowerErrorFailure, KtList<FollowingFollowers>>>
       get following;
   @override
+  @JsonKey(ignore: true)
   _$FollowingFollowersGroupedCopyWith<_FollowingFollowersGrouped> get copyWith;
 }

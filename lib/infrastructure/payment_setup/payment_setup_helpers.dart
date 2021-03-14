@@ -2,10 +2,9 @@
 
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
 import 'package:stripe_sdk/stripe_sdk.dart';
 import 'package:stripe_sdk/stripe_sdk_ui.dart';
-import 'package:http/http.dart' as http;
-import 'dart:io' as Io;
 
 
 Future<Map<String, dynamic>> confirmPayment3DSecure(String clientSecret, String paymentMethodId, Stripe stripe) async{

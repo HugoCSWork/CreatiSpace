@@ -4,7 +4,6 @@ import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'item_image.freezed.dart';
 
 //TODO - LOOK HERE AND UPDATE FAILUREOPTION

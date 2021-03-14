@@ -36,6 +36,7 @@ mixin _$ImageItemPrimitive {
   String get url;
   String get imageName;
 
+  @JsonKey(ignore: true)
   $ImageItemPrimitiveCopyWith<ImageItemPrimitive> get copyWith;
 }
 
@@ -146,6 +147,7 @@ class _$_ImageItemPrimitive extends _ImageItemPrimitive {
       const DeepCollectionEquality().hash(url) ^
       const DeepCollectionEquality().hash(imageName);
 
+  @JsonKey(ignore: true)
   @override
   _$ImageItemPrimitiveCopyWith<_ImageItemPrimitive> get copyWith =>
       __$ImageItemPrimitiveCopyWithImpl<_ImageItemPrimitive>(this, _$identity);
@@ -165,5 +167,6 @@ abstract class _ImageItemPrimitive extends ImageItemPrimitive {
   @override
   String get imageName;
   @override
+  @JsonKey(ignore: true)
   _$ImageItemPrimitiveCopyWith<_ImageItemPrimitive> get copyWith;
 }

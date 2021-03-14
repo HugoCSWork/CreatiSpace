@@ -42,6 +42,7 @@ mixin _$UserConversation {
   String get timestamp;
   int get type;
 
+  @JsonKey(ignore: true)
   $UserConversationCopyWith<UserConversation> get copyWith;
 }
 
@@ -179,6 +180,7 @@ class _$_UserConversation extends _UserConversation {
       const DeepCollectionEquality().hash(timestamp) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$UserConversationCopyWith<_UserConversation> get copyWith =>
       __$UserConversationCopyWithImpl<_UserConversation>(this, _$identity);
@@ -204,5 +206,6 @@ abstract class _UserConversation extends UserConversation {
   @override
   int get type;
   @override
+  @JsonKey(ignore: true)
   _$UserConversationCopyWith<_UserConversation> get copyWith;
 }

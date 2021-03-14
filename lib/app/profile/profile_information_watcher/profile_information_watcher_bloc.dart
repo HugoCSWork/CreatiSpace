@@ -9,9 +9,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'profile_information_watcher_bloc.freezed.dart';
 part 'profile_information_watcher_event.dart';
 part 'profile_information_watcher_state.dart';
-part 'profile_information_watcher_bloc.freezed.dart';
 
 @injectable
 class ProfileInformationWatcherBloc extends Bloc<ProfileInformationWatcherEvent, ProfileInformationWatcherState> {

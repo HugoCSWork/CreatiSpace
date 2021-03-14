@@ -6,9 +6,9 @@ import 'package:creatispace/domain/profile/profile_error/profile_error_failures.
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'profile_actor_bloc.freezed.dart';
 part 'profile_actor_event.dart';
 part 'profile_actor_state.dart';
-part 'profile_actor_bloc.freezed.dart';
 
 @injectable
 class ProfileActorBloc extends Bloc<ProfileActorEvent, ProfileActorState> {

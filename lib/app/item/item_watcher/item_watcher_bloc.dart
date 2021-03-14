@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
+part 'item_watcher_bloc.freezed.dart';
 part 'item_watcher_event.dart';
 part 'item_watcher_state.dart';
-part 'item_watcher_bloc.freezed.dart';
 
 @injectable
 class ItemWatcherBloc extends Bloc<ItemWatcherEvent, ItemWatcherState> {

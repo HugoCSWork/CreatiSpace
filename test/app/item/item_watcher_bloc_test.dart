@@ -1,5 +1,4 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:creatispace/app/item/item_home_watcher/item_home_watcher_bloc.dart';
 import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';

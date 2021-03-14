@@ -1,20 +1,15 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:creatispace/domain/items/item_image/item_image.dart';
-import 'package:creatispace/domain/items/value_objects.dart';
 import 'package:creatispace/domain/payment_setup/i_payment_setup_facade.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_error/payment_setup_error.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_model/payment_setup.dart';
 import 'package:creatispace/domain/payment_setup/value_objects.dart';
-import 'package:creatispace/pages/items/items_form/misc/todo_item_presentation_classes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoder/geocoder.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
 part 'payment_setup_event.dart';
 part 'payment_setup_state.dart';
 part 'payment_setup_bloc.freezed.dart';

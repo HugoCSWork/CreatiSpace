@@ -9,20 +9,19 @@ import 'package:creatispace/infrastructure/items/item_dtos.dart';
 import 'package:creatispace/infrastructure/payment_details/payment_details_dto.dart';
 import 'package:creatispace/infrastructure/payment_details/workshop_payment_dto.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
-import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:injectable/injectable.dart';
+import 'package:kt_dart/collection.dart';
 import 'package:kt_dart/kt.dart';
+import 'package:kt_dart/src/collection/kt_list.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: IPaymentDetailsFacade)
 class PaymentDetailsRepository implements IPaymentDetailsFacade {
   final FirebaseFirestore _firebaseFirestore;
-  final FirebaseAuth _firebaseAuth;
 
-  PaymentDetailsRepository(this._firebaseFirestore, this._firebaseAuth);
+  PaymentDetailsRepository(this._firebaseFirestore);
 
   @override
   Stream<Either<PaymentDetailsErrorFailure, KtList<PaymentDetails>>>

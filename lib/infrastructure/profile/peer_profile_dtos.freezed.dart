@@ -57,6 +57,7 @@ mixin _$PeerProfileDto {
   bool get isFollowing;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $PeerProfileDtoCopyWith<PeerProfileDto> get copyWith;
 }
 
@@ -250,6 +251,7 @@ class _$_PeerProfileDto extends _PeerProfileDto {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(isFollowing);
 
+  @JsonKey(ignore: true)
   @override
   _$PeerProfileDtoCopyWith<_PeerProfileDto> get copyWith =>
       __$PeerProfileDtoCopyWithImpl<_PeerProfileDto>(this, _$identity);
@@ -289,5 +291,6 @@ abstract class _PeerProfileDto extends PeerProfileDto {
   @override
   bool get isFollowing;
   @override
+  @JsonKey(ignore: true)
   _$PeerProfileDtoCopyWith<_PeerProfileDto> get copyWith;
 }

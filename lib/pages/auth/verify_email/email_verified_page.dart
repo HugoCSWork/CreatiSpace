@@ -1,11 +1,12 @@
 import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/auth/auth_bloc.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class EmailVerifiedPage extends StatefulWidget {
   @override
@@ -66,26 +67,41 @@ class _EmailVerifiedPageState extends State<EmailVerifiedPage> {
                 children: [
                   ButtonTheme(
                     height: 40,
-                    child: RaisedButton(
-                      color: Colors.blue[200],
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Colors.blue[200]
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                        )
+                      ),
                       onPressed: () {
                         context.read<AuthBloc>().add(const AuthEvent.sendEmailVerification());
                       },
                       child: Text("Resend Verification Email"),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                      ),
                     ),
                   ),
                   ButtonTheme(
                     height: 40,
-                    child: RaisedButton(
-                      color: Colors.blue[200],
-                      onPressed: () => {},
-                      child: Text("Logout"),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              Colors.blue[200]
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+                          )
                       ),
+                      onPressed: () => {
+                        context.read<AuthBloc>().add(const AuthEvent.signOut()),
+                        ExtendedNavigator.of(context).pushAndRemoveUntil(Routes.signInPage, (Route<dynamic> route) => false),
+                      },
+                      child: Text("Logout"),
                     ),
                   ),
                 ],

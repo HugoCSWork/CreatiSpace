@@ -57,6 +57,7 @@ mixin _$UserProfileDto {
   String get description;
 
   Map<String, dynamic> toJson();
+  @JsonKey(ignore: true)
   $UserProfileDtoCopyWith<UserProfileDto> get copyWith;
 }
 
@@ -247,6 +248,7 @@ class _$_UserProfileDto extends _UserProfileDto {
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   _$UserProfileDtoCopyWith<_UserProfileDto> get copyWith =>
       __$UserProfileDtoCopyWithImpl<_UserProfileDto>(this, _$identity);
@@ -286,5 +288,6 @@ abstract class _UserProfileDto extends UserProfileDto {
   @override
   String get description;
   @override
+  @JsonKey(ignore: true)
   _$UserProfileDtoCopyWith<_UserProfileDto> get copyWith;
 }

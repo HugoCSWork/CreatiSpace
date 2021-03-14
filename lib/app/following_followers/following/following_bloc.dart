@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
+part 'following_bloc.freezed.dart';
 part 'following_event.dart';
 part 'following_state.dart';
-part 'following_bloc.freezed.dart';
 
 @injectable
 class FollowingBloc extends Bloc<FollowingEvent, FollowingState> {

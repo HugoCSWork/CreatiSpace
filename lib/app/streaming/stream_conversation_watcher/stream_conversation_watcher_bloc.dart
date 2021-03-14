@@ -3,16 +3,14 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:creatispace/domain/streaming/i_streaming_facade.dart';
 import 'package:creatispace/domain/streaming/streaming_message.dart';
-import 'package:creatispace/domain/user_messaging/user_conversation/user_conversation.dart';
-import 'package:creatispace/domain/user_messaging/user_list_error/user_messaging_error_failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
+part 'stream_conversation_watcher_bloc.freezed.dart';
 part 'stream_conversation_watcher_event.dart';
 part 'stream_conversation_watcher_state.dart';
-part 'stream_conversation_watcher_bloc.freezed.dart';
 
 @injectable
 class StreamConversationWatcherBloc extends Bloc<StreamConversationWatcherEvent, StreamConversationWatcherState> {

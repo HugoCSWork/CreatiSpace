@@ -6,9 +6,9 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'end_stream_bloc.freezed.dart';
 part 'end_stream_event.dart';
 part 'end_stream_state.dart';
-part 'end_stream_bloc.freezed.dart';
 
 @injectable
 class EndStreamBloc extends Bloc<EndStreamEvent, EndStreamState> {

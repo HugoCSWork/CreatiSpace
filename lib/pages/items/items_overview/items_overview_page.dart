@@ -1,4 +1,4 @@
-import 'package:creatispace/app/auth/auth_bloc.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/auth/is_verified/is_verified_bloc.dart';
 import 'package:creatispace/app/auth/payment_verified/payment_verified_bloc.dart';
 import 'package:creatispace/app/item/item_actor/item_actor_bloc.dart';
@@ -12,7 +12,6 @@ import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:auto_route/auto_route.dart';
 
 class ItemsOverviewPage extends StatefulWidget {
   @override
@@ -53,14 +52,6 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
         ],
         child: MultiBlocListener(
           listeners: [
-            BlocListener<AuthBloc, AuthState>(listener: (context, state) {
-              state.maybeMap(
-                  unauthenticated: (_) {
-                    context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
-                    ExtendedNavigator.of(context).replace(Routes.signInPage);
-                  },
-                  orElse: () {});
-            }),
             BlocListener<ItemActorBloc, ItemActorState>(
                 listener: (context, state) {
               state.maybeMap(
@@ -80,12 +71,6 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
           child: Scaffold(
             appBar: AppBar(
               title: const Text('Listings'),
-              leading: IconButton(
-                icon: const Icon(Icons.exit_to_app),
-                onPressed: () {
-                  context.read<AuthBloc>().add(const AuthEvent.signOut());
-                },
-              ),
               actions: <Widget>[
                 ItemSwitch(),
               ],
@@ -116,7 +101,7 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FlatButton(
+                      TextButton(
                         child: Text(
                           "Items",
                           style: TextStyle(
@@ -136,7 +121,7 @@ class _ItemsOverviewPageState extends State<ItemsOverviewPage> {
                         width: 1.3,
                         color: Colors.blue[200],
                       ),
-                      FlatButton(
+                      TextButton(
                         child: Text(
                             "Workshops",
                             style: TextStyle(

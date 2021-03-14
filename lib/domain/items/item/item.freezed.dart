@@ -54,6 +54,7 @@ mixin _$Item {
   ItemPurchasable get purchasable;
   ItemImageList<IndividualImages> get images;
 
+  @JsonKey(ignore: true)
   $ItemCopyWith<Item> get copyWith;
 }
 
@@ -263,6 +264,7 @@ class _$_Item extends _Item {
       const DeepCollectionEquality().hash(purchasable) ^
       const DeepCollectionEquality().hash(images);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemCopyWith<_Item> get copyWith =>
       __$ItemCopyWithImpl<_Item>(this, _$identity);
@@ -300,5 +302,6 @@ abstract class _Item extends Item {
   @override
   ItemImageList<IndividualImages> get images;
   @override
+  @JsonKey(ignore: true)
   _$ItemCopyWith<_Item> get copyWith;
 }

@@ -14,9 +14,8 @@ import 'package:rxdart/rxdart.dart';
 @LazySingleton(as: IWorkshopFacade)
 class WorkshopRepository implements IWorkshopFacade {
   final FirebaseFirestore _firebaseFirestore;
-  final FirebaseAuth _firebaseAuth;
 
-  WorkshopRepository(this._firebaseFirestore, this._firebaseAuth);
+  WorkshopRepository(this._firebaseFirestore);
 
 
   @override

@@ -421,6 +421,7 @@ class _$FirstNameChanged implements FirstNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(firstName);
 
+  @JsonKey(ignore: true)
   @override
   $FirstNameChangedCopyWith<FirstNameChanged> get copyWith =>
       _$FirstNameChangedCopyWithImpl<FirstNameChanged>(this, _$identity);
@@ -648,6 +649,7 @@ abstract class FirstNameChanged implements PaymentSetupEvent {
   const factory FirstNameChanged(String firstName) = _$FirstNameChanged;
 
   String get firstName;
+  @JsonKey(ignore: true)
   $FirstNameChangedCopyWith<FirstNameChanged> get copyWith;
 }
 
@@ -705,6 +707,7 @@ class _$LastNameChanged implements LastNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(lastName);
 
+  @JsonKey(ignore: true)
   @override
   $LastNameChangedCopyWith<LastNameChanged> get copyWith =>
       _$LastNameChangedCopyWithImpl<LastNameChanged>(this, _$identity);
@@ -932,6 +935,7 @@ abstract class LastNameChanged implements PaymentSetupEvent {
   const factory LastNameChanged(String lastName) = _$LastNameChanged;
 
   String get lastName;
+  @JsonKey(ignore: true)
   $LastNameChangedCopyWith<LastNameChanged> get copyWith;
 }
 
@@ -988,6 +992,7 @@ class _$EmailChanged implements EmailChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
 
+  @JsonKey(ignore: true)
   @override
   $EmailChangedCopyWith<EmailChanged> get copyWith =>
       _$EmailChangedCopyWithImpl<EmailChanged>(this, _$identity);
@@ -1215,6 +1220,7 @@ abstract class EmailChanged implements PaymentSetupEvent {
   const factory EmailChanged(String email) = _$EmailChanged;
 
   String get email;
+  @JsonKey(ignore: true)
   $EmailChangedCopyWith<EmailChanged> get copyWith;
 }
 
@@ -1270,6 +1276,7 @@ class _$DobChanged implements DobChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(dob);
 
+  @JsonKey(ignore: true)
   @override
   $DobChangedCopyWith<DobChanged> get copyWith =>
       _$DobChangedCopyWithImpl<DobChanged>(this, _$identity);
@@ -1497,6 +1504,7 @@ abstract class DobChanged implements PaymentSetupEvent {
   const factory DobChanged(String dob) = _$DobChanged;
 
   String get dob;
+  @JsonKey(ignore: true)
   $DobChangedCopyWith<DobChanged> get copyWith;
 }
 
@@ -1554,6 +1562,7 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(phoneNumber);
 
+  @JsonKey(ignore: true)
   @override
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith =>
       _$PhoneNumberChangedCopyWithImpl<PhoneNumberChanged>(this, _$identity);
@@ -1781,6 +1790,7 @@ abstract class PhoneNumberChanged implements PaymentSetupEvent {
   const factory PhoneNumberChanged(String phoneNumber) = _$PhoneNumberChanged;
 
   String get phoneNumber;
+  @JsonKey(ignore: true)
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith;
 }
 
@@ -1837,6 +1847,7 @@ class _$GenderChanged implements GenderChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(gender);
 
+  @JsonKey(ignore: true)
   @override
   $GenderChangedCopyWith<GenderChanged> get copyWith =>
       _$GenderChangedCopyWithImpl<GenderChanged>(this, _$identity);
@@ -2064,6 +2075,7 @@ abstract class GenderChanged implements PaymentSetupEvent {
   const factory GenderChanged(String gender) = _$GenderChanged;
 
   String get gender;
+  @JsonKey(ignore: true)
   $GenderChangedCopyWith<GenderChanged> get copyWith;
 }
 
@@ -2379,6 +2391,7 @@ class _$CountyChanged implements CountyChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(county);
 
+  @JsonKey(ignore: true)
   @override
   $CountyChangedCopyWith<CountyChanged> get copyWith =>
       _$CountyChangedCopyWithImpl<CountyChanged>(this, _$identity);
@@ -2606,6 +2619,7 @@ abstract class CountyChanged implements PaymentSetupEvent {
   const factory CountyChanged(String county) = _$CountyChanged;
 
   String get county;
+  @JsonKey(ignore: true)
   $CountyChangedCopyWith<CountyChanged> get copyWith;
 }
 
@@ -2663,6 +2677,7 @@ class _$HouseNumberChanged implements HouseNumberChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(houseNumber);
 
+  @JsonKey(ignore: true)
   @override
   $HouseNumberChangedCopyWith<HouseNumberChanged> get copyWith =>
       _$HouseNumberChangedCopyWithImpl<HouseNumberChanged>(this, _$identity);
@@ -2890,6 +2905,7 @@ abstract class HouseNumberChanged implements PaymentSetupEvent {
   const factory HouseNumberChanged(String houseNumber) = _$HouseNumberChanged;
 
   String get houseNumber;
+  @JsonKey(ignore: true)
   $HouseNumberChangedCopyWith<HouseNumberChanged> get copyWith;
 }
 
@@ -2946,6 +2962,7 @@ class _$Line1Changed implements Line1Changed {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(line1);
 
+  @JsonKey(ignore: true)
   @override
   $Line1ChangedCopyWith<Line1Changed> get copyWith =>
       _$Line1ChangedCopyWithImpl<Line1Changed>(this, _$identity);
@@ -3173,6 +3190,7 @@ abstract class Line1Changed implements PaymentSetupEvent {
   const factory Line1Changed(String line1) = _$Line1Changed;
 
   String get line1;
+  @JsonKey(ignore: true)
   $Line1ChangedCopyWith<Line1Changed> get copyWith;
 }
 
@@ -3229,6 +3247,7 @@ class _$Line2hanged implements Line2hanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(line2);
 
+  @JsonKey(ignore: true)
   @override
   $Line2hangedCopyWith<Line2hanged> get copyWith =>
       _$Line2hangedCopyWithImpl<Line2hanged>(this, _$identity);
@@ -3456,6 +3475,7 @@ abstract class Line2hanged implements PaymentSetupEvent {
   const factory Line2hanged(String line2) = _$Line2hanged;
 
   String get line2;
+  @JsonKey(ignore: true)
   $Line2hangedCopyWith<Line2hanged> get copyWith;
 }
 
@@ -3513,6 +3533,7 @@ class _$PostcodeChanged implements PostcodeChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(postcode);
 
+  @JsonKey(ignore: true)
   @override
   $PostcodeChangedCopyWith<PostcodeChanged> get copyWith =>
       _$PostcodeChangedCopyWithImpl<PostcodeChanged>(this, _$identity);
@@ -3740,6 +3761,7 @@ abstract class PostcodeChanged implements PaymentSetupEvent {
   const factory PostcodeChanged(String postcode) = _$PostcodeChanged;
 
   String get postcode;
+  @JsonKey(ignore: true)
   $PostcodeChangedCopyWith<PostcodeChanged> get copyWith;
 }
 
@@ -3796,6 +3818,7 @@ class _$CityChanged implements CityChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(city);
 
+  @JsonKey(ignore: true)
   @override
   $CityChangedCopyWith<CityChanged> get copyWith =>
       _$CityChangedCopyWithImpl<CityChanged>(this, _$identity);
@@ -4023,6 +4046,7 @@ abstract class CityChanged implements PaymentSetupEvent {
   const factory CityChanged(String city) = _$CityChanged;
 
   String get city;
+  @JsonKey(ignore: true)
   $CityChangedCopyWith<CityChanged> get copyWith;
 }
 
@@ -4079,6 +4103,7 @@ class _$CountryChanged implements CountryChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
 
+  @JsonKey(ignore: true)
   @override
   $CountryChangedCopyWith<CountryChanged> get copyWith =>
       _$CountryChangedCopyWithImpl<CountryChanged>(this, _$identity);
@@ -4306,6 +4331,7 @@ abstract class CountryChanged implements PaymentSetupEvent {
   const factory CountryChanged(String country) = _$CountryChanged;
 
   String get country;
+  @JsonKey(ignore: true)
   $CountryChangedCopyWith<CountryChanged> get copyWith;
 }
 
@@ -4881,6 +4907,7 @@ class _$CardNameChanged implements CardNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(cardName);
 
+  @JsonKey(ignore: true)
   @override
   $CardNameChangedCopyWith<CardNameChanged> get copyWith =>
       _$CardNameChangedCopyWithImpl<CardNameChanged>(this, _$identity);
@@ -5108,6 +5135,7 @@ abstract class CardNameChanged implements PaymentSetupEvent {
   const factory CardNameChanged(String cardName) = _$CardNameChanged;
 
   String get cardName;
+  @JsonKey(ignore: true)
   $CardNameChangedCopyWith<CardNameChanged> get copyWith;
 }
 
@@ -5165,6 +5193,7 @@ class _$CardNumberChanged implements CardNumberChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(cardNumber);
 
+  @JsonKey(ignore: true)
   @override
   $CardNumberChangedCopyWith<CardNumberChanged> get copyWith =>
       _$CardNumberChangedCopyWithImpl<CardNumberChanged>(this, _$identity);
@@ -5392,6 +5421,7 @@ abstract class CardNumberChanged implements PaymentSetupEvent {
   const factory CardNumberChanged(String cardNumber) = _$CardNumberChanged;
 
   String get cardNumber;
+  @JsonKey(ignore: true)
   $CardNumberChangedCopyWith<CardNumberChanged> get copyWith;
 }
 
@@ -5449,6 +5479,7 @@ class _$SortCodeChanged implements SortCodeChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(sortCode);
 
+  @JsonKey(ignore: true)
   @override
   $SortCodeChangedCopyWith<SortCodeChanged> get copyWith =>
       _$SortCodeChangedCopyWithImpl<SortCodeChanged>(this, _$identity);
@@ -5676,6 +5707,7 @@ abstract class SortCodeChanged implements PaymentSetupEvent {
   const factory SortCodeChanged(String sortCode) = _$SortCodeChanged;
 
   String get sortCode;
+  @JsonKey(ignore: true)
   $SortCodeChangedCopyWith<SortCodeChanged> get copyWith;
 }
 
@@ -5737,6 +5769,7 @@ class _$TermsAndServiceChanged implements TermsAndServiceChanged {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(termsAndService);
 
+  @JsonKey(ignore: true)
   @override
   $TermsAndServiceChangedCopyWith<TermsAndServiceChanged> get copyWith =>
       _$TermsAndServiceChangedCopyWithImpl<TermsAndServiceChanged>(
@@ -5966,6 +5999,7 @@ abstract class TermsAndServiceChanged implements PaymentSetupEvent {
       _$TermsAndServiceChanged;
 
   bool get termsAndService;
+  @JsonKey(ignore: true)
   $TermsAndServiceChangedCopyWith<TermsAndServiceChanged> get copyWith;
 }
 
@@ -6282,6 +6316,7 @@ class _$PassportUrlChanged implements PassportUrlChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(passportUrl);
 
+  @JsonKey(ignore: true)
   @override
   $PassportUrlChangedCopyWith<PassportUrlChanged> get copyWith =>
       _$PassportUrlChangedCopyWithImpl<PassportUrlChanged>(this, _$identity);
@@ -6509,6 +6544,7 @@ abstract class PassportUrlChanged implements PaymentSetupEvent {
   const factory PassportUrlChanged(String passportUrl) = _$PassportUrlChanged;
 
   String get passportUrl;
+  @JsonKey(ignore: true)
   $PassportUrlChangedCopyWith<PassportUrlChanged> get copyWith;
 }
 
@@ -6566,6 +6602,7 @@ class _$PassportNameChanged implements PassportNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(passportName);
 
+  @JsonKey(ignore: true)
   @override
   $PassportNameChangedCopyWith<PassportNameChanged> get copyWith =>
       _$PassportNameChangedCopyWithImpl<PassportNameChanged>(this, _$identity);
@@ -6794,6 +6831,7 @@ abstract class PassportNameChanged implements PaymentSetupEvent {
       _$PassportNameChanged;
 
   String get passportName;
+  @JsonKey(ignore: true)
   $PassportNameChangedCopyWith<PassportNameChanged> get copyWith;
 }
 
@@ -6851,6 +6889,7 @@ class _$DocumentUrlChanged implements DocumentUrlChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(documentUrl);
 
+  @JsonKey(ignore: true)
   @override
   $DocumentUrlChangedCopyWith<DocumentUrlChanged> get copyWith =>
       _$DocumentUrlChangedCopyWithImpl<DocumentUrlChanged>(this, _$identity);
@@ -7078,6 +7117,7 @@ abstract class DocumentUrlChanged implements PaymentSetupEvent {
   const factory DocumentUrlChanged(String documentUrl) = _$DocumentUrlChanged;
 
   String get documentUrl;
+  @JsonKey(ignore: true)
   $DocumentUrlChangedCopyWith<DocumentUrlChanged> get copyWith;
 }
 
@@ -7135,6 +7175,7 @@ class _$DocumentNameChanged implements DocumentNameChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(documentName);
 
+  @JsonKey(ignore: true)
   @override
   $DocumentNameChangedCopyWith<DocumentNameChanged> get copyWith =>
       _$DocumentNameChangedCopyWithImpl<DocumentNameChanged>(this, _$identity);
@@ -7363,6 +7404,7 @@ abstract class DocumentNameChanged implements PaymentSetupEvent {
       _$DocumentNameChanged;
 
   String get documentName;
+  @JsonKey(ignore: true)
   $DocumentNameChangedCopyWith<DocumentNameChanged> get copyWith;
 }
 
@@ -7937,6 +7979,7 @@ class _$_stepTapped implements _stepTapped {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(step);
 
+  @JsonKey(ignore: true)
   @override
   _$stepTappedCopyWith<_stepTapped> get copyWith =>
       __$stepTappedCopyWithImpl<_stepTapped>(this, _$identity);
@@ -8164,6 +8207,7 @@ abstract class _stepTapped implements PaymentSetupEvent {
   const factory _stepTapped(int step) = _$_stepTapped;
 
   int get step;
+  @JsonKey(ignore: true)
   _$stepTappedCopyWith<_stepTapped> get copyWith;
 }
 
@@ -8768,6 +8812,7 @@ mixin _$PaymentSetupState {
   Option<Either<PaymentSetupErrorFailure, Unit>>
       get createPaymentAccountFailureOrSuccess;
 
+  @JsonKey(ignore: true)
   $PaymentSetupStateCopyWith<PaymentSetupState> get copyWith;
 }
 
@@ -9116,6 +9161,7 @@ class _$_PaymentSetupState implements _PaymentSetupState {
       const DeepCollectionEquality().hash(isSaving) ^
       const DeepCollectionEquality().hash(createPaymentAccountFailureOrSuccess);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentSetupStateCopyWith<_PaymentSetupState> get copyWith =>
       __$PaymentSetupStateCopyWithImpl<_PaymentSetupState>(this, _$identity);
@@ -9189,5 +9235,6 @@ abstract class _PaymentSetupState implements PaymentSetupState {
   Option<Either<PaymentSetupErrorFailure, Unit>>
       get createPaymentAccountFailureOrSuccess;
   @override
+  @JsonKey(ignore: true)
   _$PaymentSetupStateCopyWith<_PaymentSetupState> get copyWith;
 }

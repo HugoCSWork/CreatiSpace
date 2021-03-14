@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+part 'profile_form_bloc.freezed.dart';
 part 'profile_form_event.dart';
 part 'profile_form_state.dart';
-part 'profile_form_bloc.freezed.dart';
 
 @injectable
 class ProfileFormBloc extends Bloc<ProfileFormEvent, ProfileFormState> {

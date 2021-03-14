@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 
+part 'search_user_bloc.freezed.dart';
 part 'search_user_event.dart';
 part 'search_user_state.dart';
-part 'search_user_bloc.freezed.dart';
 
 @injectable
 class SearchUserBloc extends Bloc<SearchUserEvent, SearchUserState> {

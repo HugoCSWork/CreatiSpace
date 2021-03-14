@@ -20,35 +20,33 @@ class _UserConversationBuilderState extends State<UserConversationBuilder> {
   final String userId;
 
   final ScrollController listScrollController = ScrollController();
-  int _limit = 20;
-  final int _limitIncrement = 20;
+  // int _limit = 20;
+  // final int _limitIncrement = 20;
 
   _UserConversationBuilderState(this.userId);
 
-  _scrollListener() {
-    if (listScrollController.offset >=
-        listScrollController.position.maxScrollExtent &&
-        !listScrollController.position.outOfRange) {
-      print("reach the bottom");
-      setState(() {
-        print("reach the bottom");
-        _limit += _limitIncrement;
-      });
-    }
-    if (listScrollController.offset <=
-        listScrollController.position.minScrollExtent &&
-        !listScrollController.position.outOfRange) {
-      print("reach the top");
-      setState(() {
-        print("reach the top");
-      });
-    }
-  }
+  // _scrollListener() {
+  //   if (listScrollController.offset >=
+  //       listScrollController.position.maxScrollExtent &&
+  //       !listScrollController.position.outOfRange) {
+  //     print("reach the bottom");
+  //     setState(() {
+  //       print("reach the bottom");
+  //       // _limit += _limitIncrement;
+  //     });
+  //   }
+  //   if (listScrollController.offset <=
+  //       listScrollController.position.minScrollExtent &&
+  //       !listScrollController.position.outOfRange) {
+  //     setState(() {
+  //       print("reach the top");
+  //     });
+  //   }
+  // }
 
   @override
   void initState() {
     super.initState();
-    listScrollController.addListener(_scrollListener);
   }
 
   @override

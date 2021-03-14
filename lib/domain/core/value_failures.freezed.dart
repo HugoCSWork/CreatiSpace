@@ -192,6 +192,7 @@ class _$_Auth<T> implements _Auth<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(f);
 
+  @JsonKey(ignore: true)
   @override
   _$AuthCopyWith<T, _Auth<T>> get copyWith =>
       __$AuthCopyWithImpl<T, _Auth<T>>(this, _$identity);
@@ -281,6 +282,7 @@ abstract class _Auth<T> implements ValueFailure<T> {
   const factory _Auth(AuthValueFailure<T> f) = _$_Auth<T>;
 
   AuthValueFailure<T> get f;
+  @JsonKey(ignore: true)
   _$AuthCopyWith<T, _Auth<T>> get copyWith;
 }
 
@@ -349,6 +351,7 @@ class _$_PaymentSetup<T> implements _PaymentSetup<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(f);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentSetupCopyWith<T, _PaymentSetup<T>> get copyWith =>
       __$PaymentSetupCopyWithImpl<T, _PaymentSetup<T>>(this, _$identity);
@@ -439,6 +442,7 @@ abstract class _PaymentSetup<T> implements ValueFailure<T> {
       _$_PaymentSetup<T>;
 
   PaymentSetupValueFailures<T> get f;
+  @JsonKey(ignore: true)
   _$PaymentSetupCopyWith<T, _PaymentSetup<T>> get copyWith;
 }
 
@@ -507,6 +511,7 @@ class _$_PaymentForm<T> implements _PaymentForm<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(f);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentFormCopyWith<T, _PaymentForm<T>> get copyWith =>
       __$PaymentFormCopyWithImpl<T, _PaymentForm<T>>(this, _$identity);
@@ -596,6 +601,7 @@ abstract class _PaymentForm<T> implements ValueFailure<T> {
   const factory _PaymentForm(PaymentFormValueFailure<T> f) = _$_PaymentForm<T>;
 
   PaymentFormValueFailure<T> get f;
+  @JsonKey(ignore: true)
   _$PaymentFormCopyWith<T, _PaymentForm<T>> get copyWith;
 }
 
@@ -661,6 +667,7 @@ class _$_Item<T> implements _Item<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
 
+  @JsonKey(ignore: true)
   @override
   _$ItemCopyWith<T, _Item<T>> get copyWith =>
       __$ItemCopyWithImpl<T, _Item<T>>(this, _$identity);
@@ -750,6 +757,7 @@ abstract class _Item<T> implements ValueFailure<T> {
   const factory _Item(ItemValueFailure<T> i) = _$_Item<T>;
 
   ItemValueFailure<T> get i;
+  @JsonKey(ignore: true)
   _$ItemCopyWith<T, _Item<T>> get copyWith;
 }
 
@@ -818,6 +826,7 @@ class _$_Workshop<T> implements _Workshop<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
 
+  @JsonKey(ignore: true)
   @override
   _$WorkshopCopyWith<T, _Workshop<T>> get copyWith =>
       __$WorkshopCopyWithImpl<T, _Workshop<T>>(this, _$identity);
@@ -907,6 +916,7 @@ abstract class _Workshop<T> implements ValueFailure<T> {
   const factory _Workshop(WorkshopValueFailure<T> i) = _$_Workshop<T>;
 
   WorkshopValueFailure<T> get i;
+  @JsonKey(ignore: true)
   _$WorkshopCopyWith<T, _Workshop<T>> get copyWith;
 }
 
@@ -975,6 +985,7 @@ class _$_UserMessaging<T> implements _UserMessaging<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
 
+  @JsonKey(ignore: true)
   @override
   _$UserMessagingCopyWith<T, _UserMessaging<T>> get copyWith =>
       __$UserMessagingCopyWithImpl<T, _UserMessaging<T>>(this, _$identity);
@@ -1064,6 +1075,7 @@ abstract class _UserMessaging<T> implements ValueFailure<T> {
   const factory _UserMessaging(UserValueFailure<T> i) = _$_UserMessaging<T>;
 
   UserValueFailure<T> get i;
+  @JsonKey(ignore: true)
   _$UserMessagingCopyWith<T, _UserMessaging<T>> get copyWith;
 }
 
@@ -1131,6 +1143,7 @@ class _$_Profile<T> implements _Profile<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(i);
 
+  @JsonKey(ignore: true)
   @override
   _$ProfileCopyWith<T, _Profile<T>> get copyWith =>
       __$ProfileCopyWithImpl<T, _Profile<T>>(this, _$identity);
@@ -1220,5 +1233,6 @@ abstract class _Profile<T> implements ValueFailure<T> {
   const factory _Profile(ProfileValueFailure<T> i) = _$_Profile<T>;
 
   ProfileValueFailure<T> get i;
+  @JsonKey(ignore: true)
   _$ProfileCopyWith<T, _Profile<T>> get copyWith;
 }

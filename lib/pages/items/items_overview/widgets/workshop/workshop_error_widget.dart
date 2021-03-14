@@ -1,4 +1,3 @@
-import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:flutter/material.dart';
 

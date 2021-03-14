@@ -143,6 +143,7 @@ class _$_GetPaymentItemStarted implements _GetPaymentItemStarted {
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(itemId);
 
+  @JsonKey(ignore: true)
   @override
   _$GetPaymentItemStartedCopyWith<_GetPaymentItemStarted> get copyWith =>
       __$GetPaymentItemStartedCopyWithImpl<_GetPaymentItemStarted>(
@@ -208,6 +209,7 @@ abstract class _GetPaymentItemStarted implements PaymentItemDetailsEvent {
 
   String get userId;
   String get itemId;
+  @JsonKey(ignore: true)
   _$GetPaymentItemStartedCopyWith<_GetPaymentItemStarted> get copyWith;
 }
 
@@ -268,6 +270,7 @@ class _$_PaymentItemReceived implements _PaymentItemReceived {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failureOrItem);
 
+  @JsonKey(ignore: true)
   @override
   _$PaymentItemReceivedCopyWith<_PaymentItemReceived> get copyWith =>
       __$PaymentItemReceivedCopyWithImpl<_PaymentItemReceived>(
@@ -332,6 +335,7 @@ abstract class _PaymentItemReceived implements PaymentItemDetailsEvent {
       Either<ItemErrorFailure, ItemDto> failureOrItem) = _$_PaymentItemReceived;
 
   Either<ItemErrorFailure, ItemDto> get failureOrItem;
+  @JsonKey(ignore: true)
   _$PaymentItemReceivedCopyWith<_PaymentItemReceived> get copyWith;
 }
 
@@ -688,6 +692,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(item);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -759,6 +764,7 @@ abstract class _LoadSuccess implements PaymentItemDetailsState {
   const factory _LoadSuccess(ItemDto item) = _$_LoadSuccess;
 
   ItemDto get item;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -830,6 +836,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -901,5 +908,6 @@ abstract class _LoadFailure implements PaymentItemDetailsState {
   const factory _LoadFailure(ItemErrorFailure itemFailure) = _$_LoadFailure;
 
   ItemErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

@@ -280,6 +280,7 @@ class _$_UserMessagesRecievedReceived implements _UserMessagesRecievedReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$UserMessagesRecievedReceivedCopyWith<_UserMessagesRecievedReceived>
       get copyWith => __$UserMessagesRecievedReceivedCopyWithImpl<
@@ -364,6 +365,7 @@ abstract class _UserMessagesRecievedReceived
       _$_UserMessagesRecievedReceived;
 
   Either<UserErrorFailure, KtList<UserMessaging>> get failureOrMessages;
+  @JsonKey(ignore: true)
   _$UserMessagesRecievedReceivedCopyWith<_UserMessagesRecievedReceived>
       get copyWith;
 }
@@ -542,6 +544,7 @@ class _$_UserFollowingListReceived implements _UserFollowingListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$UserFollowingListReceivedCopyWith<_UserFollowingListReceived>
       get copyWith =>
@@ -626,6 +629,7 @@ abstract class _UserFollowingListReceived implements UserMessagingWatcherEvent {
       _$_UserFollowingListReceived;
 
   Either<UserErrorFailure, KtList<UserMessaging>> get failureOrMessages;
+  @JsonKey(ignore: true)
   _$UserFollowingListReceivedCopyWith<_UserFollowingListReceived> get copyWith;
 }
 
@@ -970,6 +974,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(items);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -1041,6 +1046,7 @@ abstract class _LoadSuccess implements UserMessagingWatcherState {
   const factory _LoadSuccess(KtList<UserMessaging> items) = _$_LoadSuccess;
 
   KtList<UserMessaging> get items;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -1112,6 +1118,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(itemFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -1183,5 +1190,6 @@ abstract class _LoadFailure implements UserMessagingWatcherState {
   const factory _LoadFailure(UserErrorFailure itemFailure) = _$_LoadFailure;
 
   UserErrorFailure get itemFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

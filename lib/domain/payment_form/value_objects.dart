@@ -1,6 +1,5 @@
 import 'package:creatispace/domain/core/value_failures.dart';
 import 'package:creatispace/domain/core/value_objects.dart';
-import 'package:creatispace/domain/payment_form/payment_form_validators.dart';
 import 'package:creatispace/domain/payment_setup/payment_setup_validators.dart';
 import 'package:dartz/dartz.dart';
 

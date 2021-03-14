@@ -238,6 +238,7 @@ class _$_FollowingListReceived implements _FollowingListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$FollowingListReceivedCopyWith<_FollowingListReceived> get copyWith =>
       __$FollowingListReceivedCopyWithImpl<_FollowingListReceived>(
@@ -306,6 +307,7 @@ abstract class _FollowingListReceived implements FollowingEvent {
 
   Either<FollowingFollowerErrorFailure, KtList<FollowingFollowers>>
       get failureOrMessages;
+  @JsonKey(ignore: true)
   _$FollowingListReceivedCopyWith<_FollowingListReceived> get copyWith;
 }
 
@@ -662,6 +664,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(following);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -737,6 +740,7 @@ abstract class _LoadSuccess implements FollowingState {
       _$_LoadSuccess;
 
   KtList<FollowingFollowers> get following;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -815,6 +819,7 @@ class _$_LoadFailure implements _LoadFailure {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(followingFollowerErrorFailure);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -891,5 +896,6 @@ abstract class _LoadFailure implements FollowingState {
       _$_LoadFailure;
 
   FollowingFollowerErrorFailure get followingFollowerErrorFailure;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

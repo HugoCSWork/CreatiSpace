@@ -16,13 +16,18 @@ class UserListScaffold extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: <Widget>[
-          FlatButton(
-            textColor: Colors.black87,
+          TextButton(
+            style: ButtonStyle(
+                padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+                textStyle: MaterialStateProperty.all(TextStyle(
+                  color: Colors.black87
+                )),
+              shape: MaterialStateProperty.all(CircleBorder(side: BorderSide(color: Colors.transparent)))
+            ),
             onPressed: () {
               ExtendedNavigator.of(context, rootRouter: true).push(Routes.followingScaffold);
             },
             child: Icon(Icons.add, color: Colors.white),
-            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
           ),
         ],
         centerTitle: true,

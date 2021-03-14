@@ -245,6 +245,7 @@ class _$InvalidName<T> implements InvalidName<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidNameCopyWith<T, InvalidName<T>> get copyWith =>
       _$InvalidNameCopyWithImpl<T, InvalidName<T>>(this, _$identity);
@@ -364,6 +365,7 @@ abstract class InvalidName<T> implements ItemValueFailure<T> {
   const factory InvalidName({@required String failedValue}) = _$InvalidName<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidNameCopyWith<T, InvalidName<T>> get copyWith;
 }
 
@@ -423,6 +425,7 @@ class _$InvalidDescription<T> implements InvalidDescription<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidDescriptionCopyWith<T, InvalidDescription<T>> get copyWith =>
       _$InvalidDescriptionCopyWithImpl<T, InvalidDescription<T>>(
@@ -544,6 +547,7 @@ abstract class InvalidDescription<T> implements ItemValueFailure<T> {
       _$InvalidDescription<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidDescriptionCopyWith<T, InvalidDescription<T>> get copyWith;
 }
 
@@ -603,6 +607,7 @@ class _$InvalidPrice<T> implements InvalidPrice<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidPriceCopyWith<T, InvalidPrice<T>> get copyWith =>
       _$InvalidPriceCopyWithImpl<T, InvalidPrice<T>>(this, _$identity);
@@ -723,6 +728,7 @@ abstract class InvalidPrice<T> implements ItemValueFailure<T> {
       _$InvalidPrice<T>;
 
   double get failedValue;
+  @JsonKey(ignore: true)
   $InvalidPriceCopyWith<T, InvalidPrice<T>> get copyWith;
 }
 
@@ -782,6 +788,7 @@ class _$InvalidQuantity<T> implements InvalidQuantity<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidQuantityCopyWith<T, InvalidQuantity<T>> get copyWith =>
       _$InvalidQuantityCopyWithImpl<T, InvalidQuantity<T>>(this, _$identity);
@@ -902,6 +909,7 @@ abstract class InvalidQuantity<T> implements ItemValueFailure<T> {
       _$InvalidQuantity<T>;
 
   int get failedValue;
+  @JsonKey(ignore: true)
   $InvalidQuantityCopyWith<T, InvalidQuantity<T>> get copyWith;
 }
 
@@ -961,6 +969,7 @@ class _$InvalidDeliveryFee<T> implements InvalidDeliveryFee<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidDeliveryFeeCopyWith<T, InvalidDeliveryFee<T>> get copyWith =>
       _$InvalidDeliveryFeeCopyWithImpl<T, InvalidDeliveryFee<T>>(
@@ -1082,6 +1091,7 @@ abstract class InvalidDeliveryFee<T> implements ItemValueFailure<T> {
       _$InvalidDeliveryFee<T>;
 
   double get failedValue;
+  @JsonKey(ignore: true)
   $InvalidDeliveryFeeCopyWith<T, InvalidDeliveryFee<T>> get copyWith;
 }
 
@@ -1141,6 +1151,7 @@ class _$InvalidImage<T> implements InvalidImage<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidImageCopyWith<T, InvalidImage<T>> get copyWith =>
       _$InvalidImageCopyWithImpl<T, InvalidImage<T>>(this, _$identity);
@@ -1261,6 +1272,7 @@ abstract class InvalidImage<T> implements ItemValueFailure<T> {
       _$InvalidImage<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidImageCopyWith<T, InvalidImage<T>> get copyWith;
 }
 
@@ -1320,6 +1332,7 @@ class _$InvalidImageName<T> implements InvalidImageName<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidImageNameCopyWith<T, InvalidImageName<T>> get copyWith =>
       _$InvalidImageNameCopyWithImpl<T, InvalidImageName<T>>(this, _$identity);
@@ -1440,6 +1453,7 @@ abstract class InvalidImageName<T> implements ItemValueFailure<T> {
       _$InvalidImageName<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $InvalidImageNameCopyWith<T, InvalidImageName<T>> get copyWith;
 }
 
@@ -1498,6 +1512,7 @@ class _$Multiline<T> implements Multiline<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $MultilineCopyWith<T, Multiline<T>> get copyWith =>
       _$MultilineCopyWithImpl<T, Multiline<T>>(this, _$identity);
@@ -1617,6 +1632,7 @@ abstract class Multiline<T> implements ItemValueFailure<T> {
   const factory Multiline({@required String failedValue}) = _$Multiline<T>;
 
   String get failedValue;
+  @JsonKey(ignore: true)
   $MultilineCopyWith<T, Multiline<T>> get copyWith;
 }
 
@@ -1676,6 +1692,7 @@ class _$InvalidPurchasable<T> implements InvalidPurchasable<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidPurchasableCopyWith<T, InvalidPurchasable<T>> get copyWith =>
       _$InvalidPurchasableCopyWithImpl<T, InvalidPurchasable<T>>(
@@ -1797,6 +1814,7 @@ abstract class InvalidPurchasable<T> implements ItemValueFailure<T> {
       _$InvalidPurchasable<T>;
 
   bool get failedValue;
+  @JsonKey(ignore: true)
   $InvalidPurchasableCopyWith<T, InvalidPurchasable<T>> get copyWith;
 }
 
@@ -1865,6 +1883,7 @@ class _$InvalidImageLength<T> implements InvalidImageLength<T> {
       const DeepCollectionEquality().hash(failedValue) ^
       const DeepCollectionEquality().hash(max);
 
+  @JsonKey(ignore: true)
   @override
   $InvalidImageLengthCopyWith<T, InvalidImageLength<T>> get copyWith =>
       _$InvalidImageLengthCopyWithImpl<T, InvalidImageLength<T>>(
@@ -1987,6 +2006,7 @@ abstract class InvalidImageLength<T> implements ItemValueFailure<T> {
 
   T get failedValue;
   int get max;
+  @JsonKey(ignore: true)
   $InvalidImageLengthCopyWith<T, InvalidImageLength<T>> get copyWith;
 }
 
@@ -2055,6 +2075,7 @@ class _$ExceedingLength<T> implements ExceedingLength<T> {
       const DeepCollectionEquality().hash(failedValue) ^
       const DeepCollectionEquality().hash(max);
 
+  @JsonKey(ignore: true)
   @override
   $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
       _$ExceedingLengthCopyWithImpl<T, ExceedingLength<T>>(this, _$identity);
@@ -2176,6 +2197,7 @@ abstract class ExceedingLength<T> implements ItemValueFailure<T> {
 
   T get failedValue;
   int get max;
+  @JsonKey(ignore: true)
   $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith;
 }
 
@@ -2232,6 +2254,7 @@ class _$Empty<T> implements Empty<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $EmptyCopyWith<T, Empty<T>> get copyWith =>
       _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
@@ -2351,5 +2374,6 @@ abstract class Empty<T> implements ItemValueFailure<T> {
   const factory Empty({@required T failedValue}) = _$Empty<T>;
 
   T get failedValue;
+  @JsonKey(ignore: true)
   $EmptyCopyWith<T, Empty<T>> get copyWith;
 }

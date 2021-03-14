@@ -9,9 +9,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
+part 'user_messaging_watcher_bloc.freezed.dart';
 part 'user_messaging_watcher_event.dart';
 part 'user_messaging_watcher_state.dart';
-part 'user_messaging_watcher_bloc.freezed.dart';
 
 @injectable
 class UserMessagingWatcherBloc

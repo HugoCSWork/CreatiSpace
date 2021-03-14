@@ -1,13 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:creatispace/app/item/item_actor/item_actor_bloc.dart';
-import 'package:creatispace/app/item/item_home_watcher/item_home_watcher_bloc.dart';
-import 'package:creatispace/app/item/item_watcher/item_watcher_bloc.dart';
 import 'package:creatispace/domain/items/item/item.dart';
 import 'package:creatispace/domain/items/item_error/item_error_failures.dart';
 import 'package:creatispace/infrastructure/items/item_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:mockito/mockito.dart';
 
 class MockItemRepository extends Mock implements ItemRepository {}

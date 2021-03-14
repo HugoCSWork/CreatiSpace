@@ -130,6 +130,7 @@ class _$_StartStream implements _StartStream {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(workshopId);
 
+  @JsonKey(ignore: true)
   @override
   _$StartStreamCopyWith<_StartStream> get copyWith =>
       __$StartStreamCopyWithImpl<_StartStream>(this, _$identity);
@@ -189,6 +190,7 @@ abstract class _StartStream implements StartStreamEvent {
   const factory _StartStream(String workshopId) = _$_StartStream;
 
   String get workshopId;
+  @JsonKey(ignore: true)
   _$StartStreamCopyWith<_StartStream> get copyWith;
 }
 
@@ -249,6 +251,7 @@ class _$_StartStreamResponse implements _StartStreamResponse {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failureOrItem);
 
+  @JsonKey(ignore: true)
   @override
   _$StartStreamResponseCopyWith<_StartStreamResponse> get copyWith =>
       __$StartStreamResponseCopyWithImpl<_StartStreamResponse>(
@@ -310,6 +313,7 @@ abstract class _StartStreamResponse implements StartStreamEvent {
       _$_StartStreamResponse;
 
   Either<String, String> get failureOrItem;
+  @JsonKey(ignore: true)
   _$StartStreamResponseCopyWith<_StartStreamResponse> get copyWith;
 }
 
@@ -654,6 +658,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(streamId);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
       __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
@@ -725,6 +730,7 @@ abstract class _LoadSuccess implements StartStreamState {
   const factory _LoadSuccess(String streamId) = _$_LoadSuccess;
 
   String get streamId;
+  @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -781,6 +787,7 @@ class _$_LoadFailure implements _LoadFailure {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   _$LoadFailureCopyWith<_LoadFailure> get copyWith =>
       __$LoadFailureCopyWithImpl<_LoadFailure>(this, _$identity);
@@ -852,5 +859,6 @@ abstract class _LoadFailure implements StartStreamState {
   const factory _LoadFailure(String error) = _$_LoadFailure;
 
   String get error;
+  @JsonKey(ignore: true)
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }

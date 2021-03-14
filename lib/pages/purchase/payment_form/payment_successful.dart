@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:creatispace/app/payment_confirmation/payment_confirmation_bloc.dart';
 import 'package:creatispace/injection.dart';
 import 'package:flutter/material.dart';
@@ -99,7 +98,7 @@ class PaymentSuccessful extends StatelessWidget {
                                               left: 16, top: 8, right: 16),
                                           child: TextFormField(
                                             initialValue:
-                                            '£${((double.parse(amount) / 100 / int.parse(quantity))).toStringAsFixed(2)}',
+                                            '£${(state.item.price * int.parse(quantity)).toStringAsFixed(2)}',
                                             decoration: const InputDecoration(
                                                 labelText: 'Price',
                                                 filled: true,
@@ -109,6 +108,21 @@ class PaymentSuccessful extends StatelessWidget {
                                         ),
                                       ),
                                     ],
+                                  ),
+                                  Container(
+                                    padding:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 16, top: 8, right: 16),
+                                    child: TextFormField(
+                                      initialValue:
+                                      '£${state.item.delivery.toStringAsFixed(2)}',
+                                      decoration: const InputDecoration(
+                                          labelText: 'Delivery',
+                                          filled: true,
+                                          errorMaxLines: 5),
+                                      readOnly: true,
+                                    ),
                                   ),
                                 Container(
                                     padding:

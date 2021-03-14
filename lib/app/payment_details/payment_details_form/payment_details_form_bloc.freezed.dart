@@ -167,6 +167,7 @@ class _$_UpdateOrderStatus implements _UpdateOrderStatus {
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(isSeller);
 
+  @JsonKey(ignore: true)
   @override
   _$UpdateOrderStatusCopyWith<_UpdateOrderStatus> get copyWith =>
       __$UpdateOrderStatusCopyWithImpl<_UpdateOrderStatus>(this, _$identity);
@@ -236,6 +237,7 @@ abstract class _UpdateOrderStatus implements PaymentDetailsFormEvent {
   String get paymentId;
   String get userId;
   bool get isSeller;
+  @JsonKey(ignore: true)
   _$UpdateOrderStatusCopyWith<_UpdateOrderStatus> get copyWith;
 }
 
@@ -296,6 +298,7 @@ class _$_UpdateOrderResponse implements _UpdateOrderResponse {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failureOrItem);
 
+  @JsonKey(ignore: true)
   @override
   _$UpdateOrderResponseCopyWith<_UpdateOrderResponse> get copyWith =>
       __$UpdateOrderResponseCopyWithImpl<_UpdateOrderResponse>(
@@ -362,6 +365,7 @@ abstract class _UpdateOrderResponse implements PaymentDetailsFormEvent {
       Either<ItemErrorFailure, Unit> failureOrItem) = _$_UpdateOrderResponse;
 
   Either<ItemErrorFailure, Unit> get failureOrItem;
+  @JsonKey(ignore: true)
   _$UpdateOrderResponseCopyWith<_UpdateOrderResponse> get copyWith;
 }
 

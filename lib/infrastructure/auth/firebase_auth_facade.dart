@@ -11,6 +11,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+
 import './firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
@@ -104,6 +105,8 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return left(const AuthErrorFailure.serviceError());
       }
+    } on Exception catch (_) {
+      return left(const AuthErrorFailure.serviceError());
     }
   }
 

@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:creatispace/app/workshop/workshop_form/workshop_form_bloc.dart';
-import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/items/items_form/item_form_page.dart';
 import 'package:creatispace/pages/items/items_form/workshop/workshop_widgets.dart';

@@ -1,9 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:creatispace/app/following_followers/followers/followers_bloc.dart';
-import 'package:creatispace/app/streaming/stream_conversation_watcher/stream_conversation_watcher_bloc.dart';
 import 'package:creatispace/domain/following_followers/following_follower/following_follower.dart';
 import 'package:creatispace/domain/following_followers/following_follower_error/following_follower_error_failures.dart';
-import 'package:creatispace/domain/streaming/streaming_message.dart';
 import 'package:creatispace/infrastructure/following_followers/following_followers_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';

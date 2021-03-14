@@ -6,7 +6,6 @@ import 'package:creatispace/injection.dart';
 import 'package:creatispace/pages/payment_details/payment_details_receiving_builder.dart';
 import 'package:creatispace/pages/payment_details/payment_details_sending_builder.dart';
 import 'package:creatispace/pages/payment_details/payment_details_workshop_builder.dart';
-import 'package:creatispace/pages/payment_details/workshop_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -85,42 +84,47 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              FlatButton(
-                                child: Text(
-                                    "Orders to receive",
-                                    style: TextStyle(
-                                        fontWeight: option.text == "receive"
-                                            ? FontWeight.bold
-                                            : FontWeight.normal
-                                    )
+                              Padding(
+                                padding: const EdgeInsets.only(right:8.0),
+                                child: TextButton(
+                                  child: Text(
+                                      "Orders to receive",
+                                      style: TextStyle(
+                                          fontWeight: option.text == "receive"
+                                              ? FontWeight.bold
+                                              : FontWeight.normal
+                                      )
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      option.text = "receive";
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    option.text = "receive";
-                                  });
-                                },
                               ),
                               Container(
                                 height: 30,
                                 width: 1.3,
                                 color: Colors.blue[200],
                               ),
-                              FlatButton(
-                                child: Text(
-                                  "Orders to send",
-                                  style: TextStyle(
-                                      fontWeight: option.text == "send"
-                                          ? FontWeight.bold
-                                          : FontWeight.normal
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: TextButton(
+                                  child: Text(
+                                    "Orders to send",
+                                    style: TextStyle(
+                                        fontWeight: option.text == "send"
+                                            ? FontWeight.bold
+                                            : FontWeight.normal
+                                    ),
                                   ),
+                                  onPressed: () {
+                                    setState(() {
+                                      option.text = "send";
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    option.text = "send";
-                                  });
-                                },
                               ),
 
                               Container(
@@ -128,20 +132,23 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                                 width: 1.3,
                                 color: Colors.blue[200],
                               ),
-                              FlatButton(
-                                child: Text(
-                                    "Workshops",
-                                    style: TextStyle(
-                                        fontWeight: option.text == "workshop"
-                                            ? FontWeight.bold
-                                            : FontWeight.normal
-                                    )
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: TextButton(
+                                  child: Text(
+                                      "Workshops",
+                                      style: TextStyle(
+                                          fontWeight: option.text == "workshop"
+                                              ? FontWeight.bold
+                                              : FontWeight.normal
+                                      )
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      option.text = "workshop";
+                                    });
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    option.text = "workshop";
-                                  });
-                                },
                               ),
                             ],
                           ),
@@ -169,7 +176,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          FlatButton(
+                          TextButton(
                             child: Text(
                                 "Orders to receive",
                                 style: TextStyle(
@@ -189,7 +196,7 @@ class _PaymentDetailsScaffoldState extends State<PaymentDetailsScaffold> {
                             width: 1.3,
                             color: Colors.blue[200],
                           ),
-                          FlatButton(
+                          TextButton(
                             child: Text(
                                 "Workshops",
                                 style: TextStyle(

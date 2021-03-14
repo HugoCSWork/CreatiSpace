@@ -122,9 +122,16 @@ class _CardPaymentStepState extends State<CardPaymentStep> {
                     ),
                   ],
                 ),
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+                ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          const Color(0xff1b447b)
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)
+                        ),
+                      )
                   ),
                   child: Container(
                     margin: const EdgeInsets.all(8),
@@ -138,7 +145,6 @@ class _CardPaymentStepState extends State<CardPaymentStep> {
                       ),
                     ),
                   ),
-                  color: const Color(0xff1b447b),
                   onPressed: () {
                     if (formKey.currentState.validate()) {
                       StripeCard card = new StripeCard(

@@ -1,7 +1,4 @@
-import 'package:creatispace/app/payment_details/payment_sender/payment_sender_bloc.dart';
 import 'package:creatispace/app/payment_details/payment_workshop/payment_workshop_bloc.dart';
-import 'package:creatispace/domain/workshop/workshop_payment.dart';
-import 'package:creatispace/pages/payment_details/payment_details.dart';
 import 'package:creatispace/pages/payment_details/workshop_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

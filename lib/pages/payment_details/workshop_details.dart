@@ -1,8 +1,5 @@
-import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:creatispace/domain/workshop/workshop.dart';
 import 'package:creatispace/domain/workshop/workshop_payment.dart';
-import 'package:creatispace/infrastructure/workshop/workshop_dto.dart';
 import 'package:creatispace/pages/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -123,7 +120,7 @@ class _WorkshopDetailsInformationState extends State<WorkshopDetailsInformation>
       );
     } else {
       if(widget.workshopPayment.hasStarted == "pending") {
-        return FlatButton(
+        return TextButton(
             child: Padding(
               padding: EdgeInsets.only(top: 8),
               child: Align(
@@ -141,7 +138,7 @@ class _WorkshopDetailsInformationState extends State<WorkshopDetailsInformation>
             onPressed: () {}
         );
       }
-      return FlatButton(
+      return TextButton(
           child: Padding(
             padding: EdgeInsets.only(top: 8),
             child: Align(
