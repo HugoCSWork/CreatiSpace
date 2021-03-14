@@ -14,6 +14,7 @@ import 'package:injectable/injectable.dart';
 
 import './firebase_user_mapper.dart';
 
+///TEST
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _auth;
@@ -147,7 +148,7 @@ class FirebaseAuthFacade implements IAuthFacade {
                   "following" : 0,
                   "description": "No description",
                   "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=73b809cb-fbe9-4a20-b28f-6aa1c2a54e19",
-                  "backgroundImageURL": "backgroundImageURLhttps://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash-e1547856145913.jpg?alt=media&token=10e52357-4818-4915-a255-2bd007c5a12e"
+                  "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash-e1547856145913.jpg?alt=media&token=10e52357-4818-4915-a255-2bd007c5a12e"
                 }
               );
       }
