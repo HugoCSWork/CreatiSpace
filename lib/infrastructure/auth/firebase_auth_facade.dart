@@ -71,8 +71,8 @@ class FirebaseAuthFacade implements IAuthFacade {
                 'followers' : 0,
                 "following" : 0,
                 "description": "No description",
-                "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
-                "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash.jpg?alt=media&token=408b1965-795d-42e8-b91b-7a7e1b35fbb1"
+                "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=73b809cb-fbe9-4a20-b28f-6aa1c2a54e19",
+                "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash-e1547856145913.jpg?alt=media&token=10e52357-4818-4915-a255-2bd007c5a12e"
               }
             );
         return right(unit);
@@ -146,8 +146,8 @@ class FirebaseAuthFacade implements IAuthFacade {
                   'followers' : 0,
                   "following" : 0,
                   "description": "No description",
-                  "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=4dbf42ca-cbd9-4b7e-9c97-e5c4742428f0",
-                  "backgroundImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash.jpg?alt=media&token=408b1965-795d-42e8-b91b-7a7e1b35fbb1"
+                  "profileImageURL": "https://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fplaceholder_profile_male.jpg?alt=media&token=73b809cb-fbe9-4a20-b28f-6aa1c2a54e19",
+                  "backgroundImageURL": "backgroundImageURLhttps://firebasestorage.googleapis.com/v0/b/creatispace-dd05f.appspot.com/o/placeholders%2Fjason-leung-479251-unsplash-e1547856145913.jpg?alt=media&token=10e52357-4818-4915-a255-2bd007c5a12e"
                 }
               );
       }
